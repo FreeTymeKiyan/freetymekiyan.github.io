@@ -1,23 +1,10 @@
 {
-  "name": "freetymekiyan.github.io",
-  "version": "0.0.1",
-  "description": "FreeTymeKiyan's Blog",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/FreeTymeKiyan/freetymekiyan.github.io.git"
-  },
-  "keywords": [
-    "blog",
-    "hexo"
-  ],
-  "author": "FreeTymeKiyan",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/FreeTymeKiyan/freetymekiyan.github.io/issues"
-  },
-  "homepage": "https://github.com/FreeTymeKiyan/freetymekiyan.github.io"
+  "name": "hexo-site",
+  "version": "2.7.1",
+  "private": true,
+  "dependencies": {
+    "hexo-renderer-ejs": "*",
+    "hexo-renderer-stylus": "*",
+    "hexo-renderer-marked": "*"
+  }
 }
