@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>FreeTymeKiyan</title>
+    <title>Tag: undefined | FreeTymeKiyan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="FreeTymeKiyan">
@@ -19,9 +19,9 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
 
-  <body>
-    <header>
-      <div>
+    <body>
+      <header>
+        <div>
 		
 			<div id="imglogo">
 				<a href="/"><img src="/img/logo.png" alt="FreeTymeKiyan" title="FreeTymeKiyan"/></a>
@@ -59,94 +59,22 @@
 				</ul>
 			</nav>			
 </div>
-    </header>
-    <div id="container">
-      <div id="main">
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/06/24/hello-world/" title="Hello World" itemprop="url">
-  
-    <h1 itemprop="name">Hello World</h1>
-    
-     
-           <p itemprop="description" >Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the </p>
-        
-    
-    <time datetime="2014-06-25T03:45:43.000Z" itemprop="datePublished">Jun 24 2014</time>
-  </a>
-</section>
-
+      </header>
+      <div id="container">
+          
+<div class="archive-title" >
+<h2 class="tag-icon">Tags</h2>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
-<aside class="clearfix">
-
-  
-
-  
-
-  <div class="linkslist">
-  <p class="asidetitle">Links</p>
-    <ul>
-      <li><a href="http://hijiangtao.github.io/" target="_blank" title="JiangTao">Data.Blog</a></li>
-      <li><a href="https://modulus.io/" target="_blank" title="Modulus">Modulus</a></li>
-    </ul>
+<div id="main" class="archive-part">
+<div class="all-list-box"></div>
 </div>
 
 
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
-</div>
-
-  
-  <div class="archiveslist">
-    <p class="asidetitle"><a href="/archives">Archives</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06">June 2014</a><span class="archive-list-count">1</span></li></ul>
-  </div>
 
 
-  
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		
-		<div class="author"></div>
-		
-	</div>
-	
-	
-	<section class="info">
-		<p> Hello, I&#39;m Yang Liu. <br/>
-			This is my blog.</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		
-		
-		
-		
-		
-		
-		
-	</div>
-		<p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Pacman">Jacman</a> © 2014 
-		
-		<a href="http://yoursite.com/about" target="_blank" title="FreeTymeKiyan">FreeTymeKiyan</a>
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
+      </div>
+      <script src="/js/jquery-2.0.3.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){ 
   $('.navbar').click(function(){
@@ -197,6 +125,24 @@ $(document).ready(function(){
 
 
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var list    = $('.archive-title a'),
+      box     = $('.all-list-box'),
+      first   = $('.archive-title a:first-of-type');
+      box.load(first.attr('data-src').toString()+' #archive-page');
+      first.addClass('current');
+  list.each(function(){
+    $(this).click(function(){
+      var listSrc=$(this).attr('data-src').toString()+' #archive-page';
+      box.load(listSrc);
+      list.removeClass('current');
+      $(this).addClass('current');
+     });  
+    });
+  }); 
+</script>
+
 
 
 
@@ -214,5 +160,5 @@ MathJax.Hub.Config({
 <script type="text/javascript"
    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-  </body>
- </html>
+    </body>
+   </html>
