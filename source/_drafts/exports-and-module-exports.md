@@ -4,9 +4,17 @@ categories:
 tags: 
 - Node.js 
 ---
-##Background
+##Situation
+* talk about background
+
 ##Theory 
+* source code 
+* passage on official site  
+
 ##Conclusion
+* module.exports is the real boss.  
+* exports is just an alias.  
+
 ##Reference
 1. [Node.js Manual  & Documentation, *Modules*](http://nodejs.org/docs/latest/api/modules.html#modules_the_module_object)
 2. [fiveisprime, *exports or module.exports?*](http://fiveisprime.com/2013/04/18/module-exports/)
