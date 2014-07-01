@@ -1,2 +1,0 @@
-freetymekiyan.github.io
-=======================

@@ -3,9 +3,9 @@
 ## Source: https://github.com/tommy351/hexo/
 
 # Site
-title: FreeTymeKiyan
-subtitle: 
-description:
+title: FreeTymeKiyan | THINKER
+subtitle: Success === Accumulation.
+description: This is my blog.
 author: FreeTymeKiyan
 email: FreeTymeSunKiyan@gmail.com
 language:
@@ -39,7 +39,7 @@ relative_link: false
 highlight:
   enable: true
   line_number: true
-  tab_replace:
+  tab_replace: 2
 
 # Category & Tag
 default_category: uncategorized
