@@ -111,14 +111,11 @@ describe('index', function() {
   describe('#anotherFunc', function() {
     // save original function for restoration
     var someFunc;
-    // set a spy for the function
-    var someFuncSpy;
     before(function () {
       // get private function with rewired module
       someFunc = index.__get__('someFunc');
-      someFuncSpy = sinon.spy();
       // override someFunc with a spy
-      index.__set__('someFunc', someFuncSpy);
+      index.__set__('someFunc', sinon.spy());
     });
 
     it('should someFunc be called', function () {

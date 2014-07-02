@@ -35,7 +35,7 @@ multi_thread: true
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
-relative_link: false
+relative_link: true
 highlight:
   enable: true
   line_number: true
@@ -81,7 +81,7 @@ disqus_shortname:
 # Extensions
 ## Plugins: https://github.com/tommy351/hexo/wiki/Plugins
 ## Themes: https://github.com/tommy351/hexo/wiki/Themes
-theme: jacman
+theme: myJacman
 exclude_generator:
 
 # Deployment
