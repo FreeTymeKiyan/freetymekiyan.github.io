@@ -4,6 +4,7 @@ categories:
 tags: 
 - Node.js 
 - Test 
+date: 2014-07-02
 ---
 
 Here is the thing. I'm definitely a newbie in code testing. The same goes for Node.js, I bet. Although I have some former experience with development, those were all about actual implementation. Now I am doing intern at Modulus, which requires more than 80% of test coverage of code. After I finished functional part, my testing adventure started.  
@@ -24,6 +25,7 @@ Rewire makes it possible for us to do several things:
 
 ###Theory
 How is it possible for rewire to do that? 
+
 ```
 (function (exports, require, module, __filename, __dirname) {
   var method = function () {};
@@ -35,11 +37,15 @@ How is it possible for rewire to do that?
   };
 });
 ```  
+
 We can see clearly from the source code of rewire that it injects **\_\_set\_\_** and **\_\_get\_\_** methods while loading module. These two methods enables us to reach private variables.
+
 ###Installation
+
 ``` bash
 npm install --save-dev rewire
 ```
+
 ##Comparison
 ###Example
 Let's say we have a file called index.js. There are two methods in it, named "someFunc" and "anotherFunc". That someFunc is called by anotherFunc. We wanna test whether someFunc is called or not.
@@ -53,6 +59,7 @@ var anotherFunc = function() {
   someFunc();
 };
 ``` 
+
 ###Workaround
 So, with the workaround I mentioned above, we may create an object called private and assign all private functions as its properties. Then we can export private under test environment. When we need to call function inside module, we should do add "private." before the name of that function.
 ``` javascript
@@ -73,7 +80,9 @@ if('test' === process.env.NODE_ENV) {
   exports.private = private;
 }
 ```
+
 In test file we need to hook a sinon spy(or stub) to the existing method before test. It should be restored after that.
+
 ``` javascript
 /* in index-spec.js */
 var index = require('index.js').private;
@@ -98,8 +107,10 @@ describe('index', function() {
   });
 });
 ```
+
 ###Rewire
 Let's see how that goes with rewire.
+
 ``` javascript 
 /* in index-spec.js */
 // Require rewire in your test file.
@@ -130,7 +141,9 @@ describe('index', function() {
   });
 });
 ```
+
 Originally, I wanted to do something like this:
+
 ``` javascript
 var someFuncSpy;
 before(function () {
@@ -147,7 +160,8 @@ after(function() {
   someFuncSpy.restore();
 });
 ``` 
-As I commented above, this won't work due to the rigid way of binding a spy with existing method. We can only get exposed method with **sinon.spy(index, 'someFunc');**, or **sinon.stub(index, 'someFunc', function() {});**. Even though we can get private functions with rewire, we can't hook it up with a spy in the original module. We could have much more proress. What a pity!  
+
+As I commented above, this won't work due to the rigid way of binding a spy with existing method. We can only get exposed method with ``sinon.spy(index, 'someFunc');``, or ``sinon.stub(index, 'someFunc', function() {});``. Even though we can get private functions with rewire, we can't hook it up with a spy in the original module. We could have much more proress. What a pity!  
 
 Anyways, with rewire, we don't need to change our original code. Isn't that great?  
 
