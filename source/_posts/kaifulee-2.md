@@ -18,7 +18,7 @@ Translation of Kaifu Lee's post on LinkedIn - Why Weibo technology will change C
 ![Weibo User Interface](http://media.licdn.com/mpr/mpr/p/2/000/1a4/2c0/29916f9.png)
 
 Over the past three years, weibo has taken China by storm. Weibo literally means micro-blog, and some have called weibo the Chinese Twitter. But more accurately, weibo is a 500-character Twitter with Facebook look-and-feel, in a country with very few high-quality traditional media. Weibo is offered by several companies, with Sina having a leadership position.
->过去三年里，微博像风暴一样席卷中国。微博实际上指的是微博客，有些人称其为中国的推特。但是，更准确的说，微博是一个在高质量传统媒体极少的国家里，有500字符上限也有Facebook的外观和感觉的推特。好几个公司都有微博服务，而新浪处于领先地位。
+>过去三年里，微博像风暴一样席卷中国。微博实际上指的是微博客，有些人称其为中国的推特。但是，更准确的说，微博是一个在高质量传统媒体极少的国家里，有500字符上限以及Facebook外观和感觉的推特。好几个公司都有微博服务，而新浪处于领先地位。
 
 More specifically, the 500-character comes from the fact that 140 characters in Chinese is as expressive as 500 characters in English. Compared to Twitter, weibo has a structured (e.g., nested dialogs) + media-rich (easy to enjoy photo/video/music without leaving the page) approach, which made it more approachable for the many amateur netizens in China. Finally, in a country where traditional media lacks of brand and expressiveness, weibo is particularly welcome as a breath of fresh air. 
 >更明确地说，500字符是源于中文的140个字符和英文的500字符能够表达的东西差不多这样一个事实。与推特相比，微博有一个结构化的（例如，嵌套式的对话）和富媒体的（很方便地在页面内享受照片/视频/音乐）接入方式，这些使得它对中国的许多业余网民来说更容易接受。最后，在一个传统媒体缺乏品牌和表达力的国度里，微博像一股新鲜空气一样特别受欢迎。
