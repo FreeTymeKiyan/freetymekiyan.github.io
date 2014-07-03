@@ -12,7 +12,7 @@ One problem I had is that, I got some functions in a module that called some oth
 
 One way to solve it is to create an object which will include all the private functions and expose that object when under test environment. This is a very great workaround inspired by my friends and I'm now using it in my code. But that's not what I'm going to introduce.  
 ##Introduction
-Let me share the second way with you. I found this in a slide that talks about Node.js unit testing(1). So how to test private methods? The answer is using rewire module(2).  
+Let me share the second way with you. I found this in a slide that talks about Node.js unit testing[(1)](#Reference). So how to test private methods? The answer is using rewire module[(2)](#Reference).  
 
 Rewire aims at easy dependency injection for Node.js unit testing. Basically, during testing, we can require rewire module and use rewire rather than require to import the file to be tested. It will be exactly the same in our test environment as under regular circumstances.  
 
