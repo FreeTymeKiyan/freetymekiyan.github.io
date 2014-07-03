@@ -1,4 +1,4 @@
-title: '李开复LinkedIn文章翻译之负三 – Top reasons why start-ups fail'
+title: '李开复LinkedIn文章翻译之四 – Top reasons why start-ups fail'
 tags:
   - E文
   - VC
