@@ -1,7 +1,9 @@
 ##### Menu
 menu:
-  Home: /
   About: /about
+  Projects: /projects
+  Node: /nodejs-resources
+#  Home: /
 #  Categories: /categories
 #  Tags: /tags
 #  Archives: /archives
