@@ -33,7 +33,7 @@ rss: /atom.xml ## RSS address.
 imglogo:
   enable: true             ## display image logo true/false.
   src: img/logo.png        ## `.svg` and `.png` are recommended,please put image into the theme folder `/jacman/source/img`.
-  favicon: img/favicon.png   ## size:32px*32px,`.ico` is recommended,please put image into the theme folder `/jacman/source/img`.     
+  favicon: img/favicon.ico   ## size:32px*32px,`.ico` is recommended,please put image into the theme folder `/jacman/source/img`.     
   apple_icon: img/logo_apple.png  ## size:114px*114px,please put image into the theme folder `/jacman/source/img`.
 
 #### Author Avatar Picture
