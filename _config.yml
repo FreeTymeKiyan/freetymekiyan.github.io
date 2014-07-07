@@ -90,3 +90,10 @@ deploy:
   type: github
   repository: git@github.com:FreeTymeKiyan/freetymekiyan.github.io.git
   branch: master  
+  
+# feed
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+    
