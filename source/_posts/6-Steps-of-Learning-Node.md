@@ -7,7 +7,7 @@ date: 2014-07-12 15:00:00
 ---
 Recently I felt really puzzled by a problem: how can I be as cool as those senior engineers I met? They always impress me with their rich fund of knowledge and mature skills. I felt like that I'm able to build something, grasp a language from nothing, but still far from an expert. 
 
-I ran into a post on [cnodejs.org](http://www.cnodejs.org) earlier today and looked into the comments under it as well. It mentioned 6 steps in learning Node.js. 
+I ran into a post[(1)](#Reference) on [cnodejs.org](http://www.cnodejs.org) earlier today and looked into the comments under it as well. It mentioned 6 steps in learning Node.js. 
 
 ##Steps
 ###Step 1
@@ -56,7 +56,7 @@ The fifth step is to continue with the above one and then try to create your own
 Last but not least, read the source code of Node.js and famous frameworks. This is necessary for improvement. Well, we also have many coding rock stars on github. Follow them, see what they are doing, get in touch with the community, we will finally be great.
 
 ##To Add
-Personally, I think these steps works for all programming languages or even any skills that can be gained. Some things I want to emphasis are the books and community. Books about Node.js, certain modules or JavaScript are always there. Read those classic ones and learn from them. For the community part, we have plenty of resources both online and offline. I want to note some but there are too many out there. See the lists below for more details.
+Personally, I think these steps works for all programming languages or even any skills that can be gained. Some things I want to emphasis are the books and community. Books about Node.js, certain modules or JavaScript are always there. Read those classic ones and learn from them. For the community part, we have plenty of resources both online and offline. I want to note some but there are too many out there. See the lists below from nodejs.org[(2)](#Reference) for more details.
 ###Online 
 1. Suscribe [Node.js Weekly](http://nodeweekly.com/). 
 2. Keep an eye on Stack Overflow's Node.js tag. 
@@ -70,5 +70,5 @@ Personally, I think these steps works for all programming languages or even any 
 3. [Node Summit](http://nodesummit.com/) -- a conference in San Francisco focusing on the adoption of Node in larger companies.
 
 ##Reference
-1. [Node.js.org, Community Page](http://nodejs.org/community/)
-2. [学习Node.js的六个步骤](http://cnodejs.org/topic/535376501969a7b22aca6d24)
+1. [学习Node.js的六个步骤](http://cnodejs.org/topic/535376501969a7b22aca6d24)
+2. [Node.js.org, Community Page](http://nodejs.org/community/)
