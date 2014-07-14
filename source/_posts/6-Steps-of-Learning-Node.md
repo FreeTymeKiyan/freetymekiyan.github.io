@@ -58,10 +58,10 @@ Last but not least, read the source code of Node.js and famous frameworks. This 
 ##To Add
 Personally, I think these steps works for all programming languages or even any skills that can be gained. Some things I want to emphasis are the books and community. Books about Node.js, certain modules or JavaScript are always there. Read those classic ones and learn from them. For the community part, we have plenty of resources both online and offline. I want to note some but there are too many out there. See the lists below from nodejs.org[(2)](#Reference) for more details.
 ###Online 
-1. Suscribe [Node.js Weekly](http://nodeweekly.com/). 
-2. Keep an eye on Stack Overflow's Node.js tag. 
-3. [Planet Node](http://www.planetnodejs.com/) -- an aggregator of Node developer blogs.
-4. [Noder's on Twitter](https://github.com/joyent/node/wiki/Node-Users).
+1. Subscribe [Node.js Weekly](http://nodeweekly.com/).  
+2. Keep an eye on Stack Overflow's Node.js tag. You may also subscribe this one.  
+3. [Planet Node](http://www.planetnodejs.com/) -- an aggregator of Node developer blogs.  
+4. [Noder's on Twitter](https://github.com/joyent/node/wiki/Node-Users).  
 5. [CNodeJS.org](http://www.cnodejs.org) -- Node.js Chinese community.  
 
 ###Offline
