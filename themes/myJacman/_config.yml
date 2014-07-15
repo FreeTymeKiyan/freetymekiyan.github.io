@@ -73,7 +73,7 @@ author:
   intro_line2:  "I blog about Coding and Life."  ## eg: "This is my blog,believe it or not."
   weibo: 2090687247  ## e.g. wuchong1014 or 2176287895 for http://weibo.com/2176287895
   twitter: "FreeTymeKiyan"  ## e.g. wuchong for https://twitter.com/wuchong
-  github: "FreeTymeKiyan" " ## e.g. wuchong for https://github.com/wuchong
+  github: "FreeTymeKiyan" ## e.g. wuchong for https://github.com/wuchong
   facebook: "kiyan.fan"  ## e.g. wuchong for https://facebook.com/wuchong
   douban: 56346857  ## e.g. wuchong1014 or your id for https://www.douban.com/people/wuchong1014
   tsina: 2090687247  ## e.g. 2176287895  Your weibo ID,It will be used in share button.
