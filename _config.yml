@@ -89,8 +89,8 @@ exclude_generator:
 deploy:
   type: github
   repository: git@github.com:FreeTymeKiyan/freetymekiyan.github.io.git
-  branch: master  
-  
+  branch: master
+
 # feed
 feed:
   type: atom

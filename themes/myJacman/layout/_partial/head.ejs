@@ -44,12 +44,12 @@
     <% if (theme.rss){ %>
     <link rel="alternative" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
     <% } %>
-    <% if (theme.favicon){ %>
-    <link rel="icon" href="<%- config.root %><%- theme.favicon %>">
+    <% if (theme){ %>
+    <link rel="icon" href="<%- config.root %><%- "img/favicon.ico" %>">
     <% } %>
-    <% if (theme.apple_icon){ %>
-    <link rel="apple-touch-icon" href="<%- config.root %><%- theme.apple_icon %>">
-    <link rel="apple-touch-icon-precomposed" href="<%- config.root %><%- theme.apple_icon %>">
+    <% if (theme){ %>
+    <link rel="apple-touch-icon" href="<%- config.root %><%- "img/logo_apple.png" %>">
+    <link rel="apple-touch-icon-precomposed" href="<%- config.root %><%- "img/logo_apple.png" %>">
     <% } %>
     <%- css('css/style') %>
 </head>
