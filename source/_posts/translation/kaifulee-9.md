@@ -11,7 +11,7 @@ date: 2012-11-04 20:58:48
 This is a series of articles published by [Kai Fu Lee](https://www.linkedin.com/profile/view?id=416648&authType=name&authToken=GZNe&ref=CONTENT&goback=%2Empd2_*1_*1_*1_*1_*1_*1_20121002150727*5416648*5the*5chinese*5user*5is*5more*5like*5you*5than*5you*5think&trk=mp-ph-pn). I did the translation after graduation from university in summer to learn more about the technology trend and practise my translation skill.  
 
 ---
-![](http://media.licdn.com/mpr/mpr/p/8/000/1b1/27d/2db21a9.png)
+<center>![Batman VS Terminator](http://media.licdn.com/mpr/mpr/p/8/000/1b1/27d/2db21a9.png)</center>
 
 Translation of Kaifu Lee's post on LinkedIn - Map your way to science fiction
 >李开复LinkedIn文章翻译之九 - 把你的方向和科幻小说对应起来
