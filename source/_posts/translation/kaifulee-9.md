@@ -1,4 +1,4 @@
-title: '李开复LinkedIn文章翻译之九 – Map your way to science fiction'
+title: 'Map your way to science fiction'
 tags:
   - LinkedIn
   - Kai Fu Lee
@@ -14,7 +14,7 @@ This is a series of articles published by [Kai Fu Lee](https://www.linkedin.com/
 ![](http://media.licdn.com/mpr/mpr/p/8/000/1b1/27d/2db21a9.png)
 
 Translation of Kaifu Lee's post on LinkedIn - Map your way to science fiction
->李开复LinkedIn文章翻译之九 - 把你的路映射到科幻小说中去
+>李开复LinkedIn文章翻译之九 - 把你的方向和科幻小说对应起来
 
 As mobile usage becomes more prominent, one technology that dramatically rises in value is Maps. Mobile devices become location-aware, which can provide much end-user and commercial value. It's interesting to compare the Google and Microsoft vision for maps.
 >随着手机的使用变得越来越显著，有一种技术的价值正在极大地增加，那就是地图。移动设备变得能感知位置，能提供很多端用户和商业价值。比较一下谷歌和微软对地图的愿景你会发现很有意思。
