@@ -1,4 +1,4 @@
-title: 'Why isn''t There a Mark Zuckerberg in China?'
+title: Why isn't There a Mark Zuckerberg in China?
 tags:
   - LinkedIn
   - Kai Fu Lee

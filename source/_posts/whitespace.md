@@ -1,4 +1,4 @@
-title: 'Textmate-Strip Trailing Whitespace'
+title: Textmate-Strip Trailing Whitespace
 date: 2014-07-15 11:21:38
 tags:
   - TextMate 2

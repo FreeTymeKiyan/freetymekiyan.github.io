@@ -1,4 +1,4 @@
-title: 'War on China Short Sellers'
+title: War on China Short Sellers
 tags:
   - LinkedIn
   - Kai Fu Lee

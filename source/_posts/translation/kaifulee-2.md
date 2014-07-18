@@ -1,4 +1,4 @@
-title: 'Why Weibo Technology Will Change China'
+title: Why Weibo Technology Will Change China
 tags:
   - LinkedIn
   - Kai Fu Lee

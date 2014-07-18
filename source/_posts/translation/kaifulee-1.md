@@ -1,4 +1,4 @@
-title: 'The Chinese User is More Like you Than you Think'
+title: The Chinese User is More Like you Than you Think
 tags:
   - LinkedIn
   - Kai Fu Lee

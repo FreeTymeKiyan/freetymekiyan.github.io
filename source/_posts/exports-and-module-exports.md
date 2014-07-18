@@ -1,4 +1,4 @@
-title: 'exports and module.exports'
+title: exports and module.exports
 categories:
 - Coding
 tags:

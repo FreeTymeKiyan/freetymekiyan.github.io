@@ -1,4 +1,4 @@
-title: 'Can Chinese Companies Innovate?'
+title: Can Chinese Companies Innovate?
 tags:
   - LinkedIn
   - Kai Fu Lee

@@ -1,4 +1,4 @@
-title: 'Get Yourself a Mentor'
+title: Get Yourself a Mentor
 tags:
   - LinkedIn
   - Kai Fu Lee

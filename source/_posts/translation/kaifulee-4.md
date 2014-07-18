@@ -1,4 +1,4 @@
-title: 'Top Reasons why Start-ups Fail'
+title: Top Reasons why Start-ups Fail
 tags:
   - LinkedIn
   - Kai Fu Lee

@@ -1,4 +1,4 @@
-title: 'Five Reasons a VC Didn't Back you'
+title: Five Reasons a VC Didn't Back you
 tags:
   - LinkedIn
   - Kai Fu Lee

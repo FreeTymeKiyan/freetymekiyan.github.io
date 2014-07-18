@@ -1,4 +1,4 @@
-title: '6 Steps of Learning Node'
+title: 6 Steps of Learning Node
 tags:
   - Node.js
 categories:

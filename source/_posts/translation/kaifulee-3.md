@@ -1,4 +1,4 @@
-title: 'Why American Internet Companies Fail in China'
+title: Why American Internet Companies Fail in China
 tags:
   - LinkedIn
   - Kai Fu Lee

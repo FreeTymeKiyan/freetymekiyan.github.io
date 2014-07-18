@@ -1,4 +1,4 @@
-title: 'Map Your way to Science Fiction'
+title: Map Your way to Science Fiction
 tags:
   - LinkedIn
   - Kai Fu Lee
