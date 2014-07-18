@@ -5,6 +5,7 @@
 <% if (page.total > 1){ %>
   <nav id="page-nav" class="clearfix">
     <%- paginator({
+      prev_next: false,
       prev_text: '<span></span>Prev',
       next_text: 'Next<span></span>'
     }) %>
