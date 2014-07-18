@@ -1,4 +1,4 @@
-title: Five reasons a VC didn't back you
+title: 'Five Reasons a VC Didn't Back you'
 tags:
   - LinkedIn
   - Kai Fu Lee
@@ -8,10 +8,10 @@ date: 2012-10-21 16:32:22
 ---
 [Original Link](https://www.linkedin.com/today/post/article/20121012143817-416648-how-to-get-a-vc-to-fund-your-company)
 
-This is a series of articles published by [Kai Fu Lee](https://www.linkedin.com/profile/view?id=416648&authType=name&authToken=GZNe&ref=CONTENT&goback=%2Empd2_*1_*1_*1_*1_*1_*1_20121002150727*5416648*5the*5chinese*5user*5is*5more*5like*5you*5than*5you*5think&trk=mp-ph-pn). I did the translation after graduation from university in summer to learn more about the technology trend and practise my translation skill.  
+This is a series of articles published by [Kai Fu Lee](https://www.linkedin.com/profile/view?id=416648&authType=name&authToken=GZNe&ref=CONTENT&goback=%2Empd2_*1_*1_*1_*1_*1_*1_20121002150727*5416648*5the*5chinese*5user*5is*5more*5like*5you*5than*5you*5think&trk=mp-ph-pn). I did the translation after graduation from university in summer to learn more about the technology trend and practise my translation skill.
 
 ---
-Translation of Kaifu Lee's post on LinkedIn - Five reasons a VC didn't back you
+Translation of Kaifu Lee's post on LinkedIn - Five Reasons a VC Didn't Back You
 >李开复LinkedIn文章翻译之六 - VC不挺你的五个原因
 
 You are an entrepreneur who wants to find and win over a venture capitalist (VC) or an angel to give your idea a financial boost. Yet many entrepreneurs make basic mistakes in that first meeting. Here are five mistakes to avoid:
@@ -40,7 +40,7 @@ You need to communicate succinctly. Start with the one sentence that describes y
 
 Don't spend too much time on market overview or opportunity. The VC probably knows that better than you, and even if he doesn't, he would probably make up his mind after just a short description. Save your time for your product and your team, which he doesn't know.
 >不要花太多时间在市场的概览或机会上。风投很可能比你了解得更多，就算他了解的没你多，他也很可能在很短的描述之后就已经做出了决定。为你的产品和团队多留些时间，这才是他不知道的。
-  
+
 **Argue in the first meeting**
 >第一次见面就争论
 

@@ -1,4 +1,4 @@
-title: War on China short sellers
+title: 'War on China Short Sellers'
 tags:
   - LinkedIn
   - Kai Fu Lee
@@ -8,10 +8,10 @@ date: 2012-10-20 15:28:30
 ---
 [Original Link](https://www.linkedin.com/today/post/article/20121010144508-416648-war-on-china-short-sellers)
 
-This is a series of articles published by [Kai Fu Lee](https://www.linkedin.com/profile/view?id=416648&authType=name&authToken=GZNe&ref=CONTENT&goback=%2Empd2_*1_*1_*1_*1_*1_*1_20121002150727*5416648*5the*5chinese*5user*5is*5more*5like*5you*5than*5you*5think&trk=mp-ph-pn). I did the translation after graduation from university in summer to learn more about the technology trend and practise my translation skill.  
+This is a series of articles published by [Kai Fu Lee](https://www.linkedin.com/profile/view?id=416648&authType=name&authToken=GZNe&ref=CONTENT&goback=%2Empd2_*1_*1_*1_*1_*1_*1_20121002150727*5416648*5the*5chinese*5user*5is*5more*5like*5you*5than*5you*5think&trk=mp-ph-pn). I did the translation after graduation from university in summer to learn more about the technology trend and practise my translation skill.
 
 ---
-Translation of Kaifu Lee's post on LinkedIn - War on China short sellers
+Translation of Kaifu Lee's post on LinkedIn - War on China Short Sellers
 >李开复LinkedIn文章翻译之五 - 对中概股做空者的宣战
 
 For the past few years, a number of “China Short Sellers” have been publishing negative reports on Chinese companies (typically listed in the US). In the beginning, they targeted truly problematic companies, but recently some of these “China Short Sellers” started targeting legitimate companies.
@@ -30,7 +30,7 @@ But these tactics will not work. Today, several legal actions were initiated, in
 >但是这些诡计是不会得逞的。几个法律诉讼现在都已发起，包括奇虎360的一个诉讼，这家公司被香橼攻击了6次，另一个由我发起以澄清诽谤。整个发现的过程会在法庭上证明香橼错误的严重性，也揭露香橼背后到底是谁的迷团 -- 这到底是一个独角戏，还是幕后有更强大的黑手呢？
 
 Short selling is a fine practice, and there is no problem with writing analysis. But if the analysis provided is false, it seriously hurts the companies and other investors. This kind of practice must stop, or be stopped.
->做空是一种很好的手段，写分析报告也没有任何问题。但是一旦这些分析所提供的是假的，它就会严重地伤害到一些公司和其他的投资者。这种行为必须停止，或被严令禁止。  
+>做空是一种很好的手段，写分析报告也没有任何问题。但是一旦这些分析所提供的是假的，它就会严重地伤害到一些公司和其他的投资者。这种行为必须停止，或被严令禁止。
 
 For more information, see [www.citronfraud.com](http://www.citronfraud.com)
 >更多信息请看: [www.citronfraud.com.](http://www.citronfraud.com)

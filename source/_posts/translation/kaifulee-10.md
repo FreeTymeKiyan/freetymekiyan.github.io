@@ -14,7 +14,7 @@ This is a series of articles published by [Kai Fu Lee](https://www.linkedin.com/
 ---
 <center>![Four Great Inventions of Ancient China](http://media.licdn.com/mpr/mpr/p/1/000/1b0/1ee/22ecd27.jpg)</center>
 
-Translation of Kaifu Lee's post on LinkedIn - Can Chinese companies innovate?
+Translation of Kaifu Lee's post on LinkedIn - Can Chinese Companies Innovate?
 >李开复LinkedIn文章翻译之十 – 中国公司能创新吗？
 
 The pictures above are the "Four Great Inventions" of China: paper, compass, printing, and gunpowder, Thousands of years later, the Chinese seem to have become laggards in innovation. Some say Chinese are just copycats. Can Chinese companies innovate? I think the answer is yes!

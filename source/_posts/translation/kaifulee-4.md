@@ -1,4 +1,4 @@
-title: Top reasons why start-ups fail
+title: 'Top Reasons why Start-ups Fail'
 tags:
   - LinkedIn
   - Kai Fu Lee
@@ -8,11 +8,11 @@ date: 2013-08-04 12:34:29
 ---
 [Original Link](https://www.linkedin.com/today/post/article/20121008142944-416648-top-reasons-why-start-ups-fail)
 
-This is a series of articles published by [Kai Fu Lee](https://www.linkedin.com/profile/view?id=416648&authType=name&authToken=GZNe&ref=CONTENT&goback=%2Empd2_*1_*1_*1_*1_*1_*1_20121002150727*5416648*5the*5chinese*5user*5is*5more*5like*5you*5than*5you*5think&trk=mp-ph-pn). I did the translation after graduation from university in summer to learn more about the technology trend and practise my translation skill.  
+This is a series of articles published by [Kai Fu Lee](https://www.linkedin.com/profile/view?id=416648&authType=name&authToken=GZNe&ref=CONTENT&goback=%2Empd2_*1_*1_*1_*1_*1_*1_20121002150727*5416648*5the*5chinese*5user*5is*5more*5like*5you*5than*5you*5think&trk=mp-ph-pn). I did the translation after graduation from university in summer to learn more about the technology trend and practise my translation skill.
 
 ---
 
-Translation of Kaifu Lee's post on LinkedIn - Top reasons why start-ups fail
+Translation of Kaifu Lee's post on LinkedIn - Top Reasons why Start-ups Fail
 >李开复LinkedIn文章翻译之四 – 创业公司失败的几个原因
 
 1. **Lack of focus** -- Smart people want to try many new ideas, but a resource-constrained start-up does not have the luxury to try all cool things.

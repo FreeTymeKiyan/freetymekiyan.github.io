@@ -1,30 +1,30 @@
-title: Rewire-Expose Private in Tests
-categories: 
+title: 'Rewire-Expose Private in Tests'
+categories:
 - Coding
-tags: 
-- Node.js 
-- Test 
+tags:
+- Node.js
+- Test
 date: 2014-07-02
 ---
 
-Here is the thing. I'm definitely a newbie in code testing. The same goes for Node.js, I bet. Although I have some former experience with development, those were all about actual implementation. Now I am doing intern at Modulus, which requires more than 80% of test coverage of code. After I finished functional part, my testing adventure started.  
+Here is the thing. I'm definitely a newbie in code testing. The same goes for Node.js, I bet. Although I have some former experience with development, those were all about actual implementation. Now I am doing intern at Modulus, which requires more than 80% of test coverage of code. After I finished functional part, my testing adventure started.
 ##Problem
-One problem I had is that, I got some functions in a module that called some other function directly. This makes testing hard if we want to figure out whether that function is actually called, because we are not calling the exposed function.  
+One problem I had is that, I got some functions in a module that called some other function directly. This makes testing hard if we want to figure out whether that function is actually called, because we are not calling the exposed function.
 
-One way to solve it is to create an object which will include all the private functions and expose that object when under test environment. This is a very great workaround inspired by my friends and I'm now using it in my code. But that's not what I'm going to introduce.  
+One way to solve it is to create an object which will include all the private functions and expose that object when under test environment. This is a very great workaround inspired by my friends and I'm now using it in my code. But that's not what I'm going to introduce.
 ##Introduction
-Let me share the second way with you. I found this in a slide that talks about Node.js unit testing[(1)](#Reference). So how to test private methods? The answer is using rewire module[(2)](#Reference).  
+Let me share the second way with you. I found this in a slide that talks about Node.js unit testing[(1)](#Reference). So how to test private methods? The answer is using rewire module[(2)](#Reference).
 
-Rewire aims at easy dependency injection for Node.js unit testing. Basically, during testing, we can require rewire module and use rewire rather than require to import the file to be tested. It will be exactly the same in our test environment as under regular circumstances.  
+Rewire aims at easy dependency injection for Node.js unit testing. Basically, during testing, we can require rewire module and use rewire rather than require to import the file to be tested. It will be exactly the same in our test environment as under regular circumstances.
 
-Rewire makes it possible for us to do several things:  
+Rewire makes it possible for us to do several things:
 
 * inject mocks for other modules or globals like process
 * leak private variables
-* override variables within the module  
+* override variables within the module
 
 ###Theory
-How is it possible for rewire to do that? 
+How is it possible for rewire to do that?
 
 ```
 (function (exports, require, module, __filename, __dirname) {
@@ -36,7 +36,7 @@ How is it possible for rewire to do that?
     return eval(name);
   };
 });
-```  
+```
 
 We can see clearly from the source code of rewire that it injects **\_\_set\_\_** and **\_\_get\_\_** methods while loading module. These two methods enables us to reach private variables.
 
@@ -58,7 +58,7 @@ var someFunc = function() {
 var anotherFunc = function() {
   someFunc();
 };
-``` 
+```
 
 ###Workaround
 So, with the workaround I mentioned above, we may create an object called private and assign all private functions as its properties. Then we can export private under test environment. When we need to call function inside module, we should do add "private." before the name of that function.
@@ -99,7 +99,7 @@ describe('index', function() {
     it('should someFunc be called', function () {
       index.anotherFunc();
       someFuncSpy.called.should.be.true;
-    }); 
+    });
 
     after(function() {
       someFuncSpy = sinon.restore();
@@ -111,11 +111,11 @@ describe('index', function() {
 ###Rewire
 Let's see how that goes with rewire.
 
-``` javascript 
+``` javascript
 /* in index-spec.js */
 // Require rewire in your test file.
 var rewire = require('rewire');
-// Rewire the file to be tested. 
+// Rewire the file to be tested.
 var index = rewire('./lib/index.js');
 
 describe('index', function() {
@@ -132,7 +132,7 @@ describe('index', function() {
     it('should someFunc be called', function () {
       index.anotherFunc();
       someFuncSpy.called.should.be.true;
-    }); 
+    });
 
     after(function() {
       // restore someFunc manually
@@ -154,16 +154,16 @@ before(function () {
 it('should someFunc be called', function () {
   index.anotherFunc();
   someFuncSpy.called.should.be.true;
-}); 
+});
 
 after(function() {
   someFuncSpy.restore();
 });
-``` 
+```
 
-As I commented above, this won't work due to the rigid way of binding a spy with existing method. We can only get exposed method with ``sinon.spy(index, 'someFunc');``, or ``sinon.stub(index, 'someFunc', function() {});``. Even though we can get private functions with rewire, we can't hook it up with a spy in the original module. We could have much more proress. What a pity!  
+As I commented above, this won't work due to the rigid way of binding a spy with existing method. We can only get exposed method with ``sinon.spy(index, 'someFunc');``, or ``sinon.stub(index, 'someFunc', function() {});``. Even though we can get private functions with rewire, we can't hook it up with a spy in the original module. We could have much more proress. What a pity!
 
-Anyways, with rewire, we don't need to change our original code. Isn't that great?  
+Anyways, with rewire, we don't need to change our original code. Isn't that great?
 
 There are more examples on [rewire's repository on Github](https://github.com/jhnns/rewire).
 ##Conclusion

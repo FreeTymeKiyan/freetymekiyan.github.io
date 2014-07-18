@@ -1,4 +1,4 @@
-title: Get yourself a mentor
+title: 'Get Yourself a Mentor'
 tags:
   - LinkedIn
   - Kai Fu Lee
@@ -8,14 +8,14 @@ date: 2012-10-22 14:52:35
 ---
 [Original Link](https://www.linkedin.com/today/post/article/20121015223051-416648-get-yourself-a-mentor)
 
-This is a series of articles published by [Kai Fu Lee](https://www.linkedin.com/profile/view?id=416648&authType=name&authToken=GZNe&ref=CONTENT&goback=%2Empd2_*1_*1_*1_*1_*1_*1_20121002150727*5416648*5the*5chinese*5user*5is*5more*5like*5you*5than*5you*5think&trk=mp-ph-pn). I did the translation after graduation from university in summer to learn more about the technology trend and practise my translation skill.  
+This is a series of articles published by [Kai Fu Lee](https://www.linkedin.com/profile/view?id=416648&authType=name&authToken=GZNe&ref=CONTENT&goback=%2Empd2_*1_*1_*1_*1_*1_*1_20121002150727*5416648*5the*5chinese*5user*5is*5more*5like*5you*5than*5you*5think&trk=mp-ph-pn). I did the translation after graduation from university in summer to learn more about the technology trend and practise my translation skill.
 
 ---
-Translation of Kaifu Lee's post on LinkedIn - Get yourself a mentor
+Translation of Kaifu Lee's post on LinkedIn - Get Yourself a Mentor
 >李开复LinkedIn文章翻译之七 - 给自己找个导师吧
 
 A personal mentor is like a personal trainer -- someone who can give you objective and personalized help to make you better.
->（创业）导师就像是私人助教 -- 一个能给你提供目标和个性化帮助来让你更好的人。  
+>（创业）导师就像是私人助教 -- 一个能给你提供目标和个性化帮助来让你更好的人。
 
 A good mentor is usually someone who knows something about your job and company, but need not be an expert. A mentor shouldn't be your direct manager or in your line of management, because that may create a conflict of interest for him/her. And a mentor should be more senior than you, but not by too much. Someone who is about two promotions higher is ideal. A mentor who is not senior enough may not be able to take a step back and see the forest and not just the trees. But a mentor who is too senior may not be able to step into your shoes and see things they way you do.
 >好的导师是那种对你的工作和公司有点了解的人，但不必是专家。导师不应该是你的直接管理者或是在你管的这条线中，因为这样可能会导致和他/她的利益冲突。而且导师应该要比你资格老一些，但也不是老太多。比你高两个级别的人就比较理想。如果导师的资格不够老可能没办法后退一步避免只见树木不见森林的情况。但资格太老了可能没办法设身处地并用你的方式来看待事物。
