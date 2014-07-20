@@ -2,7 +2,6 @@ title: Can Chinese Companies Innovate?
 tags:
   - LinkedIn
   - Kai Fu Lee
-id: 124
 categories:
   - Translation
 date: 2012-11-13 19:09:57
