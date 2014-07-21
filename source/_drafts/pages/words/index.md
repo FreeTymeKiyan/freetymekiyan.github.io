@@ -3,14 +3,14 @@ id: 12
 date: 2012-10-17 11:24:11
 ---
 
-## 
+##
 	<span style="color:#000000;"><span style="line-height: 1.2em;">前言</span></span>
 
 	<u>[**<span style="color:#0099ff;"><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;">2014-06-28 更新（842 ~ 870）I&#39;m gonna migrate&nbsp;to a new and way cooler blog soon!</span></span></span>**](#842)</u>
 
 	<span style="color:#000000;"><span style="font-size: 14px;">有时候只要一句话就能让你觉得醍醐灌顶，突然一下成熟很多。这种句子也许浓缩了前辈们几十年甚至一辈子的经历。这就是语言的力量。</span></span>
 
-## 
+##
 	<span style="color:#000000;">更新记录（点击跳转）</span>
 
 1.  <u><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;">[<span style="color:#000000;">2014-05-27 更新（798 ~ 841）不要在一帆风顺的时候，装成修行人；不要在遇到挫折的时候，变回普通人。</span>](#798)</span></span></u>
@@ -46,7 +46,7 @@ date: 2012-10-17 11:24:11
 
 * * *
 
-## 
+##
 	<a name="句子"><span style="color:#000000;">句子收录</span></a>
 
 1.  <span style="color:#000000;"><span style="font-size: 14px; "><span style="line-height: 26px; ">人有三个基本错误是不能犯的，一是德薄而位尊，二是智小而谋大，三是力小而任重。--&nbsp;</span>南怀瑾</span></span>
