@@ -10,8 +10,8 @@ categories:
 * fixed formats and typos
 * retranslated some lines
 * links and titles of those articles
- 
-Recently I have been working on migration of my old posts and pages on Wordpress to my new hexo blog on Github. 
+
+Recently I have been working on migration of my old posts and pages on Wordpress to my new hexo blog on Github.
 
 Click [here](http://freetymekiyan.github.io/tags/Kai-Fu-Lee/) for the list of articles.
 1. [The Chinese user is more like you than you think](http://freetymekiyan.github.io/2013/07/26/kaifulee-1/)
