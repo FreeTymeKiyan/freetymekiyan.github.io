@@ -14,7 +14,7 @@ This is a series of articles published by [Kai Fu Lee](https://www.linkedin.com/
 ---
 ##Passage
 
-Weibo: the Most Powerful Media in China
+Translation of Kaifu Lee's post on LinkedIn - Weibo: the Most Powerful Media in China
 >李开复LinkedIn文章翻译之十二 – 微博：中国最强有力的媒体
 
 <center>![Kaifulee on Weibo](http://media.licdn.com/mpr/mpr/p/4/000/1b3/3d0/3b71821.png)</center>

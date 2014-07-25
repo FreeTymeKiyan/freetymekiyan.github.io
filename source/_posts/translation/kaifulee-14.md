@@ -12,7 +12,7 @@ date: 2013-07-06 22:35:01
 This is a series of articles published by [Kai Fu Lee](https://www.linkedin.com/profile/view?id=416648&authType=name&authToken=GZNe&ref=CONTENT&goback=%2Empd2_*1_*1_*1_*1_*1_*1_20121002150727*5416648*5the*5chinese*5user*5is*5more*5like*5you*5than*5you*5think&trk=mp-ph-pn). I did the translation after graduation from university in summer to learn more about the technology trend and practise my translation skill.
 
 ---
-To newlyweds and entrepreneurs: A speech equally suitable for both!
+Translation of Kaifu Lee's post on LinkedIn - To newlyweds and entrepreneurs: A speech equally suitable for both!
 >李开复LinkedIn文章翻译之十四 – 致新人和创业者们：一个同样适用两者的演讲！
 
 [Speech delivered at one of my co-founders' wedding.]

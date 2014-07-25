@@ -14,7 +14,7 @@ This is a series of articles published by [Kai Fu Lee](https://www.linkedin.com/
 ---
 ##Passage
 
-iFlytek: China's Nuance and Siri?
+Translation of Kaifu Lee's post on LinkedIn - iFlytek: China's Nuance and Siri?
 >李开复LinkedIn文章翻译之十三 – 科大讯飞：中国的Nuance<sup>[[1]](#Reference)</sup>和Siri<sup>[[2]](#Reference)</sup>？
 
 <center>![Qingfeng, Liu, CEO of iFlytek](http://media.licdn.com/mpr/mpr/p/6/000/1b7/116/29743f0.jpg)</center>
