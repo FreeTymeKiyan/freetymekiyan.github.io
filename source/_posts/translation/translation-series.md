@@ -15,7 +15,7 @@ Recently I have been working on the migration and update of these articles. Some
 * Fixed formats 
 * Fixed typos
   
-Now these translations should be way much better than they were, I even had my girlfriend pre-read every sentence. Special thanks to her here. But certainly we are not able to find all unproper lines. You are very welcome to notify me about it. Write some comments under whichever post or find me at those social networks, both would be great! 
+Now these translations should be way much better than they were, I even had my girlfriend pre-read every sentence. Special thanks to her for her patience and love. But certainly we are not able to find all unproper lines. You are very welcome to notify me about it. Write some comments under whichever post or find me at those social networks, both would be great! 
 
 Click [here](http://freetymekiyan.github.io/tags/Kai-Fu-Lee/) for the list of articles. You can jump to any post from the list below by one simple click as well.  
 
