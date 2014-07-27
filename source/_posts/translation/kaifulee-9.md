@@ -17,7 +17,7 @@ Translation of Kaifu Lee's post on LinkedIn - Map Your way to Science Fiction
 >李开复LinkedIn文章翻译之九 - 把你的方向和科幻小说对应起来
 
 As mobile usage becomes more prominent, one technology that dramatically rises in value is Maps. Mobile devices become location-aware, which can provide much end-user and commercial value. It's interesting to compare the Google and Microsoft vision for maps.
->随着手机的使用变得越来越显著，有一种技术的价值正在极大地增加，那就是地图。移动设备变得能感知位置，能提供很多端用户和商业价值。比较一下谷歌和微软对地图的愿景你会发现很有意思。
+>随着手机的使用变得越来越普遍，有一种技术的价值正在极大地增加，那就是地图。移动设备变得能感知位置，能提供很多端用户和商业价值。比较一下谷歌和微软对地图的愿景你会发现很有意思。
 
 Google started early with the Keyhole acquisition that augmented maps with satellite images. Then Google Street View captured a huge number of photos alongside the streets. As the photos are captured, so are the maps, so Google essentially owned a mapping company. The recent Google car that drives itself undoubtedly leverages this accurate mapping. Maps have also become the center for finding places. So Google's map vision might be "precisely map the earth, and take you anywhere".
 >谷歌很早就启动了针对用卫星图片增强地图的Keyhole（Google Earth的前身）公司的收购。然后谷歌街景沿着街道采集了大量的照片。随着照片被采集，地图也被采集了，所以谷歌本质上来说拥有了一家测绘公司。最近自动驾驶的谷歌汽车毫无疑问扩充了这种精确的测绘。地图也已变成了寻找地点的核心。所以，谷歌的地图愿景也许是“精确地画出地球，把你带到任何地方”。

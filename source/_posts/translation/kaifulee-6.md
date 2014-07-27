@@ -21,7 +21,7 @@ Cold call instead of trusted introduction
 >联系完全陌生的风投而不是找可信的介绍
 
 A common belief among VCs is that "if a CEO isn't resourceful enough to find someone I know to recommend him to me, then he isn't going to make a very good CEO." Don't blind email -- I have never funded a company based on blind mail
->VC们中流传着的一个普遍看法是“如果一个CEO连找到某个人我认识的人来把他推荐给我的资源都没有，那么他不会是一个很好的CEO。”不要盲目地发邮件 - 我从未基于盲发地邮件投资一家公司。
+>VC们中流传着的一个普遍看法是“如果一个CEO连找到某个我认识的人来把他推荐给我的资源都没有，那么他不会是一个很好的CEO。”不要盲目地发邮件 - 我从未投资过一家盲目发邮件的公司。
 
 Went to VC without preparation
 >没有准备就去找VC
@@ -36,7 +36,7 @@ You need to communicate succinctly. Start with the one sentence that describes y
 >你需要简洁地沟通。以一句话描述你的公司作为开头。做好简单地谈论以下问题的准备：市场有多大？有哪些竞争者？你和他们有哪些差异？你的团队有什么特殊的地方？
 
 **Too much time on market and not enough time on product and team**
->花太多时间在市场上，产品和队伍上却时间不足
+>花太多时间在市场上，在产品和队伍上却花的时间不足
 
 Don't spend too much time on market overview or opportunity. The VC probably knows that better than you, and even if he doesn't, he would probably make up his mind after just a short description. Save your time for your product and your team, which he doesn't know.
 >不要花太多时间在市场的概览或机会上。风投很可能比你了解得更多，就算他了解的没你多，他也很可能在很短的描述之后就已经做出了决定。为你的产品和团队多留些时间，这才是他不知道的。

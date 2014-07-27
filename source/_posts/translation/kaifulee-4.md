@@ -22,7 +22,7 @@ Translation of Kaifu Lee's post on LinkedIn - Top Reasons why Start-ups Fail
 3. **Entrepreneur doesn't scale** -- Starting a 3-person company is very different from managing a 100-person company. To scale up requires either an experienced entrepreneur or one who is able to scale up quickly.
 >3\. **创业者不会扩张** -- 创立一个三人公司和管理一个一百人的公司非常不同。扩张需要一个有经验的企业家或一个有能力迅速扩张的人。
 4. **Team trust issues** -- VCs generally prefer team members who have known each other for a long time. Teams lacking trust will be severely challenged by both failure (how to downsize and what to cut) and success (how to divide responsibilities and financial upside).
->4\. **团队信任问题** -- 风投们总体上更喜欢团队成员互相认识了很长的时间（的团队）。缺乏信任的团队将会受到来自失败（如何裁员和精简什么）和成功（如何划分责任和财务的增长）两者的严酷挑战。
+>4\. **团队信任问题** -- 风投们总体上更喜欢成员之间彼此已认识很久（的团队）。缺乏信任的团队将会受到来自失败（如何裁员和精简事务）和成功（如何划分责任和财务的增长）两者的严酷挑战。
 5. **Poor execution** -- In the lean start-up environment, a good start may be copied easily by others. So you must be able to execute dependably and quickly  your product needs to be updated on a weekly if not daily basis. Your leadership is maintained not by brand or by IP, but by your continual ability to execute and lead the pack.
 >5\. **执行力低下** -- 在精益创业的环境里，一个好的开局很容易被其他人抄袭。所以你必须有能力可靠、快速地执行 -- 你的产品就算不是每天更新也得每周更新。你的领先地位不是靠品牌也不是靠知识产权来维持，而是靠你持续不断的执行并领先的能力。
 6. **Technology looking for solution** -- rather than a solution for a user pain looking for proven technology. A good entrepreneur realizes that what matters is not the cool technology, but the value to users. VCs would prefer the innovation to be in spotting the solution, rather than trying an untested (but new) technology.

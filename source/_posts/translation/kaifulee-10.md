@@ -32,10 +32,10 @@ Business innovation: Finding ways to maximize profit (example: freemium model in
 >商业模式的创新：找到最大化利润的方法（例如：游戏的免费增值模式是由巨人网络首推的）。这是在中国发展阶段的一个自然结果 -- 企业家和商业家很大程度上是由金钱目标驱动的。
 
 Need-driven innovation: "Necessity is the mother of innovation." Yuan Longping's hybrid rice is a good example -- the government funded research in areas of the greatest need -- in this case hunger from the Cultural Revolution days.
->需求驱动的创新：“需求是创新之母。”袁隆平的杂交水稻是个很好的例子 -- 政府资助的在最大需求领域的研究 -- 在这个例子中是文革时期以来的饥饿。
+>需求驱动的创新：“需求是创新之母。”袁隆平的杂交水稻是个很好的例子 -- 政府资助的最大需求领域的研究 -- 在这个例子中的需求是文革时期以来的饥饿。
 
 The above types of innovation fit well with the Chinese culture and heritage -- they require iterations, experimentation, dedication, and combination. And they are result-driven (as opposed to creativity-driven).
->以上几类创新和中国的文化和传统和契合 -- 他们需要迭代、实验、奉献和结合。他们还是以结果为导向的（和以创意为导向相对）。
+>以上几类创新和中国的文化和传统相契合 -- 他们需要迭代、实验、奉献和结合。他们还是以结果为导向的（和以创意为导向的相对）。
 
 Other areas where Chinese may extend innovation include:
 >中国可能拓展创新的其他领域包括：
@@ -53,7 +53,7 @@ Western-trained researchers leading Chinese teams, with potential for ground-bre
 >受过西方训练的研究人员带领的中国团队，有里程碑式创新的潜力。
 
 Americans are likely to lead China (and the world) in paradigm-shift innovations, but China may well become a top leader in most other types of innovations. The non-paradigm-shift innovations may be less glamorous, but they are more pervasive and less risky. As a result, China will reap great economic benefits from innovations in the coming decades.
->美国人有可能在思维模式转变的创新上领先中国（和世界），但中国或许能在大多数其他类型的创新中成为顶尖的领导者。非思维模式转变的创新可能没那么有魅力，但他们是更普遍也不太冒险。总之，中国会在接下来几十年从创新中收获巨大的经济效益。
+>美国人有可能在思维模式转变的创新上领先中国（和世界），但中国或许能在大多数其他类型的创新中成为顶尖的领导者。非思维模式转变的创新可能没那么有魅力，但他们更普遍也风险更小。总之，中国会在接下来几十年从创新中收获巨大的经济效益。
 
 In the next few days, I will illustrate "Chinese innovation" by covering some innovators and innovative products.
 >接下来的几天，我会透过涵盖一些创新者和创新的产品来解释“中国式创新”。

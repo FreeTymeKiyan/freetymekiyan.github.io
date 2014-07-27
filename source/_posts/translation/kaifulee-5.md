@@ -27,7 +27,7 @@ Citron's reaction is also very telling. It responds first by enumerating its his
 >香橼的回应也很能说明问题。它首先列举了自己之前的表现（跟现在这些特定的错误毫无关系）。然后它又进行了人身攻击。最后香橼威胁要用法律来解决这些问题（但它完全回避了这些被提出的明确错误）。
 
 But these tactics will not work. Today, several legal actions were initiated, including one by Qihoo 360, the company attacked six times by Citron, and another by myself addressing defamation. At courts of law, the discovery process will prove the severity of Citron's errors, and also uncover what's really behind the Citron -- is it a one-man show, or are there more powerful people behind it.
->但是这些诡计是不会得逞的。几个法律诉讼现在都已发起，包括奇虎360的一个诉讼，这家公司被香橼攻击了6次，另一个由我发起以澄清诽谤。整个发现的过程会在法庭上证明香橼错误的严重性，也揭露香橼背后到底是谁的迷团 -- 这到底是一个独角戏，还是幕后有更强大的黑手呢？
+>但是这些诡计是不会得逞的。几个法律诉讼现在都已发起，包括奇虎360的一个诉讼，这家公司被香橼攻击了6次，另一个由我发起以澄清诽谤。整个发现的过程会在法庭上证明香橼错误的严重性，也揭露香橼背后到底是谁的谜团 -- 这到底是一个独角戏，还是幕后有更强大的黑手呢？
 
 Short selling is a fine practice, and there is no problem with writing analysis. But if the analysis provided is false, it seriously hurts the companies and other investors. This kind of practice must stop, or be stopped.
 >做空是一种很好的手段，写分析报告也没有任何问题。但是一旦这些分析所提供的是假的，它就会严重地伤害到一些公司和其他的投资者。这种行为必须停止，或被严令禁止。

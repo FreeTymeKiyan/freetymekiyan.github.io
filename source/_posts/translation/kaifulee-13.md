@@ -23,7 +23,7 @@ Translation of Kaifu Lee's post on LinkedIn - iFlytek: China's Nuance and Siri?
 >（中国创新系列文章之一，该系列文章是为了特写中国的创新人物和产品。）
 
 In 1999, when I worked for Microsoft Research China, I tried to hire a top doctoral student from USTC, Mr. Liu Qingfeng, to work on speech recognition. But he was determined to start his own company. Starting a company in 1999 in China was no easy task, but Qingfeng was determined, and started iFlytek, a speech recognition company.
->1999年，当时我在微软中国研究院工作，我试过去雇一位中国科技大学的顶尖博士生，刘庆峰<sup>[[3]](#Reference)</sup>，来从事语音识别工作。但他决意要创办自己的公司。创立公司在1999年的中国绝非易事，但庆峰很坚决，并创立了科大讯飞，一个语音识别公司。
+>1999年，当时我在微软中国研究院工作，我试过雇一位中国科技大学的顶尖博士生，刘庆峰<sup>[[3]](#Reference)</sup>，来从事语音识别工作。但他决意要创办自己的公司。创立公司在1999年的中国绝非易事，但庆峰很坚决，并创立了科大讯飞，一个语音识别公司。
 
 In iFlytek's early days, Qingfeng lacked management experience and was over-optimistic about the market, and his company almost went out of business.  But he was rescued with funding from Legend Capital, and became a protege of the top entrepreneur Mr. Liu Chuanzhi (founder of Legend/Lenovo).
 >科大讯飞初创的时候，庆峰还很缺乏管理经验，对市场也过于乐观，他的公司差点因此倒闭。但他被君联资本的钱救了，还成为了顶尖企业家柳传志先生（联想的创始人）的门生。

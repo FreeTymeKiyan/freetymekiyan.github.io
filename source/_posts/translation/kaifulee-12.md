@@ -26,7 +26,7 @@ While Twitter was generally regarded as Jack Dorsey's baby, Sina Weibo (the "Chi
 >当推特逐渐被认作是杰克·多西的个人杰作时，新浪微博（中国的推特）更多的是在新浪执行经理彭少彬<sup>[[1]](#Reference)</sup>领导下的全公司努力的产物。
 
 Twitter emphasizes its social elements, but Sina Weibo is undoubtedly the sharpest media ever seen in China. Twitter users have a 140-character limit, but Sina Weibo's limit in Chinese is equivalent to 500 characters in English. This allows the writer to summarize a book, to debate each other preserving context, or to give the first-paragraph abstract of a late breaking news. Most top Twitter stars talk about what they're doing and point to other sites, but Sina Weibo has become the portal for accessing news, gossip, and commentaries. I am convinced this simple difference makes Weibo a very different media than Twitter.
->推特强调它的社交元素，但新浪微博毫无疑问是在中国见到的最尖锐的媒体。推特用户有140个字符的限制，但新浪微博的中文限制相当于英文中的500个字符。这就允许作者总结一本书，在保留上下文同时互相争论，或给出最近重大新闻的第一节摘要。绝大多数的推特明星说的都是他们在做什么，然后指向其他的站点，但新浪微博已经变成了获取新闻、留言和评论的入口。我很确信这个简单的区别使微博成为一个相对推特来说非常不同的媒体。
+>推特强调它的社交元素，但新浪微博毫无疑问是在中国见到的最尖锐的媒体。推特用户有140个字符的限制，但新浪微博的中文限制相当于英文中的500个字符。这能允许作者总结一本书，在保留上下文同时互相争论，或给出最近重大新闻的第一节摘要。绝大多数的推特明星说的都是他们在做什么，然后指向其他的站点，但新浪微博已经变成了获取新闻、留言和评论的入口。我很确信这个简单的区别使微博成为一个相对推特来说非常不同的媒体。
 
 In China, the traditional media is regulated by the government, and on many issues there is only one viewpoint. Most Weibo also provides access to alternative viewpoints not expressable in traditional media. This can generate debate and improve critical thinking skills of the netizens. One might say that Weibo is the first modern media in China.
 >在中国，传统媒体受到ZF的管制，对很多问题都只有一个观点。大多数微博还提供其他在传统媒体上无法表达的观点。这能产生争论并提高网民的批判性思维能力。有的人也许会说微博是中国的第一个现代媒体。
