@@ -12,7 +12,7 @@ date: 2013-07-05 12:08:26
 This is a series of articles published by [Kai Fu Lee](https://www.linkedin.com/profile/view?id=416648&authType=name&authToken=GZNe&ref=CONTENT&goback=%2Empd2_*1_*1_*1_*1_*1_*1_20121002150727*5416648*5the*5chinese*5user*5is*5more*5like*5you*5than*5you*5think&trk=mp-ph-pn). I did the translation after graduation from university in summer to learn more about the technology trend and practise my translation skill.
 
 ---
-##Passage
+##Article
 
 Translation of Kaifu Lee's post on LinkedIn - iFlytek: China's Nuance and Siri?
 >李开复LinkedIn文章翻译之十三 – 科大讯飞：中国的Nuance<sup>[[1]](#Reference)</sup>和Siri<sup>[[2]](#Reference)</sup>？

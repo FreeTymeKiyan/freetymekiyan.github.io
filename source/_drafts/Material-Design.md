@@ -1,6 +1,4 @@
 title: 'Material Design'
-tags:
-- 
 categories:
 - Coding
 ---
