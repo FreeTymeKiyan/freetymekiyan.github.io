@@ -6,9 +6,11 @@ tags:
   - Pro-tips
 ---
 
-This is one of my series posts on Textmate 2, a handy, light, expandable editor on Mac OS X. For more pro tips on Textmate 2, click [here]().
+##Abstract
 
----
+This post is an overview on Textmate. Let me guide you deep into the world of one of the best text editors.
+
+<!-- more -->
 
 ##Textmate - The Missing Editor
 
@@ -53,10 +55,16 @@ If you don't know about Vim, Emacs, or Sublime Text etc., never mind. Textmate p
 4. Huge Customization Space. Way more if you learn how to write bundle and macro.
 5. Open Source and Free!
 
-##Fin
+##Summary
 
 I began to use Textmate since my summer internship started. So it is roughly about two months. Then I experienced a huge increase of efficiency on coding. Why not give it a shot and see what kind of great stuff it brings to you? In the next few days, I will continue working on the pro tips of it. So keep track, and let us become pro on Textmate! More than that, let us become pro on programming!
 
 ##Reference
 
 1. [Textmate, Official Site](http://macromates.com/)
+
+---
+
+This is one of my series posts on Textmate 2, a handy, light, expandable editor on Mac OS X. For more pro tips on Textmate 2, click [here]().
+
+If you have more pro tips or fancy usage of Textmate 2 you want to share, please do let me know by commenting, sending me emails or informing me on social networks. Thanks a lot!

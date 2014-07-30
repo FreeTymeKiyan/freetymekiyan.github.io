@@ -1,20 +1,29 @@
 title: 'Use Textmate 2 as a Pro: Shortcuts'
-tags:
-  - TextMate 2
 categories:
   - Coding
+tags:
+  - Textmate 2
+  - Pro-tips
 ---
+
+##Abstract
+
+In this post, we will learn about various kinds of shortcuts in Textmate 2. Shortcut is the prime force of productivity!
 
 ##Common Shortcuts
 
 ###File Shortcuts
+
+|shortcuts|description|
+|---------|-----------|
+
 
 ###Edit Select
 
 ###
 
 |shortcuts|description|
-|:------------:|:----------------:|
+|---------|-----------|
 |control + shift + k|delete selected lines|
 |control + k|delete to current position|
 |control + shift + d|copy this line|
@@ -31,3 +40,7 @@ categories:
 |option + command + ]|align assignments|
 |control + j|join|
 
+###Unrelated to Coding
+command + ,|Preferences
+control + command + t|Select Bundle Item
+control + option + command + b|Edit Bundles
