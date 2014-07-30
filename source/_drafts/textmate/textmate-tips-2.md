@@ -2,11 +2,9 @@ title: 'Use Textmate 2 as a Pro: Preferences'
 categories:
   - Coding
 tags:
-  - Textmate 2
+  - TextMate 2
   - Pro-tips
 ---
-
-##Abstract
 
 This post introduced installation, preferences and other settings of Textmate.
 
@@ -89,6 +87,8 @@ I’ve found that most bundles for the alpha live in `/Users/<yourname>/Library/
 ##Summary
 
 I introduced several things that need to be done before great coding experience. I would argue that setting up is always important before you actually begin doing things. Spend some time on it and your life will be good from then on.
+
+<br/>
 
 ---
 

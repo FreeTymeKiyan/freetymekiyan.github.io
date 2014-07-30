@@ -1,6 +1,6 @@
 title: 'Use Textmate 2 as a Pro: Bundles'
 tags:
- - Textmate 2
+ - TextMate 2
 categories:
  - Coding
 ---

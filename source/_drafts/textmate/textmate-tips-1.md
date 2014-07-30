@@ -2,11 +2,9 @@ title: 'Use Textmate 2 as a Pro: Introduction'
 categories:
   - Coding
 tags:
-  - Textmate 2
+  - TextMate 2
   - Pro-tips
 ---
-
-##Abstract
 
 This post is an overview on Textmate. Let me guide you deep into the world of one of the best text editors.
 
@@ -22,30 +20,30 @@ Textmate is an editor only on Max OS X. That means you cannot find it on any oth
 
 If you don't know about Vim, Emacs, or Sublime Text etc., never mind. Textmate provides a great amount of features. A list of them is shown below.
 
-1. Ability to Search and Replace in a Project
+>1. Ability to **Search and Replace** in a **Project**
 2. Auto-Indent for Common Actions Like Pasting Text
-3. Auto-Pairing of Brackets and Other Characters
-4. Clipboard History
-5. Column Selections and Column Typing
-6. Completion of Words from Current Document
+3. **Auto-Pairing** of Brackets and Other Characters
+4. **Clipboard History**
+5. **Column Selections** and **Column Typing**
+6. **Completion** of Words from Current Document
 7. CSS-like Selectors to Pinpoint the Scope of Actions and Settings
 8. Declarative Language Grammars for Graceful Mixing and Hacking
 9. Dynamic Outline for Working With Multiple Files
-10. Expand Trigger Words to Code Blocks With Tab-able Placeholders
-11. File Tabs when Working With Projects
-12. Foldable Code Blocks
-13. Function Pop-up for Quick Overview and Navigation
-14. Plug-able Through Your Favorite Scripting Language
-15. Recordable Macros With No Programming Required
-16. Regular Expression Search and Replace (grep)
-17. Run Shell Commands from Within a Document
+10. Expand **Trigger Words** to Code Blocks With Tab-able Placeholders
+11. File **Tabs** when Working With Projects
+12. **Foldable** Code Blocks
+13. **Function Pop-up** for Quick Overview and Navigation
+14. **Plug-able** Through Your Favorite Scripting Language
+15. Recordable **Macros** With No Programming Required
+16. **Regular Expression** Search and Replace (grep)
+17. **Run Shell Commands** from Within a Document
 18. Support for Darcs, Perforce, SVK, and Subversion
 19. Support for More Than 50 Languages
 20. Switch Between Files in Projects With a Minimum of Key Strokes
-21. Themable Syntax Highlight Colors
-22. Visual Bookmarks to Jump Between Places in a File
+21. **Themable** Syntax Highlight Colors
+22. Visual **Bookmarks** to Jump Between Places in a File
 23. Works As External Editor for (s)ftp Programs
-24. Works Together With Xcode and Can Build Xcode Projects
+24. Works Together **With Xcode** and Can Build Xcode Projects
 
 ##Why I use Textmate
 
@@ -62,6 +60,8 @@ I began to use Textmate since my summer internship started. So it is roughly abo
 ##Reference
 
 1. [Textmate, Official Site](http://macromates.com/)
+
+<br/>
 
 ---
 

@@ -2,7 +2,7 @@ title: 'Use Textmate 2 as a Pro: Shortcuts'
 categories:
   - Coding
 tags:
-  - Textmate 2
+  - TextMate 2
   - Pro-tips
 ---
 
