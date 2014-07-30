@@ -6,19 +6,19 @@ tags:
   - Pro-tips
 ---
 
-This is one of my series posts on Textmate 2, a handy, great, expandable editor on Mac OS X. For more pro tips on Textmate 2, click [here](). 
+This is one of my series posts on Textmate 2, a handy, light, expandable editor on Mac OS X. For more pro tips on Textmate 2, click [here]().
 
 ---
 
 ##Textmate - The Missing Editor
 
-First of all, I am going to introduce to you guys about Textmate. 
+First of all, I am going to introduce to you guys about Textmate<sup>[[1]](#Reference)</sup>.
 
-Textmate is an editor only on Max OS X. That means you cannot find it on any other systems. If you probably heard about Vim, or Emacs before, there is another name for Textmate: Vim on Mac. 
+Textmate is an editor only on Max OS X. That means you cannot find it on any other systems. If you probably heard about Vim, or Emacs before, there is another name for Textmate: Vim on Mac.
 
 ##Features
 
-If you don't know about Vim, Emacs, or Sublime Text etc., never mind. Textmate provides a great amount of features. A list of them is shown below.  
+If you don't know about Vim, Emacs, or Sublime Text etc., never mind. Textmate provides a great amount of features. A list of them is shown below.
 
 1. Ability to Search and Replace in a Project
 2. Auto-Indent for Common Actions Like Pasting Text
@@ -44,15 +44,19 @@ If you don't know about Vim, Emacs, or Sublime Text etc., never mind. Textmate p
 22. Visual Bookmarks to Jump Between Places in a File
 23. Works As External Editor for (s)ftp Programs
 24. Works Together With Xcode and Can Build Xcode Projects
-  
+
 ##Why I use Textmate
 
-1. First impression: my cool supervisor introduced it to me.
+1. First impression: my cool and picky supervisor introduced it to me.
 2. Support Retina, which is definitely important for a new Macbook.
 3. Real Handy! Lots of bundles available already.
-4. Huge Customization Space. Way more if you learn how to write bundle and macro. 
-5. Open Source and Free! 
+4. Huge Customization Space. Way more if you learn how to write bundle and macro.
+5. Open Source and Free!
 
 ##Fin
 
-I began to use Textmate since my summer internship started. So it is roughly about two months. Then I experienced a huge increase of efficient on coding. Why not give it a shot and see what kind of greatness it will bring you? In the next few days, I will continue working on the pro tips of it. So keep an eye on it, and let us become pro on Textmate!
+I began to use Textmate since my summer internship started. So it is roughly about two months. Then I experienced a huge increase of efficiency on coding. Why not give it a shot and see what kind of great stuff it brings to you? In the next few days, I will continue working on the pro tips of it. So keep track, and let us become pro on Textmate! More than that, let us become pro on programming!
+
+##Reference
+
+1. [Textmate, Official Site](http://macromates.com/)
