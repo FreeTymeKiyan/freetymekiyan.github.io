@@ -1,4 +1,4 @@
-title: 'Use Textmate 2 as a Pro: Introduction'
+title: 'Use TextMate 2 as a Pro: Introduction'
 categories:
   - Coding
 tags:
@@ -6,19 +6,19 @@ tags:
   - Pro-tips
 ---
 
-This post is an overview on Textmate. Let me guide you deep into the world of one of the best text editors.
+This post is an overview on TextMate. Let me guide you deep into the world of one of the best text editors.
 
 <!-- more -->
 
-##Textmate - The Missing Editor
+##TextMate - The Missing Editor
 
-First of all, I am going to introduce to you guys about Textmate<sup>[[1]](#Reference)</sup>.
+First of all, I am going to introduce to you guys about TextMate<sup>[[1]](#Reference)</sup>.
 
-Textmate is an editor only on Max OS X. That means you cannot find it on any other systems. If you probably heard about Vim, or Emacs before, there is another name for Textmate: Vim on Mac.
+TextMate is an editor only on Max OS X. That means you cannot find it on any other systems. If you probably heard about Vim, or Emacs before, there is another name for TextMate: Vim on Mac.
 
 ##Features
 
-If you don't know about Vim, Emacs, or Sublime Text etc., never mind. Textmate provides a great amount of features. A list of them is shown below.
+If you don't know about Vim, Emacs, or Sublime Text etc., never mind. TextMate provides a great amount of features. A list of them is shown below.
 
 >1. Ability to **Search and Replace** in a **Project**
 2. Auto-Indent for Common Actions Like Pasting Text
@@ -45,7 +45,7 @@ If you don't know about Vim, Emacs, or Sublime Text etc., never mind. Textmate p
 23. Works As External Editor for (s)ftp Programs
 24. Works Together **With Xcode** and Can Build Xcode Projects
 
-##Why I use Textmate
+##Why I use TextMate
 
 1. First impression: my cool and picky supervisor introduced it to me.
 2. Support Retina, which is definitely important for a new Macbook.
@@ -55,16 +55,16 @@ If you don't know about Vim, Emacs, or Sublime Text etc., never mind. Textmate p
 
 ##Summary
 
-I began to use Textmate since my summer internship started. So it is roughly about two months. Then I experienced a huge increase of efficiency on coding. Why not give it a shot and see what kind of great stuff it brings to you? In the next few days, I will continue working on the pro tips of it. So keep track, and let us become pro on Textmate! More than that, let us become pro on programming!
+I began to use TextMate since my summer internship started. So it is roughly about two months. Then I experienced a huge increase of efficiency on coding. Why not give it a shot and see what kind of great stuff it brings to you? In the next few days, I will continue working on the pro tips of it. So keep track, and let us become pro on TextMate! More than that, let us become pro on programming!
 
 ##Reference
 
-1. [Textmate, Official Site](http://macromates.com/)
+1. [TextMate, Official Site](http://macromates.com/)
 
 <br/>
 
 ---
 
-This is one of my series posts on Textmate 2, a handy, light, expandable editor on Mac OS X. For more pro tips on Textmate 2, click [here]().
+This is one of my series posts on TextMate 2, a handy, light, expandable editor on Mac OS X. For more pro tips on TextMate 2, click [here]().
 
-If you have more pro tips or fancy usage of Textmate 2 you want to share, please do let me know by commenting, sending me emails or informing me on social networks. Thanks a lot!
+If you have more pro tips or fancy usage of TextMate 2 you want to share, please do let me know by commenting, sending me emails or informing me on social networks. Thanks a lot!

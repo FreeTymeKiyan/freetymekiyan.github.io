@@ -1,4 +1,4 @@
-title: 'Use Textmate 2 as a Pro: Preferences'
+title: 'Use TextMate 2 as a Pro: Preferences'
 categories:
   - Coding
 tags:
@@ -6,13 +6,13 @@ tags:
   - Pro-tips
 ---
 
-This post introduced installation, preferences and other settings of Textmate.
+This post introduced installation, preferences and other settings of TextMate.
 
 <!-- more -->
 
 ##Installation
 
-First of all, download Textmate 2 app [in this page](http://macromates.com/download).
+First of all, download TextMate 2 app [in this page](http://macromates.com/download).
 
 ##Preferences
 
@@ -26,17 +26,17 @@ You may change "New Document Type" to the type you use most here.
 
 You can set "Show File Browser On" which side here. My personal choice is left side. You may toggle the state of file browser by a keyboard shortcut: ``contorl + option + command + d``.
 
-There is an option named "Show command output" at the bottom. This will be very useful if you use bundles like Git or Markdown. I like to make my Textmate fullscreen and set it below text view.
+There is an option named "Show command output" at the bottom. This will be very useful if you use bundles like Git or Markdown. I like to make my TextMate fullscreen and set it below text view.
 
 ###Bundles
 
-A view of all the bundles and their information here. You can find support for almost everything in Textmate with bundle. If don't, you can create one yourself. We will have several post on different bundles to introduce more about them.
+A view of all the bundles and their information here. You can find support for almost everything in TextMate with bundle. If don't, you can create one yourself. We will have several post on different bundles to introduce more about them.
 
 ###Terminal
 
-Install shell support, then you will be able to open Textmate in Terminal fairly simple by using ``mate`` command. I always begin my day by opening Terminal, cd to the project repository, and type ``mate .``.
+Install shell support, then you will be able to open TextMate in Terminal fairly simple by using ``mate`` command. I always begin my day by opening Terminal, cd to the project repository, and type ``mate .``.
 
-We have a bunch of setups elsewhere except for just in preferences. Now we turn to the navigation bar of Textmate and do some more.
+We have a bunch of setups elsewhere except for just in preferences. Now we turn to the navigation bar of TextMate and do some more.
 
 ##Edit
 
@@ -58,19 +58,19 @@ Other settings:
 
 ##Theme
 
-I made Theme an independent part because it has great significance in making Textmate your own.
+I made Theme an independent part because it has great significance in making TextMate your own.
 
 "View" -> "Theme" -> List of Installed Themes...
 
 The theme I use is Cobalt, which has dark blue background and comfortable syntax highlights.
 
-You can add more Textmate 2 themes by simply search on the Internet and download them. Then open that file with Textmate, it will be added to "View" -> "Theme".
+You can add more TextMate 2 themes by simply search on the Internet and download them. Then open that file with TextMate, it will be added to "View" -> "Theme".
 
-###Use Textmate 1 Theme
+###Use TextMate 1 Theme
 
-In Textmate 2, all themes are turned into bundles. So there is no support for .tmTheme files anymore. But, if you like old themes, there is a simple way to do it.
+In TextMate 2, all themes are turned into bundles. So there is no support for .tmTheme files anymore. But, if you like old themes, there is a simple way to do it.
 
-Suppose now you have a .tmTheme file, how can you use it in Textmate 2? The genius behind it is to wrap it in a bundle. Go ahead and open Textmate 2. Find "Bundles" in navigation bar. Click "Edit Bundles...".
+Suppose now you have a .tmTheme file, how can you use it in TextMate 2? The genius behind it is to wrap it in a bundle. Go ahead and open TextMate 2. Find "Bundles" in navigation bar. Click "Edit Bundles...".
 
 A window will pop up and show all the bundles you installed. Press "command + n", there will be a dialog asking you to choose what you want to create. The default choice is "Bundle". Click create.
 
@@ -82,7 +82,7 @@ A window will pop up and show all the bundles you installed. Press "command + n"
 
 Thanks to [Michael Sheets](http://pastie.org/private/le1pyvas9g1zgnetfwvg) for this tip. When you create one with this method, it will appear at the file location described above.
 
-I’ve found that most bundles for the alpha live in `/Users/<yourname>/Library/Application Support/Textmate/Managed/Bundles/`. You can find a directory named `Themes.tmbundle`. Get into that directory, then open `Themes`, put your desired .tmTheme file in there. Themes will show up under the "View" -> "Themes" menu item.
+I’ve found that most bundles for the alpha live in `/Users/<yourname>/Library/Application Support/TextMate/Managed/Bundles/`. You can find a directory named `Themes.tmbundle`. Get into that directory, then open `Themes`, put your desired .tmTheme file in there. Themes will show up under the "View" -> "Themes" menu item.
 
 ##Summary
 
@@ -92,6 +92,6 @@ I introduced several things that need to be done before great coding experience.
 
 ---
 
-This is one of my series posts on Textmate 2, a handy, light, expandable editor on Mac OS X. For more pro tips on Textmate 2, click [here]().
+This is one of my series posts on TextMate 2, a handy, light, expandable editor on Mac OS X. For more pro tips on TextMate 2, click [here]().
 
-If you have more pro tips or fancy usage of Textmate 2 you want to share, please do let me know by commenting, sending me emails or informing me on social networks. Thanks a lot!
+If you have more pro tips or fancy usage of TextMate 2 you want to share, please do let me know by commenting, sending me emails or informing me on social networks. Thanks a lot!
