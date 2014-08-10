@@ -8,7 +8,9 @@ tags:
 
 In this post, we will learn about various kinds of shortcuts in TextMate 2. Shortcut is the prime force of productivity!
 
-##Common Shortcuts
+<!-- more -->
+
+##All Shortcuts
 
 <br/><br/><br/>
 ###File
@@ -102,7 +104,7 @@ In this post, we will learn about various kinds of shortcuts in TextMate 2. Shor
 |---------|-----------|
 |⌘:|show spelling and grammar|
 |⌘;|check spelling|
-|⌥⌘;|***check spelling as you type***|
+|⌥⌘;|***charactereck spelling as you type***|
 
 <br/>
 ###View
@@ -175,43 +177,57 @@ In this post, we will learn about various kinds of shortcuts in TextMate 2. Shor
 <br/>
 ###Go
 
+|shortcuts|description|
+|---------|-----------|
+|⌘t|***go to file***|
+|⌥⌘up|go to related file|
+|⌘number|go to tab number|
+|⌘up|enclosing folder(only in project view)|
+|⌃⌘r|current document|
+|⇧⌘p|***project folder***|
+|⇧⌘y|SCM status|
+|⇧⌘c|computer|
+|⇧⌘h|home|
+|⇧⌘d|desktop|
+
+<br/>
+####Go to Tab
+
+|shortcuts|description|
+|---------|-----------|
+|⌘number|go to that tab|
+|⌘0|last tab|
+
 <br/>
 ###Bundles
 
+|shortcuts|description|
+|---------|-----------|
+|⌃⌘t|***select bundle item***|
+|⌃⌥⌘b|edit bundles|
+
 <br/>
 ###Window
+
+|shortcuts|description|
+|---------|-----------|
+|⌘m|minimize|
+|⌘{/}|***select last/next tab***|
 
 <br/>
 ###Some Other
 
 |shortcuts|description|
 |---------|-----------|
-|⌃ + ⇧ + k|delete selected lines|
-|⌃ + k|delete to current position|
-|⌃ + ⇧ + d|copy this line|
-|⌃ + ⌘ + ⇧ + t|convert spaces to tabs or the other way around|
-|⌃ + ⌘ + t|select bundle item|
-|⌃ + ⇧ + o|open the terminal|
-|⌘ + ⇧ + t|go to symbol|
-|⌃ + ⇧ + u|change selected words to lowercase|
-|⌃ + u|change selected words to uppercase|
-|⌃ + ⌥ + u|change selected words to camel case|
-|⌘ + ⇧ + p|show project folder in directory view|
-|⌃ + ⌘ + direction|move selected words|
-|⌃ + ⇧ + h|format json|
-|⌥ + ⌘ + ]|align assignments|
-|⌃ + j|join|
+|⌃⇧k|***delete selected lines***|
+|⌃k|***delete to current position***|
+|⌃⇧d|***copy this line***|
+|⌃⇧o|***open terminal***|
+|⌘,|preferences|
+|⌘h|hide textmate|
+|⌥⌘h|***hide others***|
 
 <br/>
-###Unrelated to Coding
-
-
-|shortcuts|description|
-|---------|-----------|
-|⌘ + ,|Preferences|
-|⌃ + ⌘ + t|Select Bundle Item|
-|⌃ + ⌥ + ⌘ + b|Edit Bundles|
-
 ##Summary
 
 You may find any of the key strokes above in TextMate 2. The reasons I am doing this are:
