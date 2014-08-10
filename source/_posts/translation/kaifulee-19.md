@@ -26,13 +26,13 @@ A recent report showed that 570,000 of 6.8 million college graduates remained jo
 Why do these students have trouble finding jobs? Some say that they lack of career planning and often search for jobs aimlessly. Others think the root of the problem is China's current university education system. There is a disconnect between what the universities taught and what the market really need. For example, computer science majored students learn to program school, but few can design efficient algorithms to solve real-world problems or build software in a team.
 >为什么这些学生找工作遇到困难呢？有的人说他们缺乏职业生涯规划，经常漫无目的地寻找工作。另一些人认为问题的根源在于中国现行的大学教育系统。学校教的东西和市场的真正需求之间存在巨大的断层。比如说，计算机专业的学生在学校学着编程，但很少有人能设计出高效的算法来解决现实世界的问题或是在一个团队中构建软件。
 
-According to China's Education Ministry, there are 2,138 universities and colleges in China as of April 2012. However, not all Chinese universities and colleagues(colleges) are created equal. China government launched two programs (coded "211" and "985") to select a very small nubmer of top schools to accelerate into world-class universities. Those "chosen" schools represented a small percentage of China's universities/colleges, but they received much more resources than other schools.
+According to China's Education Ministry, there are 2,138 universities and colleges in China as of April 2012. However, not all Chinese universities and colleagues(colleges) are created equal. China government launched two programs (coded "211" and "985") to select a very small number of top schools to accelerate into world-class universities. Those "chosen" schools represented a small percentage of China's universities/colleges, but they received much more resources than other schools.
 >据中国教育部称，截止2012年四月在中国已有各种大学和院校2138所。然而，不是每所中国大学和院校都是平等的。中国ZF启动了两个项目（代号“211”和“985”）来选很少一部分顶尖学校来加速进入世界级别的大学。那些“被选上的”学校代表了中国大学/院校的很小一部分，但他们相比其他学校获得了更多的资源。
 
-Schools should see their students as products. All successful companies build products that meet market needs. Universities should listen to market and adapt their curriculum. For example, mobile computing and cloud computing require new skillsets and experiences, and should be rapidly incorporated into the curriculum.
+Schools should see their students as products. All successful companies build products that meet market needs. Universities should listen to market and adapt their curriculum. For example, mobile computing and cloud computing require new skill-sets and experiences, and should be rapidly incorporated into the curriculum.
 >学校应该把学生当作自己的产品。所有成功的公司打造的都是市场需要的产品。大学应该倾听市场并改编他们的课程计划。比如说，移动计算机技术和云计算技术需要新的技能组合和体验，应当迅速地合并到课程当中。
 
-Despite the issues above, the top students out of 6.8M graudates and 1.3 billion people are indeed awesom! I was fortunate to have worked for some top companeis (Microsoft, Google, and now Innovation Works) to have the privilege of hiring some of these top students, who definitely exhibit:
+Despite the issues above, the top students out of 6.8M graduates and 1.3 billion people are indeed awesome! I was fortunate to have worked for some top companies (Microsoft, Google, and now Innovation Works) to have the privilege of hiring some of these top students, who definitely exhibit:
 >除了以上的那些问题，六百八十万毕业生和十三亿人中的顶尖学生确实很棒！我有幸为一些顶级的公司工作（微软，谷歌和现在的创新工场）来招一些顶尖学生，他们明显地展示出：
 
 1.  Problem-solving skills (not just academic).

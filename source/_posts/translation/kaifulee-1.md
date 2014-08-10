@@ -15,7 +15,7 @@ This is a series of articles published by [Kai Fu Lee](https://www.linkedin.com/
 Translation of Kaifu Lee's post on LinkedIn - The Chinese User is More Like you Than you Think
 >李开复LinkedIn文章翻译之一 – 中国用户比你想象中的更像你
 
-To an American, China feels very distant, very different, and very difficult. You hear bizzarre tales, and see American companies fail in China, so you assume Chinese Internet users must be very different from you.
+To an American, China feels very distant, very different, and very difficult. You hear bizarre tales, and see American companies fail in China, so you assume Chinese Internet users must be very different from you.
 >对美国人来说，中国感觉上是一个非常遥远，非常不同，还非常艰难的地方。你听过各种荒诞的传说，看到了美国公司在中国陨落，所以你假定中国的网民肯定也和你很不一样。
 
 But actually, the Chinese Internet user is a lot like you -- He browses, searches, and plays. She uses SNS, IM, and mobile apps. They all love smart phones, Angry Birds, and iPads.

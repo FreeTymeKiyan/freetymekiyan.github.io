@@ -30,7 +30,7 @@ Some observations from this:
 
 *   There is still significant information asymmetry among countries, suggesting cross-border e-commerce can be very appealing. There are many Chinese goods that Americans would find novel or unique or inexpensive, and vice versa. One company that does this is lightinthebox.com. 
 *   To profit from this opportunity, one needs to address high shipping and logistics cost.
-*   Trust the power of social e-commerce, and "trusted recommendations". Perhaps Facebook and Sina haven't quite figured it out yet, but this is a goldmine waiting to be disovered.
+*   Trust the power of social e-commerce, and "trusted recommendations". Perhaps Facebook and Sina haven't quite figured it out yet, but this is a goldmine waiting to be discovered.
 *   A sincere endorsement from a trusted person may be worth more than a paid endorsement from a celebrity.
 *   Everybody loves frozen desserts!
 *   Nobody reads instructions!

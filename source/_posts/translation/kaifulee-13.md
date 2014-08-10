@@ -28,13 +28,13 @@ In 1999, when I worked for Microsoft Research China, I tried to hire a top docto
 In iFlytek's early days, Qingfeng lacked management experience and was over-optimistic about the market, and his company almost went out of business.  But he was rescued with funding from Legend Capital, and became a protege of the top entrepreneur Mr. Liu Chuanzhi (founder of Legend/Lenovo).
 >科大讯飞初创的时候，庆峰还很缺乏管理经验，对市场也过于乐观，他的公司差点因此倒闭。但他被君联资本的钱救了，还成为了顶尖企业家柳传志先生（联想的创始人）的门生。
 
-Most of the billion-dollar Chinese software companies rode the exponential growth of the Internet, but iFlytek did it the hard way -- they built the best technologies for speech recognition, found early adopters<sup>[[4]](#Reference)</sup>, and created a market that would otherwise be non-existent. To improve the quality of speech recognition, iFlytek used earlier installations to develop a virtuous cycle, continuously using captured data to automatically improve the recognition accuracy. In speech recognition, there are no shortcuts, and no possibilities of copying. This is real science and engineering, and needed to be built from the gound-up. iFlytek did an amazing job.I ought to know, because this is the domain that my Ph.D. thesis pioneered in 1988.
+Most of the billion-dollar Chinese software companies rode the exponential growth of the Internet, but iFlytek did it the hard way -- they built the best technologies for speech recognition, found early adopters<sup>[[4]](#Reference)</sup>, and created a market that would otherwise be non-existent. To improve the quality of speech recognition, iFlytek used earlier installations to develop a virtuous cycle, continuously using captured data to automatically improve the recognition accuracy. In speech recognition, there are no shortcuts, and no possibilities of copying. This is real science and engineering, and needed to be built from the ground-up. iFlytek did an amazing job.I ought to know, because this is the domain that my Ph.D. thesis pioneered in 1988.
 >大多数十亿美元级别的中国软件公司依靠互联网的指数及增长，但科大讯飞却费了一番苦工 -- 他们构造了语音识别的最佳技术，找到了技术的早期采纳者，还开创了一个市场，不然这个市场很可能不会存在。为了改善语音识别的质量，科大讯飞使用了早些时候的设备来开发一个良性循环，持续不断地使用抓取的数据来自动地提高识别精确度。在语音识别里没有捷径，也没有抄袭的可能性。这是真正的科学和工程，必须要从头做起。科大讯飞做的这些工作令人惊讶。我大概知道，因为这是我1988年博士论文倡导的领域。
 
 Nuance Communication is the global leader in speech recognition, and is valued at about $7 billion. iFlytek is the leader in China, and is valued at about \$1.5 billion.
 >Nuance通信公司是语音识别的全球领航者，它的估值大约在七十亿美元。科大讯飞是中国的领导者，估值大约在十五亿。
 
-I saw Qingfeng again earlier this year, when I attended the annoucement of his cloud-based and assistance-based products. I am impressed by how he stayed up-to-date on technology, and became a great leader and manager. Watch out for iFlytek in the global market!
+I saw Qingfeng again earlier this year, when I attended the announcement of his cloud-based and assistance-based products. I am impressed by how he stayed up-to-date on technology, and became a great leader and manager. Watch out for iFlytek in the global market!
 >今年早些时候我又见到了庆峰，当时我正参加他的基于云和助理的产品发布会。我被他如何紧跟最新技术以及变成一个伟大的领导者和管理者所深深打动。在全球市场密切关注科大讯飞吧！
 
 ##Reference

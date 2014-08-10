@@ -44,7 +44,7 @@ The second step is learning some third-party modules. We may feel that too littl
 Coming back to core modules ranks the third. To be blunt, go through the official API docs carefully.
 
 ###Step 4
-What about the forth step? Of course we need more practices. No matter using core modules or third-party ones, try to solve some problem or replace the code we wrote before with Node.js. Moreover, we'd better read some source code. The source code here doesn't mean the source code of Node.js itself, or those large frameworks. At this time, pick some source code of utility modules which implements some certain function. This kind of modules usally have several hundreds of lines, not too difficult while we may learn a lot. For example:
+What about the forth step? Of course we need more practices. No matter using core modules or third-party ones, try to solve some problem or replace the code we wrote before with Node.js. Moreover, we'd better read some source code. The source code here doesn't mean the source code of Node.js itself, or those large frameworks. At this time, pick some source code of utility modules which implements some certain function. This kind of modules usually have several hundreds of lines, not too difficult while we may learn a lot. For example:
 
 * underscore
 * ...

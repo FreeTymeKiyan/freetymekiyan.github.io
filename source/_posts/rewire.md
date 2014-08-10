@@ -161,7 +161,7 @@ after(function() {
 });
 ```
 
-As I commented above, this won't work due to the rigid way of binding a spy with existing method. We can only get exposed method with ``sinon.spy(index, 'someFunc');``, or ``sinon.stub(index, 'someFunc', function() {});``. Even though we can get private functions with rewire, we can't hook it up with a spy in the original module. We could have much more proress. What a pity!
+As I commented above, this won't work due to the rigid way of binding a spy with existing method. We can only get exposed method with ``sinon.spy(index, 'someFunc');``, or ``sinon.stub(index, 'someFunc', function() {});``. Even though we can get private functions with rewire, we can't hook it up with a spy in the original module. We could have much more progress. What a pity!
 
 Anyways, with rewire, we don't need to change our original code. Isn't that great?
 

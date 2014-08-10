@@ -9,7 +9,7 @@ categories:
 During internship, I learned a lot about the differences between pro-coder and casual coding. One thing I noticed is that my supervisor will remove all the unnecessary spaces when doing code review. It's a bit tedious and time-consuming if we do it by clicking around in TextMate bundles. There are two ways that can accelerate this.
 
 ##Method One
-We usaully come up with handy keyboard shortcuts instead of using mouse. The first method is doing it manually using "control+command+T". Then type "rem" in the search field, the very first one should be what we are looking for. Lastly, hit enter and we are all set.
+We usually come up with handy keyboard shortcuts instead of using mouse. The first method is doing it manually using "control+command+T". Then type "rem" in the search field, the very first one should be what we are looking for. Lastly, hit enter and we are all set.
 
 Make sure you **Search by Title** and **Search all Scope** in the **Select Bundle Item** window.
 <center>![Screen Shot of Select Bundle Item](../../../../../images/select-bundle-item-window.png)</center>
