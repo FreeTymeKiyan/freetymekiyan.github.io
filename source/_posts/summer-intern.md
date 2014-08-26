@@ -3,7 +3,7 @@ categories:
  - Coding
 tags:
  - Thoughts
-date: 2014-08-05
+date: 2014-08-06
 ---
 
 The first time I logged onto JIRA and saw those words, "At Modulus we love you", I knew this journey would be super great.
