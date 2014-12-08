@@ -109,7 +109,7 @@ It kept throwing IOException and Connection failure. I searched on google for po
   
 ## Solution  
   
-I already called it on worker thread, so it should not be the cause. When I was about to give up and try to implement my own class according to the solution on StackOverFlow<sup>[[4]](#References)</sup>, it suddenly came to me that what if I change the context of current Activity to Application context? Although I didn't know the exact difference between them, I remembered that using getApplicationContext() crashes both ProgressDialog and Toast, which lead me to this feeling that it might be the problem.  
+I already called it with worker thread, so that should not be the cause. When I was about to give up and try to implement my own class according to the solution on StackOverFlow<sup>[[4]](#References)</sup>, it suddenly came to me that what if I change the context of current Activity to Application context? Although I didn't know the exact difference between them, I remembered that using getApplicationContext() crashes both ProgressDialog and Toast, which lead me to this feeling that it might be the problem.  
   
 And it really worked. Then I tried on different devices and different places to put the thread call(``onCreate(), onResume(), onClick()``), it all worked.  
   
@@ -132,7 +132,7 @@ You only use getApplicationContext() when you know you need a Context for someth
   
 1. Download latest Google Play Services SDK.  
 2. Import the code and add it as a library project.  
-3. Modify manifest.xml.  
+3. Modify AndroidManifest.xml.  
 4. Add rules in proguard-project.txt.  
 5. Call ``AdvertisingIdClient.getAdvertisingIdInfo(getApplicationContext()).getId()`` in a worker thread to get the id in String. 
   
