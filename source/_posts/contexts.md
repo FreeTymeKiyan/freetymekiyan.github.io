@@ -7,7 +7,7 @@ categories:
 date: 2014-12-07 05:37:12
 ---
 
-Recently I joined my friends in a side project named Money Maker. The idea of this project is fairly simple: it aims at integrating advertisement platforms together within our app and provide little task for users. User can finish these tasks and get credits, and exchange the credits to cash or gift cards. We are a team of 5: 1 iOS app dev, 1 Android app dev, 1 frontend dev, 1 backend dev, and 1 support guy and we are now supporting **126,822**(98560 + 28262) users in total. The problem I'm going to talk about today happened during the dev process.  
+Recently I joined my friends in a side project named Money Maker. The idea of this project is fairly simple: it aims at integrating advertisement platforms together within our app and provide little task for users. User can finish these tasks and get credits, and exchange the credits with cash or gift cards. We are a team of 5: 1 iOS app dev, 1 Android app dev, 1 front-end dev, 1 backend dev, and 1 support guy and we are now supporting **126,822**(98560 + 28262) users in total. The problem I'm going to talk about today happened during the dev process.  
   
 ![Number of Users Powered UMeng](/images/user.png)
   
@@ -77,7 +77,7 @@ One extremely important thing here is DO NOT call ``getIdThread()`` from main UI
   
 ## Problem  
   
-After I implemented the code with according to things above, I still can't get the GAID on my phone. Below is the error log and code.  
+After I implemented the code with according to things above, I still couldn't get the GAID on my phone. Below is the error log and code.  
   
 ![Error Log](/images/error_log.jpg)  
   
@@ -109,9 +109,9 @@ It kept throwing IOException and Connection failure. I searched on google for po
   
 ## Solution  
   
-When I was about to give up and try to implement my own class according to the solution on StackOverFlow<sup>[[4]](#References)</sup>, it suddenly came to me that what if I change the context of current Activity to Application context? Although I didn't know the exact difference between them, I remembered that using getApplicationContext() crashes both ProgressDialog and Toast, which lead me to this feeling that it might be the problem.  
+I already called it on worker thread, so it should not be the cause. When I was about to give up and try to implement my own class according to the solution on StackOverFlow<sup>[[4]](#References)</sup>, it suddenly came to me that what if I change the context of current Activity to Application context? Although I didn't know the exact difference between them, I remembered that using getApplicationContext() crashes both ProgressDialog and Toast, which lead me to this feeling that it might be the problem.  
   
-And it really worked. I couldn't believe my eyes when I saw the GAID in debug log. Then I tried on different devices and different places to put the thread call(``onCreate(), onResume(), onClick()``), it all worked.  
+And it really worked. Then I tried on different devices and different places to put the thread call(``onCreate(), onResume(), onClick()``), it all worked.  
   
 ## Differences of Activity Context and Application Context  
   
