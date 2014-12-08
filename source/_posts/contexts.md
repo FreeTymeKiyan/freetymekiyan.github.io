@@ -1,4 +1,4 @@
-title: Get Google Advertising Id and Differences of Contexts
+title: Getting Google Advertising Id and Differences of Contexts
 tags:
   - Android
   - Pro-tips
@@ -9,7 +9,7 @@ date: 2014-12-07 05:37:12
 
 Recently I joined my friends in a side project named Money Maker. The idea of this project is fairly simple: it aims at integrating advertisement platforms together within our app and provide little task for users. User can finish these tasks and get credits, and exchange the credits with cash or gift cards. We are a team of 5: 1 iOS app dev, 1 Android app dev, 1 front-end dev, 1 backend dev, and 1 support guy and we are now supporting **126,822**(98560 + 28262) users in total. The problem I'm going to talk about today happened during the dev process.  
   
-![Number of Users Powered UMeng](/images/user.png)
+![Number of Users Powered by UMeng](/images/user.png)
   
 ## Background  
   
