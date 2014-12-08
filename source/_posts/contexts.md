@@ -1,4 +1,4 @@
-title: Differences Between Context and Application Context
+title: Get Google Advertising Id and Differences of Contexts
 tags:
   - Android
   - Pro-tips
