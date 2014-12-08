@@ -134,7 +134,7 @@ You only use getApplicationContext() when you know you need a Context for someth
 2. Import the code and add it as a library project.  
 3. Modify manifest.xml.  
 4. Add rules in proguard-project.txt.  
-5. call ``AdvertisingIdClient.getAdvertisingIdInfo(getApplicationContext()).getId()`` in a worker thread to get the id in String. 
+5. Call ``AdvertisingIdClient.getAdvertisingIdInfo(getApplicationContext()).getId()`` in a worker thread to get the id in String. 
   
 ### Differences  
   
