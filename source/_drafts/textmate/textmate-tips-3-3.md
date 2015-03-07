@@ -1,4 +1,4 @@
-title: 'Use TextMate 2 as a Pro: Shortcuts'
+title: 'Use TextMate 2 as a Pro: All Shortcuts'
 categories:
   - Coding
 tags:
