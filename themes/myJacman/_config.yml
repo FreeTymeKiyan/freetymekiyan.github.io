@@ -120,4 +120,4 @@ google_analytics:
 ## https://developers.google.com/analytics/devguides/collection/upgrade/?hl=zh_CN
 
 highlight: 
-   enable: true
+  enable: true
