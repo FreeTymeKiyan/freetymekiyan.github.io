@@ -11,7 +11,7 @@ The first time I logged onto JIRA and saw those words, "At Modulus we love you",
 
 ![JIRA Screenshot](/images/jira.jpg)
 
-##The Last Day
+## The Last Day
 
 How time flies, my summer internship just ended last Friday. 
 
@@ -21,7 +21,7 @@ After that, I started to remove my stuff one by one from that MacBook Pro I took
 
 That was it. I can't believe that I was still coding a day before on Thursday, then I wouldn't be here fighting with my team anymore. 
 
-##Review
+## Review
 
 I would like to share a brief review on it. It started from June 1st, ended on August 1st, exactly two months. What I did during it are as listed below: 
 
@@ -47,21 +47,21 @@ I really gained a lot from this internship. I gained knowledge, gained skills...
 
 Well, nothing is perfect. I have some pities as well. This is my first internship, and probably also the last one. I wish I had stayed longer and contributed more projects and code. I wish I had been better at English, then I could have been more active and introduced myself fully to you. It is always in my mind that instead of colleagues, trying to be friends, teammates, or even bros with others, which will inspire more potential and broaden one's vision. 
 
-##Comments
+## Comments
 
 In a word, Modulus is AWESOME! Not only for the free beer, but for foosball and the free atmosphere. And most importantly, for the great teammates I have ever had. I will definitely introduce Modulus to my friends, no matter as a choice of their internship, or a choice of hosting their apps. I hope I can be back!
 
 What about the estimate on me? I asked for some comments on my performance at Modulus and won a high opinion from Matt and Brandon. To be honest, I didn't imagine that. I thought I just did what I should and acted normally. But things turned out very well, and I received much help from others to get them done. Your words will continue encouraging me to do better on my way. 
 
-##Future
+## Future
 
 I am more than sure that I will be in the Node.js community after this internship. After my intern, I feel that there are still a lot more I can do and a lot more amazing stuffs that worth digging into. Like I once discussed with Matt, I am eager to focus on a single area and master it. My adventure on Node.js will be continued. The next big things are gaining more knowledge of JavaScript, reading through the Node API documentation, and studying the source code of popular modules. These steps will be written down as post series in detail and published to my blog. Also, I wanna be more social and reach out to the Node community. No matter online forums or offline meet-ups, I will put them on my priority list. 
 
-##Sorry
+## Sorry
 
 I would like to say sorry for a few situations. Although my pronunciation is not bad, sometimes it is hard for me to understand fully of what you guys are talking about with each others. I am definitely not enough familiar with the names of famous people, trending dramas, or jokes. Sometimes I got them, but still not able enough to react quickly. That is probably because I have been here for only a year. So, if I did something weird, awkward or even annoying, I wanna apologize and say it is probably not what I meant. 
 
-##Best Moments
+## Best Moments
 
 The first time I logged onto JIRA and saw those words, "At Modulus we love you", I knew this journey would be super great.
 
@@ -75,7 +75,7 @@ The first time I logged onto JIRA and saw those words, "At Modulus we love you",
 
 "Your English is good. I didn't even think about that. " Matt said after I said sometimes I don't quite get the talks between you guys. 
 
-##Thanks
+## Thanks
 
 This might be the longest section. I'm grateful for almost everything and everyone.
 

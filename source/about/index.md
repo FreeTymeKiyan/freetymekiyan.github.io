@@ -1,15 +1,15 @@
 title: About Me
 layout: page
 ---
-#History
+# History
 
 Hi there! My name is Yang Liu.
 
-##ID
+## ID
 
 **FreeTymeKiyan** is my usual ID. This ID seems to be a bit long. Actually there are two parts. The first part is FreeTyme, which is evolved from free time. I was inspired by a streetball player named "ShowTyme" when I was still in high school. Kiyan, the second part, is just a normal English name.
 
-##Coding
+## Coding
 
 Right before the summer vacation of my sophermore year, I successfully entered [Dian Group][1], the largest student software organization of my university, which has about 150 people normally at school and 500 teammates in total. Since then, I worked on Android App development for about two years. That's how my coding journey starts.
 
@@ -19,7 +19,7 @@ After graduation, I went abroad for Master's degree at Rose-Hulman Institute of 
 
 To be continued...
 
-#Blog Content
+# Blog Content
 
 I write mainly about coding and life.
 
@@ -29,7 +29,7 @@ Shortly after I started my internship, I decided to have a much cooler blog to c
 
 You'll find that I write about pro-tips for coding, text editors, and great learning resources. Sometimes I will translate good tech posts into Chinese to help those who are not familiar with English. Also, there will be some article about my hobbies. Hobbies make a joyful life. 
 
-#Reason
+# Reason
 
 Reasons for why I blog are as followed:
 
@@ -41,7 +41,7 @@ Reasons for why I blog are as followed:
 6. Keep doing something persistently;
 7. A long-term valuable blog is a very good resume.
 
-#Wishes
+# Wishes
 
 I'm willing to share my thoughts with you to help anyone who is encountered with the same problem. Also, it would be great if you can leave some comments and exchange your fantastic ideas with me. You may find me with those ways listed at the footer. There is also a fun mouseover effect on my head on the bottom left, enjoy it!
 
