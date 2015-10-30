@@ -8,12 +8,12 @@ subtitle: "Success === Accumulation."
 description: "This is my blog."
 author: FreeTymeKiyan
 email: FreeTymeSunKiyan@gmail.com
-language: 
+language: default
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://freetymekiyan.github.io
-root: /
+root: "/"
 permalink: :year/:month/:day/:title/
 tag_dir: tags
 archive_dir: archives
@@ -82,6 +82,8 @@ disqus_shortname:
 ## Plugins: https://github.com/tommy351/hexo/wiki/Plugins
 ## Themes: https://github.com/tommy351/hexo/wiki/Themes
 theme: myJacman
+stylus: 
+  compress: true
 exclude_generator: 
 
 # Deployment
