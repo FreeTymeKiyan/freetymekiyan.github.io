@@ -81,7 +81,7 @@ disqus_shortname:
 # Extensions
 ## Plugins: https://github.com/tommy351/hexo/wiki/Plugins
 ## Themes: https://github.com/tommy351/hexo/wiki/Themes
-theme: next
+theme: myJacman
 stylus: 
   compress: true
 exclude_generator: 
