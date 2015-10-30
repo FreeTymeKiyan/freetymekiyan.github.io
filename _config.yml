@@ -40,6 +40,15 @@ highlight:
   enable: true
   line_number: true
   tab_replace: 2
+  auto_detect: true
+marked:
+  gfm: true
+  pedantic: false
+  sanitize: false
+  tables: true
+  breaks: true
+  smartLists: true
+  smartypants: true
 
 # Category & Tag
 default_category: uncategorized
