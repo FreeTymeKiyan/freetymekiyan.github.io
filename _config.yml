@@ -3,12 +3,12 @@
 ## Source: https://github.com/tommy351/hexo/
 
 # Site
-title: FreeTymeKiyan | THINKER
-subtitle: Success === Accumulation.
-description: This is my blog.
+title: "FreeTymeKiyan | THINKER"
+subtitle: "Success === Accumulation."
+description: "This is my blog."
 author: FreeTymeKiyan
 email: FreeTymeSunKiyan@gmail.com
-language:
+language: 
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -36,15 +36,15 @@ filename_case: 0
 render_drafts: false
 post_asset_folder: false
 relative_link: true
-highlight:
+highlight: 
   enable: true
   line_number: true
   tab_replace: 2
 
 # Category & Tag
 default_category: uncategorized
-category_map:
-tag_map:
+category_map: 
+tag_map: 
 
 # Archives
 ## 2: Enable pagination
@@ -61,13 +61,13 @@ tag: 2
 port: 4000
 server_ip: 0.0.0.0
 logger: false
-logger_format:
+logger_format: 
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
-date_format: MMM D YYYY
+date_format: "MMM D YYYY"
 time_format: H:mm:ss
 
 # Pagination
@@ -76,27 +76,27 @@ per_page: 10
 pagination_dir: page
 
 # Disqus
-disqus_shortname:
+disqus_shortname: 
 
 # Extensions
 ## Plugins: https://github.com/tommy351/hexo/wiki/Plugins
 ## Themes: https://github.com/tommy351/hexo/wiki/Themes
 theme: myJacman
-exclude_generator:
+exclude_generator: 
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
-deploy:
+deploy: 
   type: github
   repository: git@github.com:FreeTymeKiyan/freetymekiyan.github.io.git
   branch: master
 
 # feed
-feed:
+feed: 
   type: atom
   path: atom.xml
   limit: 20
 
 # sitemap
-sitemap:
+sitemap: 
   path: sitemap.xml
