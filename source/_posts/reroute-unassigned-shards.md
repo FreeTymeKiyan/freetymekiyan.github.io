@@ -8,7 +8,7 @@ tags:
   
 ## Red Cluster!  
   
-There are 3 cluster statuses:   
+There are 3 cluster states:   
   
 >1. green: Everything is good
 >2. yellow: Something may be wrong, but the cluster is still running
@@ -111,7 +111,7 @@ There are 3 kinds of commands you can use:
 
 >**allocate**: Allocate an unassigned shard to a node. Accepts the index and shard for index name and shard number, and node to allocate the shard to. It also accepts allow_primary flag to explicitly specify that it is allowed to explicitly allocate a primary shard (might result in data loss).  
   
-Combining step 2 with the unassigned shards from Step 1, we can reroute all unassigned shards 1 by 1, thus getting faster cluster recovery from red status.  
+Combining step 2 with the unassigned shards from Step 1, we can reroute all unassigned shards 1 by 1, thus getting faster cluster recovery from red state.  
   
 ## Example Solutions
 
