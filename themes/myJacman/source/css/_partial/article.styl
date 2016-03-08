@@ -39,8 +39,22 @@ article
       &:before
         font-family font-icon-family
         font-size font-size+30
+        content "\f073"
+        font-smoothing()
+    >p.article-read-time
+      padding-top 0.5em
+      font-size 0.8em
+      text-align center
+      @media mini
+        float right
+        margin-right 1em
+        padding-top 0.1em
+        font-size 0.9em
+      &:before
+        font-family font-icon-family
+        font-size font-size+30
         content "\f017"
-        font-smoothing()      
+        font-smoothing()
   .article-content
     padding 1.5em 4%
     color color-content
