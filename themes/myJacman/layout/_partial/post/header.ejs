@@ -12,6 +12,8 @@
 		<% } %>
   <p class="article-time">
     <time datetime="<%= date_xml(item.date) %>" itemprop="datePublished"><%= __('datepublished') %> <%= item.date.format(config.date_format) %></time>
-    
+  </p>
+  <p class="article-read-time">
+    <span class="post-count"><%= wordcount(item.content) %> words in <%= min2read(item.content) %> minutes</span>
   </p>
 </header>
