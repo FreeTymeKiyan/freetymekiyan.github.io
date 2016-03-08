@@ -14,7 +14,7 @@ There are 3 cluster states:
 >2. yellow: All primary shards are active, but not all replica shards are active
 >3. red: Not all primary shards are active 
   
-Dead means you can do nothing until it's recovered, which is very bad indeed. I will share with you how to deal with one common situation: **when cluster is red due to unassigned shards**.  
+When cluster health is red, it means cluster is dead. And that means you can do nothing until it's recovered, which is very bad indeed. I will share with you how to deal with one common situation: **when cluster is red due to unassigned shards**.  
   
 ## Steps  
   
