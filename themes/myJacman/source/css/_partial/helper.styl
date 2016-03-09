@@ -43,7 +43,6 @@ footer.article-footer
     width 1em
     margin-right 0.5em
     position relative
-    color lighten(color-gray,20%)
     &:before
       font-family font-icon-family
       content "\f064"
@@ -118,18 +117,19 @@ footer.article-footer
     absolute-center(20em)
     position fixed
   span 
-    display block
-    width 80%
+    display inline-block
+    width 100%
     height 1.5em
-    font-size 80%
     float left
     &:before
       content none
   a
-    display block
+    display inline-block
     width 16%
     height 1.5em
-    float left
+    float none
+    margin-left 1.5em
+    position absolute
   img
     width 90%
     height 90%
