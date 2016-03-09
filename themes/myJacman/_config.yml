@@ -18,8 +18,9 @@ menu:
 #### Widgets
 widgets:
 - category
-- tag
 - rss
+- tag
+- google_adsense
 - archive
 - links
 - tagcloud
