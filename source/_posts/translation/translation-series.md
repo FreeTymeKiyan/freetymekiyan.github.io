@@ -4,7 +4,7 @@ tags:
  - Kai Fu Lee
 categories:
  - Translation
-date: 2014-07-27
+date: 2014-07-26
 ---
 
 An old series of translation articles are migrated from Wordpress to my new hexo blog. This series contains 23 articles which were translated after I graduated from university. 
