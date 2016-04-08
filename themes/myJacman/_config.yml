@@ -102,8 +102,8 @@ jiathis:
 
 #### Custom Search
 google_cse:
-  enable: false
-  cx:   ## e.g. 018294693190868310296:abnhpuysycw your Custom Search ID.
+  enable: true
+  cx: 015463413643507487695:hcy5xogs8yq  ## e.g. 018294693190868310296:abnhpuysycw your Custom Search ID.
 ## https://www.google.com/cse/
 ## To enable the custom search You must create a 'search' folder in '/source' and a 'index.md' file
 ## set the 'front-matter' as
