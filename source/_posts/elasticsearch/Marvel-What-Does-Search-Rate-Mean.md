@@ -10,7 +10,7 @@ tags:
 
 Elasticsearch provides a handy monitoring tool named Marvel. It is pretty easy to setup. But when it comes to real monitoring, you will realize that those metrics in dashboard are so confusing. They are not consistent with the actual QPS you sent to the cluster. You don't really know what they refer to. 
 
-# Solution
+## Solution
 
 I googled it. But unfortunately there was no answer at that time. The only thing I got is [a post on Marvel forum](https://discuss.elastic.co/t/marvel-what-does-the-search-rate-mean/35260) where somebody was as confused as me. 
 
