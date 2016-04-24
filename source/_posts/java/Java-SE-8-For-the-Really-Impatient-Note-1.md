@@ -52,9 +52,9 @@ EventHandler<ActionEvent> listener = event ->
 ```
 Instead of `(event) ->` or `(ActionEvent event) ->`
 
-Can add annotations of final mofifier
-`(final String name) -> ...`
+Can add annotations or final mofifier
 `(@NonNull String name) -> ...`
+`(final String name) -> ...`
 
 Never specify the result type of a lambda expression. It's always inferred from context. 
 
@@ -194,7 +194,7 @@ public static void repeatMessage(String text, int count) {
 ```
 Mutating variables in a lambda expression is not threadsafe. 
 
-Trick to updatea count in an enclosing local scope in lambda expression
+Trick to update a count in an enclosing local scope in lambda expression
 ```Java
 int[] counter = new int[1];
 button.setOnAction(event -> counter[0]++);
