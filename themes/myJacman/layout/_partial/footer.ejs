@@ -11,7 +11,7 @@
   <% } %>
   <% if(theme.author.intro_line1&&theme.author.intro_line2){ %>
   <section class="info">
-    <p> <%= theme.author.intro_line1 %> <br/>
+    <p> <%= theme.author.intro_line1 %><br/>
       <%= theme.author.intro_line2 %></p>
   </section>
    <% } %>
@@ -47,5 +47,6 @@
     <% } else {%>
     <a href="<%= config.url %>" title="<%= config.title %>"><%= config.title %></a>
     <% } %>
+    , <span class='post-count'><%= totalcount(site) %></span> words
     </p>
 </div>
