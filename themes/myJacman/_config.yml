@@ -71,8 +71,8 @@ totop: true   ##show scroll-to-top in article
 
 #### Author information
 author:
-  intro_line1:  "Hi, I'm Yang Liu."  ## eg: 'Hello ,I'm Larry Page in Google.'
-  intro_line2:  "I blog about Coding and Life."  ## eg: "This is my blog,believe it or not."
+  intro_line1:  "This is FreeTymeKiyan's blog."  ## eg: 'Hello ,I'm Larry Page in Google.'
+  intro_line2:  "He always asks himself, how far can an indie programmer go? Definitely no limit on that."  ## eg: "This is my blog,believe it or not."
   weibo: 2090687247  ## e.g. wuchong1014 or 2176287895 for http://weibo.com/2176287895
   twitter: "FreeTymeKiyan"  ## e.g. wuchong for https://twitter.com/wuchong
   github: "FreeTymeKiyan" ## e.g. wuchong for https://github.com/wuchong
