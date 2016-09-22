@@ -25,15 +25,15 @@ One aspect can be the technologies used to implement the application. Some techn
 
 One possible problem for this pre-research is time consuming. But it is worth it since the comparison result is reusable for the next design. Another downside can be that the best technology chosen may not be familiar to the team, or even not easier to pick up at all. All these factors should be considered before making the final decision. 
 
-#### Scailing Up
+#### Scaling Up
 
 Scailing up means improving a single machine. Think about the aspects you can improve, such as the CPU, the memory, the disk and etc. Examples are like replace CPU with more cores, increase the size of memory, and upgrade to SSD drive. 
 
 This approach is useful in some cases, but after a given point, the hardware of one machine just is not capable of handling all the requests. It would also be a single point of failure if the machine goes down. 
 
-#### Scailing Out
+#### Scaling Out
 
-Scailing out basically means adding more nodes and building a cluster. The load is distributed to a number of machines instead of one. 
+Scaling out basically means adding more nodes and building a cluster. The load is distributed to a number of machines instead of one. 
 
 The approach is better generally, as it avoids single point failure and is easy to scale. When the current cluster cannot handle the load well, we can config a new machine and add it to the cluster. And if we know how many requests one node can handle, we can easily estimate how many nodes we need for a cluster as well. 
 
@@ -45,7 +45,7 @@ Software load balancer definitely adds resiliency to an application. It is almos
 
 #### DNS Load Balancer
 
-We can config a DNS server to parse domain to different hosts. This DNS load balancer is in front of software load balancer and can forward requests to different softawre load balancers. In this way, the system can handle even more requests and further scale out. 
+We can config a DNS server to parse domain to different hosts. This DNS load balancer is in front of software load balancer and can forward requests to different software load balancers. In this way, the system can handle even more requests and further scale out. 
 
 #### Auto Scaling
 
@@ -59,7 +59,7 @@ This technique is specifically useful when it comes to unusual high traffic, whe
 
 Assume that we know the relations between our data objects, we can assess the approximate size of the data to be stored. For example, in a simple twitter problem, we have 10 million users and each of them post 1 tweet per day. Each tweet contains 140 characters. If we assume 2 bytes per character, it will be 2 * 140 * 10bln = 2.6 TB for a day. 
 
-After a quick analysis on all possible data to be stored, there can be some data that takes up majority of the storage space. It is important to have a rough idea about the size of the data that the system will need to handle. Approperiate design decisions base on this. 
+After a quick analysis on all possible data to be stored, there can be some data that takes up majority of the storage space. It is important to have a rough idea about the size of the data that the system will need to handle. Appropriate design decisions base on this. 
 
 #### Adding Indexes
 
@@ -77,7 +77,7 @@ This will help only if the write operations does not increase dramatically at th
 
 Divide the data in some way to several databases. After that, each DB will hold only part of the data, and also, share only part of the requests. 
 
-If we have serveral databases and each of them only has part of the data, the read and write wiil speed up since the load is smaller. But a way should be pre-defined before partitioning. Otherwise we won't be able to know which DB a specific request should go to. And also, because the data size is smaller for each DB, it makes administration tasks like backups faster. 
+If we have several databases and each of them only has part of the data, the read and write will speed up since the load is smaller. But a way should be pre-defined before partitioning. Otherwise we won't be able to know which DB a specific request should go to. And also, because the data size is smaller for each DB, it makes administration tasks like backups faster. 
 
 #### In-memory cache
 
