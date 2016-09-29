@@ -18,11 +18,11 @@ Some fundamental knowledge is required to grasp this method:
   
 ### Time Cost  
   
-Jeff provided a brief table for the costs. This table is nice overall but some rows in it may be unclear. I will show the table first and try to explain those rows.  
+Jeff provided a brief table for the costs. This table is lucid overall but some rows in it might be unclear. I will show the table first and try to explain those rows.  
   
 #### Time Cost Table  
   
-Numbers Everyone Should Know  
+Table 1.1 Numbers Everyone Should Know  
   
 |Basic Step|Time|
 |:---------|:--:|
@@ -38,7 +38,7 @@ Numbers Everyone Should Know
 |Disk seek|10,000,000ns|
 |Read 1 MB sequentially from network|10,000,000ns|
 |Read 1 MB sequentially from disk|30,000,000ns|
-|Send packet CA->Netherlands->CA|150,000,000ns|  
+|Send packet CA->Netherlands->CA|150,000,000ns|
   
 #### Explanation  
   
@@ -52,7 +52,7 @@ What is Mutex lock/unlock? Why important?
   
 What is Zippy? Why is it important?  
 
-Send 2K bytes over 1Gbps network is easy. Just do the math. 2 * 10^3 / (1 * 10^9) = 2 * 10^(-6)s = 2 * 10^3ns, not 2 * 10^4ns... What is the problem here?  
+"Send 2K bytes over 1Gbps network" is easy. Just do the math. 2 * 10^3 / (1 * 10^9) = 2 * 10^(-6)s = 2 * 10^3ns, not 2 * 10^4ns... What is the problem here?  
   
 Read 1 MB sequentially from memory.   
   
@@ -66,7 +66,7 @@ Send packet CA->Netherlands->CA, 150ms. That is a round trip between the west of
   
 ### Decomposition a Design  
   
-I think it is rough to just summarize how to decompose a design since it is based on the knowledge of operation systems and the actual experience on building a performance significant system. For those who are not, this topic would be better explained in examples. 
+I think it is rough to just summarize how to decompose a design since it is based on the knowledge of operation systems and the actual experience on building a performance significant system. For those who do not have them, this topic would be better explained in examples.  
   
 #### Examples  
   
@@ -75,6 +75,10 @@ For example,
 Another example,
 
 Find more examples resources. 
+  
+## Summary  
+  
+In this post I shared a method by Jeff Dean to estimate time cost of a design, named "Back of the Envelope Calculation". The estimation consists of mainly two step: 1) Knowing the time cost of basic steps 2) Decomposing a design into those basic steps. Then we will be able to get a fairly intuitive assessment on our possible designs and choose the best one.  
   
 Other interesting topics in this talk: 
 Problems of Real Hardware  
@@ -88,9 +92,8 @@ Designing Software Systems
   Protocols
   Efficiency
   
-## Summary  
-  
-In this post I shared a method by Jeff Dean to estimate time cost of a design, named "Back of the Envelope Calculation". The estimation consists of mainly two step: 1) Knowing the time cost of basic steps 2) Decomposing a design into those basic steps. Then we will be able to get a fairly intuitive assessment on our possible designs and choose the best one. 
-  
 The "Back of the Envelope Calculation" here focuses on time cost. Another interesting topic is memory usage estimation, which is also widely used before actual implementation. I remembered seeing my former tech lead doing this on a tiny piece of post-it paper and was totally fascinated. I told myself I would also be that kind of engineer one day. So stay tuned on the next topic: Memory Usage Estimation. 
   
+## References  
+  
+1. []()
