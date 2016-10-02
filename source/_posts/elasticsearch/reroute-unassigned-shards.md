@@ -141,6 +141,10 @@ for shard in $(curl -XGET http://localhost:9200/_cat/shards | grep UNASSIGNED | 
     sleep 5
 done
 ```
+
+EDIT: Based on Vincent's comment I updated the shell script:  
+  
+{% gist 21a50205ede3774a90156ffc8057f3e5 reroute.sh %}
   
 ## Possible Unassigned Shard Reasons  
   
