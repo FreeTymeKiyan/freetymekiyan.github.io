@@ -2,7 +2,7 @@ title: Back of the Envelope Calculation
 date: 2016-09-21 19:48:48
 categories:
  - Coding
- - Reading Note
+ - Notes
 tags:
  - System Design
 ---

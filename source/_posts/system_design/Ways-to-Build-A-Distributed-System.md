@@ -2,7 +2,7 @@ title: Ways to Build A Distributed System
 date: 2016-09-13 13:58:24
 categories:
  - Coding
- - Reading Note
+ - Notes
 tags:
  - System Design
 ---

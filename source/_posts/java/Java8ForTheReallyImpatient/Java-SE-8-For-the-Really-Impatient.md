@@ -2,7 +2,7 @@ title: Java SE 8 For the Really Impatient Series
 date: 2016-04-22 15:48:48
 categories:
   - Coding
-  - Reading Note
+  - Notes
 tags:
   - Java
 ---
