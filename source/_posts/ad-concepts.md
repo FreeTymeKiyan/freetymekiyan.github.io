@@ -1,6 +1,8 @@
 title: Concepts in Online Ads Industry
 date: 2016-11-27
 categories:
+  - Coding
+tags:
   - Notes
 ---
   

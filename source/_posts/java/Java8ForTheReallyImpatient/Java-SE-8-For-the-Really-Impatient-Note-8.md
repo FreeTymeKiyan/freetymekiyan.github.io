@@ -2,9 +2,9 @@ title: 'Java SE 8 For the Really Impatient, Note 8'
 date: 2016-03-25 16:17:35
 categories:
   - Coding
-  - Notes
 tags:
   - Java
+  - Notes
 ---
 
 # Chapter 5 The New Date and Time API

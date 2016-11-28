@@ -4,6 +4,7 @@ categories:
   - Coding
 tags:
   - Elasticsearch
+  - Notes
 ---
 
 A very common problem we encounter in Elasticsearch cluster management is how to copy an index to another cluster. For example, we need to make a back up copy for all our current data, or we need to copy data to staging cluster to test query performance.   

@@ -2,9 +2,9 @@ title: Java SE 8 For the Really Impatient Series
 date: 2016-04-22 15:48:48
 categories:
   - Coding
-  - Notes
 tags:
   - Java
+  - Notes
 ---
 
 Recently, I finished reading the book *Java SE 8 For the Really Impatient*. This book covers the main features introduced in Java SE 8, such as Lambda Expressions and Stream API. Also it shows some sweet small features that benefit every day work greatly, namely, the new d ate and time API, the concurrency enhancements, and etc. 

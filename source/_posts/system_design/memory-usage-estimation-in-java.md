@@ -1,9 +1,10 @@
 title: Memory Usage Estimation in Java
 date: 2016-10-07 21:06:23
 categories:
- - Coding
+  - Coding
 tags:
- - System Design
+  - System Design
+  - Notes
 ---
   
 I mentioned in the previous post that memory usage estimation is also very important when it comes to evaluate a design. And I was impressed deeply by my two former tech leads when they do a quick estimate of my proposal on a small piece of paper, or even with just a mental calculation. Now it is the time for me to grasp the gist behind.  

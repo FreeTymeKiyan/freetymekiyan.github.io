@@ -1,10 +1,10 @@
 title: Ways to Build A Distributed System
 date: 2016-09-13 13:58:24
 categories:
- - Coding
- - Notes
+  - Coding
 tags:
- - System Design
+  - System Design
+  - Notes
 ---
 
 Every engineer should learn about distributed system design, since it is not only the path to next career level, but a necessary ability to build a large-scale application according to use cases and specifications as well. Without a proper design, it would be impossible to implement and manage such a system afterwards. 

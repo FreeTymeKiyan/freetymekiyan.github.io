@@ -1,10 +1,10 @@
 title: Back of the Envelope Calculation
 date: 2016-09-21 19:48:48
 categories:
- - Coding
- - Notes
+  - Coding
 tags:
- - System Design
+  - System Design
+  - Notes
 ---
 
 So, I continued the journey on learning about System Design and found another very good resource. It is a talk by Jeff Dean at Stanford named *Software Engineering Advice from Building Large-Scale Distributed Systems*<sup>[[1]](#References)</sup>. In this talk, Jeff Dean shared the lessons and tips learned from his various kinds of experience.  

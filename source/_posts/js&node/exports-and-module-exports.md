@@ -1,8 +1,9 @@
 title: exports and module.exports
 categories:
-- Coding
+  - Coding
 tags:
-- Node.js
+  - Node.js
+  - Notes
 date: 2014-07-03 09:50:07
 ---
 This is also something happened during my script runner project at Modulus. When I was checking why those exported methods were not called, I was suspicious about the actual differences between ``exports.someFunc`` and ``module.exports.someFunc``. I read about it in my supervisor's post[(1)](#Reference) before, which said that these two are the same. In order to be more clear, I did some more research. Here is what I learned.

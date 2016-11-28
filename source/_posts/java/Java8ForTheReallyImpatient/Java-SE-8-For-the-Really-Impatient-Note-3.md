@@ -2,9 +2,9 @@ title: 'Java SE 8 For the Really Impatient, Note 3'
 date: 2016-03-17 17:05:32
 categories:
   - Coding
-  - Notes
 tags:
   - Java
+  - Notes
 ---
 
 # Chapter 2 The Stream API

@@ -1,6 +1,7 @@
 title: Update Elasticsearch License
 tags:
   - Elasticsearch
+  - Notes
 categories:
   - Coding
 date: 2016-02-17

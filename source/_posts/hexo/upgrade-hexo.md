@@ -1,8 +1,9 @@
 title: Upgrade from Hexo 2.8.2 to 3.1.1
 categories: 
- - Coding
+  - Coding
 tags:
- - Hexo
+  - Hexo
+  - Notes
 date: 2015-10-30 15:18:13
 ---
 

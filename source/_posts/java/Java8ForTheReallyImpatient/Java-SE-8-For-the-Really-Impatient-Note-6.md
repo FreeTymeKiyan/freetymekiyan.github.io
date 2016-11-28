@@ -2,9 +2,9 @@ title: 'Java SE 8 For the Really Impatient, Note 6'
 date: 2016-03-23 15:25:54
 categories:
   - Coding
-  - Notes
 tags:
   - Java
+  - Notes
 ---
 
 # Chapter 3 Programming with Lambdas

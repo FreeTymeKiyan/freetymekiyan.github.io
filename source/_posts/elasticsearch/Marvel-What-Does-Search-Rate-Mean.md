@@ -4,6 +4,7 @@ categories:
   - Coding
 tags:
   - Elasticsearch
+  - Notes
 ---
 
 ## Problem

@@ -2,9 +2,9 @@ title: 'Java SE 8 For the Really Impatient, Note 7'
 date: 2016-03-24 15:29:00
 categories:
   - Coding
-  - Notes
 tags:
   - Java
+  - Notes
 ---
 
 Chapter 4 JavaFx is skipped for now. 

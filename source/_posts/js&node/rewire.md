@@ -1,9 +1,10 @@
 title: Rewire-Expose Private in Tests
 categories:
-- Coding
+  - Coding
 tags:
-- Node.js
-- Test
+  - Node.js
+  - Test
+  - Notes
 date: 2014-07-02
 ---
 

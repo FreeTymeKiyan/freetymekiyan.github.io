@@ -2,9 +2,9 @@ title: 'Java SE 8 For the Really Impatient, Note 10'
 date: 2016-03-29 15:21:42
 categories:
   - Coding
-  - Notes
 tags:
   - Java
+  - Notes
 ---
 
 # Chapter 6 Concurrency Enhancements
