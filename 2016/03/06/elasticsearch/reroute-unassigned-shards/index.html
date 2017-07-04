@@ -37,6 +37,13 @@ yellow: All primary shards are active, but not all repli">
 </head>
 
   <body>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3830008196770332",
+    enable_page_level_ads: true
+  });
+</script>
     <header>
       <div>
   
@@ -88,7 +95,7 @@ yellow: All primary shards are active, but not all repli">
   </p>
   
   <p class="article-read-time">
-    <span class="post-count">2,432 words in 15 minutes</span>
+    <span class="post-count">2,455 words in 15 minutes</span>
   </p>
 </header>
 	<div class="article-content">
@@ -130,6 +137,8 @@ yellow: All primary shards are active, but not all repli">
 <script src="//gist.github.com/bc83e96bb818c6ac311a.js?file=reroute.py"></script>
 <h3 id="Shell-Script"><a href="#Shell-Script" class="headerlink" title="Shell Script"></a>Shell Script</h3><p>Below is a shell script I found elsewhere in a blog post<sup><a href="#References">[4]</a></sup>  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> shard <span class="keyword">in</span> $(curl -XGET http://localhost:9200/_cat/shards | grep UNASSIGNED | awk <span class="string">'&#123;print $2&#125;'</span>); <span class="keyword">do</span></div><div class="line">    curl -XPOST <span class="string">'localhost:9200/_cluster/reroute'</span> -d <span class="string">'&#123;</span></div><div class="line">        "commands" : [ &#123;</div><div class="line">              "allocate" : &#123;</div><div class="line">                  "index" : "t37", # index name</div><div class="line">                  "shard" : $shard,</div><div class="line">                  "node" : "datanode15", # node name</div><div class="line">                  "allow_primary" : true</div><div class="line">              &#125;</div><div class="line">            &#125;</div><div class="line">        ]</div><div class="line">    &#125;'</div><div class="line">    sleep 5</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<p>EDIT: Based on Vincent’s comment I updated the shell script:  </p>
+<script src="//gist.github.com/21a50205ede3774a90156ffc8057f3e5.js?file=reroute.sh"></script>
 <h2 id="Possible-Unassigned-Shard-Reasons"><a href="#Possible-Unassigned-Shard-Reasons" class="headerlink" title="Possible Unassigned Shard Reasons"></a>Possible Unassigned Shard Reasons</h2><p>FYI, these are the possible reasons for a shard be in a unassigned state<sup><a href="#References">[1]</a></sup>:  </p>
 <p><br></p>
 <table>
@@ -217,7 +226,7 @@ yellow: All primary shards are active, but not all repli">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Elasticsearch/">Elasticsearch</a>
+  <span></span> <a href="/tags/Elasticsearch/">Elasticsearch</a><a href="/tags/Notes/">Notes</a>
   </div>
 
 
@@ -285,7 +294,7 @@ yellow: All primary shards are active, but not all repli">
       
     
       
-        <li><a href="/categories/Coding/" title="Coding">Coding<sup>28</sup></a></li>
+        <li><a href="/categories/Coding/" title="Coding">Coding<sup>30</sup></a></li>
       
     
       
@@ -298,8 +307,6 @@ yellow: All primary shards are active, but not all repli">
     
       
     
-      
-        <li><a href="/categories/Coding/Reading-Note/" title="Reading Note">Reading Note<sup>16</sup></a></li>
       
     
       
@@ -370,6 +377,10 @@ yellow: All primary shards are active, but not all repli">
     <ul class="clearfix">
     
       
+        <li><a href="/tags/Notes/" title="Notes">Notes<sup>26</sup></a></li>
+      
+    
+      
         <li><a href="/tags/Kai-Fu-Lee/" title="Kai Fu Lee">Kai Fu Lee<sup>24</sup></a></li>
       
     
@@ -386,11 +397,15 @@ yellow: All primary shards are active, but not all repli">
       
     
       
+        <li><a href="/tags/Thoughts/" title="Thoughts">Thoughts<sup>3</sup></a></li>
+      
+    
+      
         <li><a href="/tags/Pro-tips/" title="Pro-tips">Pro-tips<sup>3</sup></a></li>
       
     
       
-        <li><a href="/tags/Thoughts/" title="Thoughts">Thoughts<sup>3</sup></a></li>
+        <li><a href="/tags/System-Design/" title="System Design">System Design<sup>3</sup></a></li>
       
     
       
@@ -398,11 +413,19 @@ yellow: All primary shards are active, but not all repli">
       
     
       
-        <li><a href="/tags/System-Design/" title="System Design">System Design<sup>2</sup></a></li>
+        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
       
     
       
-        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+        <li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Interview/" title="Interview">Interview<sup>1</sup></a></li>
       
     
       
@@ -411,20 +434,6 @@ yellow: All primary shards are active, but not all repli">
     
       
         <li><a href="/tags/Test/" title="Test">Test<sup>1</sup></a></li>
-      
-    
-      
-        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
-      
-    
-      
-        <li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
-      
-    
-      
-        <li><a href="/tags/Interview/" title="Interview">Interview<sup>1</sup></a></li>
-      
-    
       
     
       
@@ -461,7 +470,7 @@ yellow: All primary shards are active, but not all repli">
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">Archives</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li></ul>
   </div>
 
 
@@ -478,7 +487,7 @@ yellow: All primary shards are active, but not all repli">
   <div class="tagcloudlist">
     <p class="asidetitle">Tag Cloud</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/Algorithms/" style="font-size: 10px;">Algorithms</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Elasticsearch/" style="font-size: 16px;">Elasticsearch</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Java/" style="font-size: 18px;">Java</a> <a href="/tags/Kai-Fu-Lee/" style="font-size: 20px;">Kai Fu Lee</a> <a href="/tags/LinkedIn/" style="font-size: 20px;">LinkedIn</a> <a href="/tags/Node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/Pro-tips/" style="font-size: 14px;">Pro-tips</a> <a href="/tags/System-Design/" style="font-size: 12px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/TextMate-2/" style="font-size: 10px;">TextMate 2</a> <a href="/tags/Thoughts/" style="font-size: 14px;">Thoughts</a>
+       <a href="/tags/Algorithms/" style="font-size: 10px;">Algorithms</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Elasticsearch/" style="font-size: 14px;">Elasticsearch</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Java/" style="font-size: 16px;">Java</a> <a href="/tags/Kai-Fu-Lee/" style="font-size: 18px;">Kai Fu Lee</a> <a href="/tags/LinkedIn/" style="font-size: 18px;">LinkedIn</a> <a href="/tags/Node-js/" style="font-size: 12px;">Node.js</a> <a href="/tags/Notes/" style="font-size: 20px;">Notes</a> <a href="/tags/Pro-tips/" style="font-size: 12px;">Pro-tips</a> <a href="/tags/System-Design/" style="font-size: 12px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/TextMate-2/" style="font-size: 10px;">TextMate 2</a> <a href="/tags/Thoughts/" style="font-size: 12px;">Thoughts</a>
     </div>
   </div>
 
@@ -527,7 +536,7 @@ yellow: All primary shards are active, but not all repli">
     
     <a href="http://blog.kiyanpro.com/about" target="_blank" title="FreeTymeKiyan">FreeTymeKiyan</a>
     
-    , <span class='post-count'>112.4k</span> words
+    , <span class='post-count'>117.8k</span> words
     </p>
 </div>
 </footer>

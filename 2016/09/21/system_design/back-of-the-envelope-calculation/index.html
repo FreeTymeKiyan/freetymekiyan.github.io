@@ -33,6 +33,13 @@
 </head>
 
   <body>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3830008196770332",
+    enable_page_level_ads: true
+  });
+</script>
     <header>
       <div>
   
@@ -84,7 +91,7 @@
   </p>
   
   <p class="article-read-time">
-    <span class="post-count">1,041 words in 7 minutes</span>
+    <span class="post-count">2,386 words in 15 minutes</span>
   </p>
 </header>
 	<div class="article-content">
@@ -93,19 +100,19 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-Cost"><span class="toc-number">1.</span> <span class="toc-text">Time Cost</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Time-Cost-Table"><span class="toc-number">1.1.</span> <span class="toc-text">Time Cost Table</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Explanation"><span class="toc-number">1.2.</span> <span class="toc-text">Explanation</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Decomposition-a-Design"><span class="toc-number">2.</span> <span class="toc-text">Decomposition a Design</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Examples"><span class="toc-number">2.1.</span> <span class="toc-text">Examples</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary"><span class="toc-number"></span> <span class="toc-text">Summary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number"></span> <span class="toc-text">References</span></a>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Time-Cost"><span class="toc-number">1.</span> <span class="toc-text">Time Cost</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-Cost-Table"><span class="toc-number">1.1.</span> <span class="toc-text">Time Cost Table</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Explanation"><span class="toc-number">1.2.</span> <span class="toc-text">Explanation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Decomposition-a-Design"><span class="toc-number">2.</span> <span class="toc-text">Decomposition a Design</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-1"><span class="toc-number">2.1.</span> <span class="toc-text">Example 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-2"><span class="toc-number">2.2.</span> <span class="toc-text">Example 2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary"><span class="toc-number">3.</span> <span class="toc-text">Summary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">4.</span> <span class="toc-text">References</span></a></li></ol>
 		
 		</div>
 		
-		<p>So, I continued the journey on learning about System Design and found another very good resource. It is a talk by Jeff Dean at Stanford named <em>Software Engineering Advice from Building Large-Scale Distributed Systems</em>. In this talk, Jeff Dean shared the lessons and tips learned from his various kinds of experience.  </p>
-<p>One important skill he pointed out in the talk is the ability to estimate performance of a system design. Why is it important? Because this skill actually allows you to choose the “best” solution, according to the problem definition and the meaning of “best”, without building it.   </p>
+		<p>So, I continued the journey on learning about System Design and found another very good resource. It is a talk by Jeff Dean at Stanford named <em>Software Engineering Advice from Building Large-Scale Distributed Systems</em><sup><a href="#References">[1]</a></sup>. In this talk, Jeff Dean shared the lessons and tips learned from his various kinds of experience.  </p>
+<p>One important skill he pointed out in the talk is the ability to estimate performance of a system design, in terms of time cost. Why is it important? Because this skill actually allows you to choose the best solution without building it.  </p>
 <p>Some fundamental knowledge is required to grasp this method:  </p>
 <ol>
 <li>Time costs for some basic steps</li>
 <li>Decomposition of a design</li>
 </ol>
-<h3 id="Time-Cost"><a href="#Time-Cost" class="headerlink" title="Time Cost"></a>Time Cost</h3><p>Jeff provided a brief table for the costs. This table is lucid overall but some rows in it might be unclear. I will show the table first and try to explain those rows.  </p>
-<h4 id="Time-Cost-Table"><a href="#Time-Cost-Table" class="headerlink" title="Time Cost Table"></a>Time Cost Table</h4><p>Table 1.1 Numbers Everyone Should Know  </p>
+<h2 id="Time-Cost"><a href="#Time-Cost" class="headerlink" title="Time Cost"></a>Time Cost</h2><p>Jeff provided a brief table for the costs. This table is lucid overall but some rows in it might be unclear. I will show the table first and try to explain those rows.  </p>
+<h3 id="Time-Cost-Table"><a href="#Time-Cost-Table" class="headerlink" title="Time Cost Table"></a>Time Cost Table</h3><p>Table 1.1 Numbers Everyone Should Know  </p>
 <table>
 <thead>
 <tr>
@@ -168,28 +175,55 @@
 </tr>
 </tbody>
 </table>
-<h4 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h4><p>We say and hear all the time that L1 cache is the fastest, then the L2 cache, then the main memory, and finally the disk. Here in the table we can find data support for this point.  </p>
-<p>As main memory of a machine becomes larger and larger nowadays, a clear trend in system design is to put performance significant data in memory rather than on disk. For example, in Elasticsearch, I use in-memory aggregation to boost the query process and avoid disk seeks. As a result, the system can return 1000 hits in 10 to 20ms, which is almost 100x faster than a normal query(around 1 sec). Another example would be the widely use of in-memory cache, such as MemCache and Redis, which can save us enormous amount of disk hits from read requests send to DB.  </p>
-<p>What is Branch mispredict?  </p>
-<p>What is Mutex lock/unlock? Why important?</p>
-<p>What is Zippy? Why is it important?  </p>
-<p>“Send 2K bytes over 1Gbps network” is easy. Just do the math. 2 <em> 10^3 / (1 </em> 10^9) = 2 <em> 10^(-6)s = 2 </em> 10^3ns, not 2 * 10^4ns… What is the problem here?  </p>
-<p>Read 1 MB sequentially from memory.   </p>
-<p>Round trip within same datacenter.   </p>
-<p>Read 1 MB sequentially from network  </p>
-<p>Read 1 MB sequentially from disk  </p>
-<p>Send packet CA-&gt;Netherlands-&gt;CA, 150ms. That is a round trip between the west of North America and the west of Europe. Good to know it. We should take this into consideration if we need to build some global distributed services. Network takes time.  </p>
-<h3 id="Decomposition-a-Design"><a href="#Decomposition-a-Design" class="headerlink" title="Decomposition a Design"></a>Decomposition a Design</h3><p>I think it is rough to just summarize how to decompose a design since it is based on the knowledge of operation systems and the actual experience on building a performance significant system. For those who do not have them, this topic would be better explained in examples.  </p>
-<h4 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h4><p>For example,   </p>
-<p>Another example,</p>
-<p>Find more examples resources. </p>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>In this post I shared a method by Jeff Dean to estimate time cost of a design, named “Back of the Envelope Calculation”. The estimation consists of mainly two step: 1) Knowing the time cost of basic steps 2) Decomposing a design into those basic steps. Then we will be able to get a fairly intuitive assessment on our possible designs and choose the best one.  </p>
-<p>Other interesting topics in this talk:<br>Problems of Real Hardware  </p>
-<p>Google Engineering Environment  </p>
-<p>Designing Software Systems<br>  Principles<br>  Get Advice Early<br>  Interfaces<br>  Protocols<br>  Efficiency</p>
-<p>The “Back of the Envelope Calculation” here focuses on time cost. Another interesting topic is memory usage estimation, which is also widely used before actual implementation. I remembered seeing my former tech lead doing this on a tiny piece of post-it paper and was totally fascinated. I told myself I would also be that kind of engineer one day. So stay tuned on the next topic: Memory Usage Estimation. </p>
+<h3 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h3><p>We keep speaking and hearing all the time that L1 cache is the fastest, then the L2 cache, then the main memory, and finally the disk. We always want to cache data in memory instead of disk. Here in the table we can find data support for this point. In addition to these numbers, we should also concern the time costs of L3 cache(12.9 ns), Solid-state drive(50-150 μs), and network(can vary based on different network environment)<sup><a href="#References">[2]</a></sup>.  </p>
+<p>As main memory becomes larger and larger nowadays, a clear trend in system design is to put performance significant data in memory rather than on disk. For example, in Elasticsearch, I use in-memory aggregation to boost the query process and avoid disk seeks. As a result, the system can return 1000 hits in 10 to 20ms, which is almost 100x faster than a normal query(around 1 sec). Another example would be the widely use of in-memory cache, such as Memcached and Redis, which can save us enormous amount of disk hits from read requests send to DB.  </p>
+<p>What is Branch mispredict? Here is the explanation from Wikipedia<sup><a href="#References">[3]</a></sup>: </p>
+<pre><code>Branch misprediction occurs when a central processing unit (CPU) mispredicts the next instruction to process in branch prediction, which is aimed at speeding up execution.   
+
+During the execution of certain programs there are places where the program execution flow can continue in several ways. These are called branches, or conditional jumps. The CPU also uses a pipeline which allows several instructions to be processed at the same time. When the code for a conditional jump is read we do not yet know the next instruction to execute and insert into the execution pipeline. This is where branch prediction comes in. Branch prediction guesses the next instruction to execute and inserts the next assumed instruction to the pipeline. Guessing wrong is called branch misprediction. The partially processed instructions in the pipeline after the branch have to be discarded and the pipeline has to start over at the correct branch when a branch misprediction is detected. This slows down the program execution.  
+</code></pre><p>We will show an example in the next section that relates to branch mispredict.  </p>
+<p>What is Mutex lock/unlock? I found some words from Webopedia<sup><a href="#References">[4]</a></sup> that explains it well:  </p>
+<pre><code>Mutex is short for mutual exclusion object. In computer programming, a mutex is a program object that allows multiple program threads to share the same resource, such as file access, but not simultaneously. When a program is started, a mutex is created with a unique name. After this stage, any thread that needs the resource must lock the mutex from other threads while it is using the resource. The mutex is set to unlock when the data is no longer needed or the routine is finished.   
+</code></pre><p>Wikipedia also throws light on mutex’s significance<sup><a href="#References">[5]</a></sup>:   </p>
+<pre><code>Mutual exclusion is a property of concurrency control, which is instituted for the purpose of preventing race conditions; it is the requirement that one thread of execution never enter its critical section at the same time that another, concurrent thread of execution enters its own critical section.  
+</code></pre><p>So knowing how long it takes to do mutex lock/unlock, we are able to estimate the time cost for concurrent designs.  </p>
+<p>What is Zippy? Zippy, or Snappy, is actually a fast compressor/decompressor open sourced by Google. Here is what I found on Snappy Github page<sup><a href="#References">[6]</a></sup>: </p>
+<pre><code>It aims for very high speeds and reasonable compression. Compared to the fastest mode of zlib, Snappy is an order of magnitude faster for most inputs, but the resulting compressed files are anywhere from 20% to 100% bigger.
+</code></pre><p>In situations where our design consists of data compression, we can use the number here to help.  </p>
+<p>“Send 2K bytes over 1Gbps network” is easy. Just do the math. 2 <em> 10^3 </em> 8 bit / (1 <em> 10^9) bit/s = 16 </em> 10^(-6) s ≈ 2 * 10^4 ns.  </p>
+<p>Read 1 MB sequentially from memory/network/dist. Obviously, with the time costs we know that reading from memory is the fastest. When calculate time cost, I think it is more useful to know how many bytes per second instead, which are 4000 MB/s, 100 MB/s, and 30 MB/s, respectively.  </p>
+<p>Round trip within same datacenter. It is good to know that even the same data center has time cost. Latency in the data center matters when it comes to performance critical systems. That means even our machines in the same cluster access each other can take time. For instance, if we’re using a distributed in-memory key/value store, we need to fetch data from another machine in the cluster. That would be a few 500,000ns (or 0.5ms) round-trips in the same datacenter<sup><a href="#References">[7]</a></sup>.  </p>
+<p>Send packet CA-&gt;Netherlands-&gt;CA, 150ms. That is a round trip between the west of North America and the west of Europe. We should take this into consideration if we need to build some global distributed services. Network is not “free”. Network takes time.  </p>
+<p>As I found out during writing this post, this talk is given 7 years ago at 2009. All the numbers are based on a mid-range PC at that time<sup><a href="#References">[8]</a></sup>. So the numbers can be smaller now and there are also some more things to cover. I think it would be better if we have somewhere to keep all these figures in relation to design updated. Anyway, the exact numbers here are not as important as the differences in magnitude as you move up and down the table.  </p>
+<h2 id="Decomposition-a-Design"><a href="#Decomposition-a-Design" class="headerlink" title="Decomposition a Design"></a>Decomposition a Design</h2><p>I think it is rough to just summarize how to decompose a design since it is based on the knowledge of operation systems and the actual experience on building a performance significant system. For those who do not have them, this topic would be better explained in examples.  </p>
+<h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1"></a>Example 1</h3><p>For example, suppose we are going to generate an image result page that has 30 thumbnails in it. We definitely have various of available solutions. The very basic one can be reading the thumbnails serially from disk and show them. How can we decompose it? Well, for each thumbnail, we need to seek it on disk, and then read. With the average size of a thumbnail given, which is 256k, we can estimate the time cost:  </p>
+<p><code>30 seeks * 10 ms/seek + 30 * 256 k / 30 MB/s = 560 ms.</code>  </p>
+<p>560ms is definitely too long since whatever latency larger than 100ms is noticeable to user. How can we improve that? Obviously, by taking another look at the first design, we shall notice that there were no order requirments for those thumbnails, so that the thumbnails other than the current one do not need to wait. We can read them all at the same time. So this process can be boosted by reading thumbnails with one thread for each in parallel instead. How long does that take?  </p>
+<p><code>10 ms/seek + 256 k read / 30 MB/s = 18 ms</code>  </p>
+<p>Of course, 256 k is just an average size. The estimation above ignores the variance. The full generation time depends on the largest thumbnail which takes longer to read. So we can imagine the real time cost might be much higher </p>
+<p>Besides these two solutions, there is still potential to make the design even faster. If we take another look at the second design, we know that the bottleneck is that everything is on disk. What if we cache the thumbnails in memory? As long as the image size is not that big, we can put all of them in memory with <code>256 k * 30 = 6 ~ 7 MB</code> space. Comparing to the large amount of memory we have on modern machines, it is totally acceptable. The time cost here would be:  </p>
+<p><code>100 ns/main memory reference + 256 k read / 4000 MB/s = 64.1 us</code>  </p>
+<h3 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2"></a>Example 2</h3><p>The problem is “How long does it take to quicksort 1 GB of 4 byte numbers”. This is a pure time cost estimation question, as we already know the implementation of quicksort. So how can we decompose the steps?  </p>
+<p>First we need to figure out how many numbers we have, which is the input length <code>n</code>. 10^9 byte is roughly 2^30. </p>
+<p><code>n = 2^30 / 4 = 2^28</code>  </p>
+<p>Then we know the time complexity of quicksort it O(nlogn) and the basic step of quicksort is comparison. So the number of comparisons is around:  </p>
+<p><code>2^28 * log(2^28) ≈ 2^33</code> (Here 2^4 &lt; log(2^28) = 28 &lt; 2^5 and we take the larger one).  </p>
+<p>Around half of the comparisons will mispredict. So  </p>
+<p><code>2^32 mispredicts * 5 ns/mispredict = 21 seconds</code>   </p>
+<p>Another thing to consider is the memory bandwidth. Suppose the quicksort should be sequential, and the machine we run this sorting have 4GB memory. So  </p>
+<p><code>2^30 bytes * log(2^28) passes = 28 GB. 28 GB / 4 GB/s = 7 seconds</code>  </p>
+<p>As a result, it should take around 30 secs to sort 1 GB on one CPU machine with 4 GB memory.  </p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>In this post I shared a method by Jeff Dean to estimate time cost of a design, named “Back of the Envelope Calculation”. The estimation consists of mainly two steps: 1) Knowing the time cost of basic steps 2) Decomposing a design into those basic steps. Then we will be able to get an intuitive assessment on our possible designs and choose the best one.  </p>
+<p>The “Back of the Envelope Calculation” here focuses on time cost. Another interesting topic is memory usage estimation, which is also widely used before actual implementation. I remembered seeing my former tech lead doing this on a tiny piece of post-it paper and was totally fascinated. I told myself I would also be that kind of engineer one day. So stay tuned on the next topic: Memory Usage Estimation.  </p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
-<li><a href=""></a></li>
+<li><a href="http://static.googleusercontent.com/media/research.google.com/en//people/jeff/stanford-295-talk.pdf" target="_blank" rel="external">Software Engineering Advice from Building Large-Scale Distributed Systems, Google Research PPT</a></li>
+<li><a href="http://stackoverflow.com/a/3142870/3642996" target="_blank" rel="external">Alex Martelli’s answer to “How much time does it take to fetch one word from memory?”, Stackoverflow</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Branch_misprediction" target="_blank" rel="external">Branch misprediction, Wikipedia</a>  </li>
+<li><a href="http://www.webopedia.com/TERM/M/mutex.html" target="_blank" rel="external">Mutex, Webopedia</a>  </li>
+<li><a href="https://en.wikipedia.org/wiki/Mutual_exclusion" target="_blank" rel="external">Mutual exclusion, Wikipedia</a>  </li>
+<li><a href="https://github.com/google/snappy" target="_blank" rel="external">Snappy Readme, Github</a>  </li>
+<li><a href="http://www.linux-mag.com/id/7589/" target="_blank" rel="external">Data By The Numbers, Linux Magazine</a>  </li>
+<li><a href="https://blog.codinghorror.com/the-infinite-space-between-words/" target="_blank" rel="external">The Infinite Space Between Words, codinghorror.com</a>  </li>
 </ol>
   
 	</div>
@@ -206,13 +240,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Coding/">Coding</a>►<a class="article-category-link" href="/categories/Coding/Reading-Note/">Reading Note</a>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/System-Design/">System Design</a>
+  <span></span> <a href="/tags/System-Design/">System Design</a><a href="/tags/Notes/">Notes</a>
   </div>
 
 
@@ -229,6 +263,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2016/10/07/system_design/memory-usage-estimation-in-java/" title="Memory Usage Estimation in Java">
+  <strong>Prev:</strong><br/>
+  <span>
+  Memory Usage Estimation in Java</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2016/09/13/system_design/Ways-to-Build-A-Distributed-System/"  title="Ways to Build A Distributed System">
@@ -254,7 +296,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-Cost"><span class="toc-number">1.</span> <span class="toc-text">Time Cost</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Time-Cost-Table"><span class="toc-number">1.1.</span> <span class="toc-text">Time Cost Table</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Explanation"><span class="toc-number">1.2.</span> <span class="toc-text">Explanation</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Decomposition-a-Design"><span class="toc-number">2.</span> <span class="toc-text">Decomposition a Design</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Examples"><span class="toc-number">2.1.</span> <span class="toc-text">Examples</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary"><span class="toc-number"></span> <span class="toc-text">Summary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number"></span> <span class="toc-text">References</span></a>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Time-Cost"><span class="toc-number">1.</span> <span class="toc-text">Time Cost</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-Cost-Table"><span class="toc-number">1.1.</span> <span class="toc-text">Time Cost Table</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Explanation"><span class="toc-number">1.2.</span> <span class="toc-text">Explanation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Decomposition-a-Design"><span class="toc-number">2.</span> <span class="toc-text">Decomposition a Design</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-1"><span class="toc-number">2.1.</span> <span class="toc-text">Example 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-2"><span class="toc-number">2.2.</span> <span class="toc-text">Example 2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary"><span class="toc-number">3.</span> <span class="toc-text">Summary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">4.</span> <span class="toc-text">References</span></a></li></ol>
  
   </div>
 
@@ -272,7 +314,7 @@
       
     
       
-        <li><a href="/categories/Coding/" title="Coding">Coding<sup>28</sup></a></li>
+        <li><a href="/categories/Coding/" title="Coding">Coding<sup>30</sup></a></li>
       
     
       
@@ -285,8 +327,6 @@
     
       
     
-      
-        <li><a href="/categories/Coding/Reading-Note/" title="Reading Note">Reading Note<sup>16</sup></a></li>
       
     
       
@@ -357,6 +397,10 @@
     <ul class="clearfix">
     
       
+        <li><a href="/tags/Notes/" title="Notes">Notes<sup>26</sup></a></li>
+      
+    
+      
         <li><a href="/tags/Kai-Fu-Lee/" title="Kai Fu Lee">Kai Fu Lee<sup>24</sup></a></li>
       
     
@@ -373,11 +417,15 @@
       
     
       
+        <li><a href="/tags/Thoughts/" title="Thoughts">Thoughts<sup>3</sup></a></li>
+      
+    
+      
         <li><a href="/tags/Pro-tips/" title="Pro-tips">Pro-tips<sup>3</sup></a></li>
       
     
       
-        <li><a href="/tags/Thoughts/" title="Thoughts">Thoughts<sup>3</sup></a></li>
+        <li><a href="/tags/System-Design/" title="System Design">System Design<sup>3</sup></a></li>
       
     
       
@@ -385,11 +433,19 @@
       
     
       
-        <li><a href="/tags/System-Design/" title="System Design">System Design<sup>2</sup></a></li>
+        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
       
     
       
-        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+        <li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Interview/" title="Interview">Interview<sup>1</sup></a></li>
       
     
       
@@ -398,20 +454,6 @@
     
       
         <li><a href="/tags/Test/" title="Test">Test<sup>1</sup></a></li>
-      
-    
-      
-        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
-      
-    
-      
-        <li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
-      
-    
-      
-        <li><a href="/tags/Interview/" title="Interview">Interview<sup>1</sup></a></li>
-      
-    
       
     
       
@@ -448,7 +490,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">Archives</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li></ul>
   </div>
 
 
@@ -465,7 +507,7 @@
   <div class="tagcloudlist">
     <p class="asidetitle">Tag Cloud</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/Algorithms/" style="font-size: 10px;">Algorithms</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Elasticsearch/" style="font-size: 16px;">Elasticsearch</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Java/" style="font-size: 18px;">Java</a> <a href="/tags/Kai-Fu-Lee/" style="font-size: 20px;">Kai Fu Lee</a> <a href="/tags/LinkedIn/" style="font-size: 20px;">LinkedIn</a> <a href="/tags/Node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/Pro-tips/" style="font-size: 14px;">Pro-tips</a> <a href="/tags/System-Design/" style="font-size: 12px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/TextMate-2/" style="font-size: 10px;">TextMate 2</a> <a href="/tags/Thoughts/" style="font-size: 14px;">Thoughts</a>
+       <a href="/tags/Algorithms/" style="font-size: 10px;">Algorithms</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Elasticsearch/" style="font-size: 14px;">Elasticsearch</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Java/" style="font-size: 16px;">Java</a> <a href="/tags/Kai-Fu-Lee/" style="font-size: 18px;">Kai Fu Lee</a> <a href="/tags/LinkedIn/" style="font-size: 18px;">LinkedIn</a> <a href="/tags/Node-js/" style="font-size: 12px;">Node.js</a> <a href="/tags/Notes/" style="font-size: 20px;">Notes</a> <a href="/tags/Pro-tips/" style="font-size: 12px;">Pro-tips</a> <a href="/tags/System-Design/" style="font-size: 12px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/TextMate-2/" style="font-size: 10px;">TextMate 2</a> <a href="/tags/Thoughts/" style="font-size: 12px;">Thoughts</a>
     </div>
   </div>
 
@@ -514,7 +556,7 @@
     
     <a href="http://blog.kiyanpro.com/about" target="_blank" title="FreeTymeKiyan">FreeTymeKiyan</a>
     
-    , <span class='post-count'>112.4k</span> words
+    , <span class='post-count'>117.8k</span> words
     </p>
 </div>
 </footer>

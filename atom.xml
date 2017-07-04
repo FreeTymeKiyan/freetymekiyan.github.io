@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.kiyanpro.com/"/>
-  <updated>2016-09-26T03:45:42.000Z</updated>
+  <updated>2017-07-04T19:34:24.000Z</updated>
   <id>http://blog.kiyanpro.com/</id>
   
   <author>
@@ -16,21 +16,218 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Concepts in Online Ads Industry</title>
+    <link href="http://blog.kiyanpro.com/2016/11/27/ad-concepts/"/>
+    <id>http://blog.kiyanpro.com/2016/11/27/ad-concepts/</id>
+    <published>2016-11-27T10:00:00.000Z</published>
+    <updated>2017-07-04T19:34:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>I’ve been in Yahoo for almost one and a half year and dedicated myself in the Ads Targeting team. During my time here, I found that there are many domain specific concepts and abbreviations that everybody talks about and presume everyone else already knows. Of course, every time I will ask about those terms later. Otherwise I never know when they will show up later and make me confused again. But instead of ask each of them every time, I decide to do a “batch job” today and learn the common terms together. Here is my note.  </p>
+<h2 id="Terms"><a href="#Terms" class="headerlink" title="Terms"></a>Terms</h2><h3 id="Targeting"><a href="#Targeting" class="headerlink" title="Targeting"></a>Targeting</h3><p>Delivering ads to a pre-selected audience based on various attributes, such as geography, demographics, psychographics, web browsing behavior and past purchases. </p>
+<p>Targeted advertising has proven to be beneficial for the advertiser as it is cost efficient because it is focused on certain traits. The consumers who are likely to have a strong preference will receive the message instead of those who have no interest and whose preferences do not match a product’s attribute. This eliminates some wastage.  </p>
+<h3 id="Retargeting"><a href="#Retargeting" class="headerlink" title="Retargeting"></a>Retargeting</h3><p>Serving ads to people who have previously visited your website.  </p>
+<p>Retargeting is where advertising use behavioral targeting to produce ads that follow you after you have looked or purchased are particular item.  </p>
+<p>Examples of this is store catalogs, where after purchase they subscribe you to their email system hoping that they draw your attention to items for continuous purchases.  </p>
+<p>Retargeting is a very effective process, by analyzing consumers activities with the brand they can address their consumers behaviour appropriately.  </p>
+<h3 id="Audience"><a href="#Audience" class="headerlink" title="Audience"></a>Audience</h3><p>The total number of people that have been exposed to or could possibly be exposed to an ad during any specific time period.  </p>
+<h3 id="Reach"><a href="#Reach" class="headerlink" title="Reach"></a>Reach</h3><p>The total number of people who see your message. One person who is served your ad five times and clicks on it once yields a reach of 1, 5 impressions, and a clickthrough rate of 20%.  </p>
+<h3 id="Impression"><a href="#Impression" class="headerlink" title="Impression"></a>Impression</h3><p>The number of times an ad has been served, regardless of whether the user has actually seen or interacted with the ad in any way.  </p>
+<h3 id="Click"><a href="#Click" class="headerlink" title="Click"></a>Click</h3><p>The action taken when a user interacts with an ad by either clicking on it with their mouse or by pressing enter on their keyboard.  </p>
+<h3 id="Action-Conversion"><a href="#Action-Conversion" class="headerlink" title="Action/Conversion"></a>Action/Conversion</h3><p>When launching a campaign, advertisers select a specific action or set of actions they want audiences to take. Each time a member of the audience takes this action, it is counted as a conversion. For example, the user download the APP or buy the product after served with the ad.  </p>
+<h3 id="CTR"><a href="#CTR" class="headerlink" title="CTR"></a>CTR</h3><p>Clickthrough rate, expressed as a percentage of total impressions, shows how often people who are served an ad end up clicking on it.  </p>
+<p>An ad’s CTR is calculated by dividing the number of clicks an ad received by the number of times it’s been served, then converting that into a percentage. For example, if an ad received 5 clicks and was shown 1000 times, the CTR is 0.5%. The higher the CTR on an ad, the better it’s performing.  </p>
+<h3 id="CTA"><a href="#CTA" class="headerlink" title="CTA"></a>CTA</h3><p>Call to Action (CTA): A phrase included within an ad, or a graphic element such as a button, which invites the audience to take a certain action.  </p>
+<p>Examples include phrases such as “Click to Read More”, “Download Your Free eBook Now”, or “Click Here”.  </p>
+<h3 id="Conversion-Pixel"><a href="#Conversion-Pixel" class="headerlink" title="Conversion Pixel"></a>Conversion Pixel</h3><p>A 1×1 image pixel placed on a web page (such as a thank-you page) which is triggered whenever a conversion occurs. Usually transparent.  </p>
+<h3 id="CVR-AR"><a href="#CVR-AR" class="headerlink" title="CVR/AR"></a>CVR/AR</h3><p>Conversion/Action rate, expressed as a percentage, a conversion rate can be calculated in two ways:</p>
+<p>The first is by the taking the number of users who completed the conversion and dividing it by the total number of impressions served. The second, more common way, is by taking the number of users who completed the conversion and dividing it by the total number of users who clicked on the ad.  </p>
+<h3 id="View-Through"><a href="#View-Through" class="headerlink" title="View Through"></a>View Through</h3><p>Used to measure a consumer’s behavior after they’ve been served an ad. If the “view through” window is set to 90 days, the consumer’s relevant actions within that time period can be attributed to the ad.  </p>
+<h3 id="ROI"><a href="#ROI" class="headerlink" title="ROI"></a>ROI</h3><p>Return on investment is “the bottom line” on how successful an ad or campaign was in terms of what the returns (generally sales revenue) were for the money invested.  </p>
+<h3 id="CPA"><a href="#CPA" class="headerlink" title="CPA"></a>CPA</h3><p>Cost per Acquisition: The cost of acquiring one customer. Typically calculated by dividing the total amount spent on an advertising campaign by the number of customers acquired through that campaign.  </p>
+<h3 id="CPC"><a href="#CPC" class="headerlink" title="CPC"></a>CPC</h3><p>Cost per Click: How much an advertiser pays, on average, for each ad click. CPC is calculated by dividing the total amount spent on a campaign by the number of clicks generated.  </p>
+<h3 id="CPL"><a href="#CPL" class="headerlink" title="CPL"></a>CPL</h3><p>Cost per Lead: How much an advertiser pays, on average, for each ad click that results in a lead conversion. CPL is calculated by dividing the total amount spent on a campaign by the number of leads generated.  </p>
+<h3 id="CPM"><a href="#CPM" class="headerlink" title="CPM"></a>CPM</h3><p>Cost per Thousand: Metric that shows how much it costs to serve 1,000 ad impressions. Also used as a standard measure for buying display ads, as inventory is generally sold on a CPM basis.  </p>
+<h3 id="PPC"><a href="#PPC" class="headerlink" title="PPC"></a>PPC</h3><p>Pay per Click: Pricing model where advertisers pay vendors or publishers based on the number of clicks received in a campaign.  </p>
+<h3 id="PPL"><a href="#PPL" class="headerlink" title="PPL"></a>PPL</h3><p>Pay-per-lead: In pay-per-lead advertising, the advertiser pays for each sales lead generated. For example, an advertiser might pay for every visitor that clicked on a site and then filled out a form.  </p>
+<h3 id="PPS"><a href="#PPS" class="headerlink" title="PPS"></a>PPS</h3><p>Pay-per-sale: Pay-per-sale is not customarily used for ad buys. It is, however, the customary way to pay Web sites that participate in affiliate programs , such as those of Amazon.com and Beyond.com.  </p>
+<h3 id="PPV"><a href="#PPV" class="headerlink" title="PPV"></a>PPV</h3><p>Pay-per-view: Since this is the prevalent type of ad buying arrangement at larger Web sites, this term tends to be used only when comparing this most prevalent method with pay-per-click and other methods.  </p>
+<h3 id="Ad-Serving"><a href="#Ad-Serving" class="headerlink" title="Ad Serving"></a>Ad Serving</h3><p>The delivery of an ad from a web server to the end user’s device, where the ads are displayed on a browser or an application.  </p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>This “batch learning” is actually very efficient and interesting. I actually learned more terms then I had expected. Hopefully next time these terms won’t be of that much trouble to me. I will also keep this post updated whenever there are new terms emerge.  </p>
+<h2 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h2><ol>
+<li><a href="https://en.wikipedia.org/wiki/Targeted_advertising" target="_blank" rel="external">Targeted advertising</a></li>
+<li><a href="https://www.act-on.com/blog/63-digital-advertising-terms-every-marketer-should-know/" target="_blank" rel="external">63 Digital Advertising Terms Every Marketer Should Know</a></li>
+<li><a href="http://whatis.techtarget.com/reference/advertising-terminology-on-the-Internet" target="_blank" rel="external">advertising terminology on the Internet</a></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I’ve been in Yahoo for almost one and a half year and dedicated myself in the Ads Targeting team. During my time here, I found that there
+    
+    </summary>
+    
+      <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
+    
+    
+      <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Memory Usage Estimation in Java</title>
+    <link href="http://blog.kiyanpro.com/2016/10/07/system_design/memory-usage-estimation-in-java/"/>
+    <id>http://blog.kiyanpro.com/2016/10/07/system_design/memory-usage-estimation-in-java/</id>
+    <published>2016-10-08T07:06:23.000Z</published>
+    <updated>2017-07-04T19:34:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>I mentioned in the previous post that memory usage estimation is also very important when it comes to evaluate a design. And I was impressed deeply by my two former tech leads when they do a quick estimate of my proposal on a small piece of paper, or even with just a mental calculation. Now it is the time for me to grasp the gist behind.  </p>
+<h2 id="Premises"><a href="#Premises" class="headerlink" title="Premises"></a>Premises</h2><p>The actual memory calculation can be very complicated in terms of implementation, synchronization, and etc. Take Java as an example. Java is implemented on a very wide range of computational devices, and memory consumption is implementation-dependent. So there is no guarantee that the memory usage is same for all of those devices. And If an object’s synchronization lock is contented, or the object is under garbage collection, the usage would not be the same.  </p>
+<p>So what we are going to discuss are based on these following premises:   </p>
+<ol>
+<li>Memory usage in general conditions  </li>
+<li>For Java only  </li>
+<li>Heap memory, not stack memory  </li>
+<li>64-bit machine, which means that 8 bytes are needed to represent addresses  </li>
+</ol>
+<p>Many older machines use a 32-bit architecture. I also read some older posts based on it. In this situation, the only difference is that each machine address is just 4 bytes.   </p>
+<h2 id="Baiscs"><a href="#Baiscs" class="headerlink" title="Baiscs"></a>Baiscs</h2><p>Here comes the very basic idea. Almost the same as time cost estimation: </p>
+<ol>
+<li>Know typical memory usage in Java  </li>
+<li>Decompose a design into these basic usages  </li>
+</ol>
+<p>This post mainly focuses on the typical memory usage in Java and will not cover any decomposition, because once we have the design, it would be fairly simple for us to come up with the count of each usage.  </p>
+<h3 id="Primitives"><a href="#Primitives" class="headerlink" title="Primitives"></a>Primitives</h3><p>First and foremost, let us take a look at the memory requirements for primitive types.   </p>
+<p>Table 1.1 Typical Memory Requirements for Java Primitive Types  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">type</th>
+<th style="text-align:center">bytes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">boolean</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:left">byte</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:left">char</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:left">short</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:left">int</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:left">float</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:left">long</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td style="text-align:left">double</td>
+<td style="text-align:center">8</td>
+</tr>
+</tbody>
+</table>
+<p>A problem one may have is that why boolean consumes 1 byte, since the information can be expressed well with a single bit. This is because computers access memory one byte at a time. It would be awkward if we had to cope with sub-byte offsets for certain fields, and it would require extra logic to read/write individual bits at a given position rather than just the whole byte each time the boolean was accessed.  </p>
+<p>Why is <code>int</code> 4 bytes? Since the Java <code>int</code> data type is the set of integer values between -2,147,483,648 and 2,147,483,647(2^31), a grand total of 2^32 different values, typical Java implementations use 32 bits to represent int values.  </p>
+<p>If we know the amount of memory available, we can calculate limitations from these values. Just a simple division. For example, if we have 1GB of memory on our computer (1G = 10^9 or 2^30), we cannot put more than about <code>2^30 / 4 = 2^28 = 2^8 * 2^20 = 256 million</code> int values or 128 million double values in memory at any time.   </p>
+<h3 id="Objects"><a href="#Objects" class="headerlink" title="Objects"></a>Objects</h3><p>In general, the heap memory used by a Java object consists of:  </p>
+<ul>
+<li>an object header, consisting of a few bytes of “housekeeping” information  </li>
+<li>memory for primitive fields  </li>
+<li>memory for reference fields  </li>
+<li>padding  </li>
+</ul>
+<p>To determine the memory usage of an object, we add the amount of memory used by those cases above. Let us figure out each part of them.  </p>
+<p>The first one is the header. What is the “housekeeping” information? It includes a reference to the object’s class, garbage collection information, and synchronization information. Typically 16 bytes.   </p>
+<p>We already mentioned the memory consumption for each primitive fields. The total memory is a sum of each primitive field. E.g, if an object contains only two primitive fields, which are <code>int</code>, they will cost 8 bytes.  </p>
+<p>Reference fields are actually pointers to other objects. This “pointer” is just a memory address, thus uses 8 bytes of memory.  </p>
+<p>What is padding then? The memory usage is padded to be a multiple of 8 bytes for a 64-bit machine. We can take it as a few “wasted” unused bytes after the object data, to make every object start at an address that is a convenient multiple of bytes and reduce the number of bits required to represent a pointer to an object.  </p>
+<h4 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h4><p>How many bytes does an Integer object use? We know that Integer is a wrapper of int and that is its only primitive field, 4 bytes. Then as an object there will be a header of 16 bytes. So 20 bytes in total? No. Do not forget about the padding. We still need a few bytes to reach the closest multiple of 8, which is 24. So 4 bytes of padding should be added and the result is:  </p>
+<p><code>16 bytes of overhead + 4 bytes int + 4 bytes padding = 24 bytes</code>  </p>
+<p>How about a Date object then? Similarly, the result consists of an overhead, the three int fields (day, month, year), and a padding.   </p>
+<p><code>16 bytes of overhead + 3 * 4 bytes int + 4 bytes padding = 32 bytes</code>  </p>
+<p>How about the <code>Counter</code> class below which also has a reference to a String?  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> </span>&#123;</div><div class="line">    String s;</div><div class="line">    <span class="keyword">int</span> c;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>According to our general rule, the result now not only contains an overhead and an int field, but a reference to another object as well. That is: </p>
+<p><code>16 bytes of overhead + 4 bytes int + 8 bytes of reference + 4 bytes padding = 32 bytes</code>  </p>
+<p>When we account for the memory for a reference, we account separately for the memory for the object itself, so this total does not count the memory for the String value.  </p>
+<h3 id="Linked-lists"><a href="#Linked-lists" class="headerlink" title="Linked lists"></a>Linked lists</h3><p>A speical case is when there is an inner class in the object. A nested non-static (inner) class requires an extra 8 bytes of overhead for a reference to the enclosing instance.   </p>
+<p>For example, suppose we have a stack with N integers built with a linked-list representation like below:   </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stack</span>&lt;<span class="title">Integer</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">Integer</span>&gt; </span>&#123;</div><div class="line">    <span class="keyword">private</span> Node first;   <span class="comment">// top of stack (most recently added node)</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> N;        <span class="comment">// number of items</span></div><div class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;  <span class="comment">// nested class to define nodes</span></div><div class="line">        Integer i;</div><div class="line">        Node next;</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>How many bytes does it use? In addition to the usual 16 bytes for object overhead for Stack, it also has 8 bytes for its reference to Node, 4 for the int N, 4 for padding. That is 32 bytes. And for each entry, it contains a Node and an Integer. A Node class takes 40 bytes, including 16 bytes overhead, 8 bytes to Integer i, 8 bytes to the next Node, and an extra 8 bytes overhead to the enclosing instance (Integer i). Plus an Integer takes 24 bytes. So it costs 64 bytes for each entry. The grand total is 32 + 64N bytes.   </p>
+<h3 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h3><p>Now we already know how to estimate the memory usage of a single object, what if we put these object together in an array or a collection?  </p>
+<p>First we need to know the how arrays are implemented in Java. Arrays in Java are implemented as objects, with some extra overhead for the length. So an array itself takes:  </p>
+<p><code>16 bytes of overhead + 4 bytes length + 4 bytes padding = 24 bytes</code>  </p>
+<p>Besides, the memory needed to store the values in the array should be included. It is different in terms of the types of the value.  </p>
+<h4 id="Array-of-Primitives"><a href="#Array-of-Primitives" class="headerlink" title="Array of Primitives"></a>Array of Primitives</h4><p>For primitive types all we need to do is multiplying the length of the array by the bytes used by that type. For example, an array of N int values uses 24 + 4N bytes (then rounded up to be a multiple of 8), and an array of N double values uses 24 + 8N bytes (no padding needed, already a multiple of 8).  </p>
+<h4 id="Array-of-Objects"><a href="#Array-of-Objects" class="headerlink" title="Array of Objects"></a>Array of Objects</h4><p>An array of objects is an array of references to the objects, so we also need to add the space for the references to the space required for the objects. For instance, an array of N Date objects uses 24 bytes (array overhead) plus 8N bytes (references) plus 32 bytes for each object, for a grand total of 24 + 40N bytes.  </p>
+<h4 id="Multi-dimensional-Array"><a href="#Multi-dimensional-Array" class="headerlink" title="Multi-dimensional Array"></a>Multi-dimensional Array</h4><p>Multi-dimensional array is a little more complicated. When we estimate, we should decompose the usage into two parts: 1) the outer array 2) the inner array or the values.  </p>
+<p>Let us start with a two-dimensional array first. What is the implementation? A two-dimensional array is an array of arrays and each array is an object.  </p>
+<p>Suppose we have an M-by-N array of double values. The outer array uses 24 bytes overhead plus 8M bytes references to the each array object. Then for the M inner arrays, each of them has 24 bytes overhead plus N times 8 bytes for the N double values. The grand total is: </p>
+<p><code>24 bytes overhead + 8M bytes references + M * (24 bytes overhead + 8N bytes double) = 8MN + 32M + 24 ~ 8MN bytes</code>  </p>
+<p>What if the array entries are objects? First, we replace the cost of double values with the cost of references to the objects, which happens to be the same and leads to a total of 8MN + 32M + 24 ~ 8MN bytes for the array of arrays filled with references to objects. Then we add up the memory for the objects themselves.  </p>
+<p>For arrays of more than two dimensions, the above logic repeats: each row of the “outer” array is now an array of references to a further array, which contains the actual primitive data (or references if it is an object array).  </p>
+<h3 id="Strings"><a href="#Strings" class="headerlink" title="Strings"></a>Strings</h3><p>We put String after array as we know the implementation of String contains an array of <code>char</code> primitives. The standard String representation (used in Java 7 and after) has two instance variables: a reference to a character array value[] that stores the sequence of characters and an int value hash that stores a hash code that saves recomputation in certain circumstances.   </p>
+<p>How many bytes does a String of length N use then? For the String object itself, it consists of an overhead, a reference to the array, an int field, and a padding. In total:   </p>
+<p><code>16 bytes overhead + 8 bytes reference + 4 bytes int + 4 bytes padding = 32 bytes</code>  </p>
+<p>Besides that, we need to include the memory used by the array, which is an array of N characters. It contains a 24 bytes overhead and N * 2 bytes char primitives. So the grand total is:   </p>
+<p><code>32 bytes + (24 + 2N) bytes = 56 + 2N bytes</code>  </p>
+<p>The implementation was different in Java 6 and earlier versions. An alternate String representation maintains two extra int instance variables, offset and count, and represents the sequence of characters value[offset] through value[offset + count - 1]. Now, a String of length N typically uses 40 bytes for the String object plus 24 + 2N bytes (for the character array) for a total of 64 + 2N bytes. This representation saves memory when extracting substrings because two String objects can share the same underlying character array.   </p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>In this post, we introduced the step-by-step method to estimate memory usage in Java. The first thing is to know the some basic numbers for simple situations like primitive types and single object. Then we dive deeper into more complex cases, such as inner classes and arrays. Building on that, we turn to a widely used special object, String, to estimate its usage.  </p>
+<p>Still, we can do this fairly quick on the back of an envelope or on a piece of small post-it paper. And memory usage estimation is actually easier than time cost estimation, primarily because not as many program statements are involved (just declarations) and because the analysis reduces complex objects to the primitive types, whose memory usage is well-defined and simple to understand: we can count up the number of variables and weight them by the number of bytes according to their type.  </p>
+<p>Of course, for most of the times, we care more about time cost and ignore memory usage. But, again, for a performance critical system, we need to make sure both time and memory consumption are acceptable for now and the future. Memory is cheap nowadays, but it is not free. In fact, none of the resources are free. Hope that we can grasp the estimation methods of these resources and make the best use of them.  </p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li>Chapter 1.4 Analysis of Algorithms, Algorithms, 4th Edition  </li>
+<li><a href="http://www.javamex.com/tutorials/memory/object_memory_usage.shtml" target="_blank" rel="external">Memory usage of Java objects: general guide, javamex.com</a>  </li>
+<li><a href="http://www.javamex.com/tutorials/memory/string_memory_usage.shtml" target="_blank" rel="external">Memory usage of Java Strings and string-related objects, javamex.com</a>  </li>
+<li><a href="http://www.javamex.com/tutorials/memory/array_memory_usage.shtml" target="_blank" rel="external">How to calculate the memory usage of a Java array, javamex.com</a>  </li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I mentioned in the previous post that memory usage estimation is also very important when it comes to evaluate a design. And I was impres
+    
+    </summary>
+    
+      <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
+    
+    
+      <category term="System Design" scheme="http://blog.kiyanpro.com/tags/System-Design/"/>
+    
+      <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Back of the Envelope Calculation</title>
     <link href="http://blog.kiyanpro.com/2016/09/21/system_design/back-of-the-envelope-calculation/"/>
     <id>http://blog.kiyanpro.com/2016/09/21/system_design/back-of-the-envelope-calculation/</id>
     <published>2016-09-22T05:48:48.000Z</published>
-    <updated>2016-09-26T03:45:42.000Z</updated>
+    <updated>2017-07-04T19:34:24.000Z</updated>
     
-    <content type="html"><![CDATA[<p>So, I continued the journey on learning about System Design and found another very good resource. It is a talk by Jeff Dean at Stanford named <em>Software Engineering Advice from Building Large-Scale Distributed Systems</em>. In this talk, Jeff Dean shared the lessons and tips learned from his various kinds of experience.  </p>
-<p>One important skill he pointed out in the talk is the ability to estimate performance of a system design. Why is it important? Because this skill actually allows you to choose the “best” solution, according to the problem definition and the meaning of “best”, without building it.   </p>
+    <content type="html"><![CDATA[<p>So, I continued the journey on learning about System Design and found another very good resource. It is a talk by Jeff Dean at Stanford named <em>Software Engineering Advice from Building Large-Scale Distributed Systems</em><sup><a href="#References">[1]</a></sup>. In this talk, Jeff Dean shared the lessons and tips learned from his various kinds of experience.  </p>
+<p>One important skill he pointed out in the talk is the ability to estimate performance of a system design, in terms of time cost. Why is it important? Because this skill actually allows you to choose the best solution without building it.  </p>
 <p>Some fundamental knowledge is required to grasp this method:  </p>
 <ol>
 <li>Time costs for some basic steps</li>
 <li>Decomposition of a design</li>
 </ol>
-<h3 id="Time-Cost"><a href="#Time-Cost" class="headerlink" title="Time Cost"></a>Time Cost</h3><p>Jeff provided a brief table for the costs. This table is lucid overall but some rows in it might be unclear. I will show the table first and try to explain those rows.  </p>
-<h4 id="Time-Cost-Table"><a href="#Time-Cost-Table" class="headerlink" title="Time Cost Table"></a>Time Cost Table</h4><p>Table 1.1 Numbers Everyone Should Know  </p>
+<h2 id="Time-Cost"><a href="#Time-Cost" class="headerlink" title="Time Cost"></a>Time Cost</h2><p>Jeff provided a brief table for the costs. This table is lucid overall but some rows in it might be unclear. I will show the table first and try to explain those rows.  </p>
+<h3 id="Time-Cost-Table"><a href="#Time-Cost-Table" class="headerlink" title="Time Cost Table"></a>Time Cost Table</h3><p>Table 1.1 Numbers Everyone Should Know  </p>
 <table>
 <thead>
 <tr>
@@ -93,28 +290,55 @@
 </tr>
 </tbody>
 </table>
-<h4 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h4><p>We say and hear all the time that L1 cache is the fastest, then the L2 cache, then the main memory, and finally the disk. Here in the table we can find data support for this point.  </p>
-<p>As main memory of a machine becomes larger and larger nowadays, a clear trend in system design is to put performance significant data in memory rather than on disk. For example, in Elasticsearch, I use in-memory aggregation to boost the query process and avoid disk seeks. As a result, the system can return 1000 hits in 10 to 20ms, which is almost 100x faster than a normal query(around 1 sec). Another example would be the widely use of in-memory cache, such as MemCache and Redis, which can save us enormous amount of disk hits from read requests send to DB.  </p>
-<p>What is Branch mispredict?  </p>
-<p>What is Mutex lock/unlock? Why important?</p>
-<p>What is Zippy? Why is it important?  </p>
-<p>“Send 2K bytes over 1Gbps network” is easy. Just do the math. 2 <em> 10^3 / (1 </em> 10^9) = 2 <em> 10^(-6)s = 2 </em> 10^3ns, not 2 * 10^4ns… What is the problem here?  </p>
-<p>Read 1 MB sequentially from memory.   </p>
-<p>Round trip within same datacenter.   </p>
-<p>Read 1 MB sequentially from network  </p>
-<p>Read 1 MB sequentially from disk  </p>
-<p>Send packet CA-&gt;Netherlands-&gt;CA, 150ms. That is a round trip between the west of North America and the west of Europe. Good to know it. We should take this into consideration if we need to build some global distributed services. Network takes time.  </p>
-<h3 id="Decomposition-a-Design"><a href="#Decomposition-a-Design" class="headerlink" title="Decomposition a Design"></a>Decomposition a Design</h3><p>I think it is rough to just summarize how to decompose a design since it is based on the knowledge of operation systems and the actual experience on building a performance significant system. For those who do not have them, this topic would be better explained in examples.  </p>
-<h4 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h4><p>For example,   </p>
-<p>Another example,</p>
-<p>Find more examples resources. </p>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>In this post I shared a method by Jeff Dean to estimate time cost of a design, named “Back of the Envelope Calculation”. The estimation consists of mainly two step: 1) Knowing the time cost of basic steps 2) Decomposing a design into those basic steps. Then we will be able to get a fairly intuitive assessment on our possible designs and choose the best one.  </p>
-<p>Other interesting topics in this talk:<br>Problems of Real Hardware  </p>
-<p>Google Engineering Environment  </p>
-<p>Designing Software Systems<br>  Principles<br>  Get Advice Early<br>  Interfaces<br>  Protocols<br>  Efficiency</p>
-<p>The “Back of the Envelope Calculation” here focuses on time cost. Another interesting topic is memory usage estimation, which is also widely used before actual implementation. I remembered seeing my former tech lead doing this on a tiny piece of post-it paper and was totally fascinated. I told myself I would also be that kind of engineer one day. So stay tuned on the next topic: Memory Usage Estimation. </p>
+<h3 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h3><p>We keep speaking and hearing all the time that L1 cache is the fastest, then the L2 cache, then the main memory, and finally the disk. We always want to cache data in memory instead of disk. Here in the table we can find data support for this point. In addition to these numbers, we should also concern the time costs of L3 cache(12.9 ns), Solid-state drive(50-150 μs), and network(can vary based on different network environment)<sup><a href="#References">[2]</a></sup>.  </p>
+<p>As main memory becomes larger and larger nowadays, a clear trend in system design is to put performance significant data in memory rather than on disk. For example, in Elasticsearch, I use in-memory aggregation to boost the query process and avoid disk seeks. As a result, the system can return 1000 hits in 10 to 20ms, which is almost 100x faster than a normal query(around 1 sec). Another example would be the widely use of in-memory cache, such as Memcached and Redis, which can save us enormous amount of disk hits from read requests send to DB.  </p>
+<p>What is Branch mispredict? Here is the explanation from Wikipedia<sup><a href="#References">[3]</a></sup>: </p>
+<pre><code>Branch misprediction occurs when a central processing unit (CPU) mispredicts the next instruction to process in branch prediction, which is aimed at speeding up execution.   
+
+During the execution of certain programs there are places where the program execution flow can continue in several ways. These are called branches, or conditional jumps. The CPU also uses a pipeline which allows several instructions to be processed at the same time. When the code for a conditional jump is read we do not yet know the next instruction to execute and insert into the execution pipeline. This is where branch prediction comes in. Branch prediction guesses the next instruction to execute and inserts the next assumed instruction to the pipeline. Guessing wrong is called branch misprediction. The partially processed instructions in the pipeline after the branch have to be discarded and the pipeline has to start over at the correct branch when a branch misprediction is detected. This slows down the program execution.  
+</code></pre><p>We will show an example in the next section that relates to branch mispredict.  </p>
+<p>What is Mutex lock/unlock? I found some words from Webopedia<sup><a href="#References">[4]</a></sup> that explains it well:  </p>
+<pre><code>Mutex is short for mutual exclusion object. In computer programming, a mutex is a program object that allows multiple program threads to share the same resource, such as file access, but not simultaneously. When a program is started, a mutex is created with a unique name. After this stage, any thread that needs the resource must lock the mutex from other threads while it is using the resource. The mutex is set to unlock when the data is no longer needed or the routine is finished.   
+</code></pre><p>Wikipedia also throws light on mutex’s significance<sup><a href="#References">[5]</a></sup>:   </p>
+<pre><code>Mutual exclusion is a property of concurrency control, which is instituted for the purpose of preventing race conditions; it is the requirement that one thread of execution never enter its critical section at the same time that another, concurrent thread of execution enters its own critical section.  
+</code></pre><p>So knowing how long it takes to do mutex lock/unlock, we are able to estimate the time cost for concurrent designs.  </p>
+<p>What is Zippy? Zippy, or Snappy, is actually a fast compressor/decompressor open sourced by Google. Here is what I found on Snappy Github page<sup><a href="#References">[6]</a></sup>: </p>
+<pre><code>It aims for very high speeds and reasonable compression. Compared to the fastest mode of zlib, Snappy is an order of magnitude faster for most inputs, but the resulting compressed files are anywhere from 20% to 100% bigger.
+</code></pre><p>In situations where our design consists of data compression, we can use the number here to help.  </p>
+<p>“Send 2K bytes over 1Gbps network” is easy. Just do the math. 2 <em> 10^3 </em> 8 bit / (1 <em> 10^9) bit/s = 16 </em> 10^(-6) s ≈ 2 * 10^4 ns.  </p>
+<p>Read 1 MB sequentially from memory/network/dist. Obviously, with the time costs we know that reading from memory is the fastest. When calculate time cost, I think it is more useful to know how many bytes per second instead, which are 4000 MB/s, 100 MB/s, and 30 MB/s, respectively.  </p>
+<p>Round trip within same datacenter. It is good to know that even the same data center has time cost. Latency in the data center matters when it comes to performance critical systems. That means even our machines in the same cluster access each other can take time. For instance, if we’re using a distributed in-memory key/value store, we need to fetch data from another machine in the cluster. That would be a few 500,000ns (or 0.5ms) round-trips in the same datacenter<sup><a href="#References">[7]</a></sup>.  </p>
+<p>Send packet CA-&gt;Netherlands-&gt;CA, 150ms. That is a round trip between the west of North America and the west of Europe. We should take this into consideration if we need to build some global distributed services. Network is not “free”. Network takes time.  </p>
+<p>As I found out during writing this post, this talk is given 7 years ago at 2009. All the numbers are based on a mid-range PC at that time<sup><a href="#References">[8]</a></sup>. So the numbers can be smaller now and there are also some more things to cover. I think it would be better if we have somewhere to keep all these figures in relation to design updated. Anyway, the exact numbers here are not as important as the differences in magnitude as you move up and down the table.  </p>
+<h2 id="Decomposition-a-Design"><a href="#Decomposition-a-Design" class="headerlink" title="Decomposition a Design"></a>Decomposition a Design</h2><p>I think it is rough to just summarize how to decompose a design since it is based on the knowledge of operation systems and the actual experience on building a performance significant system. For those who do not have them, this topic would be better explained in examples.  </p>
+<h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1"></a>Example 1</h3><p>For example, suppose we are going to generate an image result page that has 30 thumbnails in it. We definitely have various of available solutions. The very basic one can be reading the thumbnails serially from disk and show them. How can we decompose it? Well, for each thumbnail, we need to seek it on disk, and then read. With the average size of a thumbnail given, which is 256k, we can estimate the time cost:  </p>
+<p><code>30 seeks * 10 ms/seek + 30 * 256 k / 30 MB/s = 560 ms.</code>  </p>
+<p>560ms is definitely too long since whatever latency larger than 100ms is noticeable to user. How can we improve that? Obviously, by taking another look at the first design, we shall notice that there were no order requirments for those thumbnails, so that the thumbnails other than the current one do not need to wait. We can read them all at the same time. So this process can be boosted by reading thumbnails with one thread for each in parallel instead. How long does that take?  </p>
+<p><code>10 ms/seek + 256 k read / 30 MB/s = 18 ms</code>  </p>
+<p>Of course, 256 k is just an average size. The estimation above ignores the variance. The full generation time depends on the largest thumbnail which takes longer to read. So we can imagine the real time cost might be much higher </p>
+<p>Besides these two solutions, there is still potential to make the design even faster. If we take another look at the second design, we know that the bottleneck is that everything is on disk. What if we cache the thumbnails in memory? As long as the image size is not that big, we can put all of them in memory with <code>256 k * 30 = 6 ~ 7 MB</code> space. Comparing to the large amount of memory we have on modern machines, it is totally acceptable. The time cost here would be:  </p>
+<p><code>100 ns/main memory reference + 256 k read / 4000 MB/s = 64.1 us</code>  </p>
+<h3 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2"></a>Example 2</h3><p>The problem is “How long does it take to quicksort 1 GB of 4 byte numbers”. This is a pure time cost estimation question, as we already know the implementation of quicksort. So how can we decompose the steps?  </p>
+<p>First we need to figure out how many numbers we have, which is the input length <code>n</code>. 10^9 byte is roughly 2^30. </p>
+<p><code>n = 2^30 / 4 = 2^28</code>  </p>
+<p>Then we know the time complexity of quicksort it O(nlogn) and the basic step of quicksort is comparison. So the number of comparisons is around:  </p>
+<p><code>2^28 * log(2^28) ≈ 2^33</code> (Here 2^4 &lt; log(2^28) = 28 &lt; 2^5 and we take the larger one).  </p>
+<p>Around half of the comparisons will mispredict. So  </p>
+<p><code>2^32 mispredicts * 5 ns/mispredict = 21 seconds</code>   </p>
+<p>Another thing to consider is the memory bandwidth. Suppose the quicksort should be sequential, and the machine we run this sorting have 4GB memory. So  </p>
+<p><code>2^30 bytes * log(2^28) passes = 28 GB. 28 GB / 4 GB/s = 7 seconds</code>  </p>
+<p>As a result, it should take around 30 secs to sort 1 GB on one CPU machine with 4 GB memory.  </p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>In this post I shared a method by Jeff Dean to estimate time cost of a design, named “Back of the Envelope Calculation”. The estimation consists of mainly two steps: 1) Knowing the time cost of basic steps 2) Decomposing a design into those basic steps. Then we will be able to get an intuitive assessment on our possible designs and choose the best one.  </p>
+<p>The “Back of the Envelope Calculation” here focuses on time cost. Another interesting topic is memory usage estimation, which is also widely used before actual implementation. I remembered seeing my former tech lead doing this on a tiny piece of post-it paper and was totally fascinated. I told myself I would also be that kind of engineer one day. So stay tuned on the next topic: Memory Usage Estimation.  </p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
-<li><a href=""></a></li>
+<li><a href="http://static.googleusercontent.com/media/research.google.com/en//people/jeff/stanford-295-talk.pdf" target="_blank" rel="external">Software Engineering Advice from Building Large-Scale Distributed Systems, Google Research PPT</a></li>
+<li><a href="http://stackoverflow.com/a/3142870/3642996" target="_blank" rel="external">Alex Martelli’s answer to “How much time does it take to fetch one word from memory?”, Stackoverflow</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Branch_misprediction" target="_blank" rel="external">Branch misprediction, Wikipedia</a>  </li>
+<li><a href="http://www.webopedia.com/TERM/M/mutex.html" target="_blank" rel="external">Mutex, Webopedia</a>  </li>
+<li><a href="https://en.wikipedia.org/wiki/Mutual_exclusion" target="_blank" rel="external">Mutual exclusion, Wikipedia</a>  </li>
+<li><a href="https://github.com/google/snappy" target="_blank" rel="external">Snappy Readme, Github</a>  </li>
+<li><a href="http://www.linux-mag.com/id/7589/" target="_blank" rel="external">Data By The Numbers, Linux Magazine</a>  </li>
+<li><a href="https://blog.codinghorror.com/the-infinite-space-between-words/" target="_blank" rel="external">The Infinite Space Between Words, codinghorror.com</a>  </li>
 </ol>
 ]]></content>
     
@@ -126,10 +350,10 @@
     
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
-      <category term="Reading Note" scheme="http://blog.kiyanpro.com/categories/Coding/Reading-Note/"/>
-    
     
       <category term="System Design" scheme="http://blog.kiyanpro.com/tags/System-Design/"/>
+    
+      <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
     
   </entry>
   
@@ -138,7 +362,7 @@
     <link href="http://blog.kiyanpro.com/2016/09/13/system_design/Ways-to-Build-A-Distributed-System/"/>
     <id>http://blog.kiyanpro.com/2016/09/13/system_design/Ways-to-Build-A-Distributed-System/</id>
     <published>2016-09-13T23:58:24.000Z</published>
-    <updated>2017-07-04T19:03:55.000Z</updated>
+    <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<p>Every engineer should learn about distributed system design, since it is not only the path to next career level, but a necessary ability to build a large-scale application according to use cases and specifications as well. Without a proper design, it would be impossible to implement and manage such a system afterwards. </p>
 <p>Today I read through “The Twitter Problem”<sup><a href="#References">[1]</a></sup> on hiredintech.com and found it truly useful and easy to understand. This post is a summary on the classic problems and solutions when building a scalable system. These problems are generally met in most of the large applications and are well solved by those extraordinary predecessors. </p>
@@ -179,10 +403,10 @@
     
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
-      <category term="Reading Note" scheme="http://blog.kiyanpro.com/categories/Coding/Reading-Note/"/>
-    
     
       <category term="System Design" scheme="http://blog.kiyanpro.com/tags/System-Design/"/>
+    
+      <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
     
   </entry>
   
@@ -191,7 +415,7 @@
     <link href="http://blog.kiyanpro.com/2016/04/22/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient/"/>
     <id>http://blog.kiyanpro.com/2016/04/22/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient/</id>
     <published>2016-04-23T01:48:48.000Z</published>
-    <updated>2016-09-17T22:23:18.000Z</updated>
+    <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<p>Recently, I finished reading the book <em>Java SE 8 For the Really Impatient</em>. This book covers the main features introduced in Java SE 8, such as Lambda Expressions and Stream API. Also it shows some sweet small features that benefit every day work greatly, namely, the new d ate and time API, the concurrency enhancements, and etc. </p>
 <p>This post is a guide for the reading notes of this series. You can jump right into a specific topic from here by clicking the numbers.<br><br></p>
@@ -214,10 +438,10 @@
     
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
-      <category term="Reading Note" scheme="http://blog.kiyanpro.com/categories/Coding/Reading-Note/"/>
-    
     
       <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
+    
+      <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
     
   </entry>
   
@@ -258,7 +482,7 @@
     <link href="http://blog.kiyanpro.com/2016/04/15/elasticsearch/Marvel-What-Does-Search-Rate-Mean/"/>
     <id>http://blog.kiyanpro.com/2016/04/15/elasticsearch/Marvel-What-Does-Search-Rate-Mean/</id>
     <published>2016-04-16T02:38:38.000Z</published>
-    <updated>2016-09-17T22:23:18.000Z</updated>
+    <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>Elasticsearch provides a handy monitoring tool named Marvel. It is pretty easy to setup. But when it comes to real monitoring, you will realize that those metrics in dashboard are so confusing. They are not consistent with the actual QPS you sent to the cluster. You don’t really know what they refer to. </p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>I googled it. But unfortunately there was no answer at that time. The only thing I got is <a href="https://discuss.elastic.co/t/marvel-what-does-the-search-rate-mean/35260" target="_blank" rel="external">a post on Marvel forum</a> where somebody was as confused as me. </p>
@@ -288,6 +512,8 @@
     
       <category term="Elasticsearch" scheme="http://blog.kiyanpro.com/tags/Elasticsearch/"/>
     
+      <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
   </entry>
   
   <entry>
@@ -295,7 +521,7 @@
     <link href="http://blog.kiyanpro.com/2016/04/04/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-13/"/>
     <id>http://blog.kiyanpro.com/2016/04/04/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-13/</id>
     <published>2016-04-05T01:34:48.000Z</published>
-    <updated>2016-09-17T22:23:18.000Z</updated>
+    <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-8-Miscellaneous-Goodies"><a href="#Chapter-8-Miscellaneous-Goodies" class="headerlink" title="Chapter 8 Miscellaneous Goodies"></a>Chapter 8 Miscellaneous Goodies</h1><h2 id="Working-with-Files"><a href="#Working-with-Files" class="headerlink" title="Working with Files"></a>Working with Files</h2><p>Java 8 brings a small number of convenience methods that use stream for reading lines from files and for visiting directory entries. Also, there is an official way of performing Base64 encoding. </p>
 <h3 id="Streams-of-Lines"><a href="#Streams-of-Lines" class="headerlink" title="Streams of Lines"></a>Streams of Lines</h3><p><code>Files.lines</code>: read the lines of a file lazily. It yields a stream of strings, one per line of input:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Stream&lt;String&gt; lines = Files.lines(path);</div><div class="line">Optional&lt;String&gt; passwordEntry = lines.filter(s -&gt; s.contains(“password”)).findFirst();</div></pre></td></tr></table></figure></p>
@@ -398,10 +624,10 @@
     
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
-      <category term="Reading Note" scheme="http://blog.kiyanpro.com/categories/Coding/Reading-Note/"/>
-    
     
       <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
+    
+      <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
     
   </entry>
   
@@ -410,7 +636,7 @@
     <link href="http://blog.kiyanpro.com/2016/03/31/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-12/"/>
     <id>http://blog.kiyanpro.com/2016/03/31/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-12/</id>
     <published>2016-04-01T01:26:27.000Z</published>
-    <updated>2016-09-17T22:23:18.000Z</updated>
+    <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-8-Miscellaneous-Goodies"><a href="#Chapter-8-Miscellaneous-Goodies" class="headerlink" title="Chapter 8 Miscellaneous Goodies"></a>Chapter 8 Miscellaneous Goodies</h1><p>Key points:</p>
 <ul>
@@ -502,10 +728,10 @@
     
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
-      <category term="Reading Note" scheme="http://blog.kiyanpro.com/categories/Coding/Reading-Note/"/>
-    
     
       <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
+    
+      <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
     
   </entry>
   
@@ -514,7 +740,7 @@
     <link href="http://blog.kiyanpro.com/2016/03/30/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-11/"/>
     <id>http://blog.kiyanpro.com/2016/03/30/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-11/</id>
     <published>2016-03-31T00:56:21.000Z</published>
-    <updated>2016-09-17T22:23:18.000Z</updated>
+    <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-6-Concurrency-Enhancements"><a href="#Chapter-6-Concurrency-Enhancements" class="headerlink" title="Chapter 6 Concurrency Enhancements"></a>Chapter 6 Concurrency Enhancements</h1><h2 id="Parallel-Array-Operations"><a href="#Parallel-Array-Operations" class="headerlink" title="Parallel Array Operations"></a>Parallel Array Operations</h2><p><code>Arrays</code> class now has a number of parallelized operations. </p>
 <p><code>Arrays.parallelSort</code>: sort an array of primitive values or objects.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String contents = <span class="keyword">new</span> String(Files.readAllBytes(Paths.get(<span class="string">"alice.txt"</span>)), StandardCharsets.UTF_8);</div><div class="line">String[] words = contents.split(<span class="string">"[\\P&#123;L&#125;]+"</span>); <span class="comment">// Split along nonletters</span></div><div class="line">Arrays.parallelSort(words);</div></pre></td></tr></table></figure></p>
@@ -653,10 +879,10 @@
     
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
-      <category term="Reading Note" scheme="http://blog.kiyanpro.com/categories/Coding/Reading-Note/"/>
-    
     
       <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
+    
+      <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
     
   </entry>
   
@@ -665,7 +891,7 @@
     <link href="http://blog.kiyanpro.com/2016/03/29/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-10/"/>
     <id>http://blog.kiyanpro.com/2016/03/29/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-10/</id>
     <published>2016-03-30T01:21:42.000Z</published>
-    <updated>2016-09-17T22:23:18.000Z</updated>
+    <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-6-Concurrency-Enhancements"><a href="#Chapter-6-Concurrency-Enhancements" class="headerlink" title="Chapter 6 Concurrency Enhancements"></a>Chapter 6 Concurrency Enhancements</h1><h2 id="ConcurentHashMap-Improvements"><a href="#ConcurentHashMap-Improvements" class="headerlink" title="ConcurentHashMap Improvements"></a>ConcurentHashMap Improvements</h2><p><code>mappingCount</code>: returns the size as a <code>long</code> in case it’s too large.</p>
 <p>An attacker can slow down a program by crafting a large number of strings that hash to the same value. As of Java 8, the concurrent hash map organizes the buckets as trees, not lists, when the key type implements <code>Comparable</code>, guaranteeing O(log(n)) performance. </p>
@@ -719,10 +945,10 @@
     
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
-      <category term="Reading Note" scheme="http://blog.kiyanpro.com/categories/Coding/Reading-Note/"/>
-    
     
       <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
+    
+      <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
     
   </entry>
   
@@ -731,7 +957,7 @@
     <link href="http://blog.kiyanpro.com/2016/03/29/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-9/"/>
     <id>http://blog.kiyanpro.com/2016/03/29/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-9/</id>
     <published>2016-03-30T01:19:11.000Z</published>
-    <updated>2016-09-17T22:23:18.000Z</updated>
+    <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-6-Concurrency-Enhancements"><a href="#Chapter-6-Concurrency-Enhancements" class="headerlink" title="Chapter 6 Concurrency Enhancements"></a>Chapter 6 Concurrency Enhancements</h1><p><code>java.util.concurrent</code> is a mix of useful utilities for the application programmer and power tools for library authors, without much effort to separate the two. </p>
 <p>Key points:</p>
@@ -786,10 +1012,10 @@
     
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
-      <category term="Reading Note" scheme="http://blog.kiyanpro.com/categories/Coding/Reading-Note/"/>
-    
     
       <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
+    
+      <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
     
   </entry>
   
@@ -798,7 +1024,7 @@
     <link href="http://blog.kiyanpro.com/2016/03/25/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-8/"/>
     <id>http://blog.kiyanpro.com/2016/03/25/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-8/</id>
     <published>2016-03-26T02:17:35.000Z</published>
-    <updated>2016-09-17T22:23:18.000Z</updated>
+    <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-5-The-New-Date-and-Time-API"><a href="#Chapter-5-The-New-Date-and-Time-API" class="headerlink" title="Chapter 5 The New Date and Time API"></a>Chapter 5 The New Date and Time API</h1><h2 id="Date-Adjusters"><a href="#Date-Adjusters" class="headerlink" title="Date Adjusters"></a>Date Adjusters</h2><p>Compute dates such as “the first Tuesday of every month”. </p>
 <p><code>TemporalAdjusters</code>: provides a number of static methods for common adjustments. You pass the result of an adjustment method to the <code>with</code> method.<br><code>with</code>: returns a new <code>LocalDate</code> object without modifying the original.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LocalDate firstTuesday = LocalDate.of(year, month, <span class="number">1</span>).with(TemporalAdjusters.nextOrSame(DayOfWeek.TUESDAY));</div></pre></td></tr></table></figure></p>
@@ -1198,10 +1424,10 @@
     
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
-      <category term="Reading Note" scheme="http://blog.kiyanpro.com/categories/Coding/Reading-Note/"/>
-    
     
       <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
+    
+      <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
     
   </entry>
   
@@ -1210,7 +1436,7 @@
     <link href="http://blog.kiyanpro.com/2016/03/24/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-7/"/>
     <id>http://blog.kiyanpro.com/2016/03/24/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-7/</id>
     <published>2016-03-25T01:29:00.000Z</published>
-    <updated>2016-09-17T22:23:18.000Z</updated>
+    <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<p>Chapter 4 JavaFx is skipped for now. </p>
 <h1 id="Chapter-5-The-New-Date-and-Time-API"><a href="#Chapter-5-The-New-Date-and-Time-API" class="headerlink" title="Chapter 5 The New Date and Time API"></a>Chapter 5 The New Date and Time API</h1><p>Learn what makes time computations so vexing, and how the new Data and Time API solves these issues. </p>
@@ -1357,10 +1583,10 @@
     
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
-      <category term="Reading Note" scheme="http://blog.kiyanpro.com/categories/Coding/Reading-Note/"/>
-    
     
       <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
+    
+      <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
     
   </entry>
   
@@ -1369,7 +1595,7 @@
     <link href="http://blog.kiyanpro.com/2016/03/23/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-6/"/>
     <id>http://blog.kiyanpro.com/2016/03/23/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-6/</id>
     <published>2016-03-24T01:25:54.000Z</published>
-    <updated>2016-09-17T22:23:18.000Z</updated>
+    <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-3-Programming-with-Lambdas"><a href="#Chapter-3-Programming-with-Lambdas" class="headerlink" title="Chapter 3 Programming with Lambdas"></a>Chapter 3 Programming with Lambdas</h1><h2 id="Returning-Functions"><a href="#Returning-Functions" class="headerlink" title="Returning Functions"></a>Returning Functions</h2><p>Consider methods whose return type is a functional interface.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Image brightenedImage = transform(image, Color:brighter);</div></pre></td></tr></table></figure></p>
 <p>Could you supply the desired brightness as an additional parameter to <code>transform</code>?<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Image brightenedImage = transform(image, (c, factor) -&gt; c.deriveColor(<span class="number">0</span>, <span class="number">1</span>, factor, <span class="number">1</span>), <span class="number">1.2</span>);</div><div class="line"></div><div class="line"><span class="comment">// overload transform</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Iamge <span class="title">transform</span><span class="params">(Image in, BiFunction&lt;Color, T, Color&gt; f, T arg)</span></span></div></pre></td></tr></table></figure></p>
@@ -1418,10 +1644,10 @@
     
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
-      <category term="Reading Note" scheme="http://blog.kiyanpro.com/categories/Coding/Reading-Note/"/>
-    
     
       <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
+    
+      <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
     
   </entry>
   
@@ -1430,7 +1656,7 @@
     <link href="http://blog.kiyanpro.com/2016/03/22/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-5/"/>
     <id>http://blog.kiyanpro.com/2016/03/22/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-5/</id>
     <published>2016-03-22T23:44:25.000Z</published>
-    <updated>2016-09-17T22:23:18.000Z</updated>
+    <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-3-Programming-with-Lambdas"><a href="#Chapter-3-Programming-with-Lambdas" class="headerlink" title="Chapter 3 Programming with Lambdas"></a>Chapter 3 Programming with Lambdas</h1><p>Learn how to create your own libraries that make use of lambda expressions and functional interfaces. </p>
 <p>Key points:</p>
@@ -1664,10 +1890,10 @@
     
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
-      <category term="Reading Note" scheme="http://blog.kiyanpro.com/categories/Coding/Reading-Note/"/>
-    
     
       <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
+    
+      <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
     
   </entry>
   
@@ -1676,7 +1902,7 @@
     <link href="http://blog.kiyanpro.com/2016/03/21/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-4/"/>
     <id>http://blog.kiyanpro.com/2016/03/21/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-4/</id>
     <published>2016-03-22T00:12:12.000Z</published>
-    <updated>2016-09-17T22:23:18.000Z</updated>
+    <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-2-The-Stream-API"><a href="#Chapter-2-The-Stream-API" class="headerlink" title="Chapter 2 The Stream API"></a>Chapter 2 The Stream API</h1><h2 id="Grouping-and-Partioning"><a href="#Grouping-and-Partioning" class="headerlink" title="Grouping and Partioning"></a>Grouping and Partioning</h2><p><code>groupingBy</code>: forms groups of values with the same characteristic<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// grouping locales by country</span></div><div class="line">Map&lt;String, List&lt;Locale&gt;&gt; countryToLocales = locales.collect(Collectors.groupingBy(Locale::getCountry));</div></pre></td></tr></table></figure></p>
 <p>The function <code>Locale::getCountry</code> is the <em>classifier function</em> of the grouping.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// look up all locales for a given country code</span></div><div class="line">List&lt;Locale&gt; swissLocales = countryToLocales.get(<span class="string">"CH"</span>);</div></pre></td></tr></table></figure></p>
@@ -1810,10 +2036,10 @@
     
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
-      <category term="Reading Note" scheme="http://blog.kiyanpro.com/categories/Coding/Reading-Note/"/>
-    
     
       <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
+    
+      <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
     
   </entry>
   
@@ -1822,7 +2048,7 @@
     <link href="http://blog.kiyanpro.com/2016/03/17/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-3/"/>
     <id>http://blog.kiyanpro.com/2016/03/17/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-3/</id>
     <published>2016-03-18T03:05:32.000Z</published>
-    <updated>2016-09-17T22:23:18.000Z</updated>
+    <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-2-The-Stream-API"><a href="#Chapter-2-The-Stream-API" class="headerlink" title="Chapter 2 The Stream API"></a>Chapter 2 The Stream API</h1><h2 id="Simple-Reductions"><a href="#Simple-Reductions" class="headerlink" title="Simple Reductions"></a>Simple Reductions</h2><p>reductions: reduces the stream to a value.<br>terminal operation: the stream ceases to be usable. </p>
 <p>List of reductions: </p>
@@ -1907,10 +2133,10 @@
     
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
-      <category term="Reading Note" scheme="http://blog.kiyanpro.com/categories/Coding/Reading-Note/"/>
-    
     
       <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
+    
+      <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
     
   </entry>
   
@@ -1919,7 +2145,7 @@
     <link href="http://blog.kiyanpro.com/2016/03/16/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-2/"/>
     <id>http://blog.kiyanpro.com/2016/03/16/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-2/</id>
     <published>2016-03-17T01:31:28.000Z</published>
-    <updated>2016-09-17T22:23:18.000Z</updated>
+    <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-2-The-Stream-API"><a href="#Chapter-2-The-Stream-API" class="headerlink" title="Chapter 2 The Stream API"></a>Chapter 2 The Stream API</h1><p>Processing collections of values and specifying what you want to have done, leaving the scheduling of operations to the implementation. E.g, compute the average of the values of a certain method. </p>
 <p>Key points:</p>
@@ -1995,10 +2221,10 @@
     
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
-      <category term="Reading Note" scheme="http://blog.kiyanpro.com/categories/Coding/Reading-Note/"/>
-    
     
       <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
+    
+      <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
     
   </entry>
   
@@ -2007,7 +2233,7 @@
     <link href="http://blog.kiyanpro.com/2016/03/15/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-1/"/>
     <id>http://blog.kiyanpro.com/2016/03/15/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-1/</id>
     <published>2016-03-16T01:12:44.000Z</published>
-    <updated>2016-09-17T22:23:18.000Z</updated>
+    <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-1-Lambda-Expressions"><a href="#Chapter-1-Lambda-Expressions" class="headerlink" title="Chapter 1 Lambda Expressions"></a>Chapter 1 Lambda Expressions</h1><h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><p>A block of code was passed to someone - a thread pool, a sort method, or a button. The code was called at some later time. How to work with blocks of code directly in Java? Lambda expression. </p>
 <p>Use <code>Integer.compare(x, y)</code> instead of <code>x - y</code> to compare x and y since that computation can overflow. </p>
@@ -2095,251 +2321,10 @@
     
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
-      <category term="Reading Note" scheme="http://blog.kiyanpro.com/categories/Coding/Reading-Note/"/>
-    
     
       <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Export Index Using Elasticsearch Dump</title>
-    <link href="http://blog.kiyanpro.com/2016/03/11/elasticsearch/Export-Index-Using-Elasticsearch-Dump/"/>
-    <id>http://blog.kiyanpro.com/2016/03/11/elasticsearch/Export-Index-Using-Elasticsearch-Dump/</id>
-    <published>2016-03-11T23:38:21.000Z</published>
-    <updated>2016-04-08T04:59:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>A very common problem we encounter in Elasticsearch cluster management is how to copy an index to another cluster. For example, we need to make a back up copy for all our current data, or we need to copy data to staging cluster to test query performance.   </p>
-<p>The intuitive way would be manually get all documents under the specific index, create another index using the same settings and mappings, then index all documents to the newly created index. Fortunately, we do not need to do that. There are already several good solutions. One of them is using a third-parth tool named Elasticsearch Dump.   </p>
-<h2 id="Elasticsearch-Dump"><a href="#Elasticsearch-Dump" class="headerlink" title="Elasticsearch Dump"></a>Elasticsearch Dump</h2><p>ElasticSearch Dump is a node package for moving and saving indices. To use this handy tool, you need to have node installed before using it.   </p>
-<h3 id="Installation-1"><a href="#Installation-1" class="headerlink" title="Installation[1]"></a>Installation<sup><a href="#References">[1]</a></sup></h3><p>Assume that you already have node, to install it:   </p>
-<figure class="highlight bash"><figcaption><span>Install elasticdump</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install elasticdump -g</div></pre></td></tr></table></figure>
-<p>You probaly need to add <code>sudo</code> before the above command if there is any permission problem.   </p>
-<h3 id="Usages-1"><a href="#Usages-1" class="headerlink" title="Usages[1]"></a>Usages<sup><a href="#References">[1]</a></sup></h3><p>Then <code>elasticdump</code> command should be available from your command line. The command works by specifying an input and an output. Both can be either an elasticsearch url or a file, or even standard io streams from terminal.   </p>
-<p>To fully copy an index from production to staging, we provide the command with production hostname, port and index name as input, staging hostname, port and index name as output. We should move the analyzer first, the mapping second, and finally the data. </p>
-<figure class="highlight bash"><figcaption><span>Copy an index from production to staging with analyzer and mapping</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">elasticdump \</div><div class="line">  --input=http://production.es.com:9200/my_index \</div><div class="line">  --output=http://staging.es.com:9200/my_index \</div><div class="line">  --<span class="built_in">type</span>=analyzer</div><div class="line">elasticdump \</div><div class="line">  --input=http://production.es.com:9200/my_index \</div><div class="line">  --output=http://staging.es.com:9200/my_index \</div><div class="line">  --<span class="built_in">type</span>=mapping</div><div class="line">elasticdump \</div><div class="line">  --input=http://production.es.com:9200/my_index \</div><div class="line">  --output=http://staging.es.com:9200/my_index \</div><div class="line">  --<span class="built_in">type</span>=data</div></pre></td></tr></table></figure>
-<p>I encountered an error when try to dump data. It’s related to how many connections can be set up to target host at one time. If you also have limit on your host, please refer to <code>limit</code> and <code>maxSockets</code> options in the Useful Options table. </p>
-<p>We may also specify output as a local file instead of a url.   </p>
-<figure class="highlight bash"><figcaption><span>Backup index data to a file</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">elasticdump \</div><div class="line">  --input=http://production.es.com:9200/my_index \</div><div class="line">  --output=/data/my_index_mapping.json \</div><div class="line">  --<span class="built_in">type</span>=mapping</div><div class="line">elasticdump \</div><div class="line">  --input=http://production.es.com:9200/my_index \</div><div class="line">  --output=/data/my_index.json \</div><div class="line">  --<span class="built_in">type</span>=data</div></pre></td></tr></table></figure>
-<p>We can pipe the outcome with gzip using stdout.   </p>
-<figure class="highlight bash"><figcaption><span>Backup and index to a gzip using stdout</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">elasticdump \</div><div class="line">  --input=http://production.es.com:9200/my_index \</div><div class="line">  --output=$ \</div><div class="line">  | gzip &gt; /data/my_index.json.gz</div></pre></td></tr></table></figure>
-<h3 id="Useful-Options"><a href="#Useful-Options" class="headerlink" title="Useful Options"></a>Useful Options</h3><p>There are many options for the elasticdump command. I list a few most useful options with comments in the table below.<br><br></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Options</th>
-<th style="text-align:left">Explanation</th>
-<th style="text-align:center">Default</th>
-<th style="text-align:left">Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">limit</td>
-<td style="text-align:left">How many objects to move in bulk per operation limit is approximate for file streams</td>
-<td style="text-align:center">100</td>
-<td style="text-align:left">Can avoid too much traffic generate at one time</td>
-</tr>
-<tr>
-<td style="text-align:center">debug</td>
-<td style="text-align:left">Display the elasticsearch commands being used</td>
-<td style="text-align:center">false</td>
-<td style="text-align:left">Useful when error happens</td>
-</tr>
-<tr>
-<td style="text-align:center">type</td>
-<td style="text-align:left">What are we exporting? Can be data, mapping, analyzer</td>
-<td style="text-align:center">data</td>
-<td style="text-align:left">Can export mapping or analyzer instead of data only</td>
-</tr>
-<tr>
-<td style="text-align:center">delete</td>
-<td style="text-align:left">Delete documents one-by-one from the input as they are moved. Will not delete the source index</td>
-<td style="text-align:center">false</td>
-<td style="text-align:left">If you want to remove old data in the meantime</td>
-</tr>
-<tr>
-<td style="text-align:center">searchBody</td>
-<td style="text-align:left">Preform a partial extract based on search results</td>
-<td style="text-align:center">{“query”: { “match_all”: {} } }</td>
-<td style="text-align:left">Provide query to customize target data</td>
-</tr>
-<tr>
-<td style="text-align:center">all</td>
-<td style="text-align:left">Load/store documents from ALL indexes</td>
-<td style="text-align:center">false</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center">bulk</td>
-<td style="text-align:left">Leverage elasticsearch Bulk API when writing documents</td>
-<td style="text-align:center">false</td>
-<td style="text-align:left">Should use bulk as a default to be more efficient</td>
-</tr>
-<tr>
-<td style="text-align:center">ignore-errors</td>
-<td style="text-align:left">Will continue the read/write loop on write error</td>
-<td style="text-align:center">false</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center">scrollTime</td>
-<td style="text-align:left">Time the nodes will hold the requested search in order.</td>
-<td style="text-align:center">10m</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center">maxSockets</td>
-<td style="text-align:left">How many simultaneous HTTP requests can we process make?</td>
-<td style="text-align:center">5 [node &lt;= v0.10.x]<br>Infinity [node &gt;= v0.11.x]</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center">help</td>
-<td style="text-align:left">This page</td>
-<td style="text-align:center">-</td>
-<td style="text-align:left">Check help if you forget some options</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>Elasticsearch Dump satisfies the need adequately. </p>
-<p>There are also some other options. The native solution would be the Snapshot &amp; Restore<sup><a href="#References">[2]</a></sup>. Or you can use plugins like Elasticsearch InOut<sup><a href="#References">[3]</a></sup> and Elasticsearch knapsack<sup><a href="#References">[4]</a></sup>. In addition to that, you can use other third-party tools like ElasticSearch Exporter<sup><a href="#References">[5]</a></sup>. </p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
-<li><a href="https://github.com/taskrabbit/elasticsearch-dump" target="_blank" rel="external">Elasticsearch-dump Github Page</a>  </li>
-<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-snapshots.html" target="_blank" rel="external">Snapshot and Restore, Elasticsearch documentation</a>  </li>
-<li><a href="https://github.com/crate/elasticsearch-inout-plugin" target="_blank" rel="external">Elasticsearch Inout Plugin, Github Page</a></li>
-<li><a href="https://github.com/jprante/elasticsearch-knapsack" target="_blank" rel="external">Knapsack plugin for Elasticsearch, Github Page</a></li>
-<li><a href="https://github.com/mallocator/Elasticsearch-Exporter" target="_blank" rel="external">Elasticsearch Exporter, Github Page</a>  </li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;A very common problem we encounter in Elasticsearch cluster management is how to copy an index to another cluster. For example, we need t
-    
-    </summary>
-    
-      <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
-    
-    
-      <category term="Elasticsearch" scheme="http://blog.kiyanpro.com/tags/Elasticsearch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reroute Unassigned Shards</title>
-    <link href="http://blog.kiyanpro.com/2016/03/06/elasticsearch/reroute-unassigned-shards/"/>
-    <id>http://blog.kiyanpro.com/2016/03/06/elasticsearch/reroute-unassigned-shards/</id>
-    <published>2016-03-06T23:24:55.000Z</published>
-    <updated>2016-04-08T04:59:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Red-Cluster"><a href="#Red-Cluster" class="headerlink" title="Red Cluster!"></a>Red Cluster!</h2><p>There are 3 cluster states:   </p>
-<blockquote>
-<ol>
-<li>green: All primary and replica shards are active</li>
-<li>yellow: All primary shards are active, but not all replica shards are active</li>
-<li>red: Not all primary shards are active </li>
-</ol>
-</blockquote>
-<p>When cluster health is red, it means cluster is dead. And that means you can do nothing until it’s recovered, which is very bad indeed. I will share with you how to deal with one common situation: <strong>when cluster is red due to unassigned shards</strong>.  </p>
-<h2 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h2><p>The general idea is pretty simple: find those shards which are unassigned, manually assign them to a node with reroute API. Let’s see how we can do that step by step. Then we can combine them into a configurable simple script. </p>
-<h3 id="Step-1-Check-Unassigned-Shards"><a href="#Step-1-Check-Unassigned-Shards" class="headerlink" title="Step 1: Check Unassigned Shards"></a>Step 1: Check Unassigned Shards</h3><p>To get cluster information, we usually use cat APIs. There is a <code>GET /_cat/shards</code> endpoint to show a detailed view of what nodes contain which shards<sup><a href="#References">[1]</a></sup>. </p>
-<figure class="highlight bash"><figcaption><span>Cat shards</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cat shards verbose</span></div><div class="line">curl <span class="string">"http://your.elasticsearch.host.com:9200/_cat/shards?v"</span></div><div class="line"></div><div class="line"><span class="comment"># cat shards index</span></div><div class="line">curl <span class="string">"http://your.elasticsearch.host.com:9200/_cat/shards/wiki2"</span></div><div class="line"><span class="comment"># example return</span></div><div class="line"><span class="comment"># wiki2 0 p STARTED 197 3.2mb 192.168.56.10 Stiletto</span></div><div class="line"><span class="comment"># wiki2 1 p STARTED 205 5.9mb 192.168.56.30 Frankie Raye</span></div><div class="line"><span class="comment"># wiki2 2 p STARTED 275 7.8mb 192.168.56.20 Commander Kraken</span></div></pre></td></tr></table></figure>
-<p>By piping cat shards to fgrep, we can get all unassigned shards.<br><figure class="highlight bash"><figcaption><span>Get unassigned shards</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cat shards with fgrep</span></div><div class="line">curl <span class="string">"http://your.elasticsearch.host.com:9200/_cat/shards"</span> | fgrep UNASSIGNED</div><div class="line"><span class="comment"># example return</span></div><div class="line"><span class="comment"># wiki1 0 r UNASSIGNED ALLOCATION_FAILED</span></div><div class="line"><span class="comment"># wiki1 1 r UNASSIGNED ALLOCATION_FAILED</span></div><div class="line"><span class="comment"># wiki1 2 r UNASSIGNED ALLOCATION_FAILED</span></div></pre></td></tr></table></figure></p>
-<p>If you don’t want to deal with shell script, you can also find these unassigned shards using another endpoint <code>POST /_flush/synced</code><sup><a href="#References">[2]</a></sup>. This endpoint is actually not just some information. It allows an administrator to initiate a synced flush manually. This can be particularly useful for a planned (rolling) cluster restart where you can stop indexing and don’t want to wait the default 5 minutes for idle indices to be sync-flushed automatically. It returns with a json response.  </p>
-<figure class="highlight bash"><figcaption><span>_flush/synced</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -XPOST <span class="string">"http://your.elasticsearch.host.com:9200/twitter/_flush/synced"</span></div></pre></td></tr></table></figure>
-<p>If there are failed shards in the response, we can iterate through a failures array to get all unassigned ones.<br><figure class="highlight json"><figcaption><span>Example response with failed shards</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">   <span class="attr">"_shards"</span>: &#123;</div><div class="line">      <span class="attr">"total"</span>: <span class="number">4</span>,</div><div class="line">      <span class="attr">"successful"</span>: <span class="number">1</span>,</div><div class="line">      <span class="attr">"failed"</span>: <span class="number">1</span></div><div class="line">   &#125;,</div><div class="line">   <span class="attr">"twitter"</span>: &#123;</div><div class="line">      <span class="attr">"total"</span>: <span class="number">4</span>,</div><div class="line">      <span class="attr">"successful"</span>: <span class="number">3</span>,</div><div class="line">      <span class="attr">"failed"</span>: <span class="number">1</span>,</div><div class="line">      <span class="attr">"failures"</span>: [</div><div class="line">         &#123;</div><div class="line">            <span class="attr">"shard"</span>: <span class="number">1</span>,</div><div class="line">            <span class="attr">"reason"</span>: <span class="string">"unexpected error"</span>,</div><div class="line">            <span class="attr">"routing"</span>: &#123;</div><div class="line">               <span class="attr">"state"</span>: <span class="string">"STARTED"</span>,</div><div class="line">               <span class="attr">"primary"</span>: <span class="literal">false</span>,</div><div class="line">               <span class="attr">"node"</span>: <span class="string">"SZNr2J_ORxKTLUCydGX4zA"</span>,</div><div class="line">               <span class="attr">"relocating_node"</span>: <span class="literal">null</span>,</div><div class="line">               <span class="attr">"shard"</span>: <span class="number">1</span>,</div><div class="line">               <span class="attr">"index"</span>: <span class="string">"twitter"</span></div><div class="line">            &#125;</div><div class="line">         &#125;</div><div class="line">      ]</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="Step-2-Reroute"><a href="#Step-2-Reroute" class="headerlink" title="Step 2: Reroute"></a>Step 2: Reroute</h3><p>The reroute command allows to explicitly execute a cluster reroute allocation command including specific commands<sup><a href="#References">[3]</a></sup>  . An unassigned shard can be explicitly allocated on a specific node.</p>
-<figure class="highlight bash"><figcaption><span>Reroute example</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">curl -XPOST <span class="string">'localhost:9200/_cluster/reroute'</span> -d <span class="string">'&#123;</span></div><div class="line">    "commands" : [ &#123;</div><div class="line">        "move" :</div><div class="line">            &#123;</div><div class="line">              "index" : "test", "shard" : 0,</div><div class="line">              "from_node" : "node1", "to_node" : "node2"</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">          "allocate" : &#123;</div><div class="line">              "index" : "test", "shard" : 1, "node" : "node3"</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;'</div></pre></td></tr></table></figure>
-<p>There are 3 kinds of commands you can use: </p>
-<blockquote>
-<p>move: Move a started shard from one node to another node. Accepts index and shard for index name and shard number, from_node for the node to move the shard from, and to_node for the node to move the shard to.</p>
-<p>cancel: Cancel allocation of a shard (or recovery). Accepts index and shard for index name and shard number, and node for the node to cancel the shard allocation on. It also accepts allow_primary flag to explicitly specify that it is allowed to cancel allocation for a primary shard. This can be used to force resynchronization of existing replicas from the primary shard by cancelling them and allowing them to be reinitialized through the standard reallocation process.</p>
-<p><strong>allocate</strong>: Allocate an unassigned shard to a node. Accepts the index and shard for index name and shard number, and node to allocate the shard to. It also accepts allow_primary flag to explicitly specify that it is allowed to explicitly allocate a primary shard (might result in data loss).  </p>
-</blockquote>
-<p>Combining step 2 with the unassigned shards from Step 1, we can reroute all unassigned shards 1 by 1, thus getting faster cluster recovery from red state.  </p>
-<h2 id="Example-Solutions"><a href="#Example-Solutions" class="headerlink" title="Example Solutions"></a>Example Solutions</h2><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><p>Below is a python script I wrote using <code>POST /_flush/synced</code> and <code>POST /reroute</code>  </p>
-<script src="//gist.github.com/bc83e96bb818c6ac311a.js?file=reroute.py"></script>
-<h3 id="Shell-Script"><a href="#Shell-Script" class="headerlink" title="Shell Script"></a>Shell Script</h3><p>Below is a shell script I found elsewhere in a blog post<sup><a href="#References">[4]</a></sup>  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> shard <span class="keyword">in</span> $(curl -XGET http://localhost:9200/_cat/shards | grep UNASSIGNED | awk <span class="string">'&#123;print $2&#125;'</span>); <span class="keyword">do</span></div><div class="line">    curl -XPOST <span class="string">'localhost:9200/_cluster/reroute'</span> -d <span class="string">'&#123;</span></div><div class="line">        "commands" : [ &#123;</div><div class="line">              "allocate" : &#123;</div><div class="line">                  "index" : "t37", # index name</div><div class="line">                  "shard" : $shard,</div><div class="line">                  "node" : "datanode15", # node name</div><div class="line">                  "allow_primary" : true</div><div class="line">              &#125;</div><div class="line">            &#125;</div><div class="line">        ]</div><div class="line">    &#125;'</div><div class="line">    sleep 5</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
-<h2 id="Possible-Unassigned-Shard-Reasons"><a href="#Possible-Unassigned-Shard-Reasons" class="headerlink" title="Possible Unassigned Shard Reasons"></a>Possible Unassigned Shard Reasons</h2><p>FYI, these are the possible reasons for a shard be in a unassigned state<sup><a href="#References">[1]</a></sup>:  </p>
-<p><br></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Name</th>
-<th style="text-align:left">Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">INDEX_CREATED</td>
-<td style="text-align:left">Unassigned as a result of an API creation of an index</td>
-</tr>
-<tr>
-<td style="text-align:center">CLUSTER_RECOVERED</td>
-<td style="text-align:left">Unassigned as a result of a full cluster recovery</td>
-</tr>
-<tr>
-<td style="text-align:center">INDEX_REOPENED</td>
-<td style="text-align:left">Unassigned as a result of opening a closed index</td>
-</tr>
-<tr>
-<td style="text-align:center">DANGLING_INDEX_IMPORTED</td>
-<td style="text-align:left">Unassigned as a result of importing a dangling index</td>
-</tr>
-<tr>
-<td style="text-align:center">NEW_INDEX_RESTORED</td>
-<td style="text-align:left">Unassigned as a result of restoring into a new index</td>
-</tr>
-<tr>
-<td style="text-align:center">EXISTING_INDEX_RESTORED</td>
-<td style="text-align:left">Unassigned as a result of restoring into a closed index</td>
-</tr>
-<tr>
-<td style="text-align:center">REPLICA_ADDED</td>
-<td style="text-align:left">Unassigned as a result of explicit addition of a replica</td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>ALLOCATION_FAILED</strong></td>
-<td style="text-align:left">Unassigned as a result of a failed allocation of the shard</td>
-</tr>
-<tr>
-<td style="text-align:center">NODE_LEFT</td>
-<td style="text-align:left">Unassigned as a result of the node hosting it leaving the cluster</td>
-</tr>
-<tr>
-<td style="text-align:center">REROUTE_CANCELLED</td>
-<td style="text-align:left">Unassigned as a result of explicit cancel reroute command</td>
-</tr>
-<tr>
-<td style="text-align:center">REINITIALIZED</td>
-<td style="text-align:left">When a shard moves from started back to initializing, for example, with shadow replicas</td>
-</tr>
-<tr>
-<td style="text-align:center">REALLOCATED_REPLICA</td>
-<td style="text-align:left">A better replica location is identified and causes the existing replica allocation to be cancelled</td>
-</tr>
-</tbody>
-</table>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
-<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-shards.html#cat-shards" target="_blank" rel="external">ElasticSearch Document Cat Shards</a></li>
-<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-synced-flush.html" target="_blank" rel="external">ElasticSearch Document Synced Flush</a>  </li>
-<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/2.2/cluster-reroute.html" target="_blank" rel="external">ElasticSearch Document Cluster Reroute</a></li>
-<li><a href="https://t37.net/how-to-fix-your-elasticsearch-cluster-stuck-in-initializing-shards-mode.html" target="_blank" rel="external">How to fix your elasticsearch cluster stuck in initializing shards mode?</a>  </li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Red-Cluster&quot;&gt;&lt;a href=&quot;#Red-Cluster&quot; class=&quot;headerlink&quot; title=&quot;Red Cluster!&quot;&gt;&lt;/a&gt;Red Cluster!&lt;/h2&gt;&lt;p&gt;There are 3 cluster states:   &lt;/
-    
-    </summary>
-    
-      <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
-    
-    
-      <category term="Elasticsearch" scheme="http://blog.kiyanpro.com/tags/Elasticsearch/"/>
+      <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
     
   </entry>
   
