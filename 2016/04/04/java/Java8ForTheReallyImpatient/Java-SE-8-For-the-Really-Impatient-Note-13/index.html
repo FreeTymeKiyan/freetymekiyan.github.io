@@ -1,0 +1,707 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Java SE 8 For the Really Impatient, Note 13 | Better Programmer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="FreeTymeKiyan">
+    
+    <meta name="description" content="Chapter 8 Miscellaneous GoodiesWorking with FilesJava 8 brings a small number of convenience methods that use stream for reading lines from files and ">
+    
+    
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="FreeTymeKiyan" />
+    <meta name="twitter:title" content="Java SE 8 For the Really Impatient, Note 13 | Better Programmer" />
+      
+    
+    
+    <link rel="alternative" href="/atom.xml" title="Better Programmer" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/logo_apple.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/logo_apple.png">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+  
+    <div id="imglogo">
+      <a href="/"><img src="/img/logo.png" alt="Better Programmer" title="Better Programmer"/></a>
+    </div>
+    
+    <div id="textlogo">
+      <h1 class="site-name"><a href="/" title="Better Programmer">Better Programmer</a></h1>
+      <h2 class="blog-motto">Where best programming happens</h2>
+    </div>
+    <div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+    </a></div>
+    <nav class="animated">
+      <ul>
+        <ul>
+         
+          <li><a href="/words">Words</a></li>
+        
+          <li><a href="/about">About</a></li>
+        
+        <li>
+        
+        <form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+          <label>Search</label>
+          <input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+        </form>
+        
+        </li>
+      </ul>
+    </nav>
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/04/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-13/" title="Java SE 8 For the Really Impatient, Note 13" itemprop="url">Java SE 8 For the Really Impatient, Note 13</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://blog.kiyanpro.com/about" title="FreeTymeKiyan" target="_blank" itemprop="author">FreeTymeKiyan</a>
+		
+  
+  <p class="article-time">
+    <time datetime="2016-04-05T01:34:48.000Z" itemprop="datePublished">Published on Apr 4 2016</time>
+  </p>
+  
+  <p class="article-read-time">
+    <span class="post-count">4,940 words in 31 minutes</span>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-8-Miscellaneous-Goodies"><span class="toc-number">1.</span> <span class="toc-text">Chapter 8 Miscellaneous Goodies</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Working-with-Files"><span class="toc-number">1.1.</span> <span class="toc-text">Working with Files</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Streams-of-Lines"><span class="toc-number">1.1.1.</span> <span class="toc-text">Streams of Lines</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Streams-of-Directory-Entries"><span class="toc-number">1.1.2.</span> <span class="toc-text">Streams of Directory Entries</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Base64-Encoding"><span class="toc-number">1.1.3.</span> <span class="toc-text">Base64 Encoding</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Annotations"><span class="toc-number">1.2.</span> <span class="toc-text">Annotations</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Repeated-Annotations"><span class="toc-number">1.2.1.</span> <span class="toc-text">Repeated Annotations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Type-Use-Annotations"><span class="toc-number">1.2.2.</span> <span class="toc-text">Type Use Annotations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Method-Parameter-Reflection"><span class="toc-number">1.2.3.</span> <span class="toc-text">Method Parameter Reflection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Miscellaneous-Minor-Changes"><span class="toc-number">1.3.</span> <span class="toc-text">Miscellaneous Minor Changes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Null-Checks"><span class="toc-number">1.3.1.</span> <span class="toc-text">Null Checks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lazy-Messages"><span class="toc-number">1.3.2.</span> <span class="toc-text">Lazy Messages</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Regular-Expressions"><span class="toc-number">1.3.3.</span> <span class="toc-text">Regular Expressions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Locales"><span class="toc-number">1.3.4.</span> <span class="toc-text">Locales</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JDBC"><span class="toc-number">1.3.5.</span> <span class="toc-text">JDBC</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="Chapter-8-Miscellaneous-Goodies"><a href="#Chapter-8-Miscellaneous-Goodies" class="headerlink" title="Chapter 8 Miscellaneous Goodies"></a>Chapter 8 Miscellaneous Goodies</h1><h2 id="Working-with-Files"><a href="#Working-with-Files" class="headerlink" title="Working with Files"></a>Working with Files</h2><p>Java 8 brings a small number of convenience methods that use stream for reading lines from files and for visiting directory entries. Also, there is an official way of performing Base64 encoding. </p>
+<h3 id="Streams-of-Lines"><a href="#Streams-of-Lines" class="headerlink" title="Streams of Lines"></a>Streams of Lines</h3><p><code>Files.lines</code>: read the lines of a file lazily. It yields a stream of strings, one per line of input:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Stream&lt;String&gt; lines = Files.lines(path);</div><div class="line">Optional&lt;String&gt; passwordEntry = lines.filter(s -&gt; s.contains(“password”)).findFirst();</div></pre></td></tr></table></figure></p>
+<p>As soon as the first line containing password is found, no further lines are read from the underlying file. </p>
+<p><code>Files.lines</code> defaults to UTF-8, unlike <code>FileReader</code> which opens files in local character encoding. You can specify other encodings by supplying a <code>Charset</code> argument. </p>
+<p>The <code>Stream</code> interface extends <code>AutoCloseable</code>. The <code>Files.lines</code> method produces a stream whose <code>close</code> method closes the file. The easiest way to make sure the file in indeed closed is to use a Java 7 try-with-resources block:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> (Stream&lt;String&gt; lines = Files.lines(path)) &#123;</div><div class="line">  Optional&lt;String&gt; passwordEntry = lines.filter(s -&gt; s.contains(<span class="string">"password"</span>)).findFirst();</div><div class="line">  ...</div><div class="line">&#125; <span class="comment">// The file will be closed here</span></div></pre></td></tr></table></figure></p>
+<p>When a stream spawns another, the <code>close</code> methods are chained.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> (Stream&lt;String&gt; filteredLines = Files.lines(path).filter(s -&gt; s.contains(<span class="string">"password"</span>))) &#123;</div><div class="line">  Optional&lt;String&gt; passwordEntry = filteredLines.findFirst();</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>When filteredLines is closed, it closes the underlying stream, which closes the underlying file. </p>
+<p>Attach an <code>onClose</code> handler to be notified when the stream is closed.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> (Stream&lt;String&gt; filteredLines = Files.lines(path).onClose(() -&gt; System.out.println(<span class="string">"Closing"</span>)).filter(s -&gt; s.contains(<span class="string">"password"</span>))) &#123;</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>If an <code>IOException</code> occurs as the stream fetches the lines, that exception is wrapped into an <code>UncheckedIOException</code> which is thrown out of the stream operation. </p>
+<p>If you want to read lines from a source other than a file, use the <code>BufferedReader.lines</code> method instead:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> (BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(url.openStream()))) &#123;</div><div class="line">  Stream&lt;String&gt; lines = reader.lines();</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>With this method, closing the resulting stream does not close the reader. So you must place the <code>BufferedReader</code> object, and not the stream object, into the header of the <code>try</code> statement.</p>
+<h3 id="Streams-of-Directory-Entries"><a href="#Streams-of-Directory-Entries" class="headerlink" title="Streams of Directory Entries"></a>Streams of Directory Entries</h3><p><code>Files.list</code>: returns a <code>Stream&lt;Path&gt;</code> that reads the entries of a directory. The directory is read lazily, making it possible to efficiently process directories with huge numbers of entries.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> (Stream&lt;Path&gt; entries = Files.list(pathToDirectory)) &#123;</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>The <code>list</code> method does not enter subdirectories. </p>
+<p><code>Files.walk</code>: processes all descendants of a directory.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> (Stream&lt;Path&gt; entries = Files.walk(pathToRoot)) &#123;</div><div class="line">  <span class="comment">// Contains all descendants, visited in depth-first order </span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>You can limit the depth of the tree by calling <code>Files.walk(pathToRoot, depth)</code>. Both <code>walk</code> methods have a varargs parameter of type <code>FileVistOption...</code>, but there is currently only one option you can supply: <code>FOLLOW_LINKS</code> to follow symbolic links. </p>
+<p>If you filter the paths returned by <code>walk</code> and your filter criterion involves the file attributes stored with a directory, such as size, creation time, or type (file, directory, symbolic link), then use the <code>find</code> method instead. Call it with a predicate function that accepts a path and a <code>BasicFileAttributes</code> object. The only advantage is efficiency, since the directory is being read anyway, the attributes are readily available. </p>
+<h3 id="Base64-Encoding"><a href="#Base64-Encoding" class="headerlink" title="Base64 Encoding"></a>Base64 Encoding</h3><p>The Base64 encoding encodes a sequence of bytes into a (longer) sequence of printable ASCII characters. Java 8 provides a standard encoder and decoder. </p>
+<p>Normally, an encoded string has no line breaks, but the MIME standard used for email requires a “\r\n” every 76 characters. </p>
+<p>For encoding, request a <code>Base64.Encoder</code> with one of the static methods <code>getEncoder</code>, <code>getUrlEncoder</code>, or <code>getMimeEncoder</code> of the <code>Base64</code> class. </p>
+<p>That class has methods to encode an array of bytes or a NIO <code>ByteBuffer</code>.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Base64.Encoder encoder = Base64.getEncoder();</div><div class="line">String original = username + <span class="string">":"</span> + password;</div><div class="line">String encoded = encoder.encodeToString(original,getBytes(StandardCharsets.UTF-<span class="number">8</span>));</div></pre></td></tr></table></figure></p>
+<p>Alternatively, you can “wrap” an output stream, so that all data sent to it is automatically encoded.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Path originalPath = ..., encodedPath = ...;</div><div class="line">Base64.Encoder encoder = Base64.getMimeEncoder();</div><div class="line"><span class="keyword">try</span> (OutputStream output = Files.newOutputStream(encodedPath)) &#123;</div><div class="line">  Files.copy(originalPath, encoder.wrap(output));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>To decode, reverse the operations:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Path encodedPath = ..., decodedPath = ...;</div><div class="line">Base64.Decoder decoder = Base64.getMimeDecoder();</div><div class="line"><span class="keyword">try</span> (InputStream input = Files.newInputStream(encodedPath)) &#123;</div><div class="line">  Files.copy(decoder.wrap(input), decodedPath);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="Annotations"><a href="#Annotations" class="headerlink" title="Annotations"></a>Annotations</h2><p>Annotations are tags inserted into the source code that some tools can process. </p>
+<p>Java 8 has two enhancements to annotaion processing: repeated annotations and type use annotations. Moreover, reflection has been enhanced to report method parameter names. This has the potential to simplify annotations on method parameters. </p>
+<h3 id="Repeated-Annotations"><a href="#Repeated-Annotations" class="headerlink" title="Repeated Annotations"></a>Repeated Annotations</h3><p>When annotations were first created, they were envisioned to mark methods and fields for processing.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Call after construction</span></div><div class="line"><span class="meta">@PostConstruct</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fetchData</span><span class="params">()</span> </span>&#123; ... &#125;</div><div class="line"></div><div class="line"><span class="comment">// Inject resource here</span></div><div class="line"><span class="meta">@Resource</span>(<span class="string">"jdbc:derby:sample"</span>)</div><div class="line"><span class="keyword">private</span> Connection conn;</div></pre></td></tr></table></figure></p>
+<p>In this context, it made no sense to apply same annotation twice. You can’t inject a field in two ways. Different annotations on the same element are fine and quite common:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Stateless</span> <span class="meta">@Path</span>(<span class="string">"/service"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Service</span> </span>&#123; ... &#125;</div></pre></td></tr></table></figure></p>
+<p>Soon, more and more uses for annotations emerged, leading to situations where one would have liked to repeat the same annotation. E.g.,<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Entity</span></div><div class="line"><span class="meta">@PrimaryKeyJoinColumn</span>(name=<span class="string">"ID"</span>)</div><div class="line"><span class="meta">@PrimaryKeyJoinColumn</span>(name=<span class="string">"REGION"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Item</span> </span>&#123; ... &#125;</div></pre></td></tr></table></figure></p>
+<p>Since that wasn’t possible, the annotations were packed into a container annotation, like this:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Entity</span></div><div class="line"><span class="meta">@PrimaryKeyJoinColumns</span>(&#123;</div><div class="line">  <span class="meta">@PrimaryKeyJoinColumn</span>(name=<span class="string">"ID"</span>)</div><div class="line">  <span class="meta">@PrimaryKeyJoinColumn</span>(name=<span class="string">"REGION"</span>)</div><div class="line">&#125;)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Item</span> </span>&#123; ... &#125;</div></pre></td></tr></table></figure></p>
+<p>This is no longer necessary in Java 8. If your framework provider has enabled repeated annotations, you can just use them. </p>
+<p>For a framework implementor, the <code>AnnotatedElement</code> interface has a method that gets the annotation of type T, if present.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> &lt;T extends Annotation&gt; <span class="function">T <span class="title">getAnnotation</span><span class="params">(Class&lt;T&gt; annotationClass)</span></span></div></pre></td></tr></table></figure></p>
+<p>What should the method do if multiple annotations of the same type are present? To solve this problem, the inventor of a repeatable annotation must</p>
+<ol>
+<li>Annotate the annotation as <code>@Repeatable</code></li>
+<li>Provide a container annotation </li>
+</ol>
+<p>E.g., for a simple unit testing framework, we might define a repeatable <code>@TestCase</code> annotation, to be used like this:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@TestCase</span>(params=<span class="string">"4"</span>, expected=<span class="string">"24"</span>)</div><div class="line"><span class="meta">@TestCase</span>(params=<span class="string">"0"</span>, expected=<span class="string">"1"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">factorial</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123; ... &#125;</div></pre></td></tr></table></figure></p>
+<p>Here is how annotation can be defined:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Repeatable</span>(TestCases.class)</div><div class="line"><span class="meta">@interface</span> TestCase &#123;</div><div class="line">  <span class="function">String <span class="title">params</span><span class="params">()</span></span>;</div><div class="line">  <span class="function">String <span class="title">expected</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@interface</span> TestCases &#123;</div><div class="line">  TestCase[] value();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Whenever the user supplies two or more <code>@TestCase</code> annotations, they are automatically wrapped into a <code>@TestCases</code> annotation. </p>
+<p>When annotation processing code calls <code>element.getAnnotation(TestCase.class)</code> on the element representing the <code>factorial</code> method, null is returned. This is becasue the element is actually annotated with the container annotation <code>TestCases</code>. </p>
+<p>When implementing an annotation processor for your repeatable annotation, you will find it simpler to use the <code>getAnnotationsByType</code> method. The call <code>element.getAnnotationsByType(TestCase.class)</code> “looks through” any <code>TestCases</code> container and gives you an array of <code>TestCase</code> annotations. </p>
+<h3 id="Type-Use-Annotations"><a href="#Type-Use-Annotations" class="headerlink" title="Type Use Annotations"></a>Type Use Annotations</h3><p>Prior to Java 8, an annotation was applied to a declaration. A declaration is a part of code the introduces a new name.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Entity</span> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123; ... &#125;</div><div class="line"></div><div class="line"><span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>) List&lt;Person&gt; people = query.getResultList();</div></pre></td></tr></table></figure></p>
+<p>In Java 8, you can annotate any type use. This can be useful in combination with tools that check for common programming errors. Suppose you annotated variables that you never want to be null as <code>@NonNull</code>. A tool can check that the following is correct:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="meta">@NonNull</span> List&lt;String&gt; names = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">...</div><div class="line">names.add(<span class="string">"Fred"</span>); <span class="comment">// No possibility of a NullPointerException</span></div></pre></td></tr></table></figure></p>
+<p>The tool should detect any statement that might cause <code>names</code> to be null.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">names = <span class="keyword">null</span>; <span class="comment">// Null checker flags this as an error</span></div><div class="line">names = readNames(); <span class="comment">// OK if readNames returns a @NonNull String</span></div></pre></td></tr></table></figure></p>
+<p>The null checker in the Checker Framework assumes that any nonlocal variables are implicitly <code>@NonNull</code>, but that local variables might be null unless the code shows otherwise. If a method may return a null, it needs to be annotated as <code>@Nullable</code>. </p>
+<p>How can one express that the list <em>elements</em> should be non-null?<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> List&lt;<span class="meta">@NonNull</span> String&gt; names;</div></pre></td></tr></table></figure></p>
+<p>It is this kind of annotation that was not possible before Java 8 but has now become legal. </p>
+<p>Type use annotations can appear in the following places:</p>
+<ul>
+<li>With generic type arguments: <code>List&lt;@NonNull String&gt;</code>, <code>Comparator.&lt;@NonNull String&gt;reverseOrder()</code></li>
+<li>In any position of an array: <code>@NonNull String[][] words</code>(words[i][j] is not null), <code>String @NonNull [][] words</code>(words is not null), <code>String[] @NonNull [] words</code>(words[i] is not null)</li>
+<li>With superclasses and implemented interfaces: <code>class Image implements @Rectangular Shape</code></li>
+<li>With constructor invocations: <code>new @Path String(&quot;/usr/bin&quot;)</code></li>
+<li>With casts and <code>instanceOf</code> checks: <code>(@Path String) input</code>, <code>if (input instanceOf @Path String)</code>. (The annotations are only for use by external tools. They have no effect on the behavior of a cast or an <code>instanceOf</code> check.)</li>
+<li>With exception specifications: <code>public Person read() throws @Localized IOException</code></li>
+<li>With wildcards and type bounds: <code>List&lt;@ReadOnly ? extends Person&gt;</code>, <code>List&lt;? extends @ReadOnly&gt; Person</code></li>
+<li>With method and constructor references: <code>@Immutable Person::getName</code></li>
+</ul>
+<p>There are a few type positions that cannot be annotated:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@NonNull</span> String.class <span class="comment">// cannot annotate class literal</span></div><div class="line"><span class="keyword">import</span> java.lang.<span class="meta">@NonNull</span> String; <span class="comment">// cannot annotate import</span></div></pre></td></tr></table></figure></p>
+<p>It is also impossible to annotate an annotation. </p>
+<p>More for extended type checking can be found at Checker Framework tutorial. </p>
+<h3 id="Method-Parameter-Reflection"><a href="#Method-Parameter-Reflection" class="headerlink" title="Method Parameter Reflection"></a>Method Parameter Reflection</h3><p>The names of parameters are now available through reflection. Consider a typical JAX-RS method:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">Person <span class="title">getEmployee</span><span class="params">(@PathParam(<span class="string">"dept"</span>)</span> Long dept, @<span class="title">QueryParam</span><span class="params">(<span class="string">"id"</span>)</span> Long id)</span></div></pre></td></tr></table></figure></p>
+<p>In almost all cases, the parameter names are the same as the annotation arguments, or they can be made to be the same. If the annotation processor could read the parameter names, then one could simply write<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">Person <span class="title">getEmployee</span><span class="params">(@PathParam Long dept, @QueryParam Long id)</span></span></div></pre></td></tr></table></figure></p>
+<p>This is possible in Java 8, with the new class <code>java.lang.relect.Parameter</code>. </p>
+<p>Unfortuantely, for the necessary information to appear in the classfile, the source must be compiled as <code>javac -parameters SourceFile.java</code>. </p>
+<h2 id="Miscellaneous-Minor-Changes"><a href="#Miscellaneous-Minor-Changes" class="headerlink" title="Miscellaneous Minor Changes"></a>Miscellaneous Minor Changes</h2><h3 id="Null-Checks"><a href="#Null-Checks" class="headerlink" title="Null Checks"></a>Null Checks</h3><p>The <code>Objects</code> class has static predicate methods <code>isNull</code> and <code>nonNull</code> that can be useful for streams.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// checks whether a stream contains a null</span></div><div class="line">stream.anyMatch(Objects::isNull);</div><div class="line"></div><div class="line"><span class="comment">// filter null</span></div><div class="line">stream.filter(Objects::nonNull);</div></pre></td></tr></table></figure></p>
+<h3 id="Lazy-Messages"><a href="#Lazy-Messages" class="headerlink" title="Lazy Messages"></a>Lazy Messages</h3><p>The <code>log</code>, <code>logp</code>, <code>severe</code>, <code>warning</code>, <code>info</code>, <code>config</code>, <code>fine</code>, <code>finer</code>, and <code>finest</code> methods of <code>java.util.Logger</code> class now support lazily constructed messages.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">logger.finest(<span class="string">"x: "</span> + x + <span class="string">", y: "</span> + y);</div></pre></td></tr></table></figure></p>
+<p>The message string is formatted even when the logging level is such that it would never be used. Instead, use<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">logger.finest(() -&gt; <span class="string">"x: "</span> + x + <span class="string">", y: "</span> + y);</div></pre></td></tr></table></figure></p>
+<p>Now the lambda expression is only evaluated at the <code>FINEST</code> logging level, when the cost of the lambda invocation is presumably the least of one’s problems. </p>
+<p>The <code>requireNonNull</code> of the <code>Objects</code> class also has a version that computes the message string lazily.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.directions = Objects.requireNonNull(directions, () -&gt; <span class="string">"directions for "</span> + <span class="keyword">this</span>.goal + <span class="string">" must not be null"</span>);</div></pre></td></tr></table></figure></p>
+<p>In the common case that <code>directions</code> is not null, <code>this.directions</code> is simply set to <code>directions</code>. If <code>directions</code> is null, the lambda is invoked, and a <code>NullPointerException</code> is thrown whose message is the returned string. </p>
+<h3 id="Regular-Expressions"><a href="#Regular-Expressions" class="headerlink" title="Regular Expressions"></a>Regular Expressions</h3><p>Java 7 introduced named capturing groups.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(?&lt;city&gt;[\p&#123;L&#125; ]+),\s*(?&lt;state&gt;[A-Z]&#123;<span class="number">2</span>&#125;)</div></pre></td></tr></table></figure></p>
+<p>In Java 8, you can use the names in the <code>start</code>, <code>end</code>, and <code>group</code> methods of <code>Matcher</code>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Matcher matcher = pattern.matcher(input);</div><div class="line"><span class="keyword">if</span> (matcher.matches()) &#123;</div><div class="line">  String city = matcher.group(<span class="string">"city"</span>);</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>The <code>Pattern</code> class has a <code>splitAsStream</code> method that splits a <code>CharSequence</code> along a regular expression.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String contents = <span class="keyword">new</span> String(Files.readAllBytes(path), StandardCharsets.UTF_8);</div><div class="line">Stream&lt;String&gt; words = Pattern.compile(<span class="string">"[\\P&#123;L&#125;]+"</span>).splitAsStream(contents);</div></pre></td></tr></table></figure></p>
+<p>The method <code>asPredicate</code> can be used to filter strings that match a regular expression:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Stream&lt;String&gt; acronyms = words.filter(Pattern.compile(<span class="string">"[A-Z]&#123;2,&#125;"</span>).asPredicate());</div></pre></td></tr></table></figure></p>
+<h3 id="Locales"><a href="#Locales" class="headerlink" title="Locales"></a>Locales</h3><p>A locale specifies everything you need to know to present information to a user with local preferences concerning language, date formats, and so on. </p>
+<p>A locale is composed of up to five components:</p>
+<ol>
+<li>A language, specified by two or three lowercase letters</li>
+<li>A script, specified by four letters with an intial uppercase</li>
+<li>A country, specified by two uppercase letters or three digits</li>
+<li>Optionally, a variant </li>
+<li>Optionally, an extension. Extensions describe local preferences for calendars, numbers, and so on</li>
+</ol>
+<p>Since Java 7 you can simply call <code>Locale.forLanguageTag(&quot;en-US&quot;)</code>. Java 8 adds methods for finding locales that match user needs. </p>
+<p>A <em>language range</em> is a string that denotes the locale characteristics that a user desires, with * for wildcards. One can optionally specify a weight between 0 and 1 when constructing a <code>Locale.LanguageRange</code>. </p>
+<p>Given a list of weighted language ranges and a collection of locales, the <code>filter</code> method produces a list of matching locales, in descending order of match quality.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// A list containing the Locale.LanguageRange objects for the given strings</span></div><div class="line">List&lt;Locale.LanguageRange&gt; ranges = Stream.of(<span class="string">"de"</span>, <span class="string">"*-CH"</span>)</div><div class="line">  .map(Locale.LanguageRange::<span class="keyword">new</span>)</div><div class="line">  .collect(Collectors.toList());</div><div class="line">  </div><div class="line">List&lt;Locale&gt; matches = Locale.filter(ranges, Arrays.asList(Locale.getAvailableLocales()));</div><div class="line"><span class="comment">// matching de, de-CH, de-AT, de-LU, de-DE, de-GR, fr-CH, it_CH</span></div></pre></td></tr></table></figure></p>
+<p><code>lookup</code>: finds the best locale.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Locale bestMatch = Locale.lookup(ranges, locales);</div><div class="line"><span class="comment">// matching de</span></div></pre></td></tr></table></figure></p>
+<h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><p>In Java 8, JDBC has been updated to version 4.2.</p>
+<p>The <code>Date</code>, <code>Time</code>, and <code>Timestamp</code> classes in the <code>java.sql</code> package have methods to convert from and to their <code>java.time</code> analogs <code>LocalDate</code>, <code>LocalTime</code>, and <code>LocalDateTime</code>. </p>
+<p>The <code>Statement</code> class has a method <code>executeLargeUpdate</code> for executing an update whose row count exceeds Integer.MAX_VALUE. </p>
+<p>JDBC 4.1 specified a generic method <code>getObject(column, type)</code> for <code>Statement</code> and <code>ResultSet</code>, where <code>type</code> is a <code>Class</code> instance. E.g., <code>URL url = result.getObject(&quot;link&quot;, URL.class)</code> retrieves a <code>DATALINK</code> as a <code>URL</code>. Now the corresponding <code>setObject</code> method is provided as well. </p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-license">
+  <div class="centered">
+    <img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /> 
+    <p>
+    This post by <a href="http://freetymekiyan.github.io/">Yang Liu</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</a>.<br> Please NOTE THE ORIGIN for Reproduction, Copying or other usages.
+    </p>
+  </div>
+</div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>►<a class="article-category-link" href="/categories/Coding/Reading-Note/">Reading Note</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Java/">Java</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://blog.kiyanpro.com/2016/04/04/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-13/" data-title="Java SE 8 For the Really Impatient, Note 13 | Better Programmer" data-tsina="2090687247" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/04/15/elasticsearch/Marvel-What-Does-Search-Rate-Mean/" title="Marvel What Does Search Rate Mean?">
+  <strong>Prev:</strong><br/>
+  <span>
+  Marvel What Does Search Rate Mean?</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/03/31/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-12/"  title="Java SE 8 For the Really Impatient, Note 12">
+ <strong>Next:</strong><br/> 
+ <span>Java SE 8 For the Really Impatient, Note 12
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-8-Miscellaneous-Goodies"><span class="toc-number">1.</span> <span class="toc-text">Chapter 8 Miscellaneous Goodies</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Working-with-Files"><span class="toc-number">1.1.</span> <span class="toc-text">Working with Files</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Streams-of-Lines"><span class="toc-number">1.1.1.</span> <span class="toc-text">Streams of Lines</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Streams-of-Directory-Entries"><span class="toc-number">1.1.2.</span> <span class="toc-text">Streams of Directory Entries</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Base64-Encoding"><span class="toc-number">1.1.3.</span> <span class="toc-text">Base64 Encoding</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Annotations"><span class="toc-number">1.2.</span> <span class="toc-text">Annotations</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Repeated-Annotations"><span class="toc-number">1.2.1.</span> <span class="toc-text">Repeated Annotations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Type-Use-Annotations"><span class="toc-number">1.2.2.</span> <span class="toc-text">Type Use Annotations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Method-Parameter-Reflection"><span class="toc-number">1.2.3.</span> <span class="toc-text">Method Parameter Reflection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Miscellaneous-Minor-Changes"><span class="toc-number">1.3.</span> <span class="toc-text">Miscellaneous Minor Changes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Null-Checks"><span class="toc-number">1.3.1.</span> <span class="toc-text">Null Checks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lazy-Messages"><span class="toc-number">1.3.2.</span> <span class="toc-text">Lazy Messages</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Regular-Expressions"><span class="toc-number">1.3.3.</span> <span class="toc-text">Regular Expressions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Locales"><span class="toc-number">1.3.4.</span> <span class="toc-text">Locales</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JDBC"><span class="toc-number">1.3.5.</span> <span class="toc-text">JDBC</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+  <p class="asidetitle">Categories</p>
+    <ul>
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/" title="Coding">Coding<sup>28</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/People/" title="People">People<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/Reading-Note/" title="Reading Note">Reading Note<sup>16</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Translation/" title="Translation">Translation<sup>24</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Words/" title="Words">Words<sup>4</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  
+<div class="tagslist">
+  <p class="asidetitle">Tags</p>
+    <ul class="clearfix">
+    
+      
+        <li><a href="/tags/Kai-Fu-Lee/" title="Kai Fu Lee">Kai Fu Lee<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/LinkedIn/" title="LinkedIn">LinkedIn<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Java/" title="Java">Java<sup>14</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Elasticsearch/" title="Elasticsearch">Elasticsearch<sup>4</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Pro-tips/" title="Pro-tips">Pro-tips<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Thoughts/" title="Thoughts">Thoughts<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Node-js/" title="Node.js">Node.js<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/System-Design/" title="System Design">System Design<sup>2</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Test/" title="Test">Test<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Interview/" title="Interview">Interview<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="adlist">
+  <p class="asidetitle">Google Ads</p>
+  <div class="ad">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Hexo blog widget -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3830008196770332"
+         data-ad-slot="2210281201"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">Archives</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+      <li><a href="http://hijiangtao.github.io/" target="_blank" title="JiangTao">Data.Blog</a></li>
+      <li><a href="https://modulus.io/" target="_blank" title="Modulus, Node.js Host Provider.">Modulus</a></li>
+    </ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/Algorithms/" style="font-size: 10px;">Algorithms</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Elasticsearch/" style="font-size: 16px;">Elasticsearch</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Java/" style="font-size: 18px;">Java</a> <a href="/tags/Kai-Fu-Lee/" style="font-size: 20px;">Kai Fu Lee</a> <a href="/tags/LinkedIn/" style="font-size: 20px;">LinkedIn</a> <a href="/tags/Node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/Pro-tips/" style="font-size: 14px;">Pro-tips</a> <a href="/tags/System-Design/" style="font-size: 12px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/TextMate-2/" style="font-size: 10px;">TextMate 2</a> <a href="/tags/Thoughts/" style="font-size: 14px;">Thoughts</a>
+    </div>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+  
+  <div class="line">
+    <span></span>
+    
+    <a href="http://weibo.com/2090687247" target="_blank"><div class="author"></div></a>
+    
+  </div>
+  
+  
+  <section class="info">
+    <p> This is FreeTymeKiyan&#39;s blog.<br/>
+      He always asks himself, how far can an indie programmer go? Definitely no limit on that.</p>
+  </section>
+   
+  <div class="social-font" class="clearfix">
+    
+    <a href="http://weibo.com/2090687247" target="_blank" class="icon-weibo" title="weibo"></a>
+    
+    
+    <a href="https://github.com/FreeTymeKiyan" target="_blank" class="icon-github" title="github"></a>
+    
+    
+    
+    <a href="https://twitter.com/FreeTymeKiyan" target="_blank" class="icon-twitter" title="twitter"></a>
+    
+    
+    <a href="https://www.facebook.com/kiyan.fan" target="_blank" class="icon-facebook" title="facebook"></a>
+    
+    
+    <a href="https://www.douban.com/people/56346857" target="_blank" class="icon-douban" title="豆瓣"></a>
+    
+    
+    
+    <a href="mailto:freetymesunkiyan@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+    
+  </div>
+    <p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> © 2012-2017
+    
+    <a href="http://blog.kiyanpro.com/about" target="_blank" title="FreeTymeKiyan">FreeTymeKiyan</a>
+    
+    , <span class='post-count'>112.4k</span> words
+    </p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+
+  c.click(function(){
+    t.css('display','none');
+    if(ah.length!==0){
+      ta.css('display', 'block').addClass('fadeIn');
+    }
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+    if(ah.length!==0){
+      t.css('display','block');
+    }
+  });
+
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>Scan QR code and share<a class="qrclose" href="#share"></a></span><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'FreeTymeKiyan';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-60456171-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+<div id="totop">
+<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+
+<script type="text/x-mathjax-config"> 
+MathJax.Hub.Config({ 
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
+}); 
+</script>
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </body>
+</html>

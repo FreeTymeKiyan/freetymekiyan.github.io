@@ -1,0 +1,738 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Java SE 8 For the Really Impatient, Note 4 | Better Programmer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="FreeTymeKiyan">
+    
+    <meta name="description" content="Chapter 2 The Stream APIGrouping and PartioninggroupingBy: forms groups of values with the same characteristic12// grouping locales by countryMap&amp;lt;S">
+    
+    
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="FreeTymeKiyan" />
+    <meta name="twitter:title" content="Java SE 8 For the Really Impatient, Note 4 | Better Programmer" />
+      
+    
+    
+    <link rel="alternative" href="/atom.xml" title="Better Programmer" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/logo_apple.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/logo_apple.png">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+  
+    <div id="imglogo">
+      <a href="/"><img src="/img/logo.png" alt="Better Programmer" title="Better Programmer"/></a>
+    </div>
+    
+    <div id="textlogo">
+      <h1 class="site-name"><a href="/" title="Better Programmer">Better Programmer</a></h1>
+      <h2 class="blog-motto">Where best programming happens</h2>
+    </div>
+    <div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+    </a></div>
+    <nav class="animated">
+      <ul>
+        <ul>
+         
+          <li><a href="/words">Words</a></li>
+        
+          <li><a href="/about">About</a></li>
+        
+        <li>
+        
+        <form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+          <label>Search</label>
+          <input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+        </form>
+        
+        </li>
+      </ul>
+    </nav>
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/21/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-4/" title="Java SE 8 For the Really Impatient, Note 4" itemprop="url">Java SE 8 For the Really Impatient, Note 4</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://blog.kiyanpro.com/about" title="FreeTymeKiyan" target="_blank" itemprop="author">FreeTymeKiyan</a>
+		
+  
+  <p class="article-time">
+    <time datetime="2016-03-22T00:12:12.000Z" itemprop="datePublished">Published on Mar 21 2016</time>
+  </p>
+  
+  <p class="article-read-time">
+    <span class="post-count">3,255 words in 20 minutes</span>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-2-The-Stream-API"><span class="toc-number">1.</span> <span class="toc-text">Chapter 2 The Stream API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Grouping-and-Partioning"><span class="toc-number">1.1.</span> <span class="toc-text">Grouping and Partioning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Primitive-Type-Streams"><span class="toc-number">1.2.</span> <span class="toc-text">Primitive Type Streams</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Parallel-Streams"><span class="toc-number">1.3.</span> <span class="toc-text">Parallel Streams</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Functional-Interfaces"><span class="toc-number">1.4.</span> <span class="toc-text">Functional Interfaces</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="Chapter-2-The-Stream-API"><a href="#Chapter-2-The-Stream-API" class="headerlink" title="Chapter 2 The Stream API"></a>Chapter 2 The Stream API</h1><h2 id="Grouping-and-Partioning"><a href="#Grouping-and-Partioning" class="headerlink" title="Grouping and Partioning"></a>Grouping and Partioning</h2><p><code>groupingBy</code>: forms groups of values with the same characteristic<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// grouping locales by country</span></div><div class="line">Map&lt;String, List&lt;Locale&gt;&gt; countryToLocales = locales.collect(Collectors.groupingBy(Locale::getCountry));</div></pre></td></tr></table></figure></p>
+<p>The function <code>Locale::getCountry</code> is the <em>classifier function</em> of the grouping.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// look up all locales for a given country code</span></div><div class="line">List&lt;Locale&gt; swissLocales = countryToLocales.get(<span class="string">"CH"</span>);</div></pre></td></tr></table></figure></p>
+<p>When the classifier function is a predicate function(that is, a function returning a <code>boolean</code> value), the stream elements are partitioned into 2 list: those where the function returns true and the complement. In this case it’s more efficient to use <code>partitioningBy</code> instead.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Map&lt;Boolean, List&lt;Locale&gt;&gt; englishAndOtherLocales = locales.collect(Collectors.partitioningBy(l -&gt; l.getLanguage().equals(<span class="string">"en"</span>)));</div><div class="line"></div><div class="line">List&lt;Locale&gt; englishLocales = englishAndOtherLocales.get(<span class="keyword">true</span>);</div></pre></td></tr></table></figure></p>
+<p>If you call the <code>groupingByConcurrent</code> method, you get a concurrent map that, when used with a parallel stream, is concurrently populated. Analogous to <code>toConcurrentMap</code>. </p>
+<p>If you want sets instead of list, use downstream collector <code>Collectors.toSet</code>.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">import</span> java.util.stream.Collectors.*;</div><div class="line"></div><div class="line">Map&lt;String, Set&lt;Locale&gt;&gt; countryToLocaleSet = locales.collect(groupingBy(Locale::getCountry, toSet()));</div></pre></td></tr></table></figure></p>
+<p>Other downstream collectors<br><code>counting</code>: produces a count of the collected elements<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// counts how many locales there are for each country</span></div><div class="line">Map&lt;String, Long&gt; countryToLocaleCounts = locales.collect(groupingBy(Locale:: getCountry, counting()));</div></pre></td></tr></table></figure></p>
+<p><code>summing(Int|Long|Double)</code>: takes a function argument, applies the function to the downstream elements, and produces their sum<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// the sum of populations per state in a stream of cities</span></div><div class="line">Map&lt;String, Integer&gt; stateToCityPopulation = cities.collect(groupingBy(City::getState, summingInt(City::getPopulation)));</div></pre></td></tr></table></figure></p>
+<p><code>maxBy</code> and <code>minBy</code>: take a comparator and produce max and min of the downstream elements<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// the city with most population per state</span></div><div class="line">Map&lt;String, City&gt; stateToLargestCity = cities.collect(groupingBy(City::getState, maxBy(Comparator.comparing(City::getPopulation))));</div></pre></td></tr></table></figure></p>
+<p><code>mapping</code>: applies a function to downstream results, and it requires yet another collector for processing its results<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// group cities by state</span></div><div class="line"><span class="comment">// within each state, produce the city names and reduce by max length</span></div><div class="line">Map&lt;String, Optional&lt;String&gt;&gt; stateToLongestCityName = cities.collect(</div><div class="line">  groupingBy(City::getState, </div><div class="line">    mapping(City::getName, maxBy(Comparator.comparing(String::length)))));</div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// gather a set of all languages in a country</span></div><div class="line">Map&lt;String, Set&lt;String&gt;&gt; countryToLanguages = locales.collect(</div><div class="line">  groupingBy(l -&gt; l.getDisplayCountry(), </div><div class="line">    mapping(l -&gt; l.getDisplayLanguage(), toSet()))); <span class="comment">// no combining sets</span></div></pre></td></tr></table></figure>
+<p>summary statistics object: if the grouping or mapping function has return type <code>int</code>, <code>long</code>, or <code>double</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Map&lt;String, IntSummaryStatistics&gt; stateToCityPopulationSummary = cities.collect(</div><div class="line">  groupingBy(City::getState, summarizingInt(City::getPopulation))</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p><code>reducing</code>: applies a general reduction to downstream elements. 3 forms: </p>
+<ul>
+<li><code>reducing(binaryOperator)</code> (identity is null)</li>
+<li><code>reducing(identity, binaryOperator)</code></li>
+<li><code>reducing(identity, mapper, binaryOperator)</code>, mapper function is applied and its values are reduced</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// gets a comma-separated string of all city names in each state</span></div><div class="line">Map&lt;String, String&gt; stateToCityNames = cities.collect(</div><div class="line">  groupingBy(City::getState, reducing(<span class="string">""</span>, City::getName, </div><div class="line">    (s, t) -&gt; s.length() == <span class="number">0</span> ? t : s + <span class="string">", "</span> + t))</div><div class="line">);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// more naturally, same result</span></div><div class="line">Map&lt;String, String&gt; stateToCityNames = cities.collect(</div><div class="line">  groupingBy(City::getState, </div><div class="line">    mapping(City::getName, joining(<span class="string">", "</span>)));</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>Only use downstream collectors in connection with <code>groupingBy</code> or <code>partitioningBy</code> to avoid convoluted expressions. Otherwise, simply use methods like <code>map</code>, <code>reduce</code>, <code>count</code>, <code>max</code> or <code>min</code> directly on streams. </p>
+<h2 id="Primitive-Type-Streams"><a href="#Primitive-Type-Streams" class="headerlink" title="Primitive Type Streams"></a>Primitive Type Streams</h2><p>Wrap each integer into a wrapper object like <code>Stream&lt;Integer&gt;</code> is inefficient. Same for the other primitive types. </p>
+<p><code>IntStream</code>, <code>LongStream</code>, <code>DoubleStream</code> can store primitive values directly.<br>For the other primitives:<br><code>IntStream</code>: store short, char, byte and boolean<br><code>DoubleStream</code>: float</p>
+<p>Create an <code>IntStream</code>: use <code>IntStream.of</code> or <code>Arrays.stream</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">IntStream stream = IntStream.of(<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ,<span class="number">5</span>);</div><div class="line"><span class="comment">// or</span></div><div class="line">stream = Arrays.stream(values, from, to); <span class="comment">// values is an int[] array</span></div></pre></td></tr></table></figure></p>
+<p><code>IntStream</code> and <code>LongStream</code> have static methods <code>range</code> and <code>rangeClosed</code> that generate integer ranges with step size one<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">IntStream zeroToNinetyNine = IntStream.range(<span class="number">0</span>, <span class="number">100</span>); <span class="comment">// Upperbound excluded</span></div><div class="line">IntStream zeroToHundred = IntStream.rangeClose(<span class="number">0</span>, <span class="number">100</span>); <span class="comment">// Upperbound included</span></div></pre></td></tr></table></figure></p>
+<p>The <code>CharSequence</code> interface has methods <code>codePoints</code> and <code>chars</code> that yield an <code>IntStream</code> of the Unicode codes of the characters or of the code units in the UTF-16 encoding<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String sentence = <span class="string">"\uD835\uDD46 is the set of octonions"</span>;</div><div class="line">IntStream codes = sentence.codePoints(); <span class="comment">// hex values</span></div></pre></td></tr></table></figure></p>
+<p>Use <code>mapToInt</code>, <code>mapToLong</code>, <code>mapToDouble</code> methods to transform a stream of objects to primitive types<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Stream&lt;String&gt; words = ...;</div><div class="line">IntStream lengths = words.mapToInt(String::length);</div></pre></td></tr></table></figure></p>
+<p><code>boxed</code>: converts a primitive type stream to an object stream<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Stream&lt;Integer&gt; integers = IntStream.range(<span class="number">0</span>, <span class="number">100</span>).boxed();</div></pre></td></tr></table></figure></p>
+<p>Differences between primitive type streams and object streams:</p>
+<ul>
+<li><code>toArray</code> returns primitive type arrays</li>
+<li>Methods that yield an optional result return an <code>OptionalInt</code>, <code>OptionalLong</code> or <code>OptionalDouble</code>. They have methods <code>getAsInt</code>, <code>getAsLong</code> and <code>getAsDouble</code> instead of <code>get</code>. </li>
+<li><code>sum</code>, <code>average</code>, <code>max</code>, <code>min</code> are defined.</li>
+<li>The <code>summaryStatistics</code> method yield an object of type <code>IntSummaryStatistics</code>, <code>LongSummaryStatistics</code>, or <code>DoubleSummaryStatistics</code></li>
+</ul>
+<p>The <code>Random</code> class has methods <code>ints</code>, <code>longs</code> and <code>doubles</code> that return primitive type streams of random numbers</p>
+<h2 id="Parallel-Streams"><a href="#Parallel-Streams" class="headerlink" title="Parallel Streams"></a>Parallel Streams</h2><p>Must have a parallel stream to parallelize bulk operations. </p>
+<p>By default, stream operations create sequential streams, except for <code>Collection.parallelStream()</code>. </p>
+<p><code>parallel</code>: converts any sequential stream into a parallel one<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Stream&lt;String&gt; parallelWords = Stream.of(wordArray).parallel();</div></pre></td></tr></table></figure></p>
+<p>The operations are stateless and can be executed in arbitrary order.<br>A bad example, something you cannot do<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span>[] shortWords = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">12</span>];</div><div class="line">words.parallel().forEach(</div><div class="line">  s -&gt; &#123; <span class="keyword">if</span> (s.length() &lt; <span class="number">12</span>) shortWords[s.length()]++; &#125;</div><div class="line">);</div><div class="line">System.out.println(Arrays.toString(shortWords));</div></pre></td></tr></table></figure></p>
+<p>The function passed to <code>forEach</code> runs concurrently in multiple threads, updating a shared array. Race condition!</p>
+<p>Ensure that any functions you pass to parallel stream operations are threadsafe. You can use an array of <code>AtomicInteger</code> objects. Or you can simply use the facilities of streams library and group strings by length. </p>
+<p>By default, streams that arise from ordered collections (arrays and lists), from ranges, generators, and iterators, or from calling <code>Stream.sorted</code>, are ordered. </p>
+<p>Some operations can be more effectively parallelized when the ordering requirement is dropped.<br><code>Stream.unordered</code> means there will be no ordering. <code>Stream.distinct</code> can benefit from it because on an ordered stream, <code>distinct</code> retains the first of all equal elements.That impedes parallelization. <code>limit</code> can be speeded up if you just want any n elements from a stream and don’t care which ones you get.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Stream&lt;T&gt; sample = stream.parallel().unordered().limit(n);</div></pre></td></tr></table></figure></p>
+<p>Merging map is expensive. The <code>Collectors.groupingByConcurrent</code> method uses a shared concurrent map. The collector is unordered already.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Map&lt;String, List&lt;String&gt;&gt; result = cities.parallel().collect(</div><div class="line">  Collectors.groupingByConcurrent(City::getState) <span class="comment">// values aren't collected in stream order</span></div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p><strong>Noninterference</strong><br>Do not modify the collection that is backing a stream while carrying out a stream operation, even if it’s threadsafe. Remember that streams don’t collect their own data - the data is always in a separate collection. </p>
+<p>Since intermediate stream operations are lazy, it’s possible to mutate the collection up to the point when the terminal operation executes.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; wordList = ...;</div><div class="line">Stream&lt;String&gt; words = wordList.stream();</div><div class="line">wordsList.add(<span class="string">"END"</span>); <span class="comment">// OK</span></div><div class="line"><span class="keyword">long</span> n = words.distinct().count();</div></pre></td></tr></table></figure></p>
+<p>Bad example updating collection during operation<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Stream&lt;String&gt; words = wordList.stream();</div><div class="line">words.forEach(s -&gt; <span class="keyword">if</span> (s.length() &lt; <span class="number">12</span>)) wordList.remove(s)); <span class="comment">// interference</span></div></pre></td></tr></table></figure></p>
+<h2 id="Functional-Interfaces"><a href="#Functional-Interfaces" class="headerlink" title="Functional Interfaces"></a>Functional Interfaces</h2><p><code>Predicate</code>: an interface with one nondefault method returning a boolean value<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Predicate</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">boolean</span> <span class="title">test</span><span class="params">(T argument)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>boolean return type is important. </p>
+<p><strong>Functional Interfaces Used in the Stream API</strong><br><br></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Functional Interfaces</th>
+<th style="text-align:left">Parameter Types</th>
+<th style="text-align:left">Return Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Supplier&lt;T&gt;</td>
+<td style="text-align:left">None</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">Supplies a value of type T</td>
+</tr>
+<tr>
+<td style="text-align:left">Consumer&lt;T&gt;</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">void</td>
+<td style="text-align:left">Consumes a value of type T</td>
+</tr>
+<tr>
+<td style="text-align:left">BiConsumer&lt;T, U&gt;</td>
+<td style="text-align:left">T, U</td>
+<td style="text-align:left">void</td>
+<td style="text-align:left">Consumes values of types T and U</td>
+</tr>
+<tr>
+<td style="text-align:left">Predicate&lt;T&gt;</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">A Boolean-valued function</td>
+</tr>
+<tr>
+<td style="text-align:left">ToIntFunction&lt;T&gt;<br>ToLongFunction&lt;T&gt;<br>ToDoubleFunction&lt;T&gt;</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">int<br>long<br>double</td>
+<td style="text-align:left">An int-, long-, or double-valued function</td>
+</tr>
+<tr>
+<td style="text-align:left">IntFunction&lt;R&gt;<br>LongFunction&lt;R&gt;<br>DoubleFunction&lt;R&gt;</td>
+<td style="text-align:left">int<br>long<br>double</td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">A function with argument of type int, long, or double</td>
+</tr>
+<tr>
+<td style="text-align:left">Function&lt;T, R&gt;</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">A function with argument of type T</td>
+</tr>
+<tr>
+<td style="text-align:left">BiFunction&lt;T, U, R&gt;</td>
+<td style="text-align:left">T, U</td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">A function with arguments of types T and U</td>
+</tr>
+<tr>
+<td style="text-align:left">UnaryOperator&lt;T&gt;</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">A unary operator on the type T</td>
+</tr>
+<tr>
+<td style="text-align:left">BinaryOperator&lt;T&gt;</td>
+<td style="text-align:left">T, T</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">A binary operator on the type T</td>
+</tr>
+</tbody>
+</table>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-license">
+  <div class="centered">
+    <img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /> 
+    <p>
+    This post by <a href="http://freetymekiyan.github.io/">Yang Liu</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</a>.<br> Please NOTE THE ORIGIN for Reproduction, Copying or other usages.
+    </p>
+  </div>
+</div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>►<a class="article-category-link" href="/categories/Coding/Reading-Note/">Reading Note</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Java/">Java</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://blog.kiyanpro.com/2016/03/21/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-4/" data-title="Java SE 8 For the Really Impatient, Note 4 | Better Programmer" data-tsina="2090687247" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/03/22/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-5/" title="Java SE 8 For the Really Impatient, Note 5">
+  <strong>Prev:</strong><br/>
+  <span>
+  Java SE 8 For the Really Impatient, Note 5</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/03/17/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-3/"  title="Java SE 8 For the Really Impatient, Note 3">
+ <strong>Next:</strong><br/> 
+ <span>Java SE 8 For the Really Impatient, Note 3
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-2-The-Stream-API"><span class="toc-number">1.</span> <span class="toc-text">Chapter 2 The Stream API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Grouping-and-Partioning"><span class="toc-number">1.1.</span> <span class="toc-text">Grouping and Partioning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Primitive-Type-Streams"><span class="toc-number">1.2.</span> <span class="toc-text">Primitive Type Streams</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Parallel-Streams"><span class="toc-number">1.3.</span> <span class="toc-text">Parallel Streams</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Functional-Interfaces"><span class="toc-number">1.4.</span> <span class="toc-text">Functional Interfaces</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+  <p class="asidetitle">Categories</p>
+    <ul>
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/" title="Coding">Coding<sup>28</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/People/" title="People">People<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/Reading-Note/" title="Reading Note">Reading Note<sup>16</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Translation/" title="Translation">Translation<sup>24</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Words/" title="Words">Words<sup>4</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  
+<div class="tagslist">
+  <p class="asidetitle">Tags</p>
+    <ul class="clearfix">
+    
+      
+        <li><a href="/tags/Kai-Fu-Lee/" title="Kai Fu Lee">Kai Fu Lee<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/LinkedIn/" title="LinkedIn">LinkedIn<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Java/" title="Java">Java<sup>14</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Elasticsearch/" title="Elasticsearch">Elasticsearch<sup>4</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Pro-tips/" title="Pro-tips">Pro-tips<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Thoughts/" title="Thoughts">Thoughts<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Node-js/" title="Node.js">Node.js<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/System-Design/" title="System Design">System Design<sup>2</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Test/" title="Test">Test<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Interview/" title="Interview">Interview<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="adlist">
+  <p class="asidetitle">Google Ads</p>
+  <div class="ad">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Hexo blog widget -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3830008196770332"
+         data-ad-slot="2210281201"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">Archives</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+      <li><a href="http://hijiangtao.github.io/" target="_blank" title="JiangTao">Data.Blog</a></li>
+      <li><a href="https://modulus.io/" target="_blank" title="Modulus, Node.js Host Provider.">Modulus</a></li>
+    </ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/Algorithms/" style="font-size: 10px;">Algorithms</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Elasticsearch/" style="font-size: 16px;">Elasticsearch</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Java/" style="font-size: 18px;">Java</a> <a href="/tags/Kai-Fu-Lee/" style="font-size: 20px;">Kai Fu Lee</a> <a href="/tags/LinkedIn/" style="font-size: 20px;">LinkedIn</a> <a href="/tags/Node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/Pro-tips/" style="font-size: 14px;">Pro-tips</a> <a href="/tags/System-Design/" style="font-size: 12px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/TextMate-2/" style="font-size: 10px;">TextMate 2</a> <a href="/tags/Thoughts/" style="font-size: 14px;">Thoughts</a>
+    </div>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+  
+  <div class="line">
+    <span></span>
+    
+    <a href="http://weibo.com/2090687247" target="_blank"><div class="author"></div></a>
+    
+  </div>
+  
+  
+  <section class="info">
+    <p> This is FreeTymeKiyan&#39;s blog.<br/>
+      He always asks himself, how far can an indie programmer go? Definitely no limit on that.</p>
+  </section>
+   
+  <div class="social-font" class="clearfix">
+    
+    <a href="http://weibo.com/2090687247" target="_blank" class="icon-weibo" title="weibo"></a>
+    
+    
+    <a href="https://github.com/FreeTymeKiyan" target="_blank" class="icon-github" title="github"></a>
+    
+    
+    
+    <a href="https://twitter.com/FreeTymeKiyan" target="_blank" class="icon-twitter" title="twitter"></a>
+    
+    
+    <a href="https://www.facebook.com/kiyan.fan" target="_blank" class="icon-facebook" title="facebook"></a>
+    
+    
+    <a href="https://www.douban.com/people/56346857" target="_blank" class="icon-douban" title="豆瓣"></a>
+    
+    
+    
+    <a href="mailto:freetymesunkiyan@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+    
+  </div>
+    <p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> © 2012-2017
+    
+    <a href="http://blog.kiyanpro.com/about" target="_blank" title="FreeTymeKiyan">FreeTymeKiyan</a>
+    
+    , <span class='post-count'>112.4k</span> words
+    </p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+
+  c.click(function(){
+    t.css('display','none');
+    if(ah.length!==0){
+      ta.css('display', 'block').addClass('fadeIn');
+    }
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+    if(ah.length!==0){
+      t.css('display','block');
+    }
+  });
+
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>Scan QR code and share<a class="qrclose" href="#share"></a></span><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'FreeTymeKiyan';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-60456171-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+<div id="totop">
+<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+
+<script type="text/x-mathjax-config"> 
+MathJax.Hub.Config({ 
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
+}); 
+</script>
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </body>
+</html>

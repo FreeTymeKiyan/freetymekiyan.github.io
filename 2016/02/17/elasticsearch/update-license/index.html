@@ -1,0 +1,652 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Update Elasticsearch License | Better Programmer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="FreeTymeKiyan">
+    
+    <meta name="description" content="Marvel is the official Elasticsearch monitoring plugin. Although it’s free, it requires subscription for a basic license.  
+The initial trial license ">
+    
+    
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="FreeTymeKiyan" />
+    <meta name="twitter:title" content="Update Elasticsearch License | Better Programmer" />
+      
+    
+    
+    <link rel="alternative" href="/atom.xml" title="Better Programmer" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/logo_apple.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/logo_apple.png">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+  
+    <div id="imglogo">
+      <a href="/"><img src="/img/logo.png" alt="Better Programmer" title="Better Programmer"/></a>
+    </div>
+    
+    <div id="textlogo">
+      <h1 class="site-name"><a href="/" title="Better Programmer">Better Programmer</a></h1>
+      <h2 class="blog-motto">Where best programming happens</h2>
+    </div>
+    <div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+    </a></div>
+    <nav class="animated">
+      <ul>
+        <ul>
+         
+          <li><a href="/words">Words</a></li>
+        
+          <li><a href="/about">About</a></li>
+        
+        <li>
+        
+        <form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+          <label>Search</label>
+          <input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+        </form>
+        
+        </li>
+      </ul>
+    </nav>
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/02/17/elasticsearch/update-license/" title="Update Elasticsearch License" itemprop="url">Update Elasticsearch License</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://blog.kiyanpro.com/about" title="FreeTymeKiyan" target="_blank" itemprop="author">FreeTymeKiyan</a>
+		
+  
+  <p class="article-time">
+    <time datetime="2016-02-17T10:00:00.000Z" itemprop="datePublished">Published on Feb 17 2016</time>
+  </p>
+  
+  <p class="article-read-time">
+    <span class="post-count">1,169 words in 7 minutes</span>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Steps-to-Renew-License"><span class="toc-number">1.</span> <span class="toc-text">Steps to Renew License</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Register-for-a-new-license"><span class="toc-number">1.1.</span> <span class="toc-text">Register for a new license</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Update-license-through-API"><span class="toc-number">1.2.</span> <span class="toc-text">Update license through API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#View-License"><span class="toc-number">2.</span> <span class="toc-text">View License</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem"><span class="toc-number">3.</span> <span class="toc-text">Problem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Update-Marvel"><span class="toc-number">3.1.</span> <span class="toc-text">Update Marvel</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">4.</span> <span class="toc-text">References</span></a></li></ol>
+		
+		</div>
+		
+		<p>Marvel is the official Elasticsearch monitoring plugin. Although it’s free, it requires subscription for a basic license.  </p>
+<p>The initial trial license lasts for only one month. After the first month, marvel will stop showing dashboard and give you a grace period of 7 days to renew the license. If you do not renew it, not only marvel will not work anymore, but all marvel data will be deleted as well.  </p>
+<p>Before researching for another handy monitoring plugin, I decide to renew the license first.  </p>
+<h2 id="Steps-to-Renew-License"><a href="#Steps-to-Renew-License" class="headerlink" title="Steps to Renew License"></a>Steps to Renew License</h2><p>According to <a href="#References">the document</a>, the steps are pretty simple.  </p>
+<ol>
+<li>Register for a new license on official site  </li>
+<li>Update license through API  </li>
+</ol>
+<h3 id="Register-for-a-new-license"><a href="#Register-for-a-new-license" class="headerlink" title="Register for a new license"></a>Register for a new license</h3><p>I will not dive into it too much. Just go to the register page and fill out a form. Then you will receive an email with download link of the license. Download and save the license file.  </p>
+<h3 id="Update-license-through-API"><a href="#Update-license-through-API" class="headerlink" title="Update license through API"></a>Update license through API</h3><p>Elasticsearch has a special license API.  </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -XPUT -u admin <span class="string">'http://&lt;host&gt;:&lt;port&gt;/_license'</span> -d @license.json</div></pre></td></tr></table></figure>
+<ol>
+<li>&lt;host&gt;: the hostname of the Elasticsearch node (localhost if executing locally)</li>
+<li>&lt;port&gt;: the http port</li>
+<li>license.json: the name of license JSON file</li>
+</ol>
+<p>The <code>-u admin</code> is for Shield users.  </p>
+<p>Note that for the file you need to specify an absolute path, unless it is under the current path you are running the terminal.  </p>
+<p>The response will show you some information about the license. For example, if may tell you that the license is not enough to all previous services. If it is enough, you can call the API again with a query parameter <code>acknowledge=true</code>.  </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -XPUT -u admin <span class="string">'http://&lt;host&gt;:&lt;port&gt;/_license?acknowledge=true'</span> -d @license.json</div></pre></td></tr></table></figure>
+<h2 id="View-License"><a href="#View-License" class="headerlink" title="View License"></a>View License</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -XGET -u admin:password <span class="string">'http://&lt;host&gt;:&lt;port&gt;/_license'</span></div></pre></td></tr></table></figure>
+<p>This API will get you the license status. Example result is shown below:  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// get license example response</span></div><div class="line">&#123;</div><div class="line">  <span class="string">"license"</span> : &#123;</div><div class="line">    <span class="string">"status"</span> : <span class="string">"active"</span>,</div><div class="line">    <span class="string">"uid"</span> : <span class="string">"0a98411f-73f4-4c67-954c-724874ed5488"</span>,</div><div class="line">    <span class="string">"type"</span> : <span class="string">"trial"</span>,</div><div class="line">    <span class="string">"issue_date"</span> : <span class="string">"2015-10-13T18:18:20.709Z"</span>,</div><div class="line">    <span class="string">"issue_date_in_millis"</span> : <span class="number">1444760300709</span>,</div><div class="line">    <span class="string">"expiry_date"</span> : <span class="string">"2015-11-12T18:18:20.709Z"</span>,</div><div class="line">    <span class="string">"expiry_date_in_millis"</span> : <span class="number">1447352300709</span>,</div><div class="line">    <span class="string">"max_nodes"</span> : <span class="number">1000</span>,</div><div class="line">    <span class="string">"issued_to"</span> : <span class="string">"elasticsearch"</span>,</div><div class="line">    <span class="string">"issuer"</span> : <span class="string">"elasticsearch"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>What if the annoying expiry page still shows? I met this problem after everything in the document is done. So, it is actually not enough to just update license. To fix this problem, I tried to update marvel at the kibana end. </p>
+<h3 id="Update-Marvel"><a href="#Update-Marvel" class="headerlink" title="Update Marvel"></a>Update Marvel</h3><p>Update Marvel is fairly simple, you just remove the old one and install a new one.   </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># remove marvel from kibana</span></div><div class="line">bin/kibana plugin --remove marvel</div></pre></td></tr></table></figure>
+<p>Then you can install it.  </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># install marvel to kibana, with latest version</span></div><div class="line">bin/kibana plugin --install elasticsearch/marvel/latest</div></pre></td></tr></table></figure>
+<p>Sometimes it will not work because the version. Marvel version should be aligned with Kibana version. For example, if your Kibana is still 4.3.0, you cannot use latest Marvel, which is 2.2.0. You will need to get Marvel 2.1.0 instead.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># install marvel to kibana</span></div><div class="line">bin/kibana plugin --install elasticsearch/marvel/2.1.0</div></pre></td></tr></table></figure>
+<p>If the page still shows, you may restart the cluster.  </p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li><a href="https://www.elastic.co/guide/en/marvel/current/license-management.html" target="_blank" rel="external">Managing Your License</a></li>
+<li><a href="https://www.elastic.co/guide/en/marvel/current/installing-marvel.html#installing-marvel" target="_blank" rel="external">Installing Marvel</a></li>
+</ol>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-license">
+  <div class="centered">
+    <img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /> 
+    <p>
+    This post by <a href="http://freetymekiyan.github.io/">Yang Liu</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</a>.<br> Please NOTE THE ORIGIN for Reproduction, Copying or other usages.
+    </p>
+  </div>
+</div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Elasticsearch/">Elasticsearch</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://blog.kiyanpro.com/2016/02/17/elasticsearch/update-license/" data-title="Update Elasticsearch License | Better Programmer" data-tsina="2090687247" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/03/06/elasticsearch/reroute-unassigned-shards/" title="Reroute Unassigned Shards">
+  <strong>Prev:</strong><br/>
+  <span>
+  Reroute Unassigned Shards</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/10/30/hexo/upgrade-hexo/"  title="Upgrade from Hexo 2.8.2 to 3.1.1">
+ <strong>Next:</strong><br/> 
+ <span>Upgrade from Hexo 2.8.2 to 3.1.1
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Steps-to-Renew-License"><span class="toc-number">1.</span> <span class="toc-text">Steps to Renew License</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Register-for-a-new-license"><span class="toc-number">1.1.</span> <span class="toc-text">Register for a new license</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Update-license-through-API"><span class="toc-number">1.2.</span> <span class="toc-text">Update license through API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#View-License"><span class="toc-number">2.</span> <span class="toc-text">View License</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem"><span class="toc-number">3.</span> <span class="toc-text">Problem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Update-Marvel"><span class="toc-number">3.1.</span> <span class="toc-text">Update Marvel</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">4.</span> <span class="toc-text">References</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+  <p class="asidetitle">Categories</p>
+    <ul>
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/" title="Coding">Coding<sup>28</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/People/" title="People">People<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/Reading-Note/" title="Reading Note">Reading Note<sup>16</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Translation/" title="Translation">Translation<sup>24</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Words/" title="Words">Words<sup>4</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  
+<div class="tagslist">
+  <p class="asidetitle">Tags</p>
+    <ul class="clearfix">
+    
+      
+        <li><a href="/tags/Kai-Fu-Lee/" title="Kai Fu Lee">Kai Fu Lee<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/LinkedIn/" title="LinkedIn">LinkedIn<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Java/" title="Java">Java<sup>14</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Elasticsearch/" title="Elasticsearch">Elasticsearch<sup>4</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Pro-tips/" title="Pro-tips">Pro-tips<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Thoughts/" title="Thoughts">Thoughts<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Node-js/" title="Node.js">Node.js<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/System-Design/" title="System Design">System Design<sup>2</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Test/" title="Test">Test<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Interview/" title="Interview">Interview<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="adlist">
+  <p class="asidetitle">Google Ads</p>
+  <div class="ad">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Hexo blog widget -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3830008196770332"
+         data-ad-slot="2210281201"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">Archives</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+      <li><a href="http://hijiangtao.github.io/" target="_blank" title="JiangTao">Data.Blog</a></li>
+      <li><a href="https://modulus.io/" target="_blank" title="Modulus, Node.js Host Provider.">Modulus</a></li>
+    </ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/Algorithms/" style="font-size: 10px;">Algorithms</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Elasticsearch/" style="font-size: 16px;">Elasticsearch</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Java/" style="font-size: 18px;">Java</a> <a href="/tags/Kai-Fu-Lee/" style="font-size: 20px;">Kai Fu Lee</a> <a href="/tags/LinkedIn/" style="font-size: 20px;">LinkedIn</a> <a href="/tags/Node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/Pro-tips/" style="font-size: 14px;">Pro-tips</a> <a href="/tags/System-Design/" style="font-size: 12px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/TextMate-2/" style="font-size: 10px;">TextMate 2</a> <a href="/tags/Thoughts/" style="font-size: 14px;">Thoughts</a>
+    </div>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+  
+  <div class="line">
+    <span></span>
+    
+    <a href="http://weibo.com/2090687247" target="_blank"><div class="author"></div></a>
+    
+  </div>
+  
+  
+  <section class="info">
+    <p> This is FreeTymeKiyan&#39;s blog.<br/>
+      He always asks himself, how far can an indie programmer go? Definitely no limit on that.</p>
+  </section>
+   
+  <div class="social-font" class="clearfix">
+    
+    <a href="http://weibo.com/2090687247" target="_blank" class="icon-weibo" title="weibo"></a>
+    
+    
+    <a href="https://github.com/FreeTymeKiyan" target="_blank" class="icon-github" title="github"></a>
+    
+    
+    
+    <a href="https://twitter.com/FreeTymeKiyan" target="_blank" class="icon-twitter" title="twitter"></a>
+    
+    
+    <a href="https://www.facebook.com/kiyan.fan" target="_blank" class="icon-facebook" title="facebook"></a>
+    
+    
+    <a href="https://www.douban.com/people/56346857" target="_blank" class="icon-douban" title="豆瓣"></a>
+    
+    
+    
+    <a href="mailto:freetymesunkiyan@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+    
+  </div>
+    <p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> © 2012-2017
+    
+    <a href="http://blog.kiyanpro.com/about" target="_blank" title="FreeTymeKiyan">FreeTymeKiyan</a>
+    
+    , <span class='post-count'>112.4k</span> words
+    </p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+
+  c.click(function(){
+    t.css('display','none');
+    if(ah.length!==0){
+      ta.css('display', 'block').addClass('fadeIn');
+    }
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+    if(ah.length!==0){
+      t.css('display','block');
+    }
+  });
+
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>Scan QR code and share<a class="qrclose" href="#share"></a></span><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'FreeTymeKiyan';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-60456171-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+<div id="totop">
+<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+
+<script type="text/x-mathjax-config"> 
+MathJax.Hub.Config({ 
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
+}); 
+</script>
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </body>
+</html>

@@ -1,0 +1,680 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Java SE 8 For the Really Impatient, Note 2 | Better Programmer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="FreeTymeKiyan">
+    
+    <meta name="description" content="Chapter 2 The Stream APIProcessing collections of values and specifying what you want to have done, leaving the scheduling of operations to the implem">
+    
+    
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="FreeTymeKiyan" />
+    <meta name="twitter:title" content="Java SE 8 For the Really Impatient, Note 2 | Better Programmer" />
+      
+    
+    
+    <link rel="alternative" href="/atom.xml" title="Better Programmer" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/logo_apple.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/logo_apple.png">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+  
+    <div id="imglogo">
+      <a href="/"><img src="/img/logo.png" alt="Better Programmer" title="Better Programmer"/></a>
+    </div>
+    
+    <div id="textlogo">
+      <h1 class="site-name"><a href="/" title="Better Programmer">Better Programmer</a></h1>
+      <h2 class="blog-motto">Where best programming happens</h2>
+    </div>
+    <div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+    </a></div>
+    <nav class="animated">
+      <ul>
+        <ul>
+         
+          <li><a href="/words">Words</a></li>
+        
+          <li><a href="/about">About</a></li>
+        
+        <li>
+        
+        <form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+          <label>Search</label>
+          <input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+        </form>
+        
+        </li>
+      </ul>
+    </nav>
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/16/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-2/" title="Java SE 8 For the Really Impatient, Note 2" itemprop="url">Java SE 8 For the Really Impatient, Note 2</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://blog.kiyanpro.com/about" title="FreeTymeKiyan" target="_blank" itemprop="author">FreeTymeKiyan</a>
+		
+  
+  <p class="article-time">
+    <time datetime="2016-03-17T01:31:28.000Z" itemprop="datePublished">Published on Mar 16 2016</time>
+  </p>
+  
+  <p class="article-read-time">
+    <span class="post-count">2,454 words in 15 minutes</span>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-2-The-Stream-API"><span class="toc-number">1.</span> <span class="toc-text">Chapter 2 The Stream API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-Iteration-to-Stream-Operations"><span class="toc-number">1.1.</span> <span class="toc-text">From Iteration to Stream Operations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream-Creation"><span class="toc-number">1.2.</span> <span class="toc-text">Stream Creation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-filter-map-and-flatMap-Methods"><span class="toc-number">1.3.</span> <span class="toc-text">The filter.map and flatMap Methods</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extracting-Substreams-and-Combining-Streams"><span class="toc-number">1.4.</span> <span class="toc-text">Extracting Substreams and Combining Streams</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stateful-Transformations"><span class="toc-number">1.5.</span> <span class="toc-text">Stateful Transformations</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="Chapter-2-The-Stream-API"><a href="#Chapter-2-The-Stream-API" class="headerlink" title="Chapter 2 The Stream API"></a>Chapter 2 The Stream API</h1><p>Processing collections of values and specifying what you want to have done, leaving the scheduling of operations to the implementation. E.g, compute the average of the values of a certain method. </p>
+<p>Key points:</p>
+<ul>
+<li>Iterators imply a specific traversal strategy and prohibit efficient concurrent execution. </li>
+<li>You can create streams from collections, arrays, generators, or iterators. </li>
+<li>Use <code>filter</code> to select elements and <code>map</code> to transform elements. </li>
+<li>Other operations for transforming streams include <code>limit</code>, <code>distinct</code>, and <code>sorted</code>. </li>
+<li>To obtain a result from a stream, use a reduction operator such as <code>count</code>, <code>max</code>, <code>min</code>, <code>findFirst</code>, or <code>findAny</code>. Some of these methods return an <code>Optional</code> value. </li>
+<li>The <code>Optional</code> type is intended as a safe alternative to working with <code>null</code> values. To use it safely, take advantage of the <code>ifPresent</code> and <code>orElse</code> methods. </li>
+<li>You can collect stream results in collections, arrays, strings or maps. </li>
+<li>The <code>groupingBy</code> and <code>partitioningBy</code> methods of the <code>Collectors</code> class allow you to split the contents of a stream into groups, and to obtain a result for each group. </li>
+<li>There are specialized streams for the primitive types, <code>int</code>, <code>long</code>, and <code>double</code>.</li>
+<li>When you work with parallel streams, be sure to avoid side effects, and consider giving up ordering constraints. </li>
+<li>You need to be familiar with a small number of functional interfaces in order to use the stream library. </li>
+</ul>
+<h2 id="From-Iteration-to-Stream-Operations"><a href="#From-Iteration-to-Stream-Operations" class="headerlink" title="From Iteration to Stream Operations"></a>From Iteration to Stream Operations</h2><p>Usually iterate over collection’s elements and do some work with each of them. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">long</span> count = words.stream().filter(w -&gt; w.length() &gt; <span class="number">12</span>).count();</div></pre></td></tr></table></figure>
+<p>The <code>stream</code> method yields a stream for the <code>words</code> list. The <code>filter</code> method returns another stream that contains only the words of length greater than twelve. The <code>count</code> method reduces that stream to a result. </p>
+<p>Differences between stream and collections</p>
+<ol>
+<li>Stream does not store its elements.</li>
+<li>Stream operations don’t mutate source. They return new streams that hold the reuslt.</li>
+<li>Stream operations are lazy when possible. Not executed until their result is needed. </li>
+</ol>
+<p>Easily parallelized by changing <code>stream</code> to <code>parallelStream</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">long</span> count = words.parallelStream().filter(w -&gt; w.length() &gt; <span class="number">12</span>).count();</div></pre></td></tr></table></figure></p>
+<p><strong>What. not how</strong> principle: we describe what needs to be done, don’t specify in which order, or in which thread, this should happen. </p>
+<p>Setup a pipeline of operations in 3 stages:</p>
+<ol>
+<li>Create a stream.</li>
+<li>Specify <em>intermediate operations</em> for transforming the initial stream into others</li>
+<li>Apply a <em>terminal operation</em> to produce a result.<br>Afterwards, the stream can no longer be used. </li>
+</ol>
+<p>Stream operations are not executed on the elements in the order in which they are invoked on the streams. Nothing happens until <code>count</code> is called. When the <code>count</code> method asks for the first element, then the <code>filter</code> method starts requesting elements, until it finds one that has length &gt; 12. </p>
+<h2 id="Stream-Creation"><a href="#Stream-Creation" class="headerlink" title="Stream Creation"></a>Stream Creation</h2><p>Turn any collection in to a stream with the <code>stream</code> method that Java8 added to the <code>Collection</code> interface</p>
+<p>Use the static <code>Stream.of</code> method for arrays<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Stream&lt;String&gt; words = Stream.of(contents.split(<span class="string">"[\\P&#123;L&#125;+"</span>))</div></pre></td></tr></table></figure></p>
+<p>The <code>of</code> method has a varargs parameters<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Stream&lt;String&gt; song = Stream.of(<span class="string">"gently"</span>, <span class="string">"down"</span>, <span class="string">"the"</span>, <span class="string">"stream"</span>);</div></pre></td></tr></table></figure></p>
+<p>Use <code>Array.stream(array, from, to)</code> to make stream from a part of an array. </p>
+<p>Use the static <code>Stream.empty</code> method to make a stream with no elements<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Stream&lt;String&gt; silence = Stream.empty();</div></pre></td></tr></table></figure></p>
+<p>2 interfaces for making infinite streams:<br><code>generate</code> takes a function with no arguments(or, an object of the <code>Supplier&lt;T&gt;</code> interface). Whenever a stream value is needed, that function is called to produce a value<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Stream&lt;String&gt; echos = Stream.generate(() -&gt; <span class="string">"Echo"</span>); <span class="comment">// get a stream of constant values</span></div><div class="line"></div><div class="line">Stream&lt;Double&gt; randoms = Stream.generate(Math::random); <span class="comment">// get a stream of random numbers</span></div></pre></td></tr></table></figure></p>
+<p><code>iterate</code> takes a seed value and a function(a <code>UnaryOperator&lt;T&gt;</code>), and repeatedly applies the function to the previous result.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Stream&lt;BigInteger&gt; integers = Stream.iterate(BigInteger.ZERO, n -&gt; n.add(BigInteger.ONE));</div></pre></td></tr></table></figure></p>
+<p><code>Pattern</code> class has a method <code>splitAsStream</code> that splits a <code>CharSequence</code> by a regular expression.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// split a string into words</span></div><div class="line">Stream&lt;String&gt; words = Pattern.compile(<span class="string">"[\\P&#123;L&#125;+"</span>).splitAsStream(contents);</div></pre></td></tr></table></figure></p>
+<p><code>File.lines</code> method returns a <code>Stream</code> of all lines in a file.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> (Stream&lt;String&gt; lines = Files.lines(path)) &#123;</div><div class="line">  <span class="comment">// Do something with lines</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>The stream and the underlying file with it will be closed when the <code>try</code> block exits normally or through an exception.</p>
+<h2 id="The-filter-map-and-flatMap-Methods"><a href="#The-filter-map-and-flatMap-Methods" class="headerlink" title="The filter.map and flatMap Methods"></a>The filter.map and flatMap Methods</h2><p><code>filter</code>: yields a new stream with all elements that match a certain condition<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// transform a stream of strings into another stream contaning only long words</span></div><div class="line">List&lt;String&gt; wordList = ...;</div><div class="line">Stream&lt;String&gt; words = wordList.stream();</div><div class="line">Stream&lt;String&gt; longWords = words.filter(w -&gt; w.length() &gt; <span class="number">12</span>);</div></pre></td></tr></table></figure></p>
+<p>The argument of <code>filter</code> is a <code>Predicate&lt;T&gt;</code>, that is, a function from <code>T</code> to <code>boolean</code></p>
+<p><code>map</code>: transform the values in a stream in some way, a function is applied to each element.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// transform all words to lowercase</span></div><div class="line">Stream&lt;String&gt; lowercaseWords = words.map(String::toLowercase);</div><div class="line"></div><div class="line"><span class="comment">// get first character of each word</span></div><div class="line">Stream&lt;Character&gt; firstChars = words.map(s -&gt; s.charAt(<span class="number">0</span>));</div></pre></td></tr></table></figure></p>
+<p>Suppose you have </p>
+<ul>
+<li>a generic type <code>G</code>(such as Stream)</li>
+<li>function <code>f</code> from some type <code>T</code> to <code>G&lt;U&gt;</code></li>
+<li>function <code>g</code> from <code>U</code> to <code>G&lt;V&gt;</code></li>
+</ul>
+<p>Then you can compose them, that is, first <code>f</code> and then <code>g</code>, by using <code>flatMap</code>. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// words = [..., "your", "boat", ...];</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Stream&lt;Character&gt; <span class="title">characterStream</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">  List&lt;Character&gt; <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">char</span> c : s.toCharArray()) result.add(c);</div><div class="line">  <span class="keyword">return</span> result.stream();</div><div class="line">&#125;</div><div class="line"><span class="comment">// generate [... ['y', 'o', 'u', 'r'], ['b', 'o', 'a', 't'], ...]</span></div><div class="line">Stream&lt;Stream&lt;Character&gt;&gt; result = words.map(w -&gt; characterStream(w));</div><div class="line"></div><div class="line"><span class="comment">// generate [... 'y', 'o', 'u', 'r', 'b', 'o', 'a', 't', ...]</span></div><div class="line">Stream&lt;Character&gt; letters = words.flatMap(w -&gt; characterStream(w));</div></pre></td></tr></table></figure>
+<p>In the above case, <code>G</code> is Stream, <code>T</code> is String, <code>U</code> is Character, <code>V</code> is also Character. </p>
+<h2 id="Extracting-Substreams-and-Combining-Streams"><a href="#Extracting-Substreams-and-Combining-Streams" class="headerlink" title="Extracting Substreams and Combining Streams"></a>Extracting Substreams and Combining Streams</h2><p><code>limit</code>: returns a new stream that ends after n elements(or when the original stream ends if it is shorter)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Stream&lt;Double&gt; randoms = Stream.generate(Math::random).limit(<span class="number">100</span>);</div></pre></td></tr></table></figure></p>
+<p><code>skip</code>: discards the first n elements<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Stream&lt;String&gt; words = Stream.of(contents.split(<span class="string">"[\\P&#123;L&#125;+"</span>).skip(<span class="number">1</span>));</div></pre></td></tr></table></figure></p>
+<p><code>concat</code>: concatenate 2 streams<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Stream&lt;Character&gt; combined = Stream.concat(characterStream(<span class="string">"Hello"</span>), characterStream(<span class="string">"World"</span>));</div></pre></td></tr></table></figure></p>
+<p>The first strema should not be infinite. </p>
+<p><code>peek</code>: yields another stream with the same elements as the original, but a function is invoked every time an element is retrieved.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Obejct[] powers = Stream.iterate(<span class="number">1.0</span>, p -&gt; p * <span class="number">2</span>)</div><div class="line">  .peek(e -&gt; System.out.println(<span class="string">"Fetching "</span> + e))</div><div class="line">  .limit(<span class="number">20</span>).toArray();</div></pre></td></tr></table></figure></p>
+<p>This way you can verify that the infinite stream returned by iterate is processed lazily. </p>
+<h2 id="Stateful-Transformations"><a href="#Stateful-Transformations" class="headerlink" title="Stateful Transformations"></a>Stateful Transformations</h2><p><code>distinct</code>: yields elements from the original stream, in the same order, except that duplicates are suppressed. The stream must obviously remember the elements that it has already seen.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Stream&lt;String&gt; uniqueWords = Stream.of(<span class="string">"merrily"</span>, <span class="string">"merrily"</span>, <span class="string">"gently"</span>).distinct();</div></pre></td></tr></table></figure></p>
+<p><code>sorted</code>: must see the entire stream and sort it before it can give out any elements. You can’t sort an infinite stream. One for Comparable elements, the other accepts a Comparator. Useful when the sorting process is a part of a stream pipeline.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Stream&lt;String&gt; longestFirst = words.sorted(Comparator.comparing(String::length).reversed())</div></pre></td></tr></table></figure></p>
+<p>The <code>Collections.sort</code> method sorts a collection in place, whereas <code>Stream.sorted</code> returns a new sorted stream. </p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-license">
+  <div class="centered">
+    <img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /> 
+    <p>
+    This post by <a href="http://freetymekiyan.github.io/">Yang Liu</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</a>.<br> Please NOTE THE ORIGIN for Reproduction, Copying or other usages.
+    </p>
+  </div>
+</div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>►<a class="article-category-link" href="/categories/Coding/Reading-Note/">Reading Note</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Java/">Java</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://blog.kiyanpro.com/2016/03/16/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-2/" data-title="Java SE 8 For the Really Impatient, Note 2 | Better Programmer" data-tsina="2090687247" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/03/17/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-3/" title="Java SE 8 For the Really Impatient, Note 3">
+  <strong>Prev:</strong><br/>
+  <span>
+  Java SE 8 For the Really Impatient, Note 3</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/03/15/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-1/"  title="Java SE 8 For the Really Impatient, Note 1">
+ <strong>Next:</strong><br/> 
+ <span>Java SE 8 For the Really Impatient, Note 1
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-2-The-Stream-API"><span class="toc-number">1.</span> <span class="toc-text">Chapter 2 The Stream API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-Iteration-to-Stream-Operations"><span class="toc-number">1.1.</span> <span class="toc-text">From Iteration to Stream Operations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream-Creation"><span class="toc-number">1.2.</span> <span class="toc-text">Stream Creation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-filter-map-and-flatMap-Methods"><span class="toc-number">1.3.</span> <span class="toc-text">The filter.map and flatMap Methods</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extracting-Substreams-and-Combining-Streams"><span class="toc-number">1.4.</span> <span class="toc-text">Extracting Substreams and Combining Streams</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stateful-Transformations"><span class="toc-number">1.5.</span> <span class="toc-text">Stateful Transformations</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+  <p class="asidetitle">Categories</p>
+    <ul>
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/" title="Coding">Coding<sup>28</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/People/" title="People">People<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/Reading-Note/" title="Reading Note">Reading Note<sup>16</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Translation/" title="Translation">Translation<sup>24</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Words/" title="Words">Words<sup>4</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  
+<div class="tagslist">
+  <p class="asidetitle">Tags</p>
+    <ul class="clearfix">
+    
+      
+        <li><a href="/tags/Kai-Fu-Lee/" title="Kai Fu Lee">Kai Fu Lee<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/LinkedIn/" title="LinkedIn">LinkedIn<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Java/" title="Java">Java<sup>14</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Elasticsearch/" title="Elasticsearch">Elasticsearch<sup>4</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Pro-tips/" title="Pro-tips">Pro-tips<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Thoughts/" title="Thoughts">Thoughts<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Node-js/" title="Node.js">Node.js<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/System-Design/" title="System Design">System Design<sup>2</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Test/" title="Test">Test<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Interview/" title="Interview">Interview<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="adlist">
+  <p class="asidetitle">Google Ads</p>
+  <div class="ad">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Hexo blog widget -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3830008196770332"
+         data-ad-slot="2210281201"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">Archives</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+      <li><a href="http://hijiangtao.github.io/" target="_blank" title="JiangTao">Data.Blog</a></li>
+      <li><a href="https://modulus.io/" target="_blank" title="Modulus, Node.js Host Provider.">Modulus</a></li>
+    </ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/Algorithms/" style="font-size: 10px;">Algorithms</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Elasticsearch/" style="font-size: 16px;">Elasticsearch</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Java/" style="font-size: 18px;">Java</a> <a href="/tags/Kai-Fu-Lee/" style="font-size: 20px;">Kai Fu Lee</a> <a href="/tags/LinkedIn/" style="font-size: 20px;">LinkedIn</a> <a href="/tags/Node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/Pro-tips/" style="font-size: 14px;">Pro-tips</a> <a href="/tags/System-Design/" style="font-size: 12px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/TextMate-2/" style="font-size: 10px;">TextMate 2</a> <a href="/tags/Thoughts/" style="font-size: 14px;">Thoughts</a>
+    </div>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+  
+  <div class="line">
+    <span></span>
+    
+    <a href="http://weibo.com/2090687247" target="_blank"><div class="author"></div></a>
+    
+  </div>
+  
+  
+  <section class="info">
+    <p> This is FreeTymeKiyan&#39;s blog.<br/>
+      He always asks himself, how far can an indie programmer go? Definitely no limit on that.</p>
+  </section>
+   
+  <div class="social-font" class="clearfix">
+    
+    <a href="http://weibo.com/2090687247" target="_blank" class="icon-weibo" title="weibo"></a>
+    
+    
+    <a href="https://github.com/FreeTymeKiyan" target="_blank" class="icon-github" title="github"></a>
+    
+    
+    
+    <a href="https://twitter.com/FreeTymeKiyan" target="_blank" class="icon-twitter" title="twitter"></a>
+    
+    
+    <a href="https://www.facebook.com/kiyan.fan" target="_blank" class="icon-facebook" title="facebook"></a>
+    
+    
+    <a href="https://www.douban.com/people/56346857" target="_blank" class="icon-douban" title="豆瓣"></a>
+    
+    
+    
+    <a href="mailto:freetymesunkiyan@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+    
+  </div>
+    <p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> © 2012-2017
+    
+    <a href="http://blog.kiyanpro.com/about" target="_blank" title="FreeTymeKiyan">FreeTymeKiyan</a>
+    
+    , <span class='post-count'>112.4k</span> words
+    </p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+
+  c.click(function(){
+    t.css('display','none');
+    if(ah.length!==0){
+      ta.css('display', 'block').addClass('fadeIn');
+    }
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+    if(ah.length!==0){
+      t.css('display','block');
+    }
+  });
+
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>Scan QR code and share<a class="qrclose" href="#share"></a></span><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'FreeTymeKiyan';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-60456171-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+<div id="totop">
+<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+
+<script type="text/x-mathjax-config"> 
+MathJax.Hub.Config({ 
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
+}); 
+</script>
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </body>
+</html>

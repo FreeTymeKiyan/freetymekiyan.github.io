@@ -1,0 +1,659 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Upgrade from Hexo 2.8.2 to 3.1.1 | Better Programmer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="FreeTymeKiyan">
+    
+    <meta name="description" content="Recently I decided to update my Hexo blog to the latest version and start to writing posts again. The process was not that smooth. So I wrote this pos">
+    
+    
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="FreeTymeKiyan" />
+    <meta name="twitter:title" content="Upgrade from Hexo 2.8.2 to 3.1.1 | Better Programmer" />
+      
+    
+    
+    <link rel="alternative" href="/atom.xml" title="Better Programmer" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/logo_apple.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/logo_apple.png">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+  
+    <div id="imglogo">
+      <a href="/"><img src="/img/logo.png" alt="Better Programmer" title="Better Programmer"/></a>
+    </div>
+    
+    <div id="textlogo">
+      <h1 class="site-name"><a href="/" title="Better Programmer">Better Programmer</a></h1>
+      <h2 class="blog-motto">Where best programming happens</h2>
+    </div>
+    <div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+    </a></div>
+    <nav class="animated">
+      <ul>
+        <ul>
+         
+          <li><a href="/words">Words</a></li>
+        
+          <li><a href="/about">About</a></li>
+        
+        <li>
+        
+        <form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+          <label>Search</label>
+          <input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+        </form>
+        
+        </li>
+      </ul>
+    </nav>
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/10/30/hexo/upgrade-hexo/" title="Upgrade from Hexo 2.8.2 to 3.1.1" itemprop="url">Upgrade from Hexo 2.8.2 to 3.1.1</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://blog.kiyanpro.com/about" title="FreeTymeKiyan" target="_blank" itemprop="author">FreeTymeKiyan</a>
+		
+  
+  <p class="article-time">
+    <time datetime="2015-10-31T01:18:13.000Z" itemprop="datePublished">Published on Oct 30 2015</time>
+  </p>
+  
+  <p class="article-read-time">
+    <span class="post-count">2,297 words in 14 minutes</span>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Upgrade-Hexo"><span class="toc-number">1.</span> <span class="toc-text">Upgrade Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Modify-package-json"><span class="toc-number">1.1.</span> <span class="toc-text">Modify package.json</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Clean-cache"><span class="toc-number">1.2.</span> <span class="toc-text">Clean cache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-hexo-cli"><span class="toc-number">1.3.</span> <span class="toc-text">Install hexo-cli</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-Hexo"><span class="toc-number">1.4.</span> <span class="toc-text">Install Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-generators"><span class="toc-number">1.5.</span> <span class="toc-text">Install generators</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-server"><span class="toc-number">1.6.</span> <span class="toc-text">Install server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-deployers"><span class="toc-number">1.7.</span> <span class="toc-text">Install deployers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Update-plugins"><span class="toc-number">1.8.</span> <span class="toc-text">Update plugins</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Upgrade-Theme"><span class="toc-number">2.</span> <span class="toc-text">Upgrade Theme</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Page-not-rendered"><span class="toc-number">2.1.</span> <span class="toc-text">Page not rendered</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Author-img"><span class="toc-number">2.2.</span> <span class="toc-text">Author img</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Categories-and-Tags"><span class="toc-number">2.3.</span> <span class="toc-text">Categories and Tags</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Relative-links"><span class="toc-number">2.4.</span> <span class="toc-text">Relative links</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-blocks"><span class="toc-number">2.5.</span> <span class="toc-text">Code blocks</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">3.</span> <span class="toc-text">References</span></a></li></ol>
+		
+		</div>
+		
+		<p>Recently I decided to update my Hexo blog to the latest version and start to writing posts again. The process was not that smooth. So I wrote this post in case anyone needs any help. </p>
+<h2 id="Upgrade-Hexo"><a href="#Upgrade-Hexo" class="headerlink" title="Upgrade Hexo"></a>Upgrade Hexo</h2><p>The breaking changes in 3.1.1, to me, are that many modules within hexo before are divided further into independent ones. It is hard to update because the structure is so different, not as simple as just update the hexo CLI. We need to do way more than that. </p>
+<p>The first thing is to follow the document<sup><a href="#References">[1]</a></sup> provided by the developer. It is said to be of help when migrating from 2.x to 3.0. </p>
+<h3 id="Modify-package-json"><a href="#Modify-package-json" class="headerlink" title="Modify package.json"></a>Modify package.json</h3><p>Add hexo data to package.json.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;hexo&quot;: &#123;</div><div class="line">    &quot;version&quot;: &quot;&quot;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Clean-cache"><a href="#Clean-cache" class="headerlink" title="Clean cache"></a>Clean cache</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo clean</div></pre></td></tr></table></figure>
+<h3 id="Install-hexo-cli"><a href="#Install-hexo-cli" class="headerlink" title="Install hexo-cli"></a>Install hexo-cli</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure>
+<h3 id="Install-Hexo"><a href="#Install-Hexo" class="headerlink" title="Install Hexo"></a>Install Hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo --save</div></pre></td></tr></table></figure>
+<h3 id="Install-generators"><a href="#Install-generators" class="headerlink" title="Install generators"></a>Install generators</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-index --save</div><div class="line">npm install hexo-generator-archive --save</div><div class="line">npm install hexo-generator-category --save</div><div class="line">npm install hexo-generator-tag --save</div></pre></td></tr></table></figure>
+<p>If you use rss in your blog, you should also install the feed generator. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-feed --save</div></pre></td></tr></table></figure>
+<h3 id="Install-server"><a href="#Install-server" class="headerlink" title="Install server"></a>Install server</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-server --save</div></pre></td></tr></table></figure>
+<h3 id="Install-deployers"><a href="#Install-deployers" class="headerlink" title="Install deployers"></a>Install deployers</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div><div class="line">npm install hexo-deployer-heroku --save</div><div class="line">npm install hexo-deployer-rsync --save</div><div class="line">npm install hexo-deployer-openshift --save</div></pre></td></tr></table></figure>
+<h3 id="Update-plugins"><a href="#Update-plugins" class="headerlink" title="Update plugins"></a>Update plugins</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm install hexo-renderer-marked@0.2 --save</div><div class="line">npm install hexo-renderer-stylus@0.2 --save</div><div class="line">npm install hexo-generator-feed@1 --save</div><div class="line">npm install hexo-generator-sitemap@1 --save</div></pre></td></tr></table></figure>
+<h2 id="Upgrade-Theme"><a href="#Upgrade-Theme" class="headerlink" title="Upgrade Theme"></a>Upgrade Theme</h2><p>The theme I have been using is derived from Jacman<sup><a href="#References">[2]</a></sup>. I did lots of tuning on the details and disconnected it from its original git repo. So it is hard for me to upgrade it just by git pull. </p>
+<h3 id="Page-not-rendered"><a href="#Page-not-rendered" class="headerlink" title="Page not rendered"></a>Page not rendered</h3><p>The problem I first had was the page just didn’t show. It showed a bunch of unprocessed ejs code instead like below. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;%- partial(&apos;_partial/head&apos;) %&gt;</div><div class="line">&lt;%- partial(&apos;_partial/header&apos;, null, &#123;cache: !config.relative_link&#125;) %&gt;</div><div class="line">&lt;%- body %&gt;</div><div class="line">&lt;% if (theme.sidebar &amp;&amp; theme.sidebar !== &apos;bottom&apos;)&#123; %&gt; &lt;%- partial(&apos;_partial/sidebar&apos;, null,     &#123;cache: !config.relative_link&#125;) %&gt; &lt;% &#125; %&gt;</div><div class="line">&lt;%- partial(&apos;_partial/footer&apos;, null, &#123;cache: !config.relative_link&#125;) %&gt;</div><div class="line">&lt;%- partial(&apos;_partial/mobile-nav&apos;, null, &#123;cache: !config.relative_link&#125;) %&gt; &lt;%- partial(&apos;_partial/after-footer&apos;) %&gt;</div></pre></td></tr></table></figure>
+<p>I found the solution in the common hexo problems post<sup><a href="#References">[3]</a></sup>. It is very simple. Just run <code>npm install</code> under your blog post directory again to install and enable the ejs renderer. </p>
+<h3 id="Author-img"><a href="#Author-img" class="headerlink" title="Author img"></a>Author img</h3><p>Alright, now the page shows and everything looks good. After I scrolled to the bottom, I found that the author img is not showing. The log in browser debugging tool simply said that the img is not found on server. </p>
+<p>But the image is in its directory, not changed at all. That leads me to the answer that the path is wrong. The root path should be “/“. But it is “/css” in the log. </p>
+<p>The problem was noticed by the Jacman theme developer. You can find his post on how to support Jacman with hexo 3.0<sup><a href="#References">[4]</a></sup>. The reason is the code in <code>source/css/_base/variable.styl</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">root = hexo-config(&quot;root&quot;)</div></pre></td></tr></table></figure>
+<p>This line reads root path from config. In hexo 3.0 if root path is set to “/“ or not left blank, it would fail to get the correct path. </p>
+<p>The fix is to change <code>hexo-config(&quot;root&quot;)</code> to <code>../</code>. </p>
+<p>The result line should be like below. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">root = &quot;../&quot;</div></pre></td></tr></table></figure>
+<h3 id="Categories-and-Tags"><a href="#Categories-and-Tags" class="headerlink" title="Categories and Tags"></a>Categories and Tags</h3><p>This is another problem introduced by previous version of Jacman theme. It failed to leave out the zero-post categories and tags, which is very annoying if you have lots of new categories or tags in your draft folder. </p>
+<p>To solve this problem, you can update to the latest version or just add a if block to check post length.<br><code>themes/Jacman/layout/_partial/widget/tag.ejs</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;% if (site.tags.length)&#123; %&gt;</div><div class="line">&lt;div class=&quot;tagslist&quot;&gt;</div><div class="line">  &lt;p class=&quot;asidetitle&quot;&gt;&lt;%= __(&apos;tags&apos;) %&gt;&lt;/p&gt;</div><div class="line">    &lt;ul class=&quot;clearfix&quot;&gt;</div><div class="line">    &lt;% site.tags.sort(&apos;posts.length&apos;,&apos;desc&apos;).limit(20).each(function(item)&#123; %&gt;</div><div class="line">      &lt;% if (item.posts.length)&#123; %&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;&lt;%- config.root %&gt;&lt;%- item.path %&gt;&quot; title=&quot;&lt;%= item.name %&gt;&quot;&gt;&lt;%= item.name %&gt;&lt;sup&gt;&lt;%= item.posts.length %&gt;&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">      &lt;% &#125; %&gt;</div><div class="line">    &lt;% &#125;); %&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;% &#125; %&gt;</div></pre></td></tr></table></figure>
+<p>The same goes for <code>themes/Jacman/layout/_partial/widget/category.ejs</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;% if (site.categories.length)&#123; %&gt;</div><div class="line">&lt;div class=&quot;categorieslist&quot;&gt;</div><div class="line">  &lt;p class=&quot;asidetitle&quot;&gt;&lt;%= __(&apos;categories&apos;) %&gt;&lt;/p&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">    &lt;% site.categories.sort(&apos;name&apos;).each(function(item)&#123; %&gt;</div><div class="line">      &lt;% if (item.posts.length &gt; 0) &#123; %&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;&lt;%- config.root %&gt;&lt;%- item.path %&gt;&quot; title=&quot;&lt;%= item.name %&gt;&quot;&gt;&lt;%= item.name %&gt;&lt;sup&gt;&lt;%= item.posts.length %&gt;&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">      &lt;% &#125; %&gt;</div><div class="line">    &lt;% &#125;); %&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;% &#125; %&gt;</div></pre></td></tr></table></figure>
+<h3 id="Relative-links"><a href="#Relative-links" class="headerlink" title="Relative links"></a>Relative links</h3><p>When I tried to use other themes for a change, I found that the links for posts were wrong. This seems to be a bug for hexo 3.1.1<sup><a href="#References">[5]</a></sup>. </p>
+<p>The temporary fix is to set relative_link to false in _config.yml for now. Hope that it would be fixed soon. </p>
+<h3 id="Code-blocks"><a href="#Code-blocks" class="headerlink" title="Code blocks"></a>Code blocks</h3><p>Then I opened some posts to double check everything was good. It turned out that all code blocks are not working anymore. The line number is always 1 not matter how many rows in it. And the syntax was not highlighted either. This is also caused by hexo 3.1.1. The reason is that highlight.js interpret the code as plain text. </p>
+<p>We can manually set language for each code block. But that would be too much work. Instead, we can set auto language detection of highlight.js. Add the config below to manually enable detection in _config.yml. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">highlight: </div><div class="line">  auto_detect: true</div></pre></td></tr></table></figure>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li><a href="https://github.com/hexojs/hexo/wiki/Migrating-from-2.x-to-3.0" target="_blank" rel="external">Migrating from 2.x to 3.0</a></li>
+<li><a href="http://wuchong.me/blog/2014/11/20/how-to-use-jacman/" target="_blank" rel="external">如何使用 Jacman 主题</a></li>
+<li><a href="https://xuanwo.org/2014/08/14/hexo-usual-problem/" target="_blank" rel="external">Hexo常见问题解决方案</a></li>
+<li><a href="http://wuchong.me/blog/2015/03/12/support-jacman-to-Hexo-3/" target="_blank" rel="external">Jacman 支持 Hexo 3</a></li>
+<li><a href="https://github.com/hexojs/hexo/issues/592" target="_blank" rel="external">Hexo to use relative path instead of URL</a></li>
+</ol>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-license">
+  <div class="centered">
+    <img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /> 
+    <p>
+    This post by <a href="http://freetymekiyan.github.io/">Yang Liu</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</a>.<br> Please NOTE THE ORIGIN for Reproduction, Copying or other usages.
+    </p>
+  </div>
+</div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Hexo/">Hexo</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://blog.kiyanpro.com/2015/10/30/hexo/upgrade-hexo/" data-title="Upgrade from Hexo 2.8.2 to 3.1.1 | Better Programmer" data-tsina="2090687247" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/02/17/elasticsearch/update-license/" title="Update Elasticsearch License">
+  <strong>Prev:</strong><br/>
+  <span>
+  Update Elasticsearch License</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/03/22/figures/fu-sheng-bao-bian-notes/"  title="傅盛豹变 - 阅读笔记">
+ <strong>Next:</strong><br/> 
+ <span>傅盛豹变 - 阅读笔记
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Upgrade-Hexo"><span class="toc-number">1.</span> <span class="toc-text">Upgrade Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Modify-package-json"><span class="toc-number">1.1.</span> <span class="toc-text">Modify package.json</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Clean-cache"><span class="toc-number">1.2.</span> <span class="toc-text">Clean cache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-hexo-cli"><span class="toc-number">1.3.</span> <span class="toc-text">Install hexo-cli</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-Hexo"><span class="toc-number">1.4.</span> <span class="toc-text">Install Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-generators"><span class="toc-number">1.5.</span> <span class="toc-text">Install generators</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-server"><span class="toc-number">1.6.</span> <span class="toc-text">Install server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-deployers"><span class="toc-number">1.7.</span> <span class="toc-text">Install deployers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Update-plugins"><span class="toc-number">1.8.</span> <span class="toc-text">Update plugins</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Upgrade-Theme"><span class="toc-number">2.</span> <span class="toc-text">Upgrade Theme</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Page-not-rendered"><span class="toc-number">2.1.</span> <span class="toc-text">Page not rendered</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Author-img"><span class="toc-number">2.2.</span> <span class="toc-text">Author img</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Categories-and-Tags"><span class="toc-number">2.3.</span> <span class="toc-text">Categories and Tags</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Relative-links"><span class="toc-number">2.4.</span> <span class="toc-text">Relative links</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-blocks"><span class="toc-number">2.5.</span> <span class="toc-text">Code blocks</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">3.</span> <span class="toc-text">References</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+  <p class="asidetitle">Categories</p>
+    <ul>
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/" title="Coding">Coding<sup>28</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/People/" title="People">People<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/Reading-Note/" title="Reading Note">Reading Note<sup>16</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Translation/" title="Translation">Translation<sup>24</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Words/" title="Words">Words<sup>4</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  
+<div class="tagslist">
+  <p class="asidetitle">Tags</p>
+    <ul class="clearfix">
+    
+      
+        <li><a href="/tags/Kai-Fu-Lee/" title="Kai Fu Lee">Kai Fu Lee<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/LinkedIn/" title="LinkedIn">LinkedIn<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Java/" title="Java">Java<sup>14</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Elasticsearch/" title="Elasticsearch">Elasticsearch<sup>4</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Pro-tips/" title="Pro-tips">Pro-tips<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Thoughts/" title="Thoughts">Thoughts<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Node-js/" title="Node.js">Node.js<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/System-Design/" title="System Design">System Design<sup>2</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Test/" title="Test">Test<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Interview/" title="Interview">Interview<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="adlist">
+  <p class="asidetitle">Google Ads</p>
+  <div class="ad">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Hexo blog widget -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3830008196770332"
+         data-ad-slot="2210281201"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">Archives</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+      <li><a href="http://hijiangtao.github.io/" target="_blank" title="JiangTao">Data.Blog</a></li>
+      <li><a href="https://modulus.io/" target="_blank" title="Modulus, Node.js Host Provider.">Modulus</a></li>
+    </ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/Algorithms/" style="font-size: 10px;">Algorithms</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Elasticsearch/" style="font-size: 16px;">Elasticsearch</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Java/" style="font-size: 18px;">Java</a> <a href="/tags/Kai-Fu-Lee/" style="font-size: 20px;">Kai Fu Lee</a> <a href="/tags/LinkedIn/" style="font-size: 20px;">LinkedIn</a> <a href="/tags/Node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/Pro-tips/" style="font-size: 14px;">Pro-tips</a> <a href="/tags/System-Design/" style="font-size: 12px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/TextMate-2/" style="font-size: 10px;">TextMate 2</a> <a href="/tags/Thoughts/" style="font-size: 14px;">Thoughts</a>
+    </div>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+  
+  <div class="line">
+    <span></span>
+    
+    <a href="http://weibo.com/2090687247" target="_blank"><div class="author"></div></a>
+    
+  </div>
+  
+  
+  <section class="info">
+    <p> This is FreeTymeKiyan&#39;s blog.<br/>
+      He always asks himself, how far can an indie programmer go? Definitely no limit on that.</p>
+  </section>
+   
+  <div class="social-font" class="clearfix">
+    
+    <a href="http://weibo.com/2090687247" target="_blank" class="icon-weibo" title="weibo"></a>
+    
+    
+    <a href="https://github.com/FreeTymeKiyan" target="_blank" class="icon-github" title="github"></a>
+    
+    
+    
+    <a href="https://twitter.com/FreeTymeKiyan" target="_blank" class="icon-twitter" title="twitter"></a>
+    
+    
+    <a href="https://www.facebook.com/kiyan.fan" target="_blank" class="icon-facebook" title="facebook"></a>
+    
+    
+    <a href="https://www.douban.com/people/56346857" target="_blank" class="icon-douban" title="豆瓣"></a>
+    
+    
+    
+    <a href="mailto:freetymesunkiyan@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+    
+  </div>
+    <p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> © 2012-2017
+    
+    <a href="http://blog.kiyanpro.com/about" target="_blank" title="FreeTymeKiyan">FreeTymeKiyan</a>
+    
+    , <span class='post-count'>112.4k</span> words
+    </p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+
+  c.click(function(){
+    t.css('display','none');
+    if(ah.length!==0){
+      ta.css('display', 'block').addClass('fadeIn');
+    }
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+    if(ah.length!==0){
+      t.css('display','block');
+    }
+  });
+
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>Scan QR code and share<a class="qrclose" href="#share"></a></span><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'FreeTymeKiyan';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-60456171-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+<div id="totop">
+<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+
+<script type="text/x-mathjax-config"> 
+MathJax.Hub.Config({ 
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
+}); 
+</script>
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </body>
+</html>

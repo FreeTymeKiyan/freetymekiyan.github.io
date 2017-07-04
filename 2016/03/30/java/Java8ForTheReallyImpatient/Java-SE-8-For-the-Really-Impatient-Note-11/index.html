@@ -1,0 +1,744 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Java SE 8 For the Really Impatient, Note 11 | Better Programmer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="FreeTymeKiyan">
+    
+    <meta name="description" content="Chapter 6 Concurrency EnhancementsParallel Array OperationsArrays class now has a number of parallelized operations. 
+Arrays.parallelSort: sort an arr">
+    
+    
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="FreeTymeKiyan" />
+    <meta name="twitter:title" content="Java SE 8 For the Really Impatient, Note 11 | Better Programmer" />
+      
+    
+    
+    <link rel="alternative" href="/atom.xml" title="Better Programmer" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/logo_apple.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/logo_apple.png">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+  
+    <div id="imglogo">
+      <a href="/"><img src="/img/logo.png" alt="Better Programmer" title="Better Programmer"/></a>
+    </div>
+    
+    <div id="textlogo">
+      <h1 class="site-name"><a href="/" title="Better Programmer">Better Programmer</a></h1>
+      <h2 class="blog-motto">Where best programming happens</h2>
+    </div>
+    <div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+    </a></div>
+    <nav class="animated">
+      <ul>
+        <ul>
+         
+          <li><a href="/words">Words</a></li>
+        
+          <li><a href="/about">About</a></li>
+        
+        <li>
+        
+        <form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+          <label>Search</label>
+          <input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+        </form>
+        
+        </li>
+      </ul>
+    </nav>
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/30/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-11/" title="Java SE 8 For the Really Impatient, Note 11" itemprop="url">Java SE 8 For the Really Impatient, Note 11</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://blog.kiyanpro.com/about" title="FreeTymeKiyan" target="_blank" itemprop="author">FreeTymeKiyan</a>
+		
+  
+  <p class="article-time">
+    <time datetime="2016-03-31T00:56:21.000Z" itemprop="datePublished">Published on Mar 30 2016</time>
+  </p>
+  
+  <p class="article-read-time">
+    <span class="post-count">2,310 words in 14 minutes</span>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-6-Concurrency-Enhancements"><span class="toc-number">1.</span> <span class="toc-text">Chapter 6 Concurrency Enhancements</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Parallel-Array-Operations"><span class="toc-number">1.1.</span> <span class="toc-text">Parallel Array Operations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Completable-Futures"><span class="toc-number">1.2.</span> <span class="toc-text">Completable Futures</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Futures"><span class="toc-number">1.2.1.</span> <span class="toc-text">Futures</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CompletableFuture"><span class="toc-number">1.2.2.</span> <span class="toc-text">CompletableFuture</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Composition-Pipeline"><span class="toc-number">1.2.3.</span> <span class="toc-text">The Composition Pipeline</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Composing-Asynchronous-Operations"><span class="toc-number">1.2.4.</span> <span class="toc-text">Composing Asynchronous Operations</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="Chapter-6-Concurrency-Enhancements"><a href="#Chapter-6-Concurrency-Enhancements" class="headerlink" title="Chapter 6 Concurrency Enhancements"></a>Chapter 6 Concurrency Enhancements</h1><h2 id="Parallel-Array-Operations"><a href="#Parallel-Array-Operations" class="headerlink" title="Parallel Array Operations"></a>Parallel Array Operations</h2><p><code>Arrays</code> class now has a number of parallelized operations. </p>
+<p><code>Arrays.parallelSort</code>: sort an array of primitive values or objects.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String contents = <span class="keyword">new</span> String(Files.readAllBytes(Paths.get(<span class="string">"alice.txt"</span>)), StandardCharsets.UTF_8);</div><div class="line">String[] words = contents.split(<span class="string">"[\\P&#123;L&#125;]+"</span>); <span class="comment">// Split along nonletters</span></div><div class="line">Arrays.parallelSort(words);</div></pre></td></tr></table></figure></p>
+<p>You can supply a <code>Comparator</code>. </p>
+<p>You can supply the bounds of a range.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Arrays.parallelSort(values, values.length / <span class="number">2</span>, values); <span class="comment">// Sort the upper half</span></div></pre></td></tr></table></figure></p>
+<p><code>parallelSetAll</code>: fills an array with values that are computed from a function. The function receives the element index. There are versions for all primitive type arrays and for object arrays.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Arrays.parallelSetAll(values, i -&gt; i % <span class="number">10</span>);</div></pre></td></tr></table></figure></p>
+<p><code>parallelPrefix</code>: replaces each array element with the accumulation of the prefix for a given associative operation.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// [1, 2, 3, 4, ...] and x</span></div><div class="line">Arrays.parallelPrefix(values, (x, y) -&gt; x * y);</div><div class="line"><span class="comment">// [1, 1 x 2, 1 x 2 x 3, 1 x 2 x 3 x 4, ...]</span></div></pre></td></tr></table></figure></p>
+<p>This can be parallelized in this way: join neighboring elements first, then update the indicated elements by multiplying them with elements that are one or two positions below. </p>
+<h2 id="Completable-Futures"><a href="#Completable-Futures" class="headerlink" title="Completable Futures"></a>Completable Futures</h2><p>The <code>java.util.concurrent</code> library provides a <code>Future&lt;T&gt;</code> interface to denote a value of type <code>T</code> that will be available at some point in the future. </p>
+<p><em>Completable futures</em> make it possible to compose asynchronous operations. </p>
+<h3 id="Futures"><a href="#Futures" class="headerlink" title="Futures"></a>Futures</h3><p>Consider a method that reads a web page in a separate thread, which is going to take a while. When you call it, the method returns right away, and you have a <code>Future&lt;String&gt;</code>.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> Future&lt;String&gt; <span class="title">readPage</span><span class="params">(URL url)</span></span></div><div class="line"></div><div class="line">Future&lt;String&gt; contents = readPage(url);</div></pre></td></tr></table></figure></p>
+<p>Suppose we want to extract all URLs from the page in order to build a web crawler. We have a class <code>Parser</code> with a method<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;URL&gt; <span class="title">getLinks</span><span class="params">(String page)</span></span></div></pre></td></tr></table></figure></p>
+<p>How can we apply it to the future object? First, call the <code>get</code> method on the future to get its value when it becomes available. Then, process the result:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String page = contents.get(); <span class="comment">// blocking</span></div><div class="line">List&lt;URL&gt; links = Parser.getLinks(page);</div></pre></td></tr></table></figure></p>
+<p>No better off than with a method <code>public String readPage(URL url)</code> that blocks until the result is available. </p>
+<h3 id="CompletableFuture"><a href="#CompletableFuture" class="headerlink" title="CompletableFuture"></a>CompletableFuture<t></t></h3><p>Provides the feature to set “when the result becomes available, here is how to process it”. A <code>CompletableFuture</code> has a method <code>thenApply</code> to which you can pass the post-processing function. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CompletableFuture&lt;String&gt; contents = readPage(url);</div><div class="line">CompletableFuture&lt;List&lt;URL&gt;&gt; links = contents.thenApply(Parser::getLinks);</div></pre></td></tr></table></figure>
+<p>The <code>thenApply</code> method doesn’t block either. It returns another future. When the first future has completed. its result is fed to the <code>getLinks</code> method, and the return value of that method becomes the final result. </p>
+<p>This <em>composability</em> is the key aspect of the <code>CompletableFuture</code> class. Composing future actions solves a problem in programming asynchronous applications. </p>
+<h3 id="The-Composition-Pipeline"><a href="#The-Composition-Pipeline" class="headerlink" title="The Composition Pipeline"></a>The Composition Pipeline</h3><p>Pipeline of futures starts out by generating a <code>CompletableFuture</code>, usually with the static method <code>supplyAsync</code>. That method requires a <code>Supplier&lt;T&gt;</code>, that is, a function with no parameters yielding a <code>T</code>. The function is called on a separate thread.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CompletableFuture&lt;String&gt; contents = CompletableFuture.supplyAsync(() -&gt; blockingReadPage(url));</div></pre></td></tr></table></figure></p>
+<p><code>runAsync</code>: takes a <code>Runnable</code>, yielding a <code>CompletableFuture&lt;Void&gt;</code>. Useful if you simply want to schedule one action after another, without passing data between them. </p>
+<p>All methods ending in <code>Async</code> have two variants. One runs the provided action on the common <code>ForkJoinPool</code>. The other has a parameter of type <code>java.util.concurrent.Executor</code>, and it uses the given executor to run the action. </p>
+<p>Next, you can call <code>thenApply</code> or <code>thenApplyAsync</code> to run another action, either in the same thread or another. With either method, you supply a function and you get a <code>CompletableFuture&lt;U&gt;</code>, where <code>U</code> is the return type of the function.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CompletableFuture&lt;List&lt;URL&gt;&gt; links = CompletableFuture</div><div class="line">  .supplyAsync(() -&gt; blockingReadPage(url))</div><div class="line">  .thenApply(Parser::getLinks);</div></pre></td></tr></table></figure></p>
+<p>You can have additional processing steps. Eventually, you will be done.<br><code>thenAccept</code>: takes a <code>Consumer</code>, a function with return type <code>void</code>. Ideally, you would never call <code>get</code> on a future. The last step in the pipeline simply deposits the result where it belongs.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CompletableFuture&lt;Void&gt; links = CompletableFuture.supplyAsync(() -&gt; blockingReadPage(url)).thenApply(Parser::getLinks)</div><div class="line">  .thenAccept(System.out::println);</div></pre></td></tr></table></figure></p>
+<p>You don’t explicitly start the computation. The static <code>supplyAsync</code> method starts it automatically, and the other methods cause it  to be continued. </p>
+<h3 id="Composing-Asynchronous-Operations"><a href="#Composing-Asynchronous-Operations" class="headerlink" title="Composing Asynchronous Operations"></a>Composing Asynchronous Operations</h3><p><strong>Adding an Action to a CompletableFuture<t> Object</t></strong><br><br></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Method</th>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">thenApply</td>
+<td style="text-align:left">T -&gt; U</td>
+<td style="text-align:left">Apply a function to the result</td>
+</tr>
+<tr>
+<td style="text-align:left">thenCompose</td>
+<td style="text-align:left">T -&gt; CompletableFuture<u></u></td>
+<td style="text-align:left">Invoke the function on the result and execute the returned future</td>
+</tr>
+<tr>
+<td style="text-align:left">handle</td>
+<td style="text-align:left">(T, Throwable) -&gt; U</td>
+<td style="text-align:left">Process the result or error</td>
+</tr>
+<tr>
+<td style="text-align:left">thenAccept</td>
+<td style="text-align:left">T -&gt; void</td>
+<td style="text-align:left">Like thenApply, but with void result</td>
+</tr>
+<tr>
+<td style="text-align:left">whenComplete</td>
+<td style="text-align:left">(T, Throwable) -&gt; void</td>
+<td style="text-align:left">Like handle, but with void result</td>
+</tr>
+<tr>
+<td style="text-align:left">thenRun</td>
+<td style="text-align:left">Runnable</td>
+<td style="text-align:left">Execute the Runnable with void result</td>
+</tr>
+</tbody>
+</table>
+<p>For each method shown, there are also two <code>Async</code> variants. </p>
+<p>T -&gt; U is Function&lt;? super T, U&gt;</p>
+<p>The calls <code>CompletableFuture&lt;U&gt; future.thenApply(f)</code> and <code>CompletableFuture&lt;U&gt; future.thenApplyAsync(f)</code> return a future that applies f to the result of future when it is available. The second call runs f in another thread. </p>
+<p><code>thenCompose</code>: takes a function <code>T -&gt; CompletableFuture&lt;U&gt;</code>. </p>
+<p>Here we have two functions: T -&gt; CompletableFuture<u> and U -&gt; CompletableFuture<v>. Clearly, they compose to a function T -&gt; CompletableFuture<v> by calling the second function when the first one has completed. That is exactly what <code>thenCompose</code> does.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> CompletableFuture&lt;String&gt; <span class="title">readPage</span><span class="params">(URL url)</span></span></div><div class="line"></div><div class="line"><span class="keyword">public</span> CompletableFuture&lt;URL&gt; <span class="title">getURLInput</span><span class="params">(String prompt)</span></div></pre></td></tr></table></figure></v></v></u></p>
+<p><code>handle</code>: handles an exception thrown in a CompletableFuture. The supplied function is called with the result (or null if none) and the exception (or null if none), and it gets to make sense of the situation. </p>
+<p><strong>Combining Multiple Composition Objects</strong><br><br></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Method</th>
+<th style="text-align:left">Parameters</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">thenCombine</td>
+<td style="text-align:left">CompletableFuture<u>, (T, U) -&gt; V</u></td>
+<td style="text-align:left">Execute both and combine the results with the given function.</td>
+</tr>
+<tr>
+<td style="text-align:left">theAcceptBoth</td>
+<td style="text-align:left">CompletableFuture<u>, (T, U) -&gt; void</u></td>
+<td style="text-align:left">Like thenCombine, but with void result.</td>
+</tr>
+<tr>
+<td style="text-align:left">runAfterBoth</td>
+<td style="text-align:left">CompletableFuture&lt;?&gt;, Runnable</td>
+<td style="text-align:left">Execute the runnable after both complete.</td>
+</tr>
+<tr>
+<td style="text-align:left">applyToEither</td>
+<td style="text-align:left">CompletableFuture<t>, T -&gt; V</t></td>
+<td style="text-align:left">When a result is available from one or the other, pass it to the given function</td>
+</tr>
+<tr>
+<td style="text-align:left">acceptEither</td>
+<td style="text-align:left">CompletableFuture<t>, T -&gt; void</t></td>
+<td style="text-align:left">Like applyToEither, but with void result.</td>
+</tr>
+<tr>
+<td style="text-align:left">runAfterEither</td>
+<td style="text-align:left">CompletableFuture&lt;?&gt;, Runnable</td>
+<td style="text-align:left">Execute the runnable after one or the other completes.</td>
+</tr>
+<tr>
+<td style="text-align:left">static allOf</td>
+<td style="text-align:left">CompletableFuture&lt;?&gt;…</td>
+<td style="text-align:left">Complete with void result after all given futures complete.</td>
+</tr>
+<tr>
+<td style="text-align:left">static anyOf</td>
+<td style="text-align:left">CompletableFuture&lt;?&gt;…</td>
+<td style="text-align:left">Complete with void result after any of the given futures completes.</td>
+</tr>
+</tbody>
+</table>
+<p>The first three methods run a <code>CompletableFuture&lt;T&gt;</code> and a <code>CompletableFuture&lt;U&gt;</code> action in parallel and combine the results. </p>
+<p>The next three methods run two <code>CompletableFuture&lt;T&gt;</code> actions in parallel. As soon as one of them finishes, its result is passed on, and the other result is ignored. </p>
+<p>The static <code>allOf</code> and <code>anyOf</code> methods take a variable number of completable futures and yield a <code>CompletableFuture&lt;Void&gt;</code> that completes when all of them, or any one of them, completes. No results are propagated. </p>
+<p>Technically speaking, the methods accept parameters of <code>CompletionStage</code>, not <code>CompletableFuture</code>. That is an interface type with almost forty abstract methods, currently implemented only by <code>CompletableFuture</code>. </p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-license">
+  <div class="centered">
+    <img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /> 
+    <p>
+    This post by <a href="http://freetymekiyan.github.io/">Yang Liu</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</a>.<br> Please NOTE THE ORIGIN for Reproduction, Copying or other usages.
+    </p>
+  </div>
+</div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>►<a class="article-category-link" href="/categories/Coding/Reading-Note/">Reading Note</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Java/">Java</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://blog.kiyanpro.com/2016/03/30/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-11/" data-title="Java SE 8 For the Really Impatient, Note 11 | Better Programmer" data-tsina="2090687247" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/03/31/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-12/" title="Java SE 8 For the Really Impatient, Note 12">
+  <strong>Prev:</strong><br/>
+  <span>
+  Java SE 8 For the Really Impatient, Note 12</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/03/29/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-10/"  title="Java SE 8 For the Really Impatient, Note 10">
+ <strong>Next:</strong><br/> 
+ <span>Java SE 8 For the Really Impatient, Note 10
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-6-Concurrency-Enhancements"><span class="toc-number">1.</span> <span class="toc-text">Chapter 6 Concurrency Enhancements</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Parallel-Array-Operations"><span class="toc-number">1.1.</span> <span class="toc-text">Parallel Array Operations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Completable-Futures"><span class="toc-number">1.2.</span> <span class="toc-text">Completable Futures</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Futures"><span class="toc-number">1.2.1.</span> <span class="toc-text">Futures</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CompletableFuture"><span class="toc-number">1.2.2.</span> <span class="toc-text">CompletableFuture</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Composition-Pipeline"><span class="toc-number">1.2.3.</span> <span class="toc-text">The Composition Pipeline</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Composing-Asynchronous-Operations"><span class="toc-number">1.2.4.</span> <span class="toc-text">Composing Asynchronous Operations</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+  <p class="asidetitle">Categories</p>
+    <ul>
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/" title="Coding">Coding<sup>28</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/People/" title="People">People<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/Reading-Note/" title="Reading Note">Reading Note<sup>16</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Translation/" title="Translation">Translation<sup>24</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Words/" title="Words">Words<sup>4</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  
+<div class="tagslist">
+  <p class="asidetitle">Tags</p>
+    <ul class="clearfix">
+    
+      
+        <li><a href="/tags/Kai-Fu-Lee/" title="Kai Fu Lee">Kai Fu Lee<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/LinkedIn/" title="LinkedIn">LinkedIn<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Java/" title="Java">Java<sup>14</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Elasticsearch/" title="Elasticsearch">Elasticsearch<sup>4</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Pro-tips/" title="Pro-tips">Pro-tips<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Thoughts/" title="Thoughts">Thoughts<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Node-js/" title="Node.js">Node.js<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/System-Design/" title="System Design">System Design<sup>2</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Test/" title="Test">Test<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Interview/" title="Interview">Interview<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="adlist">
+  <p class="asidetitle">Google Ads</p>
+  <div class="ad">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Hexo blog widget -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3830008196770332"
+         data-ad-slot="2210281201"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">Archives</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+      <li><a href="http://hijiangtao.github.io/" target="_blank" title="JiangTao">Data.Blog</a></li>
+      <li><a href="https://modulus.io/" target="_blank" title="Modulus, Node.js Host Provider.">Modulus</a></li>
+    </ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/Algorithms/" style="font-size: 10px;">Algorithms</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Elasticsearch/" style="font-size: 16px;">Elasticsearch</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Java/" style="font-size: 18px;">Java</a> <a href="/tags/Kai-Fu-Lee/" style="font-size: 20px;">Kai Fu Lee</a> <a href="/tags/LinkedIn/" style="font-size: 20px;">LinkedIn</a> <a href="/tags/Node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/Pro-tips/" style="font-size: 14px;">Pro-tips</a> <a href="/tags/System-Design/" style="font-size: 12px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/TextMate-2/" style="font-size: 10px;">TextMate 2</a> <a href="/tags/Thoughts/" style="font-size: 14px;">Thoughts</a>
+    </div>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+  
+  <div class="line">
+    <span></span>
+    
+    <a href="http://weibo.com/2090687247" target="_blank"><div class="author"></div></a>
+    
+  </div>
+  
+  
+  <section class="info">
+    <p> This is FreeTymeKiyan&#39;s blog.<br/>
+      He always asks himself, how far can an indie programmer go? Definitely no limit on that.</p>
+  </section>
+   
+  <div class="social-font" class="clearfix">
+    
+    <a href="http://weibo.com/2090687247" target="_blank" class="icon-weibo" title="weibo"></a>
+    
+    
+    <a href="https://github.com/FreeTymeKiyan" target="_blank" class="icon-github" title="github"></a>
+    
+    
+    
+    <a href="https://twitter.com/FreeTymeKiyan" target="_blank" class="icon-twitter" title="twitter"></a>
+    
+    
+    <a href="https://www.facebook.com/kiyan.fan" target="_blank" class="icon-facebook" title="facebook"></a>
+    
+    
+    <a href="https://www.douban.com/people/56346857" target="_blank" class="icon-douban" title="豆瓣"></a>
+    
+    
+    
+    <a href="mailto:freetymesunkiyan@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+    
+  </div>
+    <p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> © 2012-2017
+    
+    <a href="http://blog.kiyanpro.com/about" target="_blank" title="FreeTymeKiyan">FreeTymeKiyan</a>
+    
+    , <span class='post-count'>112.4k</span> words
+    </p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+
+  c.click(function(){
+    t.css('display','none');
+    if(ah.length!==0){
+      ta.css('display', 'block').addClass('fadeIn');
+    }
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+    if(ah.length!==0){
+      t.css('display','block');
+    }
+  });
+
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>Scan QR code and share<a class="qrclose" href="#share"></a></span><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'FreeTymeKiyan';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-60456171-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+<div id="totop">
+<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+
+<script type="text/x-mathjax-config"> 
+MathJax.Hub.Config({ 
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
+}); 
+</script>
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </body>
+</html>

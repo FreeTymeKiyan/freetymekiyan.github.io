@@ -1,0 +1,841 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Java SE 8 For the Really Impatient, Note 5 | Better Programmer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="FreeTymeKiyan">
+    
+    <meta name="description" content="Chapter 3 Programming with LambdasLearn how to create your own libraries that make use of lambda expressions and functional interfaces. 
+Key points:
+
+">
+    
+    
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="FreeTymeKiyan" />
+    <meta name="twitter:title" content="Java SE 8 For the Really Impatient, Note 5 | Better Programmer" />
+      
+    
+    
+    <link rel="alternative" href="/atom.xml" title="Better Programmer" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/logo_apple.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/logo_apple.png">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+  
+    <div id="imglogo">
+      <a href="/"><img src="/img/logo.png" alt="Better Programmer" title="Better Programmer"/></a>
+    </div>
+    
+    <div id="textlogo">
+      <h1 class="site-name"><a href="/" title="Better Programmer">Better Programmer</a></h1>
+      <h2 class="blog-motto">Where best programming happens</h2>
+    </div>
+    <div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+    </a></div>
+    <nav class="animated">
+      <ul>
+        <ul>
+         
+          <li><a href="/words">Words</a></li>
+        
+          <li><a href="/about">About</a></li>
+        
+        <li>
+        
+        <form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+          <label>Search</label>
+          <input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+        </form>
+        
+        </li>
+      </ul>
+    </nav>
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/22/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-5/" title="Java SE 8 For the Really Impatient, Note 5" itemprop="url">Java SE 8 For the Really Impatient, Note 5</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://blog.kiyanpro.com/about" title="FreeTymeKiyan" target="_blank" itemprop="author">FreeTymeKiyan</a>
+		
+  
+  <p class="article-time">
+    <time datetime="2016-03-22T23:44:25.000Z" itemprop="datePublished">Published on Mar 22 2016</time>
+  </p>
+  
+  <p class="article-read-time">
+    <span class="post-count">2,729 words in 17 minutes</span>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-3-Programming-with-Lambdas"><span class="toc-number">1.</span> <span class="toc-text">Chapter 3 Programming with Lambdas</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Deferred-Execution"><span class="toc-number">1.1.</span> <span class="toc-text">Deferred Execution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Parameters-of-Lambda-Expressions"><span class="toc-number">1.2.</span> <span class="toc-text">Parameters of Lambda Expressions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Choosing-a-Functional-Interface"><span class="toc-number">1.3.</span> <span class="toc-text">Choosing a Functional Interface</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="Chapter-3-Programming-with-Lambdas"><a href="#Chapter-3-Programming-with-Lambdas" class="headerlink" title="Chapter 3 Programming with Lambdas"></a>Chapter 3 Programming with Lambdas</h1><p>Learn how to create your own libraries that make use of lambda expressions and functional interfaces. </p>
+<p>Key points:</p>
+<ul>
+<li>Main reason for using lambda expression: defer the execution of the code until an appropriate time</li>
+<li>When a lambda expression is executed, make sure to provide any required data as inputs</li>
+<li>Choose one of the existing functional interfaces if you can</li>
+<li>It’s often useful to write methods that return an instance of a functional interface</li>
+<li>When you work with transformations, consider how you can compose them</li>
+<li>To compose transformations lazily, you need to keep a list of all pending transformations and apply them in the end</li>
+<li>If you need to apply a lambda many times, you often have a chance to split up the work into subtasks that execute concurrently</li>
+<li>Think what should happen when you work with a lambda expression that throws an exception</li>
+<li>When working with generic functional interfaces, use <code>? super</code> wildcards for argument types, <code>? extends</code> wildcards for return types</li>
+<li>When working with generic types that can be transformed by functions, consider supplying <code>map</code> and <code>flatMap</code></li>
+</ul>
+<h2 id="Deferred-Execution"><a href="#Deferred-Execution" class="headerlink" title="Deferred Execution"></a>Deferred Execution</h2><p>The point of all lambdas is deferred execution. Reasons for executing code later:</p>
+<ul>
+<li>Running the code in a separate thread</li>
+<li>Running the code multiple times</li>
+<li>Running the code at the right point in an algorithm(e.g, the comparison operation in sorting)</li>
+<li>Running the code when something happens(a buttom was clicked, data has arrived, etc.)</li>
+<li>Running the code only when necessary</li>
+</ul>
+<p>Suppose you log an event:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">logger.info(<span class="string">"x: "</span> + x + <span class="string">", y: "</span> + y);</div></pre></td></tr></table></figure></p>
+<p>If the log level is set to suppress INFO messages, the message string still gets computed and passed to the method, then it would be thrown away. It would be nicer if the string concatenation only happened when necessary. </p>
+<p>Running code only when necessary is a use case for lambdas. Write a method that:</p>
+<ol>
+<li>Accepts the lambda</li>
+<li>Checks whether it should be called</li>
+<li>Calls it when necessary</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">(Logger logger, Supplier&lt;String&gt; message)</span> </span>&#123;</div><div class="line">  <span class="keyword">if</span> (logger.isLoggable(Level.info))</div><div class="line">    logger.info(message.get());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>The <code>info</code> method, as well as other logging methods, now have variants that accept a <code>Supplier&lt;String&gt;</code>. You can directly call <code>logger.info(() -&gt; &quot;x: &quot; + x + &quot;, y: &quot; + y);</code></p>
+<h2 id="Parameters-of-Lambda-Expressions"><a href="#Parameters-of-Lambda-Expressions" class="headerlink" title="Parameters of Lambda Expressions"></a>Parameters of Lambda Expressions</h2><p>Comparator has 2 arguments<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Arrays.sort(names, </div><div class="line">  (s, t) -&gt; Integer.compare(s.length(), t.length()));</div></pre></td></tr></table></figure></p>
+<p>This method repeats an action multiple times<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">repeat</span><span class="params">(<span class="keyword">int</span> n, IntConsumer action)</span> </span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) action.accept(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>We tell the action in which iteration it occurs. The action needs to capture that input in a parameter.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">repeat(<span class="number">10</span>, i -&gt; System.out.println(<span class="string">"Countdown: "</span> + (<span class="number">9</span> - i)));</div></pre></td></tr></table></figure></p>
+<p>An event handler <code>button.setOnAction(event -&gt; action)</code>. The <code>event</code> object carries information that the action may need. </p>
+<p>In general, you want to design your algorithm so that it passes any required information as arguments. However, if these arguments are rarely needed, consider supplying a second version that doesn’t force users into accepting unwanted arguments.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">repeat</span><span class="params">(<span class="keyword">int</span> n, Runnable action)</span> </span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) action.run();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>This version can be called as<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">repeat(<span class="number">10</span>, () -&gt; System.out.println(<span class="string">"Hello, world!"</span>));</div></pre></td></tr></table></figure></p>
+<h2 id="Choosing-a-Functional-Interface"><a href="#Choosing-a-Functional-Interface" class="headerlink" title="Choosing a Functional Interface"></a>Choosing a Functional Interface</h2><p>Function types are structural.</p>
+<p>To specify a function that maps 2 strings into an integer, you use <code>Function2&lt;String, String, Integer&gt;</code> or <code>(String, String) -&gt; int</code>.</p>
+<p>In Java, you instead declare the intent of the function, using a functional interface such as <code>Comparator&lt;String&gt;</code>.</p>
+<p>In the theory of programming languages this is called <em>nominal</em> typing.</p>
+<p>If you want to accept “any function” without particular semantics, there are some options. </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Functional Interfaces</th>
+<th style="text-align:left">Parameter Types</th>
+<th style="text-align:left">Return Type</th>
+<th style="text-align:left">Abstract Method Name</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Other Methods</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Runnable</td>
+<td style="text-align:left">none</td>
+<td style="text-align:left">void</td>
+<td style="text-align:left">run</td>
+<td style="text-align:left">Runs an action without arguments or return value</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Supplier&lt;T&gt;</td>
+<td style="text-align:left">none</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">get</td>
+<td style="text-align:left">Supplies a value of type T</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Consumer&lt;T&gt;</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">void</td>
+<td style="text-align:left">accept</td>
+<td style="text-align:left">Consumes a value of type T</td>
+<td style="text-align:left">andThen</td>
+</tr>
+<tr>
+<td style="text-align:left">BiConsumer&lt;T, U&gt;</td>
+<td style="text-align:left">T, U</td>
+<td style="text-align:left">void</td>
+<td style="text-align:left">accept</td>
+<td style="text-align:left">Consumes values of types T and U</td>
+<td style="text-align:left">andThen</td>
+</tr>
+<tr>
+<td style="text-align:left">Function&lt;T, R&gt;</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">apply</td>
+<td style="text-align:left">A function with argument of type T</td>
+<td style="text-align:left">compose<br>andThen<br>identity</td>
+</tr>
+<tr>
+<td style="text-align:left">BiFunction&lt;T, U, R&gt;</td>
+<td style="text-align:left">T, U</td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">apply</td>
+<td style="text-align:left">A function with arguments of types T and U</td>
+<td style="text-align:left">andThen</td>
+</tr>
+<tr>
+<td style="text-align:left">UnaryOperator&lt;T&gt;</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">apply</td>
+<td style="text-align:left">A unary operator on the type T</td>
+<td style="text-align:left">compose<br>andThen<br>identity</td>
+</tr>
+<tr>
+<td style="text-align:left">BinaryOperator&lt;T, T&gt;</td>
+<td style="text-align:left">T, T</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">apply</td>
+<td style="text-align:left">A binary operator of the type T</td>
+<td style="text-align:left">andThen<br>maxBy<br>minBy</td>
+</tr>
+<tr>
+<td style="text-align:left">Predicate&lt;T&gt;</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">test</td>
+<td style="text-align:left">A Boolean-valued function</td>
+<td style="text-align:left">and<br>or<br>negate<br>isEqual</td>
+</tr>
+<tr>
+<td style="text-align:left">Bipredicate&lt;T, U&gt;</td>
+<td style="text-align:left">T, U</td>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">test</td>
+<td style="text-align:left">A Boolean-valued function with 2 arguments</td>
+<td style="text-align:left">and, or<br>negate</td>
+</tr>
+</tbody>
+</table>
+<p>Most of the standard functional interfaces have nonabstract methods for producing or combining functions.<br><code>Predicate.isEqual(a)</code> is the same as <code>a::equals</code>, provided a is not null. And there are default methods <code>and</code>, <code>or</code>, <code>negate</code> for combining predicates. E.g, <code>Predicate.isEqual(a).or(Predicate.isEqual(b))</code> is the same as <code>x -&gt; a.equals(x) || b.equals(x)</code>.</p>
+<p>Applying <code>Color -&gt; Color</code> function to each pixel.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// use UnaryOperator&lt;Color&gt;</span></div><div class="line">Image brightenedImage = transform(image, Color::brighter);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Image <span class="title">transform</span><span class="params">(Image in, UnaryOperator&lt;Color&gt; f)</span> </span>&#123;</div><div class="line">  <span class="keyword">int</span> width = (<span class="keyword">int</span>) in.getWidth();</div><div class="line">  <span class="keyword">int</span> height = (<span class="keyword">int</span>) in.getHeight();</div><div class="line">  WritableImage out = <span class="keyword">new</span> WritableImage(width, height);</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; width; x++) </div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> y = <span class="number">0</span>; y &lt; height: y++) </div><div class="line">      out.getPixelWriter().setColor(x, y, f.apply(in.getPixelReader().getColor(x, y)));</div><div class="line">  <span class="keyword">return</span> out;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>No need for a <code>ColorTransformer</code> interface. </p>
+<p><strong>Functional Interfaces for Primitive Types</strong><br><br></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Functional Interface</th>
+<th style="text-align:left">Parameter Types</th>
+<th style="text-align:left">Return Type</th>
+<th style="text-align:left">Abstract Method Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">BooleanSupplier</td>
+<td style="text-align:left">none</td>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">getAsBoolean</td>
+</tr>
+<tr>
+<td style="text-align:left"><em>P</em>Supplier</td>
+<td style="text-align:left">none</td>
+<td style="text-align:left"><em>P</em></td>
+<td style="text-align:left">getAs<em>P</em></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>P</em>Consumer</td>
+<td style="text-align:left"><em>P</em></td>
+<td style="text-align:left">void</td>
+<td style="text-align:left">accept</td>
+</tr>
+<tr>
+<td style="text-align:left">Obj<em>P</em>Consumer</td>
+<td style="text-align:left">T, <em>p</em></td>
+<td style="text-align:left">void</td>
+<td style="text-align:left">accept</td>
+</tr>
+<tr>
+<td style="text-align:left"><em>P</em>Function&lt;T&gt;</td>
+<td style="text-align:left"><em>p</em></td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">apply</td>
+</tr>
+<tr>
+<td style="text-align:left"><em>P</em>To<em>Q</em>Function</td>
+<td style="text-align:left"><em>p</em></td>
+<td style="text-align:left"><em>q</em></td>
+<td style="text-align:left">applyAs<em>Q</em></td>
+</tr>
+<tr>
+<td style="text-align:left">To<em>P</em>Function&lt;T&gt;</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left"><em>p</em></td>
+<td style="text-align:left">applyAs<em>P</em></td>
+</tr>
+<tr>
+<td style="text-align:left">To<em>P</em>BiFunction&lt;T, U&gt;</td>
+<td style="text-align:left">T, U</td>
+<td style="text-align:left"><em>p</em></td>
+<td style="text-align:left">applyAsP</td>
+</tr>
+<tr>
+<td style="text-align:left"><em>P</em>UnaryOperator</td>
+<td style="text-align:left"><em>p</em></td>
+<td style="text-align:left"><em>p</em></td>
+<td style="text-align:left">applyAs<em>P</em></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>P</em>BinaryOperator</td>
+<td style="text-align:left"><em>p</em>, <em>p</em></td>
+<td style="text-align:left"><em>p</em></td>
+<td style="text-align:left">applyAs<em>P</em></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>P</em>Predicate</td>
+<td style="text-align:left"><em>p</em></td>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">test</td>
+</tr>
+</tbody>
+</table>
+<p><em>p</em>, <em>q</em> is int, long, double<br><em>P</em>, <em>Q</em> is Int, Long, Double</p>
+<p>Supply your own functional interface. <code>(int, int, Color) -&gt; Color</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@FunctionalInterface</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ColorTransformer</span> </span>&#123;</div><div class="line">  <span class="function">Color <span class="title">apply</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, Color colorAtXY)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>apply</code> is used for majority of standard functional interfaces. </p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-license">
+  <div class="centered">
+    <img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /> 
+    <p>
+    This post by <a href="http://freetymekiyan.github.io/">Yang Liu</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</a>.<br> Please NOTE THE ORIGIN for Reproduction, Copying or other usages.
+    </p>
+  </div>
+</div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>►<a class="article-category-link" href="/categories/Coding/Reading-Note/">Reading Note</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Java/">Java</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://blog.kiyanpro.com/2016/03/22/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-5/" data-title="Java SE 8 For the Really Impatient, Note 5 | Better Programmer" data-tsina="2090687247" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/03/23/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-6/" title="Java SE 8 For the Really Impatient, Note 6">
+  <strong>Prev:</strong><br/>
+  <span>
+  Java SE 8 For the Really Impatient, Note 6</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/03/21/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-4/"  title="Java SE 8 For the Really Impatient, Note 4">
+ <strong>Next:</strong><br/> 
+ <span>Java SE 8 For the Really Impatient, Note 4
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-3-Programming-with-Lambdas"><span class="toc-number">1.</span> <span class="toc-text">Chapter 3 Programming with Lambdas</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Deferred-Execution"><span class="toc-number">1.1.</span> <span class="toc-text">Deferred Execution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Parameters-of-Lambda-Expressions"><span class="toc-number">1.2.</span> <span class="toc-text">Parameters of Lambda Expressions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Choosing-a-Functional-Interface"><span class="toc-number">1.3.</span> <span class="toc-text">Choosing a Functional Interface</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+  <p class="asidetitle">Categories</p>
+    <ul>
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/" title="Coding">Coding<sup>28</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/People/" title="People">People<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/Reading-Note/" title="Reading Note">Reading Note<sup>16</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Translation/" title="Translation">Translation<sup>24</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Words/" title="Words">Words<sup>4</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  
+<div class="tagslist">
+  <p class="asidetitle">Tags</p>
+    <ul class="clearfix">
+    
+      
+        <li><a href="/tags/Kai-Fu-Lee/" title="Kai Fu Lee">Kai Fu Lee<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/LinkedIn/" title="LinkedIn">LinkedIn<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Java/" title="Java">Java<sup>14</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Elasticsearch/" title="Elasticsearch">Elasticsearch<sup>4</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Pro-tips/" title="Pro-tips">Pro-tips<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Thoughts/" title="Thoughts">Thoughts<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Node-js/" title="Node.js">Node.js<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/System-Design/" title="System Design">System Design<sup>2</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Test/" title="Test">Test<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Interview/" title="Interview">Interview<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="adlist">
+  <p class="asidetitle">Google Ads</p>
+  <div class="ad">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Hexo blog widget -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3830008196770332"
+         data-ad-slot="2210281201"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">Archives</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+      <li><a href="http://hijiangtao.github.io/" target="_blank" title="JiangTao">Data.Blog</a></li>
+      <li><a href="https://modulus.io/" target="_blank" title="Modulus, Node.js Host Provider.">Modulus</a></li>
+    </ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/Algorithms/" style="font-size: 10px;">Algorithms</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Elasticsearch/" style="font-size: 16px;">Elasticsearch</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Java/" style="font-size: 18px;">Java</a> <a href="/tags/Kai-Fu-Lee/" style="font-size: 20px;">Kai Fu Lee</a> <a href="/tags/LinkedIn/" style="font-size: 20px;">LinkedIn</a> <a href="/tags/Node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/Pro-tips/" style="font-size: 14px;">Pro-tips</a> <a href="/tags/System-Design/" style="font-size: 12px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/TextMate-2/" style="font-size: 10px;">TextMate 2</a> <a href="/tags/Thoughts/" style="font-size: 14px;">Thoughts</a>
+    </div>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+  
+  <div class="line">
+    <span></span>
+    
+    <a href="http://weibo.com/2090687247" target="_blank"><div class="author"></div></a>
+    
+  </div>
+  
+  
+  <section class="info">
+    <p> This is FreeTymeKiyan&#39;s blog.<br/>
+      He always asks himself, how far can an indie programmer go? Definitely no limit on that.</p>
+  </section>
+   
+  <div class="social-font" class="clearfix">
+    
+    <a href="http://weibo.com/2090687247" target="_blank" class="icon-weibo" title="weibo"></a>
+    
+    
+    <a href="https://github.com/FreeTymeKiyan" target="_blank" class="icon-github" title="github"></a>
+    
+    
+    
+    <a href="https://twitter.com/FreeTymeKiyan" target="_blank" class="icon-twitter" title="twitter"></a>
+    
+    
+    <a href="https://www.facebook.com/kiyan.fan" target="_blank" class="icon-facebook" title="facebook"></a>
+    
+    
+    <a href="https://www.douban.com/people/56346857" target="_blank" class="icon-douban" title="豆瓣"></a>
+    
+    
+    
+    <a href="mailto:freetymesunkiyan@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+    
+  </div>
+    <p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> © 2012-2017
+    
+    <a href="http://blog.kiyanpro.com/about" target="_blank" title="FreeTymeKiyan">FreeTymeKiyan</a>
+    
+    , <span class='post-count'>112.4k</span> words
+    </p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+
+  c.click(function(){
+    t.css('display','none');
+    if(ah.length!==0){
+      ta.css('display', 'block').addClass('fadeIn');
+    }
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+    if(ah.length!==0){
+      t.css('display','block');
+    }
+  });
+
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>Scan QR code and share<a class="qrclose" href="#share"></a></span><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'FreeTymeKiyan';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-60456171-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+<div id="totop">
+<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+
+<script type="text/x-mathjax-config"> 
+MathJax.Hub.Config({ 
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
+}); 
+</script>
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </body>
+</html>

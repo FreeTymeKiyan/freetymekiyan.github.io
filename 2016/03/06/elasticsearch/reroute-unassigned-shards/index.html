@@ -1,0 +1,715 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Reroute Unassigned Shards | Better Programmer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="FreeTymeKiyan">
+    
+    <meta name="description" content="Red Cluster!There are 3 cluster states:   
+
+
+green: All primary and replica shards are active
+yellow: All primary shards are active, but not all repli">
+    
+    
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="FreeTymeKiyan" />
+    <meta name="twitter:title" content="Reroute Unassigned Shards | Better Programmer" />
+      
+    
+    
+    <link rel="alternative" href="/atom.xml" title="Better Programmer" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/logo_apple.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/logo_apple.png">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+  
+    <div id="imglogo">
+      <a href="/"><img src="/img/logo.png" alt="Better Programmer" title="Better Programmer"/></a>
+    </div>
+    
+    <div id="textlogo">
+      <h1 class="site-name"><a href="/" title="Better Programmer">Better Programmer</a></h1>
+      <h2 class="blog-motto">Where best programming happens</h2>
+    </div>
+    <div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+    </a></div>
+    <nav class="animated">
+      <ul>
+        <ul>
+         
+          <li><a href="/words">Words</a></li>
+        
+          <li><a href="/about">About</a></li>
+        
+        <li>
+        
+        <form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+          <label>Search</label>
+          <input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+        </form>
+        
+        </li>
+      </ul>
+    </nav>
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/06/elasticsearch/reroute-unassigned-shards/" title="Reroute Unassigned Shards" itemprop="url">Reroute Unassigned Shards</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://blog.kiyanpro.com/about" title="FreeTymeKiyan" target="_blank" itemprop="author">FreeTymeKiyan</a>
+		
+  
+  <p class="article-time">
+    <time datetime="2016-03-06T23:24:55.000Z" itemprop="datePublished">Published on Mar 6 2016</time>
+  </p>
+  
+  <p class="article-read-time">
+    <span class="post-count">2,432 words in 15 minutes</span>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Red-Cluster"><span class="toc-number">1.</span> <span class="toc-text">Red Cluster!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Steps"><span class="toc-number">2.</span> <span class="toc-text">Steps</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Check-Unassigned-Shards"><span class="toc-number">2.1.</span> <span class="toc-text">Step 1: Check Unassigned Shards</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Reroute"><span class="toc-number">2.2.</span> <span class="toc-text">Step 2: Reroute</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-Solutions"><span class="toc-number">3.</span> <span class="toc-text">Example Solutions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python"><span class="toc-number">3.1.</span> <span class="toc-text">Python</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shell-Script"><span class="toc-number">3.2.</span> <span class="toc-text">Shell Script</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Possible-Unassigned-Shard-Reasons"><span class="toc-number">4.</span> <span class="toc-text">Possible Unassigned Shard Reasons</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">5.</span> <span class="toc-text">References</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="Red-Cluster"><a href="#Red-Cluster" class="headerlink" title="Red Cluster!"></a>Red Cluster!</h2><p>There are 3 cluster states:   </p>
+<blockquote>
+<ol>
+<li>green: All primary and replica shards are active</li>
+<li>yellow: All primary shards are active, but not all replica shards are active</li>
+<li>red: Not all primary shards are active </li>
+</ol>
+</blockquote>
+<p>When cluster health is red, it means cluster is dead. And that means you can do nothing until it’s recovered, which is very bad indeed. I will share with you how to deal with one common situation: <strong>when cluster is red due to unassigned shards</strong>.  </p>
+<h2 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h2><p>The general idea is pretty simple: find those shards which are unassigned, manually assign them to a node with reroute API. Let’s see how we can do that step by step. Then we can combine them into a configurable simple script. </p>
+<h3 id="Step-1-Check-Unassigned-Shards"><a href="#Step-1-Check-Unassigned-Shards" class="headerlink" title="Step 1: Check Unassigned Shards"></a>Step 1: Check Unassigned Shards</h3><p>To get cluster information, we usually use cat APIs. There is a <code>GET /_cat/shards</code> endpoint to show a detailed view of what nodes contain which shards<sup><a href="#References">[1]</a></sup>. </p>
+<figure class="highlight bash"><figcaption><span>Cat shards</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cat shards verbose</span></div><div class="line">curl <span class="string">"http://your.elasticsearch.host.com:9200/_cat/shards?v"</span></div><div class="line"></div><div class="line"><span class="comment"># cat shards index</span></div><div class="line">curl <span class="string">"http://your.elasticsearch.host.com:9200/_cat/shards/wiki2"</span></div><div class="line"><span class="comment"># example return</span></div><div class="line"><span class="comment"># wiki2 0 p STARTED 197 3.2mb 192.168.56.10 Stiletto</span></div><div class="line"><span class="comment"># wiki2 1 p STARTED 205 5.9mb 192.168.56.30 Frankie Raye</span></div><div class="line"><span class="comment"># wiki2 2 p STARTED 275 7.8mb 192.168.56.20 Commander Kraken</span></div></pre></td></tr></table></figure>
+<p>By piping cat shards to fgrep, we can get all unassigned shards.<br><figure class="highlight bash"><figcaption><span>Get unassigned shards</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cat shards with fgrep</span></div><div class="line">curl <span class="string">"http://your.elasticsearch.host.com:9200/_cat/shards"</span> | fgrep UNASSIGNED</div><div class="line"><span class="comment"># example return</span></div><div class="line"><span class="comment"># wiki1 0 r UNASSIGNED ALLOCATION_FAILED</span></div><div class="line"><span class="comment"># wiki1 1 r UNASSIGNED ALLOCATION_FAILED</span></div><div class="line"><span class="comment"># wiki1 2 r UNASSIGNED ALLOCATION_FAILED</span></div></pre></td></tr></table></figure></p>
+<p>If you don’t want to deal with shell script, you can also find these unassigned shards using another endpoint <code>POST /_flush/synced</code><sup><a href="#References">[2]</a></sup>. This endpoint is actually not just some information. It allows an administrator to initiate a synced flush manually. This can be particularly useful for a planned (rolling) cluster restart where you can stop indexing and don’t want to wait the default 5 minutes for idle indices to be sync-flushed automatically. It returns with a json response.  </p>
+<figure class="highlight bash"><figcaption><span>_flush/synced</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -XPOST <span class="string">"http://your.elasticsearch.host.com:9200/twitter/_flush/synced"</span></div></pre></td></tr></table></figure>
+<p>If there are failed shards in the response, we can iterate through a failures array to get all unassigned ones.<br><figure class="highlight json"><figcaption><span>Example response with failed shards</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">   <span class="attr">"_shards"</span>: &#123;</div><div class="line">      <span class="attr">"total"</span>: <span class="number">4</span>,</div><div class="line">      <span class="attr">"successful"</span>: <span class="number">1</span>,</div><div class="line">      <span class="attr">"failed"</span>: <span class="number">1</span></div><div class="line">   &#125;,</div><div class="line">   <span class="attr">"twitter"</span>: &#123;</div><div class="line">      <span class="attr">"total"</span>: <span class="number">4</span>,</div><div class="line">      <span class="attr">"successful"</span>: <span class="number">3</span>,</div><div class="line">      <span class="attr">"failed"</span>: <span class="number">1</span>,</div><div class="line">      <span class="attr">"failures"</span>: [</div><div class="line">         &#123;</div><div class="line">            <span class="attr">"shard"</span>: <span class="number">1</span>,</div><div class="line">            <span class="attr">"reason"</span>: <span class="string">"unexpected error"</span>,</div><div class="line">            <span class="attr">"routing"</span>: &#123;</div><div class="line">               <span class="attr">"state"</span>: <span class="string">"STARTED"</span>,</div><div class="line">               <span class="attr">"primary"</span>: <span class="literal">false</span>,</div><div class="line">               <span class="attr">"node"</span>: <span class="string">"SZNr2J_ORxKTLUCydGX4zA"</span>,</div><div class="line">               <span class="attr">"relocating_node"</span>: <span class="literal">null</span>,</div><div class="line">               <span class="attr">"shard"</span>: <span class="number">1</span>,</div><div class="line">               <span class="attr">"index"</span>: <span class="string">"twitter"</span></div><div class="line">            &#125;</div><div class="line">         &#125;</div><div class="line">      ]</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Step-2-Reroute"><a href="#Step-2-Reroute" class="headerlink" title="Step 2: Reroute"></a>Step 2: Reroute</h3><p>The reroute command allows to explicitly execute a cluster reroute allocation command including specific commands<sup><a href="#References">[3]</a></sup>  . An unassigned shard can be explicitly allocated on a specific node.</p>
+<figure class="highlight bash"><figcaption><span>Reroute example</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">curl -XPOST <span class="string">'localhost:9200/_cluster/reroute'</span> -d <span class="string">'&#123;</span></div><div class="line">    "commands" : [ &#123;</div><div class="line">        "move" :</div><div class="line">            &#123;</div><div class="line">              "index" : "test", "shard" : 0,</div><div class="line">              "from_node" : "node1", "to_node" : "node2"</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">          "allocate" : &#123;</div><div class="line">              "index" : "test", "shard" : 1, "node" : "node3"</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;'</div></pre></td></tr></table></figure>
+<p>There are 3 kinds of commands you can use: </p>
+<blockquote>
+<p>move: Move a started shard from one node to another node. Accepts index and shard for index name and shard number, from_node for the node to move the shard from, and to_node for the node to move the shard to.</p>
+<p>cancel: Cancel allocation of a shard (or recovery). Accepts index and shard for index name and shard number, and node for the node to cancel the shard allocation on. It also accepts allow_primary flag to explicitly specify that it is allowed to cancel allocation for a primary shard. This can be used to force resynchronization of existing replicas from the primary shard by cancelling them and allowing them to be reinitialized through the standard reallocation process.</p>
+<p><strong>allocate</strong>: Allocate an unassigned shard to a node. Accepts the index and shard for index name and shard number, and node to allocate the shard to. It also accepts allow_primary flag to explicitly specify that it is allowed to explicitly allocate a primary shard (might result in data loss).  </p>
+</blockquote>
+<p>Combining step 2 with the unassigned shards from Step 1, we can reroute all unassigned shards 1 by 1, thus getting faster cluster recovery from red state.  </p>
+<h2 id="Example-Solutions"><a href="#Example-Solutions" class="headerlink" title="Example Solutions"></a>Example Solutions</h2><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><p>Below is a python script I wrote using <code>POST /_flush/synced</code> and <code>POST /reroute</code>  </p>
+<script src="//gist.github.com/bc83e96bb818c6ac311a.js?file=reroute.py"></script>
+<h3 id="Shell-Script"><a href="#Shell-Script" class="headerlink" title="Shell Script"></a>Shell Script</h3><p>Below is a shell script I found elsewhere in a blog post<sup><a href="#References">[4]</a></sup>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> shard <span class="keyword">in</span> $(curl -XGET http://localhost:9200/_cat/shards | grep UNASSIGNED | awk <span class="string">'&#123;print $2&#125;'</span>); <span class="keyword">do</span></div><div class="line">    curl -XPOST <span class="string">'localhost:9200/_cluster/reroute'</span> -d <span class="string">'&#123;</span></div><div class="line">        "commands" : [ &#123;</div><div class="line">              "allocate" : &#123;</div><div class="line">                  "index" : "t37", # index name</div><div class="line">                  "shard" : $shard,</div><div class="line">                  "node" : "datanode15", # node name</div><div class="line">                  "allow_primary" : true</div><div class="line">              &#125;</div><div class="line">            &#125;</div><div class="line">        ]</div><div class="line">    &#125;'</div><div class="line">    sleep 5</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<h2 id="Possible-Unassigned-Shard-Reasons"><a href="#Possible-Unassigned-Shard-Reasons" class="headerlink" title="Possible Unassigned Shard Reasons"></a>Possible Unassigned Shard Reasons</h2><p>FYI, these are the possible reasons for a shard be in a unassigned state<sup><a href="#References">[1]</a></sup>:  </p>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:left">Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">INDEX_CREATED</td>
+<td style="text-align:left">Unassigned as a result of an API creation of an index</td>
+</tr>
+<tr>
+<td style="text-align:center">CLUSTER_RECOVERED</td>
+<td style="text-align:left">Unassigned as a result of a full cluster recovery</td>
+</tr>
+<tr>
+<td style="text-align:center">INDEX_REOPENED</td>
+<td style="text-align:left">Unassigned as a result of opening a closed index</td>
+</tr>
+<tr>
+<td style="text-align:center">DANGLING_INDEX_IMPORTED</td>
+<td style="text-align:left">Unassigned as a result of importing a dangling index</td>
+</tr>
+<tr>
+<td style="text-align:center">NEW_INDEX_RESTORED</td>
+<td style="text-align:left">Unassigned as a result of restoring into a new index</td>
+</tr>
+<tr>
+<td style="text-align:center">EXISTING_INDEX_RESTORED</td>
+<td style="text-align:left">Unassigned as a result of restoring into a closed index</td>
+</tr>
+<tr>
+<td style="text-align:center">REPLICA_ADDED</td>
+<td style="text-align:left">Unassigned as a result of explicit addition of a replica</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>ALLOCATION_FAILED</strong></td>
+<td style="text-align:left">Unassigned as a result of a failed allocation of the shard</td>
+</tr>
+<tr>
+<td style="text-align:center">NODE_LEFT</td>
+<td style="text-align:left">Unassigned as a result of the node hosting it leaving the cluster</td>
+</tr>
+<tr>
+<td style="text-align:center">REROUTE_CANCELLED</td>
+<td style="text-align:left">Unassigned as a result of explicit cancel reroute command</td>
+</tr>
+<tr>
+<td style="text-align:center">REINITIALIZED</td>
+<td style="text-align:left">When a shard moves from started back to initializing, for example, with shadow replicas</td>
+</tr>
+<tr>
+<td style="text-align:center">REALLOCATED_REPLICA</td>
+<td style="text-align:left">A better replica location is identified and causes the existing replica allocation to be cancelled</td>
+</tr>
+</tbody>
+</table>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-shards.html#cat-shards" target="_blank" rel="external">ElasticSearch Document Cat Shards</a></li>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-synced-flush.html" target="_blank" rel="external">ElasticSearch Document Synced Flush</a>  </li>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/2.2/cluster-reroute.html" target="_blank" rel="external">ElasticSearch Document Cluster Reroute</a></li>
+<li><a href="https://t37.net/how-to-fix-your-elasticsearch-cluster-stuck-in-initializing-shards-mode.html" target="_blank" rel="external">How to fix your elasticsearch cluster stuck in initializing shards mode?</a>  </li>
+</ol>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-license">
+  <div class="centered">
+    <img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /> 
+    <p>
+    This post by <a href="http://freetymekiyan.github.io/">Yang Liu</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</a>.<br> Please NOTE THE ORIGIN for Reproduction, Copying or other usages.
+    </p>
+  </div>
+</div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Elasticsearch/">Elasticsearch</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://blog.kiyanpro.com/2016/03/06/elasticsearch/reroute-unassigned-shards/" data-title="Reroute Unassigned Shards | Better Programmer" data-tsina="2090687247" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/03/11/elasticsearch/Export-Index-Using-Elasticsearch-Dump/" title="Export Index Using Elasticsearch Dump">
+  <strong>Prev:</strong><br/>
+  <span>
+  Export Index Using Elasticsearch Dump</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/02/17/elasticsearch/update-license/"  title="Update Elasticsearch License">
+ <strong>Next:</strong><br/> 
+ <span>Update Elasticsearch License
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Red-Cluster"><span class="toc-number">1.</span> <span class="toc-text">Red Cluster!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Steps"><span class="toc-number">2.</span> <span class="toc-text">Steps</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Check-Unassigned-Shards"><span class="toc-number">2.1.</span> <span class="toc-text">Step 1: Check Unassigned Shards</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Reroute"><span class="toc-number">2.2.</span> <span class="toc-text">Step 2: Reroute</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-Solutions"><span class="toc-number">3.</span> <span class="toc-text">Example Solutions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python"><span class="toc-number">3.1.</span> <span class="toc-text">Python</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shell-Script"><span class="toc-number">3.2.</span> <span class="toc-text">Shell Script</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Possible-Unassigned-Shard-Reasons"><span class="toc-number">4.</span> <span class="toc-text">Possible Unassigned Shard Reasons</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">5.</span> <span class="toc-text">References</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+  <p class="asidetitle">Categories</p>
+    <ul>
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/" title="Coding">Coding<sup>28</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/People/" title="People">People<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/Reading-Note/" title="Reading Note">Reading Note<sup>16</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Translation/" title="Translation">Translation<sup>24</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Words/" title="Words">Words<sup>4</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  
+<div class="tagslist">
+  <p class="asidetitle">Tags</p>
+    <ul class="clearfix">
+    
+      
+        <li><a href="/tags/Kai-Fu-Lee/" title="Kai Fu Lee">Kai Fu Lee<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/LinkedIn/" title="LinkedIn">LinkedIn<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Java/" title="Java">Java<sup>14</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Elasticsearch/" title="Elasticsearch">Elasticsearch<sup>4</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Pro-tips/" title="Pro-tips">Pro-tips<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Thoughts/" title="Thoughts">Thoughts<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Node-js/" title="Node.js">Node.js<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/System-Design/" title="System Design">System Design<sup>2</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Test/" title="Test">Test<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Interview/" title="Interview">Interview<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="adlist">
+  <p class="asidetitle">Google Ads</p>
+  <div class="ad">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Hexo blog widget -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3830008196770332"
+         data-ad-slot="2210281201"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">Archives</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+      <li><a href="http://hijiangtao.github.io/" target="_blank" title="JiangTao">Data.Blog</a></li>
+      <li><a href="https://modulus.io/" target="_blank" title="Modulus, Node.js Host Provider.">Modulus</a></li>
+    </ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/Algorithms/" style="font-size: 10px;">Algorithms</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Elasticsearch/" style="font-size: 16px;">Elasticsearch</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Java/" style="font-size: 18px;">Java</a> <a href="/tags/Kai-Fu-Lee/" style="font-size: 20px;">Kai Fu Lee</a> <a href="/tags/LinkedIn/" style="font-size: 20px;">LinkedIn</a> <a href="/tags/Node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/Pro-tips/" style="font-size: 14px;">Pro-tips</a> <a href="/tags/System-Design/" style="font-size: 12px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/TextMate-2/" style="font-size: 10px;">TextMate 2</a> <a href="/tags/Thoughts/" style="font-size: 14px;">Thoughts</a>
+    </div>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+  
+  <div class="line">
+    <span></span>
+    
+    <a href="http://weibo.com/2090687247" target="_blank"><div class="author"></div></a>
+    
+  </div>
+  
+  
+  <section class="info">
+    <p> This is FreeTymeKiyan&#39;s blog.<br/>
+      He always asks himself, how far can an indie programmer go? Definitely no limit on that.</p>
+  </section>
+   
+  <div class="social-font" class="clearfix">
+    
+    <a href="http://weibo.com/2090687247" target="_blank" class="icon-weibo" title="weibo"></a>
+    
+    
+    <a href="https://github.com/FreeTymeKiyan" target="_blank" class="icon-github" title="github"></a>
+    
+    
+    
+    <a href="https://twitter.com/FreeTymeKiyan" target="_blank" class="icon-twitter" title="twitter"></a>
+    
+    
+    <a href="https://www.facebook.com/kiyan.fan" target="_blank" class="icon-facebook" title="facebook"></a>
+    
+    
+    <a href="https://www.douban.com/people/56346857" target="_blank" class="icon-douban" title="豆瓣"></a>
+    
+    
+    
+    <a href="mailto:freetymesunkiyan@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+    
+  </div>
+    <p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> © 2012-2017
+    
+    <a href="http://blog.kiyanpro.com/about" target="_blank" title="FreeTymeKiyan">FreeTymeKiyan</a>
+    
+    , <span class='post-count'>112.4k</span> words
+    </p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+
+  c.click(function(){
+    t.css('display','none');
+    if(ah.length!==0){
+      ta.css('display', 'block').addClass('fadeIn');
+    }
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+    if(ah.length!==0){
+      t.css('display','block');
+    }
+  });
+
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>Scan QR code and share<a class="qrclose" href="#share"></a></span><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'FreeTymeKiyan';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-60456171-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+<div id="totop">
+<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+
+<script type="text/x-mathjax-config"> 
+MathJax.Hub.Config({ 
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
+}); 
+</script>
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </body>
+</html>

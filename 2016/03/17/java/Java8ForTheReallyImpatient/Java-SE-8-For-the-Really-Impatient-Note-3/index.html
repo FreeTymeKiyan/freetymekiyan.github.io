@@ -1,0 +1,690 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Java SE 8 For the Really Impatient, Note 3 | Better Programmer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="FreeTymeKiyan">
+    
+    <meta name="description" content="Chapter 2 The Stream APISimple Reductionsreductions: reduces the stream to a value.terminal operation: the stream ceases to be usable. 
+List of reduct">
+    
+    
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="FreeTymeKiyan" />
+    <meta name="twitter:title" content="Java SE 8 For the Really Impatient, Note 3 | Better Programmer" />
+      
+    
+    
+    <link rel="alternative" href="/atom.xml" title="Better Programmer" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/logo_apple.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/logo_apple.png">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+  
+    <div id="imglogo">
+      <a href="/"><img src="/img/logo.png" alt="Better Programmer" title="Better Programmer"/></a>
+    </div>
+    
+    <div id="textlogo">
+      <h1 class="site-name"><a href="/" title="Better Programmer">Better Programmer</a></h1>
+      <h2 class="blog-motto">Where best programming happens</h2>
+    </div>
+    <div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+    </a></div>
+    <nav class="animated">
+      <ul>
+        <ul>
+         
+          <li><a href="/words">Words</a></li>
+        
+          <li><a href="/about">About</a></li>
+        
+        <li>
+        
+        <form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+          <label>Search</label>
+          <input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+        </form>
+        
+        </li>
+      </ul>
+    </nav>
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/17/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-3/" title="Java SE 8 For the Really Impatient, Note 3" itemprop="url">Java SE 8 For the Really Impatient, Note 3</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://blog.kiyanpro.com/about" title="FreeTymeKiyan" target="_blank" itemprop="author">FreeTymeKiyan</a>
+		
+  
+  <p class="article-time">
+    <time datetime="2016-03-18T03:05:32.000Z" itemprop="datePublished">Published on Mar 17 2016</time>
+  </p>
+  
+  <p class="article-read-time">
+    <span class="post-count">3,475 words in 22 minutes</span>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-2-The-Stream-API"><span class="toc-number">1.</span> <span class="toc-text">Chapter 2 The Stream API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Simple-Reductions"><span class="toc-number">1.1.</span> <span class="toc-text">Simple Reductions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Optional-Type"><span class="toc-number">1.2.</span> <span class="toc-text">The Optional Type</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Working-with-Optional-Values"><span class="toc-number">1.2.1.</span> <span class="toc-text">Working with Optional Values</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Creating-Optional-Values"><span class="toc-number">1.2.2.</span> <span class="toc-text">Creating Optional Values</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Composing-Optional-Value-Functions-with-flatMap"><span class="toc-number">1.2.3.</span> <span class="toc-text">Composing Optional Value Functions with flatMap</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reduction-Operations"><span class="toc-number">1.3.</span> <span class="toc-text">Reduction Operations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Collecting-Results"><span class="toc-number">1.4.</span> <span class="toc-text">Collecting Results</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Collecting-into-Maps"><span class="toc-number">1.5.</span> <span class="toc-text">Collecting into Maps</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="Chapter-2-The-Stream-API"><a href="#Chapter-2-The-Stream-API" class="headerlink" title="Chapter 2 The Stream API"></a>Chapter 2 The Stream API</h1><h2 id="Simple-Reductions"><a href="#Simple-Reductions" class="headerlink" title="Simple Reductions"></a>Simple Reductions</h2><p>reductions: reduces the stream to a value.<br>terminal operation: the stream ceases to be usable. </p>
+<p>List of reductions: </p>
+<ul>
+<li>count</li>
+<li>max</li>
+<li>min</li>
+<li>findFirst</li>
+<li>findAny</li>
+<li>anyMatch</li>
+<li>allMatch</li>
+<li>noneMatch</li>
+</ul>
+<p><code>count</code>: returns the number of elements of the stream.</p>
+<p><code>max</code>: returns the largest value.<br><code>min</code>: returns the smallest value.<br>These methods return an <code>Optional&lt;T&gt;</code> value that either wraps the answer or indicates that there is none(empty stream).<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// get the maximum of a stream</span></div><div class="line">Optional&lt;String&gt; largest = words.max(String::compareToIgnoreCase);</div><div class="line"><span class="keyword">if</span> (largest.isPresent()) </div><div class="line">  System.out.println(<span class="string">"largest: "</span> + largest.get());</div></pre></td></tr></table></figure></p>
+<p><code>findFirst</code>: returns the first value in a nonempty collection. Useful when combined with <code>filter</code>.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// find the first word that starts with letter Q</span></div><div class="line">Optional&lt;String&gt; startsWithQ = words.filter(s -&gt; s.startsWith(<span class="string">"Q"</span>)).findFirst();</div></pre></td></tr></table></figure></p>
+<p><code>findAny</code>: returns any match. Effective when you parallelize the stream since the first match in any of the examined segments will complete the computation.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Optional&lt;String&gt; startsWithQ = words.parallel().filter(s -&gt; s.startsWith(<span class="string">"Q"</span>).findAny());</div></pre></td></tr></table></figure></p>
+<p><code>anyMatch</code>: just want to know there is a match. Takes a predicate argument.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">boolean</span> aWordStartsWithQ = words.parallel().anyMatch(s -&gt; s.startsWith(<span class="string">"Q"</span>));</div></pre></td></tr></table></figure></p>
+<p><code>allMatch</code>: return true if all elements match a predicate.<br><code>noneMatch</code>: return true if no elements match a predicate.<br>These methods always examine the entire stream, but they still benefit from being run in parallel. </p>
+<h2 id="The-Optional-Type"><a href="#The-Optional-Type" class="headerlink" title="The Optional Type"></a>The Optional Type</h2><p>Either a wrapper for an object of type <code>T</code> or for no object.<br>Intended as a safer alternative than a reference of type <code>T</code> that returns to an obejct or <code>null</code>. </p>
+<h3 id="Working-with-Optional-Values"><a href="#Working-with-Optional-Values" class="headerlink" title="Working with Optional Values"></a>Working with Optional Values</h3><p><code>get</code>: gets the wrapped element if it exists, or throw a <code>NoSuchElementException</code> if it doesn’t<br><code>isPresent</code>: reports whether an <code>Optional&lt;T&gt;</code> object has a value<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Optional&lt;T&gt; optionalValue = ...;</div><div class="line"><span class="keyword">if</span> (optionalValue.isPresent())</div><div class="line">  optionalValue.get().someMethod();</div></pre></td></tr></table></figure></p>
+<p>No easier than <code>if (value != null) value.someMethod();</code></p>
+<p>The key to using <code>Optional</code> effectively is to <em>use a method that either consumes the correct value or produces an alternative</em>.<br><code>ifPresent</code>: accepts a function. If the optional value exists, it is passed to that function. Otherwise, nothing happens.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">optionalValue.ifPresent(v -&gt; Process v);</div><div class="line"><span class="comment">// add value to a set</span></div><div class="line">optionalValue.ifPresent(v -&gt; results.add(v));</div><div class="line">optionalValue.ifPresent(results::add);</div></pre></td></tr></table></figure></p>
+<p>No value is returned in <code>ifPresent</code>. Instead, <code>map</code> returns the result.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Optional&lt;Boolean&gt; added = optionalValue.map(results::add);</div></pre></td></tr></table></figure></p>
+<p><code>added</code> has one of 3 values: true or false wrapped into an <code>Optional</code>, if <code>optionalValue</code> was present, or an empty optional otherwise. </p>
+<p><code>orElse</code>: sets a default when there is no match<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String result = optionalString.orElse(<span class="string">""</span>);</div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// invoke code to compute default</span></div><div class="line">String result = optionalString.orElseGet(() -&gt; System.getProperty(<span class="string">"user.dir"</span>));</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// throw an exception if there is no value</span></div><div class="line">String result = optionalString.orElseThrow(NoSuchElementException::<span class="keyword">new</span>);</div></pre></td></tr></table></figure>
+<h3 id="Creating-Optional-Values"><a href="#Creating-Optional-Values" class="headerlink" title="Creating Optional Values"></a>Creating Optional Values</h3><p><code>Optional.of(result)</code> and <code>Optional.empty()</code> are static methods to create Optionals.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Optional&lt;Double&gt; <span class="title">inverse</span><span class="params">(Double x)</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> x == <span class="number">0</span> ? Optional.empty() : Optional.of(<span class="number">1</span> / x);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>ofNullable</code>: a bridge from the use of null values to optional values. Returns <code>Optional.of(obj)</code> if obj is not null, otherwise, <code>Optional.empty()</code></p>
+<h3 id="Composing-Optional-Value-Functions-with-flatMap"><a href="#Composing-Optional-Value-Functions-with-flatMap" class="headerlink" title="Composing Optional Value Functions with flatMap"></a>Composing Optional Value Functions with <code>flatMap</code></h3><p>Suppose you have a method <code>f</code> yielding an <code>Optional&lt;T&gt;</code>, and the target type <code>T</code> has a method <code>g</code> yielding an <code>Optional&lt;U&gt;</code>.<br>If they were normal methods, you could compose them by call s.f().g(). This doesn’t work for Optionals because <code>s.f()</code> has type <code>Optional&lt;T&gt;</code>, not <code>T</code>.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Optional&lt;U&gt; result = s.f().flatMap(T::g);</div></pre></td></tr></table></figure></p>
+<p>If <code>s.f()</code> is present, then <code>g</code> is applied to it. Otherwise, an empty <code>Optional&lt;U&gt;</code> is returned. </p>
+<p>Chaining <code>flatMap</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Optional&lt;Double&gt; result = Optional.of(-<span class="number">4.0</span>).flatMap(Test::inverse).flatMap(Test::squareRoot);</div></pre></td></tr></table></figure></p>
+<p>If either the <code>inverse</code> method or the <code>squareRoot</code> returns <code>Optional.empty()</code>, the result is empty. </p>
+<p>The <code>flatMap</code> method of Optional works in the same way if you consider an optional value to be a stream of size zero or one. </p>
+<h2 id="Reduction-Operations"><a href="#Reduction-Operations" class="headerlink" title="Reduction Operations"></a>Reduction Operations</h2><p>If you want to compute a sum, or combine the elements of a stream to a result in another way, use one of the <code>reduce</code> methods. </p>
+<p>The <code>reduce</code> method below computes v<sub>0</sub>+v<sub>1</sub>+v<sub>2</sub>+…<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Stream&lt;Integer&gt; values = ...;</div><div class="line">Optional&lt;Integer&gt; sum = values.reduce((x, y) -&gt; x + y); <span class="comment">// or values.reduce(Integer::sum);</span></div></pre></td></tr></table></figure></p>
+<p>The method returns an <code>Optional</code> because there is no valid result if the stream is empty. </p>
+<p>In general, if the <code>reduce</code> method has a reduction operation <em>op</em>, the reduction yields v<sub>0</sub> <em>op</em> v<sub>1</sub> <em>op</em> v<sub>2</sub> <em>op</em> …, where we write v<sub>i</sub> <em>op</em> v<sub>i+1</sub> for the function call <em>op</em>(v<sub>i</sub>, v<sub>i+1</sub>)<br>The operation should be associative: it should not matter in which order you combine the elements. </p>
+<p>Useful associative operations: sum, product, string concatenation, maximum, minimum, set union and intersection.</p>
+<p>subtraction is not associative. </p>
+<p><em>identity</em>: e such that e op x = x. E.g, 0 is the identity for addition.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Stream&lt;Integer&gt; values = ...;</div><div class="line">Integer sum = values.reduce(<span class="number">0</span>, (x, y) -&gt; x + y);</div></pre></td></tr></table></figure></p>
+<p>The identity value is returned if the stream is empty, and you no longer need to deal with the <code>Optional</code> class. </p>
+<p>Simple form of <code>reduce</code> requires a function <code>(T, T) -&gt; T</code>, with the same types for the arguments and the result. </p>
+<p>If you want to calculate all lengths in a stream of strings, you need to use accumulator.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> result = words.reduce(<span class="number">0</span>, </div><div class="line">  (total, word) -&gt; total + word.length(), <span class="comment">// accumulator is called repeatedly forming the cumulative total</span></div><div class="line">  (total1, total2) -&gt; total1 + total2); <span class="comment">// combine multiple totals</span></div></pre></td></tr></table></figure></p>
+<p>Easier to map to a stream of numbers and use one of its methods to compute sum, max or min.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">words.mapToInt(String::length).sum(); <span class="comment">// simpler and more efficient</span></div></pre></td></tr></table></figure></p>
+<h2 id="Collecting-Results"><a href="#Collecting-Results" class="headerlink" title="Collecting Results"></a>Collecting Results</h2><p>Just want to look at the result. </p>
+<p><code>iterator</code>: yields an old fashioned iterator that you can use to visit the elements.<br><code>toArray</code>: get an array of the stream elements. </p>
+<p><code>stream.toArray()</code> returns an <code>Object[]</code> array. If you want an array of the correct type, pass in the array constructor:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String[] result = words.toArray(String[]::<span class="keyword">new</span>);</div></pre></td></tr></table></figure></p>
+<p><code>collect</code>: takes 3 arguments</p>
+<ol>
+<li>A <em>supplier</em> to make new instances of the target object, e.g, a constructor for hash set</li>
+<li>An <em>accumulator</em> that adds an element to the target, e.g, an <code>add</code> method</li>
+<li>A <em>combiner</em> that merges 2 objects into 1, such as <code>addAll</code><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HashSet&lt;String&gt; result = stream.collect(HashSet::<span class="keyword">new</span>, HashSet::add, HashSet:addAll);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>The target object need not to be a collection. It could be a <code>StringBuilder</code> or an object that tracks a count and a sum. </p>
+<p><code>Collector</code>: convenient interface<br><code>Collectors</code>: class with factory methods for common collectors<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// collect a stream into a list or set</span></div><div class="line">List&lt;String&gt; list = stream.collect(Collectors.toList());</div><div class="line">Set&lt;String&gt; set = stream.collect(Collectors.toSet());</div></pre></td></tr></table></figure></p>
+<p>Control which kind of set you get<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TreeSet&lt;String&gt; result = stream.collect(Collectors.toCollection(TreeSet::<span class="keyword">new</span>));</div></pre></td></tr></table></figure></p>
+<p>Collect all strings in a stream by concatenating them<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String result = stream.collect(Collectors.joining());</div></pre></td></tr></table></figure></p>
+<p>Add delimiter between elements<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String result = stream.collect(Collectors.joining(<span class="string">","</span>));</div></pre></td></tr></table></figure></p>
+<p>Convert non-string to string first<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String result = stream.map(Object::toString).collect(Collectors.joining(<span class="string">","</span>));</div></pre></td></tr></table></figure></p>
+<p>If you want to reduce the stream results to a sum, average, maximum, or minimum, use one of the methods <code>summarizing(Int|Long|Double)</code>. These methods take a function that maps the stream objects to a number and yield a result of type <code>(Int|Long|Double)SummaryStatistics</code>, with methods for obtaining the sum, average, maximum and minimum.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">IntSummaryStatistics summary = words.collect(Collectors.summarizingInt(String::length));</div><div class="line"><span class="keyword">double</span> averageWordLength = summary.getAverage();</div><div class="line"><span class="keyword">double</span> maxWordLength = summary.getMax();</div></pre></td></tr></table></figure></p>
+<p><code>forEach</code>: just want to print them or put them in a database<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stream.forEach(System.out::println);</div></pre></td></tr></table></figure></p>
+<p>On a parallel stream, you must ensure that the function can be executed concurrently. </p>
+<p><code>forEachOrdered</code>: execute in stream order. No parallelism benefits anymore. </p>
+<p><code>forEach</code> and <code>forEachOrdered</code> are terminal operations. If you want to continue using the stream, use <code>peek</code> instead. </p>
+<h2 id="Collecting-into-Maps"><a href="#Collecting-into-Maps" class="headerlink" title="Collecting into Maps"></a>Collecting into Maps</h2><p>Suppose you want to collect the elements in <code>Stream&lt;Person&gt;</code> into a map so that you can later look up people by their id.<br><code>Collectors.toMap</code>: has 2 function arguments that produce the map keys and values<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Map&lt;Integer, String&gt; idToName = people.collect(Collectors.toMap(Person::getId, Person::getName));</div></pre></td></tr></table></figure></p>
+<p><code>Funtion.identity()</code>: values should be the actual elements<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Map&lt;Integer, Person&gt; idToPerson = people.collect(Collectors.toMap(Person::getId), Function.identity());</div></pre></td></tr></table></figure></p>
+<p>If there is more than one element with the same key, the collector will throw an <code>IllegalStateException</code>. Supply a third function argument that determines the value for the key, given the existing and the new value. </p>
+<p>Construct a map that contains, for each language in the available locales, as key its name in your default locale(such as “German”), and as value its localized name(such as “Deutsch”).<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Stream&lt;Locale&gt; locales = Stream.of(Locale.getAvailableLocales());</div><div class="line">Map&lt;String, String&gt; languageNames = locales.collect(Collectors.toMap(</div><div class="line">  l -&gt; l.getDisplayLanguage(), </div><div class="line">  l -&gt; l.getDisplayLanguage(l), </div><div class="line">  (existingValue, newValue) -&gt; existingValue)); <span class="comment">// keep old value</span></div></pre></td></tr></table></figure></p>
+<p>Suppose we want to know all languages in a given country, we need a <code>Map&lt;String, Set&lt;String&gt;&gt;</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Map&lt;String, Set&lt;String&gt;&gt; countryLanguageSets = locales.collect(Collectors.toMap(</div><div class="line">  l -&gt; l.getDisplayCountry(),</div><div class="line">  l -&gt; Collections.singleton(l.getDisplayLanguage()),</div><div class="line">  (a, b) -&gt; &#123;</div><div class="line">    Set&lt;String&gt; r = <span class="keyword">new</span> HashSet&lt;&gt;(a);</div><div class="line">    r.addAll(b);</div><div class="line">    <span class="keyword">return</span> r;</div><div class="line">  &#125;</div><div class="line">));</div></pre></td></tr></table></figure></p>
+<p>If you want a <code>TreeMap</code>, then you supply the constructor as the 4th argument.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Map&lt;Integer, Person&gt; idToPerson = people.collect(Collectors.toMap(</div><div class="line">  Person::getId,</div><div class="line">  Function.identity(),</div><div class="line">  (existingValue, newValue) -&gt; &#123; <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(); &#125;</div><div class="line">  TreeMap::<span class="keyword">new</span></div><div class="line">));</div></pre></td></tr></table></figure></p>
+<p>For each of the <code>toMap</code> methods, there is an equivalent <code>toConcurrentMap</code> method that yields a concurrent map. A single concurrent map is used in the parallel collection process. When used with a parallel stream, a shared map is more efficient than merging maps, but of course, you give up ordering. </p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-license">
+  <div class="centered">
+    <img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /> 
+    <p>
+    This post by <a href="http://freetymekiyan.github.io/">Yang Liu</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</a>.<br> Please NOTE THE ORIGIN for Reproduction, Copying or other usages.
+    </p>
+  </div>
+</div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>►<a class="article-category-link" href="/categories/Coding/Reading-Note/">Reading Note</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Java/">Java</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://blog.kiyanpro.com/2016/03/17/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-3/" data-title="Java SE 8 For the Really Impatient, Note 3 | Better Programmer" data-tsina="2090687247" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/03/21/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-4/" title="Java SE 8 For the Really Impatient, Note 4">
+  <strong>Prev:</strong><br/>
+  <span>
+  Java SE 8 For the Really Impatient, Note 4</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/03/16/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-2/"  title="Java SE 8 For the Really Impatient, Note 2">
+ <strong>Next:</strong><br/> 
+ <span>Java SE 8 For the Really Impatient, Note 2
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-2-The-Stream-API"><span class="toc-number">1.</span> <span class="toc-text">Chapter 2 The Stream API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Simple-Reductions"><span class="toc-number">1.1.</span> <span class="toc-text">Simple Reductions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Optional-Type"><span class="toc-number">1.2.</span> <span class="toc-text">The Optional Type</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Working-with-Optional-Values"><span class="toc-number">1.2.1.</span> <span class="toc-text">Working with Optional Values</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Creating-Optional-Values"><span class="toc-number">1.2.2.</span> <span class="toc-text">Creating Optional Values</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Composing-Optional-Value-Functions-with-flatMap"><span class="toc-number">1.2.3.</span> <span class="toc-text">Composing Optional Value Functions with flatMap</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reduction-Operations"><span class="toc-number">1.3.</span> <span class="toc-text">Reduction Operations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Collecting-Results"><span class="toc-number">1.4.</span> <span class="toc-text">Collecting Results</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Collecting-into-Maps"><span class="toc-number">1.5.</span> <span class="toc-text">Collecting into Maps</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+  <p class="asidetitle">Categories</p>
+    <ul>
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/" title="Coding">Coding<sup>28</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/People/" title="People">People<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/Reading-Note/" title="Reading Note">Reading Note<sup>16</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Translation/" title="Translation">Translation<sup>24</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Words/" title="Words">Words<sup>4</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  
+<div class="tagslist">
+  <p class="asidetitle">Tags</p>
+    <ul class="clearfix">
+    
+      
+        <li><a href="/tags/Kai-Fu-Lee/" title="Kai Fu Lee">Kai Fu Lee<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/LinkedIn/" title="LinkedIn">LinkedIn<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Java/" title="Java">Java<sup>14</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Elasticsearch/" title="Elasticsearch">Elasticsearch<sup>4</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Pro-tips/" title="Pro-tips">Pro-tips<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Thoughts/" title="Thoughts">Thoughts<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Node-js/" title="Node.js">Node.js<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/System-Design/" title="System Design">System Design<sup>2</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Test/" title="Test">Test<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Interview/" title="Interview">Interview<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="adlist">
+  <p class="asidetitle">Google Ads</p>
+  <div class="ad">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Hexo blog widget -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3830008196770332"
+         data-ad-slot="2210281201"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">Archives</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+      <li><a href="http://hijiangtao.github.io/" target="_blank" title="JiangTao">Data.Blog</a></li>
+      <li><a href="https://modulus.io/" target="_blank" title="Modulus, Node.js Host Provider.">Modulus</a></li>
+    </ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/Algorithms/" style="font-size: 10px;">Algorithms</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Elasticsearch/" style="font-size: 16px;">Elasticsearch</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Java/" style="font-size: 18px;">Java</a> <a href="/tags/Kai-Fu-Lee/" style="font-size: 20px;">Kai Fu Lee</a> <a href="/tags/LinkedIn/" style="font-size: 20px;">LinkedIn</a> <a href="/tags/Node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/Pro-tips/" style="font-size: 14px;">Pro-tips</a> <a href="/tags/System-Design/" style="font-size: 12px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/TextMate-2/" style="font-size: 10px;">TextMate 2</a> <a href="/tags/Thoughts/" style="font-size: 14px;">Thoughts</a>
+    </div>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+  
+  <div class="line">
+    <span></span>
+    
+    <a href="http://weibo.com/2090687247" target="_blank"><div class="author"></div></a>
+    
+  </div>
+  
+  
+  <section class="info">
+    <p> This is FreeTymeKiyan&#39;s blog.<br/>
+      He always asks himself, how far can an indie programmer go? Definitely no limit on that.</p>
+  </section>
+   
+  <div class="social-font" class="clearfix">
+    
+    <a href="http://weibo.com/2090687247" target="_blank" class="icon-weibo" title="weibo"></a>
+    
+    
+    <a href="https://github.com/FreeTymeKiyan" target="_blank" class="icon-github" title="github"></a>
+    
+    
+    
+    <a href="https://twitter.com/FreeTymeKiyan" target="_blank" class="icon-twitter" title="twitter"></a>
+    
+    
+    <a href="https://www.facebook.com/kiyan.fan" target="_blank" class="icon-facebook" title="facebook"></a>
+    
+    
+    <a href="https://www.douban.com/people/56346857" target="_blank" class="icon-douban" title="豆瓣"></a>
+    
+    
+    
+    <a href="mailto:freetymesunkiyan@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+    
+  </div>
+    <p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> © 2012-2017
+    
+    <a href="http://blog.kiyanpro.com/about" target="_blank" title="FreeTymeKiyan">FreeTymeKiyan</a>
+    
+    , <span class='post-count'>112.4k</span> words
+    </p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+
+  c.click(function(){
+    t.css('display','none');
+    if(ah.length!==0){
+      ta.css('display', 'block').addClass('fadeIn');
+    }
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+    if(ah.length!==0){
+      t.css('display','block');
+    }
+  });
+
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>Scan QR code and share<a class="qrclose" href="#share"></a></span><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'FreeTymeKiyan';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-60456171-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+<div id="totop">
+<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+
+<script type="text/x-mathjax-config"> 
+MathJax.Hub.Config({ 
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
+}); 
+</script>
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </body>
+</html>

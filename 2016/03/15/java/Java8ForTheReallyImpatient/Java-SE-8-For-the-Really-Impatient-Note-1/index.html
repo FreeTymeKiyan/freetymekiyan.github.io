@@ -1,0 +1,692 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Java SE 8 For the Really Impatient, Note 1 | Better Programmer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="FreeTymeKiyan">
+    
+    <meta name="description" content="Chapter 1 Lambda ExpressionsWhyA block of code was passed to someone - a thread pool, a sort method, or a button. The code was called at some later ti">
+    
+    
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="FreeTymeKiyan" />
+    <meta name="twitter:title" content="Java SE 8 For the Really Impatient, Note 1 | Better Programmer" />
+      
+    
+    
+    <link rel="alternative" href="/atom.xml" title="Better Programmer" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/logo_apple.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/logo_apple.png">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+  
+    <div id="imglogo">
+      <a href="/"><img src="/img/logo.png" alt="Better Programmer" title="Better Programmer"/></a>
+    </div>
+    
+    <div id="textlogo">
+      <h1 class="site-name"><a href="/" title="Better Programmer">Better Programmer</a></h1>
+      <h2 class="blog-motto">Where best programming happens</h2>
+    </div>
+    <div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+    </a></div>
+    <nav class="animated">
+      <ul>
+        <ul>
+         
+          <li><a href="/words">Words</a></li>
+        
+          <li><a href="/about">About</a></li>
+        
+        <li>
+        
+        <form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+          <label>Search</label>
+          <input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+        </form>
+        
+        </li>
+      </ul>
+    </nav>
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/15/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-1/" title="Java SE 8 For the Really Impatient, Note 1" itemprop="url">Java SE 8 For the Really Impatient, Note 1</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://blog.kiyanpro.com/about" title="FreeTymeKiyan" target="_blank" itemprop="author">FreeTymeKiyan</a>
+		
+  
+  <p class="article-time">
+    <time datetime="2016-03-16T01:12:44.000Z" itemprop="datePublished">Published on Mar 15 2016</time>
+  </p>
+  
+  <p class="article-read-time">
+    <span class="post-count">2,822 words in 18 minutes</span>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-1-Lambda-Expressions"><span class="toc-number">1.</span> <span class="toc-text">Chapter 1 Lambda Expressions</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why"><span class="toc-number">1.1.</span> <span class="toc-text">Why</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Syntax"><span class="toc-number">1.2.</span> <span class="toc-text">Syntax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Functional-Interfaces"><span class="toc-number">1.3.</span> <span class="toc-text">Functional Interfaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Method-References"><span class="toc-number">1.4.</span> <span class="toc-text">Method References</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Constructor-References"><span class="toc-number">1.5.</span> <span class="toc-text">Constructor References</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Variable-Scope"><span class="toc-number">1.6.</span> <span class="toc-text">Variable Scope</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Default-Methods"><span class="toc-number">1.7.</span> <span class="toc-text">Default Methods</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Static-Methods-in-Interfaces"><span class="toc-number">1.8.</span> <span class="toc-text">Static Methods in Interfaces</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="Chapter-1-Lambda-Expressions"><a href="#Chapter-1-Lambda-Expressions" class="headerlink" title="Chapter 1 Lambda Expressions"></a>Chapter 1 Lambda Expressions</h1><h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><p>A block of code was passed to someone - a thread pool, a sort method, or a button. The code was called at some later time. How to work with blocks of code directly in Java? Lambda expression. </p>
+<p>Use <code>Integer.compare(x, y)</code> instead of <code>x - y</code> to compare x and y since that computation can overflow. </p>
+<h2 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h2><p>Java is a strong typed language, we must specify type.<br>parameters, the -&gt; arrow, and an expression</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(String first, String second)</div><div class="line">  -&gt; Integer.compare(first.length(), second.length())</div></pre></td></tr></table></figure>
+<p>If it doesn’t fit in a single expression, enclose in {}<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(String first, String second) -&gt; &#123;</div><div class="line">  <span class="keyword">if</span> (first.length() &lt; second.length()) <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (first.length() &gt; second.length()) <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">  <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>No parameters, still supply empty parentheses<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">() -&gt; &#123; <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) doWork(); &#125;</div></pre></td></tr></table></figure></p>
+<p>Parameter types of a lambda expression can be omitted if they can be inferred<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Comparator&lt;String&gt; comp = (first, second) <span class="comment">// same as (String first, String second)</span></div><div class="line">  -&gt; Interger.compare(first.length(), second.length())</div></pre></td></tr></table></figure></p>
+<p>If a method has a single parameter with inferred type, you can even omit the parentheses<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">EventHandler&lt;ActionEvent&gt; listener = event -&gt; </div><div class="line">  System.out.println(<span class="string">"Thanks for clicking!"</span>)</div></pre></td></tr></table></figure></p>
+<p>Instead of <code>(event) -&gt;</code> or <code>(ActionEvent event) -&gt;</code></p>
+<p>Can add annotations or final mofifier<br><code>(@NonNull String name) -&gt; ...</code><br><code>(final String name) -&gt; ...</code></p>
+<p>Never specify the result type of a lambda expression. It’s always inferred from context. </p>
+<p>It’s illegal for a lambda expression to return a value in some branches but not in others. </p>
+<h2 id="Functional-Interfaces"><a href="#Functional-Interfaces" class="headerlink" title="Functional Interfaces"></a>Functional Interfaces</h2><p>An object of an interface with a single abstract method. Such an interface is called a functional interface. Such as Runnable, Comparator…</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Arrays.sort(words, (first, second) -&gt; Integer.compare(first.length(), second.length()))</div></pre></td></tr></table></figure>
+<p><code>Arrays.sort</code> method receives an object of some class that implements <code>Comparator&lt;String&gt;</code>. Invoking the compare method on that object executes the body of the lambda expression. </p>
+<p>More efficient, easier to read, short and simple</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">button.setOnAction(event -&gt;</div><div class="line">  System.out.println(<span class="string">"Thanks for clicking!"</span>));</div></pre></td></tr></table></figure>
+<p>You cannot assign lambda to an object. Only thing you can do is conversion to functional interface. </p>
+<p>There are generic functional interfaces in <code>java.util.function</code> package.<br><code>BiFunction&lt;T, U, R&gt;</code> describes functions with parameter types <code>T</code> and <code>U</code> and return type <code>R</code>. You can save lambda in a variable of that type.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">BiFunction&lt;String, String, Integer&gt; comp = (first, second) -&gt; </div><div class="line">  Integer.compare(first.length(), second.length())</div></pre></td></tr></table></figure>
+<p>Cannot use in Arrays.sort though.</p>
+<p>Tag any functional interface with <code>@FunctionalInterface</code> annotation.<br>Compiler will check that the annotated entity is an interface with a single abstract method.<br>And the Javadoc page includes a statement that your interface is a functional interface. </p>
+<p>If the body of a lambda expression may throw a checked exception, that exception needs to be declared in the abstract method of the target interface. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Runnable sleeper = () -&gt; &#123;</div><div class="line">  System.out.println(<span class="string">"Zzz"</span>);</div><div class="line">  Thread.sleep(<span class="number">1000</span>); <span class="comment">// Error: Thread.sleep can throw a checked InterruptedException</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>Runnable.run</code> cannot throw any exception. How to fix?</p>
+<ol>
+<li>catch the exception in the body of the lambda expression</li>
+<li>assign the lambda expression to an interface whose single abstract method can throw the exception. e.g, the <code>call</code> method of the <code>Callable</code> interface</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Callable&lt;Void&gt; call = () -&gt; &#123;</div><div class="line">  System.out.println(<span class="string">"Zzz"</span>);</div><div class="line">  Thread.sleep(<span class="number">1000</span>); </div><div class="line">  <span class="keyword">return</span> <span class="keyword">null</span>; <span class="comment">// add this statement</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Method-References"><a href="#Method-References" class="headerlink" title="Method References"></a>Method References</h2><p>When there is already a method that carries out exactly the action that you’d like to pass on to some other code. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">button.setOnAction(System.out::println)<span class="comment">// just pass the println method to the setOnAction method</span></div></pre></td></tr></table></figure>
+<p>Equivalent to <code>x -&gt; System.out.println(x)</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Arrays.sort(strings, String::compareToIgnoreCase)</div></pre></td></tr></table></figure>
+<p>The <code>::</code> operator separates the method name from the name of an object or class</p>
+<ul>
+<li>object::instanceMethod</li>
+<li>Class::staticMethod</li>
+<li>Class::instanceMethod</li>
+</ul>
+<p>The first two cases: the method reference is equivalent to a lambda expression that supplies the parameters of the method.</p>
+<p>The third case: the first parameter becomes the target of the method. <code>String::compareToIgnoreCase</code> is the same as <code>(x, y) -&gt; x.compareToIgnoreCase(y)</code></p>
+<p>Invoke a method of an enclosing class or its superclass.<br><code>this::equals</code> is the same as <code>x -&gt; this.equals(x)</code><br><code>super::instanceMethod</code> uses this as the target and invokes the superclass version of the given method. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Greeter</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greet</span><span class="params">()</span> </span>&#123;</div><div class="line">    System.out.printlin(<span class="string">"Hello, world!"</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcurrentGreeter</span> <span class="keyword">extends</span> <span class="title">Greeter</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greet</span><span class="params">()</span> </span>&#123;</div><div class="line">    Thread t = <span class="keyword">new</span> Thread(<span class="keyword">super</span>::greet);</div><div class="line">    t.start();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>In an inner class, capture the this reference of an enclosing class as <code>EnclosingClass.this::method</code> or <code>EnclosingClass.super::method</code></p>
+<h2 id="Constructor-References"><a href="#Constructor-References" class="headerlink" title="Constructor References"></a>Constructor References</h2><p>Just like method references, except that the name of method is new.<br><code>Button::new</code> is a reference to a Button constructor. </p>
+<p>Which constructor depends on the context. </p>
+<p>You can form constructor reference with array types.<br><code>int[]::new</code> is a constructor references with one parameter, the length of the array. </p>
+<p>Obtain an array of the correct type instead of object<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Button[] buttons = stream.toArray(Button[]::<span class="keyword">new</span>)</div></pre></td></tr></table></figure></p>
+<h2 id="Variable-Scope"><a href="#Variable-Scope" class="headerlink" title="Variable Scope"></a>Variable Scope</h2><p>A lambda expression has 3 ingredients:</p>
+<ol>
+<li>A block of code</li>
+<li>Parameters</li>
+<li>Values for the free variables, that is, the variables that are not parameters and not defined inside the code</li>
+</ol>
+<p>These values have been <em>captured</em> by lambda expression. Technical term is <strong>closure</strong>.<br>A lambda expression can capture the value of a variable in the enclosing scope. </p>
+<p>In lambda expression, you can only reference variables whose value does not change.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">repeatMessage</span><span class="params">(String text, <span class="keyword">int</span> count)</span> </span>&#123;</div><div class="line">  Runnable r = () -&gt; &#123;</div><div class="line">    <span class="keyword">while</span> (count &gt; <span class="number">0</span>) &#123;</div><div class="line">      count--; <span class="comment">// Error: cannot mutate captured variable</span></div><div class="line">      System.out.println(text);</div><div class="line">      Thread.yield();</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">  <span class="keyword">new</span> Thread(r).start();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Mutating variables in a lambda expression is not threadsafe. </p>
+<p>Trick to update a count in an enclosing local scope in lambda expression<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span>[] counter = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">1</span>];</div><div class="line">button.setOnAction(event -&gt; counter[<span class="number">0</span>]++);</div></pre></td></tr></table></figure></p>
+<p>Still not threadsafe. Think twice before using this trick.</p>
+<p>Cannot use same variable name as local variables. </p>
+<p><code>this</code> in lambda expression refers to the <code>this</code> parameter of the method that creates the lambda.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doWork</span><span class="params">()</span> </span>&#123;</div><div class="line">    Runnable runner = () -&gt; &#123; ...;</div><div class="line">      System.out.println(<span class="keyword">this</span>.toString()); ... &#125;;</div><div class="line">    ...</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>this.toString()</code> calls the toString method of the Application object, not the runnable instance.<br>The scope of the lambda expression is nested inside the doWork method, and this has the same meaning anywhere in that method. </p>
+<h2 id="Default-Methods"><a href="#Default-Methods" class="headerlink" title="Default Methods"></a>Default Methods</h2><p>In Java 8, the forEach method has been added to the Iterable interface, a superinterface of Collection. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Person</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">long</span> <span class="title">getId</span><span class="params">()</span></span>;</div><div class="line">  <span class="function"><span class="keyword">default</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="string">"John Q. Public"</span>; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>A concrete class that implements the Person interface must provide an implementation of getId<br>but it can choose to keep the implementation of getName or to override it. </p>
+<p>Rules when conflict: </p>
+<ol>
+<li>class wins</li>
+<li>provide implementation if at least one has implemented the method</li>
+</ol>
+<h2 id="Static-Methods-in-Interfaces"><a href="#Static-Methods-in-Interfaces" class="headerlink" title="Static Methods in Interfaces"></a>Static Methods in Interfaces</h2><p>Do not need static methods in a companion class anymore. </p>
+<p>Comparator class has a very useful static comparing method that accepts a “key extraction” function and yields a comparator that compares the extracted keys.<br>To compare Person object by name<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Comparator.comparing(Person::getName)</div></pre></td></tr></table></figure></p>
+<p>The same as <code>(x, y) -&gt; x.compareToIgnoreCase(y)</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Comparator.comparing(String::length)</div></pre></td></tr></table></figure>
+<p>The same as <code>(first, second) -&gt; Integer.compare(first.length(), second.length())</code></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-license">
+  <div class="centered">
+    <img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /> 
+    <p>
+    This post by <a href="http://freetymekiyan.github.io/">Yang Liu</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</a>.<br> Please NOTE THE ORIGIN for Reproduction, Copying or other usages.
+    </p>
+  </div>
+</div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>►<a class="article-category-link" href="/categories/Coding/Reading-Note/">Reading Note</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Java/">Java</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://blog.kiyanpro.com/2016/03/15/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-1/" data-title="Java SE 8 For the Really Impatient, Note 1 | Better Programmer" data-tsina="2090687247" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/03/16/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-2/" title="Java SE 8 For the Really Impatient, Note 2">
+  <strong>Prev:</strong><br/>
+  <span>
+  Java SE 8 For the Really Impatient, Note 2</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/03/11/elasticsearch/Export-Index-Using-Elasticsearch-Dump/"  title="Export Index Using Elasticsearch Dump">
+ <strong>Next:</strong><br/> 
+ <span>Export Index Using Elasticsearch Dump
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-1-Lambda-Expressions"><span class="toc-number">1.</span> <span class="toc-text">Chapter 1 Lambda Expressions</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why"><span class="toc-number">1.1.</span> <span class="toc-text">Why</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Syntax"><span class="toc-number">1.2.</span> <span class="toc-text">Syntax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Functional-Interfaces"><span class="toc-number">1.3.</span> <span class="toc-text">Functional Interfaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Method-References"><span class="toc-number">1.4.</span> <span class="toc-text">Method References</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Constructor-References"><span class="toc-number">1.5.</span> <span class="toc-text">Constructor References</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Variable-Scope"><span class="toc-number">1.6.</span> <span class="toc-text">Variable Scope</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Default-Methods"><span class="toc-number">1.7.</span> <span class="toc-text">Default Methods</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Static-Methods-in-Interfaces"><span class="toc-number">1.8.</span> <span class="toc-text">Static Methods in Interfaces</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+  <p class="asidetitle">Categories</p>
+    <ul>
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/" title="Coding">Coding<sup>28</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/People/" title="People">People<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/Reading-Note/" title="Reading Note">Reading Note<sup>16</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Translation/" title="Translation">Translation<sup>24</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Words/" title="Words">Words<sup>4</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  
+<div class="tagslist">
+  <p class="asidetitle">Tags</p>
+    <ul class="clearfix">
+    
+      
+        <li><a href="/tags/Kai-Fu-Lee/" title="Kai Fu Lee">Kai Fu Lee<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/LinkedIn/" title="LinkedIn">LinkedIn<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Java/" title="Java">Java<sup>14</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Elasticsearch/" title="Elasticsearch">Elasticsearch<sup>4</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Pro-tips/" title="Pro-tips">Pro-tips<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Thoughts/" title="Thoughts">Thoughts<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Node-js/" title="Node.js">Node.js<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/System-Design/" title="System Design">System Design<sup>2</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Test/" title="Test">Test<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Interview/" title="Interview">Interview<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="adlist">
+  <p class="asidetitle">Google Ads</p>
+  <div class="ad">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Hexo blog widget -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3830008196770332"
+         data-ad-slot="2210281201"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">Archives</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+      <li><a href="http://hijiangtao.github.io/" target="_blank" title="JiangTao">Data.Blog</a></li>
+      <li><a href="https://modulus.io/" target="_blank" title="Modulus, Node.js Host Provider.">Modulus</a></li>
+    </ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/Algorithms/" style="font-size: 10px;">Algorithms</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Elasticsearch/" style="font-size: 16px;">Elasticsearch</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Java/" style="font-size: 18px;">Java</a> <a href="/tags/Kai-Fu-Lee/" style="font-size: 20px;">Kai Fu Lee</a> <a href="/tags/LinkedIn/" style="font-size: 20px;">LinkedIn</a> <a href="/tags/Node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/Pro-tips/" style="font-size: 14px;">Pro-tips</a> <a href="/tags/System-Design/" style="font-size: 12px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/TextMate-2/" style="font-size: 10px;">TextMate 2</a> <a href="/tags/Thoughts/" style="font-size: 14px;">Thoughts</a>
+    </div>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+  
+  <div class="line">
+    <span></span>
+    
+    <a href="http://weibo.com/2090687247" target="_blank"><div class="author"></div></a>
+    
+  </div>
+  
+  
+  <section class="info">
+    <p> This is FreeTymeKiyan&#39;s blog.<br/>
+      He always asks himself, how far can an indie programmer go? Definitely no limit on that.</p>
+  </section>
+   
+  <div class="social-font" class="clearfix">
+    
+    <a href="http://weibo.com/2090687247" target="_blank" class="icon-weibo" title="weibo"></a>
+    
+    
+    <a href="https://github.com/FreeTymeKiyan" target="_blank" class="icon-github" title="github"></a>
+    
+    
+    
+    <a href="https://twitter.com/FreeTymeKiyan" target="_blank" class="icon-twitter" title="twitter"></a>
+    
+    
+    <a href="https://www.facebook.com/kiyan.fan" target="_blank" class="icon-facebook" title="facebook"></a>
+    
+    
+    <a href="https://www.douban.com/people/56346857" target="_blank" class="icon-douban" title="豆瓣"></a>
+    
+    
+    
+    <a href="mailto:freetymesunkiyan@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+    
+  </div>
+    <p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> © 2012-2017
+    
+    <a href="http://blog.kiyanpro.com/about" target="_blank" title="FreeTymeKiyan">FreeTymeKiyan</a>
+    
+    , <span class='post-count'>112.4k</span> words
+    </p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+
+  c.click(function(){
+    t.css('display','none');
+    if(ah.length!==0){
+      ta.css('display', 'block').addClass('fadeIn');
+    }
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+    if(ah.length!==0){
+      t.css('display','block');
+    }
+  });
+
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>Scan QR code and share<a class="qrclose" href="#share"></a></span><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'FreeTymeKiyan';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-60456171-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+<div id="totop">
+<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+
+<script type="text/x-mathjax-config"> 
+MathJax.Hub.Config({ 
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
+}); 
+</script>
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </body>
+</html>

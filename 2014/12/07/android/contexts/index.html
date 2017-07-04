@@ -1,0 +1,663 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Getting Google Advertising Id and Differences of Contexts | Better Programmer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="FreeTymeKiyan">
+    
+    <meta name="description" content="Recently I joined my friends in a side project named Money Maker. The idea of this project is fairly simple: it aims at integrating advertisement plat">
+    
+    
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="FreeTymeKiyan" />
+    <meta name="twitter:title" content="Getting Google Advertising Id and Differences of Contexts | Better Programmer" />
+      
+    
+    
+    <link rel="alternative" href="/atom.xml" title="Better Programmer" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/logo_apple.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/logo_apple.png">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+  
+    <div id="imglogo">
+      <a href="/"><img src="/img/logo.png" alt="Better Programmer" title="Better Programmer"/></a>
+    </div>
+    
+    <div id="textlogo">
+      <h1 class="site-name"><a href="/" title="Better Programmer">Better Programmer</a></h1>
+      <h2 class="blog-motto">Where best programming happens</h2>
+    </div>
+    <div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+    </a></div>
+    <nav class="animated">
+      <ul>
+        <ul>
+         
+          <li><a href="/words">Words</a></li>
+        
+          <li><a href="/about">About</a></li>
+        
+        <li>
+        
+        <form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+          <label>Search</label>
+          <input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+        </form>
+        
+        </li>
+      </ul>
+    </nav>
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/12/07/android/contexts/" title="Getting Google Advertising Id and Differences of Contexts" itemprop="url">Getting Google Advertising Id and Differences of Contexts</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://blog.kiyanpro.com/about" title="FreeTymeKiyan" target="_blank" itemprop="author">FreeTymeKiyan</a>
+		
+  
+  <p class="article-time">
+    <time datetime="2014-12-07T15:37:12.000Z" itemprop="datePublished">Published on Dec 7 2014</time>
+  </p>
+  
+  <p class="article-read-time">
+    <span class="post-count">2,296 words in 14 minutes</span>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Background"><span class="toc-number">1.</span> <span class="toc-text">Background</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Original-Solution"><span class="toc-number">2.</span> <span class="toc-text">Original  Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem"><span class="toc-number">3.</span> <span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">4.</span> <span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Differences-of-Activity-Context-and-Application-Context"><span class="toc-number">5.</span> <span class="toc-text">Differences of Activity Context and Application Context</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusions"><span class="toc-number">6.</span> <span class="toc-text">Conclusions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#How-to-get-GAID"><span class="toc-number">6.1.</span> <span class="toc-text">How to get GAID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Differences"><span class="toc-number">6.2.</span> <span class="toc-text">Differences</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extension-Reading"><span class="toc-number">7.</span> <span class="toc-text">Extension Reading</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">8.</span> <span class="toc-text">References</span></a></li></ol>
+		
+		</div>
+		
+		<p>Recently I joined my friends in a side project named Money Maker. The idea of this project is fairly simple: it aims at integrating advertisement platforms together within our app and provide little task for users. User can finish these tasks and get credits, and exchange the credits with cash or gift cards. We are a team of 5: 1 iOS app dev, 1 Android app dev, 1 front-end dev, 1 backend dev, and 1 support guy and we are now supporting <strong>126,822</strong>(98560 + 28262) users in total. The problem I’m going to talk about today happened during the dev process.  </p>
+<p><img src="/images/user.png" alt="Number of Users Powered by UMeng"></p>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>I’m updating Android client to new version right now. In this version, we designed a new scheme to prevent fraudulent traffic. Basically, we try to bind user’s phone number to their account and get the google advertising identifier(GAID) of the device. It should be a simple problem. But getting GAID is a real painful thing.  </p>
+<h2 id="Original-Solution"><a href="#Original-Solution" class="headerlink" title="Original  Solution"></a>Original  Solution</h2><p>According to the documentation on Android developer’s site<sup><a href="#References">[1]</a></sup>, to get GAID with code on device, we need to set up Google Play Services SDK first<sup><a href="#References">[2]</a></sup>. Just open the SDK manager and download the latest version of it. Then we add it as a library project and modify your app’s manifest file. Add the following tag as a child of the <application> element:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;meta-data android:name=&quot;com.google.android.gms.version&quot;</div><div class="line">        android:value=&quot;@integer/google_play_services_version&quot; /&gt;</div></pre></td></tr></table></figure></application></p>
+<p>One more thing needed is preventing ProGuard from stripping away required classes. Add the following lines in the proguard-project.txt:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">-keep class * extends java.util.ListResourceBundle &#123;</div><div class="line">    protected Object[][] getContents();</div><div class="line">&#125;</div><div class="line">  </div><div class="line">-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable &#123;</div><div class="line">    public static final *** NULL;</div><div class="line">&#125;</div><div class="line">  </div><div class="line">-keepnames @com.google.android.gms.common.annotation.KeepName class *</div><div class="line">-keepclassmembernames class * &#123;</div><div class="line">    @com.google.android.gms.common.annotation.KeepName *;</div><div class="line">&#125;</div><div class="line">  </div><div class="line">-keepnames class * implements android.os.Parcelable &#123;</div><div class="line">    public static final ** CREATOR;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>OK, now we should be able to use Google Play Services SDK in our app. To make sure it is the latest version, call <code>GooglePlayServicesUtil.isGooglePlayServicesAvailable(Context context)</code> and check if the result code is 0, which means SUCCESS.  </p>
+<p>Now with the SDK set up, we can make use of the code provided by Google. An Example implementation is as below:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">import com.google.android.gms.ads.identifier.AdvertisingIdClient;</div><div class="line">import com.google.android.gms.ads.identifier.AdvertisingIdClient.Info;</div><div class="line">import com.google.android.gms.common.GooglePlayServicesAvailabilityException;</div><div class="line">import com.google.android.gms.common.GooglePlayServicesNotAvailableException;</div><div class="line">import java.io.IOException;</div><div class="line">  </div><div class="line">// Do not call this function from the main thread. Otherwise, </div><div class="line">// an IllegalStateException will be thrown.</div><div class="line">public void getIdThread() &#123;</div><div class="line">    Info adInfo = null;</div><div class="line">    try &#123;</div><div class="line">        adInfo = AdvertisingIdClient.getAdvertisingIdInfo(mContext);</div><div class="line">    &#125; catch (IOException e) &#123;</div><div class="line">        // Unrecoverable error connecting to Google Play services (e.g.,</div><div class="line">        // the old version of the service doesn&apos;t support getting AdvertisingId).</div><div class="line">    &#125; catch (GooglePlayServicesAvailabilityException e) &#123;</div><div class="line">        // Encountered a recoverable error connecting to Google Play services. </div><div class="line">    &#125; catch (GooglePlayServicesNotAvailableException e) &#123;</div><div class="line">        // Google Play services is not available entirely.</div><div class="line">    &#125;</div><div class="line">    final String id = adInfo.getId();</div><div class="line">    final boolean isLAT = adInfo.isLimitAdTrackingEnabled();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>One extremely important thing here is DO NOT call <code>getIdThread()</code> from main UI thread. <code>getAdvertisingIdInfo(Context context)</code> is a blocking call. If called on the main thread, the method throws IllegalStateException.  </p>
+<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>After I implemented the code with according to things above, I still couldn’t get the GAID on my phone. Below is the error log and code.  </p>
+<p><img src="/images/error_log.jpg" alt="Error Log">  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">new Thread(new Runnable() &#123;</div><div class="line">  </div><div class="line">    @Override</div><div class="line">    public void run() &#123;</div><div class="line">        try &#123;</div><div class="line">            String gaid = AdvertisingIdClient.getAdvertisingIdInfo(SettingsActivity.this).getId();</div><div class="line">            if (gaid != null) &#123;</div><div class="line">                // Log.d(&quot;DEBUG&quot;, &quot;gaid: &quot; + gaid);</div><div class="line">                setGaid(gaid);</div><div class="line">            &#125;</div><div class="line">        &#125; catch (IllegalStateException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; catch (GooglePlayServicesRepairableException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; catch (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; catch (GooglePlayServicesNotAvailableException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;).start();</div></pre></td></tr></table></figure>
+<p>It kept throwing IOException and Connection failure. I searched on google for possible solutions, but no matter I put it in an AsyncTask’s <code>doInBackground()</code> method<sup><a href="#References">[3]</a></sup> or a thread’s runnable, it just didn’t work.  </p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>I already called it with worker thread, so that should not be the cause. When I was about to give up and try to implement my own class according to the solution on StackOverFlow<sup><a href="#References">[4]</a></sup>, it suddenly came to me that what if I change the context of current Activity to Application context? Although I didn’t know the exact difference between them, I remembered that using getApplicationContext() crashes both ProgressDialog and Toast, which lead me to this feeling that it might be the problem.  </p>
+<p>And it really worked. Then I tried on different devices and different places to put the thread call(<code>onCreate(), onResume(), onClick()</code>), it all worked.  </p>
+<h2 id="Differences-of-Activity-Context-and-Application-Context"><a href="#Differences-of-Activity-Context-and-Application-Context" class="headerlink" title="Differences of Activity Context and Application Context"></a>Differences of Activity Context and Application Context</h2><p>I gave my answer on StackOverFlow<sup><a href="#References">[5]</a></sup> and decided to figure out the exact differences between these contexts.  </p>
+<p>Actually both Activity context and Application context are instances of Context class, but Application context is tied to the lifecycle of the process, while Activity context is to the lifecycle of related Activity. Thus they have access to different information about the application environment.<sup><a href="#References">[6]</a></sup>  </p>
+<p>In the documentation<sup><a href="#References">[7]</a></sup> of method <code>getApplicationContext()</code>, it mentions an example of how it interacts with registerReceiver<code>(BroadcastReceiver, IntentFilter)</code>. If used from an Activity context, the receiver is being registered within that Activity. When the Activity is destroyed, the receiver no longer works. If used from an Application context, the receiver will never be unregistered.  </p>
+<p>You only use getApplicationContext() when you know you need a Context for something that may live longer than any other likely Context you have at your disposal. Scenarios include<sup><a href="#References">[8]</a></sup>:  </p>
+<ul>
+<li>Use getApplicationContext() if you need something tied to a Context that itself will have global scope. I use getApplicationContext(), for example, in WakefulIntentService, for the static WakeLock to be used for the service. Since that WakeLock is static, and I need a Context to get at PowerManager to create it, it is safest to use getApplicationContext().</li>
+<li>Use getApplicationContext() when you bind to a Service from an Activity, if you wish to pass the ServiceConnection (i.e., the handle to the binding) between Activity instances via onRetainNonConfigurationInstance(). Android internally tracks bindings via these ServiceConnections and holds references to the Contexts that create the bindings. If you bind from the Activity, then the new Activity instance will have a reference to the ServiceConnection which has an implicit reference to the old Activity, and the old Activity cannot be garbage collected.  </li>
+</ul>
+<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><h3 id="How-to-get-GAID"><a href="#How-to-get-GAID" class="headerlink" title="How to get GAID"></a>How to get GAID</h3><ol>
+<li>Download latest Google Play Services SDK.  </li>
+<li>Import the code and add it as a library project.  </li>
+<li>Modify AndroidManifest.xml.  </li>
+<li>Add rules in proguard-project.txt.  </li>
+<li>Call <code>AdvertisingIdClient.getAdvertisingIdInfo(getApplicationContext()).getId()</code> in a worker thread to get the id in String. </li>
+</ol>
+<h3 id="Differences"><a href="#Differences" class="headerlink" title="Differences"></a>Differences</h3><ol>
+<li>They are tied to different lifecyle.  </li>
+<li>They have access to different information.  </li>
+</ol>
+<h2 id="Extension-Reading"><a href="#Extension-Reading" class="headerlink" title="Extension Reading"></a>Extension Reading</h2><p>Except for Application and Activity contexts, there are other contexts in Android, namely Service context, ContentProvider context, and BroadcastReceiver context. Below is a clear table on context capabilities from a nice post by Dave Smith<sup><a href="#References">[9]</a></sup>:  </p>
+<p><img src="/images/contexts.png" alt="Context Capabilities"></p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li><a href="https://developer.android.com/google/play-services/id.html" target="_blank" rel="external">Android Developers Official Site, <em>Advertising ID</em></a></li>
+<li><a href="https://developer.android.com/google/play-services/setup.html" target="_blank" rel="external">Android Developers Official Site, <em>Setting Up Google Play Services</em></a></li>
+<li><a href="http://tech.admax.ninja/2014/09/12/how-to-get-advertising-id/" target="_blank" rel="external">AdMax Tech Blog, <em>【Android】AdvertisingIDの取得方法</em></a>  </li>
+<li><a href="http://stackoverflow.com/questions/20097506/using-the-new-android-advertiser-id-inside-an-sdk" target="_blank" rel="external">StackOverFlow, <em>Using the new Android Advertiser id inside an SDK</em></a></li>
+<li><a href="http://stackoverflow.com/questions/27257877/ad-sdks-cant-seem-to-get-the-advertising-info-from-the-device/27344612#27344612" target="_blank" rel="external">StackOverFlow, <em>My Answer On Ad SDKs can’t seem to get the Advertising info from the device</em></a></li>
+<li><a href="http://stackoverflow.com/questions/4128589/difference-between-activity-context-and-application-context" target="_blank" rel="external">StackOverFlow, <em>Difference between Activity Context and Application Context</em></a>  </li>
+<li><a href="http://developer.android.com/reference/android/content/ContextWrapper.html#getApplicationContext%28%29" target="_blank" rel="external">Android Developers Official Site, <em>Documentation on getApplicationContext Method</em></a></li>
+<li><a href="http://stackoverflow.com/a/7298955/3642996" target="_blank" rel="external">StackOverFlow, <em>When to call activity context OR application context?</em></a></li>
+<li><a href="http://www.doubleencore.com/2013/06/context/" target="_blank" rel="external">Dave Smith, <em>Context, What Context?</em></a></li>
+</ol>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-license">
+  <div class="centered">
+    <img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /> 
+    <p>
+    This post by <a href="http://freetymekiyan.github.io/">Yang Liu</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</a>.<br> Please NOTE THE ORIGIN for Reproduction, Copying or other usages.
+    </p>
+  </div>
+</div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Pro-tips/">Pro-tips</a><a href="/tags/Android/">Android</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://blog.kiyanpro.com/2014/12/07/android/contexts/" data-title="Getting Google Advertising Id and Differences of Contexts | Better Programmer" data-tsina="2090687247" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/03/08/words/words-inspiring-3/" title="Words Inspiring -- 3">
+  <strong>Prev:</strong><br/>
+  <span>
+  Words Inspiring -- 3</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2014/11/09/words/words-inspiring-2/"  title="Words Inspiring -- 2">
+ <strong>Next:</strong><br/> 
+ <span>Words Inspiring -- 2
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Background"><span class="toc-number">1.</span> <span class="toc-text">Background</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Original-Solution"><span class="toc-number">2.</span> <span class="toc-text">Original  Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem"><span class="toc-number">3.</span> <span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">4.</span> <span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Differences-of-Activity-Context-and-Application-Context"><span class="toc-number">5.</span> <span class="toc-text">Differences of Activity Context and Application Context</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusions"><span class="toc-number">6.</span> <span class="toc-text">Conclusions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#How-to-get-GAID"><span class="toc-number">6.1.</span> <span class="toc-text">How to get GAID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Differences"><span class="toc-number">6.2.</span> <span class="toc-text">Differences</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extension-Reading"><span class="toc-number">7.</span> <span class="toc-text">Extension Reading</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">8.</span> <span class="toc-text">References</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+  <p class="asidetitle">Categories</p>
+    <ul>
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/" title="Coding">Coding<sup>28</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+        <li><a href="/categories/People/" title="People">People<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Coding/Reading-Note/" title="Reading Note">Reading Note<sup>16</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Translation/" title="Translation">Translation<sup>24</sup></a></li>
+      
+    
+      
+    
+      
+        <li><a href="/categories/Words/" title="Words">Words<sup>4</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  
+<div class="tagslist">
+  <p class="asidetitle">Tags</p>
+    <ul class="clearfix">
+    
+      
+        <li><a href="/tags/Kai-Fu-Lee/" title="Kai Fu Lee">Kai Fu Lee<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/LinkedIn/" title="LinkedIn">LinkedIn<sup>24</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Java/" title="Java">Java<sup>14</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Elasticsearch/" title="Elasticsearch">Elasticsearch<sup>4</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Pro-tips/" title="Pro-tips">Pro-tips<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Thoughts/" title="Thoughts">Thoughts<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Node-js/" title="Node.js">Node.js<sup>3</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/System-Design/" title="System Design">System Design<sup>2</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Test/" title="Test">Test<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
+      
+    
+      
+        <li><a href="/tags/Interview/" title="Interview">Interview<sup>1</sup></a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </ul>
+</div>
+
+
+  <div class="adlist">
+  <p class="asidetitle">Google Ads</p>
+  <div class="ad">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Hexo blog widget -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3830008196770332"
+         data-ad-slot="2210281201"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">Archives</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+      <li><a href="http://hijiangtao.github.io/" target="_blank" title="JiangTao">Data.Blog</a></li>
+      <li><a href="https://modulus.io/" target="_blank" title="Modulus, Node.js Host Provider.">Modulus</a></li>
+    </ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/Algorithms/" style="font-size: 10px;">Algorithms</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Elasticsearch/" style="font-size: 16px;">Elasticsearch</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Java/" style="font-size: 18px;">Java</a> <a href="/tags/Kai-Fu-Lee/" style="font-size: 20px;">Kai Fu Lee</a> <a href="/tags/LinkedIn/" style="font-size: 20px;">LinkedIn</a> <a href="/tags/Node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/Pro-tips/" style="font-size: 14px;">Pro-tips</a> <a href="/tags/System-Design/" style="font-size: 12px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/TextMate-2/" style="font-size: 10px;">TextMate 2</a> <a href="/tags/Thoughts/" style="font-size: 14px;">Thoughts</a>
+    </div>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+  
+  <div class="line">
+    <span></span>
+    
+    <a href="http://weibo.com/2090687247" target="_blank"><div class="author"></div></a>
+    
+  </div>
+  
+  
+  <section class="info">
+    <p> This is FreeTymeKiyan&#39;s blog.<br/>
+      He always asks himself, how far can an indie programmer go? Definitely no limit on that.</p>
+  </section>
+   
+  <div class="social-font" class="clearfix">
+    
+    <a href="http://weibo.com/2090687247" target="_blank" class="icon-weibo" title="weibo"></a>
+    
+    
+    <a href="https://github.com/FreeTymeKiyan" target="_blank" class="icon-github" title="github"></a>
+    
+    
+    
+    <a href="https://twitter.com/FreeTymeKiyan" target="_blank" class="icon-twitter" title="twitter"></a>
+    
+    
+    <a href="https://www.facebook.com/kiyan.fan" target="_blank" class="icon-facebook" title="facebook"></a>
+    
+    
+    <a href="https://www.douban.com/people/56346857" target="_blank" class="icon-douban" title="豆瓣"></a>
+    
+    
+    
+    <a href="mailto:freetymesunkiyan@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+    
+  </div>
+    <p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> © 2012-2017
+    
+    <a href="http://blog.kiyanpro.com/about" target="_blank" title="FreeTymeKiyan">FreeTymeKiyan</a>
+    
+    , <span class='post-count'>112.4k</span> words
+    </p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+
+  c.click(function(){
+    t.css('display','none');
+    if(ah.length!==0){
+      ta.css('display', 'block').addClass('fadeIn');
+    }
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+    if(ah.length!==0){
+      t.css('display','block');
+    }
+  });
+
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>Scan QR code and share<a class="qrclose" href="#share"></a></span><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'FreeTymeKiyan';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-60456171-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+<div id="totop">
+<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+
+<script type="text/x-mathjax-config"> 
+MathJax.Hub.Config({ 
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
+}); 
+</script>
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </body>
+</html>
