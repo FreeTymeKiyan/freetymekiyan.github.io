@@ -40,10 +40,10 @@ The `-u admin` is for Shield users.
   
 Note that for the file you need to specify an absolute path, unless it is under the current path you are running the terminal.  
   
-The response will show you some information about the license. For example, if may tell you that the license is not enough to all previous services. If it is enough, you can call the API again with a query parameter `acknowledged=true`.  
+The response will show you some information about the license. For example, if may tell you that the license is not enough to all previous services. If it is enough, you can call the API again with a query parameter `acknowledge=true`.  
   
 ``` sh
-curl -XPUT -u admin 'http://<host>:<port>/_license?acknowledged=true' -d @license.json
+curl -XPUT -u admin 'http://<host>:<port>/_license?acknowledge=true' -d @license.json
 ```
   
 ## View License
