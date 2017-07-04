@@ -40,7 +40,7 @@ highlight:
   enable: true
   line_number: true
   tab_replace: 2
-  auto_detect: true
+  auto_detect: false
 marked:
   gfm: true
   pedantic: false
