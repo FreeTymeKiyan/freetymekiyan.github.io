@@ -87,7 +87,7 @@
 		
   
   <p class="article-time">
-    <time datetime="2016-03-22T00:12:12.000Z" itemprop="datePublished">Published on Mar 21 2016</time>
+    <time datetime="2016-03-21T21:12:12.000Z" itemprop="datePublished">Published on Mar 21 2016</time>
   </p>
   
   <p class="article-read-time">
@@ -104,6 +104,16 @@
 		
 		</div>
 		
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-3830008196770332"
+         data-ad-slot="5533097515"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 		<h1 id="Chapter-2-The-Stream-API"><a href="#Chapter-2-The-Stream-API" class="headerlink" title="Chapter 2 The Stream API"></a>Chapter 2 The Stream API</h1><h2 id="Grouping-and-Partioning"><a href="#Grouping-and-Partioning" class="headerlink" title="Grouping and Partioning"></a>Grouping and Partioning</h2><p><code>groupingBy</code>: forms groups of values with the same characteristic<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// grouping locales by country</span></div><div class="line">Map&lt;String, List&lt;Locale&gt;&gt; countryToLocales = locales.collect(Collectors.groupingBy(Locale::getCountry));</div></pre></td></tr></table></figure></p>
 <p>The function <code>Locale::getCountry</code> is the <em>classifier function</em> of the grouping.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// look up all locales for a given country code</span></div><div class="line">List&lt;Locale&gt; swissLocales = countryToLocales.get(<span class="string">"CH"</span>);</div></pre></td></tr></table></figure></p>
 <p>When the classifier function is a predicate function(that is, a function returning a <code>boolean</code> value), the stream elements are partitioned into 2 list: those where the function returns true and the complement. In this case it’s more efficient to use <code>partitioningBy</code> instead.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Map&lt;Boolean, List&lt;Locale&gt;&gt; englishAndOtherLocales = locales.collect(Collectors.partitioningBy(l -&gt; l.getLanguage().equals(<span class="string">"en"</span>)));</div><div class="line"></div><div class="line">List&lt;Locale&gt; englishLocales = englishAndOtherLocales.get(<span class="keyword">true</span>);</div></pre></td></tr></table></figure></p>
@@ -247,7 +257,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Java/">Java</a><a href="/tags/Notes/">Notes</a>
+  <span></span> <a href="/tags/Notes/">Notes</a><a href="/tags/Java/">Java</a>
   </div>
 
 
@@ -324,8 +334,6 @@
     
       
         <li><a href="/categories/People/" title="People">People<sup>1</sup></a></li>
-      
-    
       
     
       
@@ -434,7 +442,7 @@
       
     
       
-        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
       
     
       
@@ -442,7 +450,7 @@
       
     
       
-        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
+        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
       
     
       
@@ -450,11 +458,11 @@
       
     
       
-        <li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
+        <li><a href="/tags/Test/" title="Test">Test<sup>1</sup></a></li>
       
     
       
-        <li><a href="/tags/Test/" title="Test">Test<sup>1</sup></a></li>
+        <li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
       
     
       
@@ -475,14 +483,14 @@
   <p class="asidetitle">Google Ads</p>
   <div class="ad">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- Hexo blog widget -->
+    <!-- Hexo plugin -->
     <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-3830008196770332"
-         data-ad-slot="2210281201"
-         data-ad-format="auto"></ins>
+       style="display:block"
+       data-ad-client="ca-pub-3830008196770332"
+       data-ad-slot="9691834371"
+       data-ad-format="auto"></ins>
     <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
+      (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   </div>
 </div>

@@ -88,7 +88,7 @@ An attacker can slow d">
 		
   
   <p class="article-time">
-    <time datetime="2016-03-30T01:21:42.000Z" itemprop="datePublished">Published on Mar 29 2016</time>
+    <time datetime="2016-03-29T22:21:42.000Z" itemprop="datePublished">Published on Mar 29 2016</time>
   </p>
   
   <p class="article-read-time">
@@ -105,6 +105,16 @@ An attacker can slow d">
 		
 		</div>
 		
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-3830008196770332"
+         data-ad-slot="5533097515"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 		<h1 id="Chapter-6-Concurrency-Enhancements"><a href="#Chapter-6-Concurrency-Enhancements" class="headerlink" title="Chapter 6 Concurrency Enhancements"></a>Chapter 6 Concurrency Enhancements</h1><h2 id="ConcurentHashMap-Improvements"><a href="#ConcurentHashMap-Improvements" class="headerlink" title="ConcurentHashMap Improvements"></a>ConcurentHashMap Improvements</h2><p><code>mappingCount</code>: returns the size as a <code>long</code> in case it’s too large.</p>
 <p>An attacker can slow down a program by crafting a large number of strings that hash to the same value. As of Java 8, the concurrent hash map organizes the buckets as trees, not lists, when the key type implements <code>Comparable</code>, guaranteeing O(log(n)) performance. </p>
 <h3 id="Updating-Values"><a href="#Updating-Values" class="headerlink" title="Updating Values"></a>Updating Values</h3><p>The following is not threadsafe<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Long oldValue = map.get(word);</div><div class="line">Long newValue = oldValue == <span class="keyword">null</span> ? <span class="number">1</span> : oldValue + <span class="number">1</span>;</div><div class="line">map.put(word, newValue); <span class="comment">// not atomic, another thread can be updating at the same time</span></div></pre></td></tr></table></figure></p>
@@ -168,7 +178,7 @@ An attacker can slow d">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Java/">Java</a><a href="/tags/Notes/">Notes</a>
+  <span></span> <a href="/tags/Notes/">Notes</a><a href="/tags/Java/">Java</a>
   </div>
 
 
@@ -245,8 +255,6 @@ An attacker can slow d">
     
       
         <li><a href="/categories/People/" title="People">People<sup>1</sup></a></li>
-      
-    
       
     
       
@@ -355,7 +363,7 @@ An attacker can slow d">
       
     
       
-        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
       
     
       
@@ -363,7 +371,7 @@ An attacker can slow d">
       
     
       
-        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
+        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
       
     
       
@@ -371,11 +379,11 @@ An attacker can slow d">
       
     
       
-        <li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
+        <li><a href="/tags/Test/" title="Test">Test<sup>1</sup></a></li>
       
     
       
-        <li><a href="/tags/Test/" title="Test">Test<sup>1</sup></a></li>
+        <li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
       
     
       
@@ -396,14 +404,14 @@ An attacker can slow d">
   <p class="asidetitle">Google Ads</p>
   <div class="ad">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- Hexo blog widget -->
+    <!-- Hexo plugin -->
     <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-3830008196770332"
-         data-ad-slot="2210281201"
-         data-ad-format="auto"></ins>
+       style="display:block"
+       data-ad-client="ca-pub-3830008196770332"
+       data-ad-slot="9691834371"
+       data-ad-format="auto"></ins>
     <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
+      (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   </div>
 </div>

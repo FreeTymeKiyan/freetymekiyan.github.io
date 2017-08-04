@@ -51,7 +51,14 @@
     </url>
 
     <url>
-        <loc>http://blog.kiyanpro.com/tags/Elasticsearch/</loc>
+        <loc>http://blog.kiyanpro.com/tags/TextMate-2/</loc>
+        <lastmod>2017-07-04T19:34:24.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://blog.kiyanpro.com/tags/Java/</loc>
         <lastmod>2017-07-04T19:34:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -86,22 +93,15 @@
     </url>
 
     <url>
-        <loc>http://blog.kiyanpro.com/tags/TextMate-2/</loc>
-        <lastmod>2017-07-04T19:34:24.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://blog.kiyanpro.com/tags/Java/</loc>
-        <lastmod>2017-07-04T19:34:24.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://blog.kiyanpro.com/tags/Notes/</loc>
-        <lastmod>2017-07-04T19:34:24.000Z</lastmod>
+        <lastmod>2017-07-04T19:41:48.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://blog.kiyanpro.com/tags/Elasticsearch/</loc>
+        <lastmod>2017-07-04T19:41:48.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

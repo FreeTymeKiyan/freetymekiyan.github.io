@@ -19,7 +19,7 @@
     <title>Concepts in Online Ads Industry</title>
     <link href="http://blog.kiyanpro.com/2016/11/27/ad-concepts/"/>
     <id>http://blog.kiyanpro.com/2016/11/27/ad-concepts/</id>
-    <published>2016-11-27T10:00:00.000Z</published>
+    <published>2016-11-27T08:00:00.000Z</published>
     <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<p>I’ve been in Yahoo for almost one and a half year and dedicated myself in the Ads Targeting team. During my time here, I found that there are many domain specific concepts and abbreviations that everybody talks about and presume everyone else already knows. Of course, every time I will ask about those terms later. Otherwise I never know when they will show up later and make me confused again. But instead of ask each of them every time, I decide to do a “batch job” today and learn the common terms together. Here is my note.  </p>
@@ -77,7 +77,7 @@
     <title>Memory Usage Estimation in Java</title>
     <link href="http://blog.kiyanpro.com/2016/10/07/system_design/memory-usage-estimation-in-java/"/>
     <id>http://blog.kiyanpro.com/2016/10/07/system_design/memory-usage-estimation-in-java/</id>
-    <published>2016-10-08T07:06:23.000Z</published>
+    <published>2016-10-08T04:06:23.000Z</published>
     <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<p>I mentioned in the previous post that memory usage estimation is also very important when it comes to evaluate a design. And I was impressed deeply by my two former tech leads when they do a quick estimate of my proposal on a small piece of paper, or even with just a mental calculation. Now it is the time for me to grasp the gist behind.  </p>
@@ -206,9 +206,9 @@
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
     
-      <category term="System Design" scheme="http://blog.kiyanpro.com/tags/System-Design/"/>
-    
       <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
+      <category term="System Design" scheme="http://blog.kiyanpro.com/tags/System-Design/"/>
     
   </entry>
   
@@ -216,7 +216,7 @@
     <title>Back of the Envelope Calculation</title>
     <link href="http://blog.kiyanpro.com/2016/09/21/system_design/back-of-the-envelope-calculation/"/>
     <id>http://blog.kiyanpro.com/2016/09/21/system_design/back-of-the-envelope-calculation/</id>
-    <published>2016-09-22T05:48:48.000Z</published>
+    <published>2016-09-22T02:48:48.000Z</published>
     <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<p>So, I continued the journey on learning about System Design and found another very good resource. It is a talk by Jeff Dean at Stanford named <em>Software Engineering Advice from Building Large-Scale Distributed Systems</em><sup><a href="#References">[1]</a></sup>. In this talk, Jeff Dean shared the lessons and tips learned from his various kinds of experience.  </p>
@@ -351,9 +351,9 @@ During the execution of certain programs there are places where the program exec
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
     
-      <category term="System Design" scheme="http://blog.kiyanpro.com/tags/System-Design/"/>
-    
       <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
+      <category term="System Design" scheme="http://blog.kiyanpro.com/tags/System-Design/"/>
     
   </entry>
   
@@ -361,7 +361,7 @@ During the execution of certain programs there are places where the program exec
     <title>Ways to Build A Distributed System</title>
     <link href="http://blog.kiyanpro.com/2016/09/13/system_design/Ways-to-Build-A-Distributed-System/"/>
     <id>http://blog.kiyanpro.com/2016/09/13/system_design/Ways-to-Build-A-Distributed-System/</id>
-    <published>2016-09-13T23:58:24.000Z</published>
+    <published>2016-09-13T20:58:24.000Z</published>
     <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<p>Every engineer should learn about distributed system design, since it is not only the path to next career level, but a necessary ability to build a large-scale application according to use cases and specifications as well. Without a proper design, it would be impossible to implement and manage such a system afterwards. </p>
@@ -404,9 +404,9 @@ During the execution of certain programs there are places where the program exec
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
     
-      <category term="System Design" scheme="http://blog.kiyanpro.com/tags/System-Design/"/>
-    
       <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
+      <category term="System Design" scheme="http://blog.kiyanpro.com/tags/System-Design/"/>
     
   </entry>
   
@@ -414,7 +414,7 @@ During the execution of certain programs there are places where the program exec
     <title>Java SE 8 For the Really Impatient Series</title>
     <link href="http://blog.kiyanpro.com/2016/04/22/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient/"/>
     <id>http://blog.kiyanpro.com/2016/04/22/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient/</id>
-    <published>2016-04-23T01:48:48.000Z</published>
+    <published>2016-04-22T22:48:48.000Z</published>
     <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<p>Recently, I finished reading the book <em>Java SE 8 For the Really Impatient</em>. This book covers the main features introduced in Java SE 8, such as Lambda Expressions and Stream API. Also it shows some sweet small features that benefit every day work greatly, namely, the new d ate and time API, the concurrency enhancements, and etc. </p>
@@ -439,9 +439,9 @@ During the execution of certain programs there are places where the program exec
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
     
-      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
-    
       <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
+      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
     
   </entry>
   
@@ -449,7 +449,7 @@ During the execution of certain programs there are places where the program exec
     <title>Philosophical Words in Kungfu Panda 3</title>
     <link href="http://blog.kiyanpro.com/2016/04/18/words/Philosophical-Words-in-Kungfu-Panda-3/"/>
     <id>http://blog.kiyanpro.com/2016/04/18/words/Philosophical-Words-in-Kungfu-Panda-3/</id>
-    <published>2016-04-18T21:45:50.000Z</published>
+    <published>2016-04-18T18:45:50.000Z</published>
     <updated>2016-09-17T22:23:18.000Z</updated>
     
     <content type="html"><![CDATA[<p>My wife and I just watched Kungfu Panda 3 last weekend. Besides the fun parts, there are some words in it that I know they are right, but don’t fully understand. Maybe you feel the same. Here are a list of them. </p>
@@ -481,7 +481,7 @@ During the execution of certain programs there are places where the program exec
     <title>Marvel What Does Search Rate Mean?</title>
     <link href="http://blog.kiyanpro.com/2016/04/15/elasticsearch/Marvel-What-Does-Search-Rate-Mean/"/>
     <id>http://blog.kiyanpro.com/2016/04/15/elasticsearch/Marvel-What-Does-Search-Rate-Mean/</id>
-    <published>2016-04-16T02:38:38.000Z</published>
+    <published>2016-04-15T23:38:38.000Z</published>
     <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>Elasticsearch provides a handy monitoring tool named Marvel. It is pretty easy to setup. But when it comes to real monitoring, you will realize that those metrics in dashboard are so confusing. They are not consistent with the actual QPS you sent to the cluster. You don’t really know what they refer to. </p>
@@ -510,9 +510,9 @@ During the execution of certain programs there are places where the program exec
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
     
-      <category term="Elasticsearch" scheme="http://blog.kiyanpro.com/tags/Elasticsearch/"/>
-    
       <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
+      <category term="Elasticsearch" scheme="http://blog.kiyanpro.com/tags/Elasticsearch/"/>
     
   </entry>
   
@@ -520,7 +520,7 @@ During the execution of certain programs there are places where the program exec
     <title>Java SE 8 For the Really Impatient, Note 13</title>
     <link href="http://blog.kiyanpro.com/2016/04/04/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-13/"/>
     <id>http://blog.kiyanpro.com/2016/04/04/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-13/</id>
-    <published>2016-04-05T01:34:48.000Z</published>
+    <published>2016-04-04T22:34:48.000Z</published>
     <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-8-Miscellaneous-Goodies"><a href="#Chapter-8-Miscellaneous-Goodies" class="headerlink" title="Chapter 8 Miscellaneous Goodies"></a>Chapter 8 Miscellaneous Goodies</h1><h2 id="Working-with-Files"><a href="#Working-with-Files" class="headerlink" title="Working with Files"></a>Working with Files</h2><p>Java 8 brings a small number of convenience methods that use stream for reading lines from files and for visiting directory entries. Also, there is an official way of performing Base64 encoding. </p>
@@ -625,9 +625,9 @@ During the execution of certain programs there are places where the program exec
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
     
-      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
-    
       <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
+      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
     
   </entry>
   
@@ -635,7 +635,7 @@ During the execution of certain programs there are places where the program exec
     <title>Java SE 8 For the Really Impatient, Note 12</title>
     <link href="http://blog.kiyanpro.com/2016/03/31/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-12/"/>
     <id>http://blog.kiyanpro.com/2016/03/31/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-12/</id>
-    <published>2016-04-01T01:26:27.000Z</published>
+    <published>2016-03-31T22:26:27.000Z</published>
     <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-8-Miscellaneous-Goodies"><a href="#Chapter-8-Miscellaneous-Goodies" class="headerlink" title="Chapter 8 Miscellaneous Goodies"></a>Chapter 8 Miscellaneous Goodies</h1><p>Key points:</p>
@@ -729,9 +729,9 @@ During the execution of certain programs there are places where the program exec
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
     
-      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
-    
       <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
+      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
     
   </entry>
   
@@ -739,7 +739,7 @@ During the execution of certain programs there are places where the program exec
     <title>Java SE 8 For the Really Impatient, Note 11</title>
     <link href="http://blog.kiyanpro.com/2016/03/30/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-11/"/>
     <id>http://blog.kiyanpro.com/2016/03/30/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-11/</id>
-    <published>2016-03-31T00:56:21.000Z</published>
+    <published>2016-03-30T21:56:21.000Z</published>
     <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-6-Concurrency-Enhancements"><a href="#Chapter-6-Concurrency-Enhancements" class="headerlink" title="Chapter 6 Concurrency Enhancements"></a>Chapter 6 Concurrency Enhancements</h1><h2 id="Parallel-Array-Operations"><a href="#Parallel-Array-Operations" class="headerlink" title="Parallel Array Operations"></a>Parallel Array Operations</h2><p><code>Arrays</code> class now has a number of parallelized operations. </p>
@@ -880,9 +880,9 @@ During the execution of certain programs there are places where the program exec
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
     
-      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
-    
       <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
+      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
     
   </entry>
   
@@ -890,7 +890,7 @@ During the execution of certain programs there are places where the program exec
     <title>Java SE 8 For the Really Impatient, Note 10</title>
     <link href="http://blog.kiyanpro.com/2016/03/29/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-10/"/>
     <id>http://blog.kiyanpro.com/2016/03/29/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-10/</id>
-    <published>2016-03-30T01:21:42.000Z</published>
+    <published>2016-03-29T22:21:42.000Z</published>
     <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-6-Concurrency-Enhancements"><a href="#Chapter-6-Concurrency-Enhancements" class="headerlink" title="Chapter 6 Concurrency Enhancements"></a>Chapter 6 Concurrency Enhancements</h1><h2 id="ConcurentHashMap-Improvements"><a href="#ConcurentHashMap-Improvements" class="headerlink" title="ConcurentHashMap Improvements"></a>ConcurentHashMap Improvements</h2><p><code>mappingCount</code>: returns the size as a <code>long</code> in case it’s too large.</p>
@@ -946,9 +946,9 @@ During the execution of certain programs there are places where the program exec
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
     
-      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
-    
       <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
+      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
     
   </entry>
   
@@ -956,7 +956,7 @@ During the execution of certain programs there are places where the program exec
     <title>Java SE 8 For the Really Impatient, Note 9</title>
     <link href="http://blog.kiyanpro.com/2016/03/29/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-9/"/>
     <id>http://blog.kiyanpro.com/2016/03/29/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-9/</id>
-    <published>2016-03-30T01:19:11.000Z</published>
+    <published>2016-03-29T22:19:11.000Z</published>
     <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-6-Concurrency-Enhancements"><a href="#Chapter-6-Concurrency-Enhancements" class="headerlink" title="Chapter 6 Concurrency Enhancements"></a>Chapter 6 Concurrency Enhancements</h1><p><code>java.util.concurrent</code> is a mix of useful utilities for the application programmer and power tools for library authors, without much effort to separate the two. </p>
@@ -1013,9 +1013,9 @@ During the execution of certain programs there are places where the program exec
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
     
-      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
-    
       <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
+      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
     
   </entry>
   
@@ -1023,7 +1023,7 @@ During the execution of certain programs there are places where the program exec
     <title>Java SE 8 For the Really Impatient, Note 8</title>
     <link href="http://blog.kiyanpro.com/2016/03/25/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-8/"/>
     <id>http://blog.kiyanpro.com/2016/03/25/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-8/</id>
-    <published>2016-03-26T02:17:35.000Z</published>
+    <published>2016-03-25T23:17:35.000Z</published>
     <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-5-The-New-Date-and-Time-API"><a href="#Chapter-5-The-New-Date-and-Time-API" class="headerlink" title="Chapter 5 The New Date and Time API"></a>Chapter 5 The New Date and Time API</h1><h2 id="Date-Adjusters"><a href="#Date-Adjusters" class="headerlink" title="Date Adjusters"></a>Date Adjusters</h2><p>Compute dates such as “the first Tuesday of every month”. </p>
@@ -1425,9 +1425,9 @@ During the execution of certain programs there are places where the program exec
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
     
-      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
-    
       <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
+      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
     
   </entry>
   
@@ -1435,7 +1435,7 @@ During the execution of certain programs there are places where the program exec
     <title>Java SE 8 For the Really Impatient, Note 7</title>
     <link href="http://blog.kiyanpro.com/2016/03/24/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-7/"/>
     <id>http://blog.kiyanpro.com/2016/03/24/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-7/</id>
-    <published>2016-03-25T01:29:00.000Z</published>
+    <published>2016-03-24T22:29:00.000Z</published>
     <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<p>Chapter 4 JavaFx is skipped for now. </p>
@@ -1584,9 +1584,9 @@ During the execution of certain programs there are places where the program exec
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
     
-      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
-    
       <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
+      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
     
   </entry>
   
@@ -1594,7 +1594,7 @@ During the execution of certain programs there are places where the program exec
     <title>Java SE 8 For the Really Impatient, Note 6</title>
     <link href="http://blog.kiyanpro.com/2016/03/23/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-6/"/>
     <id>http://blog.kiyanpro.com/2016/03/23/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-6/</id>
-    <published>2016-03-24T01:25:54.000Z</published>
+    <published>2016-03-23T22:25:54.000Z</published>
     <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-3-Programming-with-Lambdas"><a href="#Chapter-3-Programming-with-Lambdas" class="headerlink" title="Chapter 3 Programming with Lambdas"></a>Chapter 3 Programming with Lambdas</h1><h2 id="Returning-Functions"><a href="#Returning-Functions" class="headerlink" title="Returning Functions"></a>Returning Functions</h2><p>Consider methods whose return type is a functional interface.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Image brightenedImage = transform(image, Color:brighter);</div></pre></td></tr></table></figure></p>
@@ -1645,9 +1645,9 @@ During the execution of certain programs there are places where the program exec
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
     
-      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
-    
       <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
+      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
     
   </entry>
   
@@ -1655,7 +1655,7 @@ During the execution of certain programs there are places where the program exec
     <title>Java SE 8 For the Really Impatient, Note 5</title>
     <link href="http://blog.kiyanpro.com/2016/03/22/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-5/"/>
     <id>http://blog.kiyanpro.com/2016/03/22/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-5/</id>
-    <published>2016-03-22T23:44:25.000Z</published>
+    <published>2016-03-22T20:44:25.000Z</published>
     <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-3-Programming-with-Lambdas"><a href="#Chapter-3-Programming-with-Lambdas" class="headerlink" title="Chapter 3 Programming with Lambdas"></a>Chapter 3 Programming with Lambdas</h1><p>Learn how to create your own libraries that make use of lambda expressions and functional interfaces. </p>
@@ -1891,9 +1891,9 @@ During the execution of certain programs there are places where the program exec
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
     
-      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
-    
       <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
+      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
     
   </entry>
   
@@ -1901,7 +1901,7 @@ During the execution of certain programs there are places where the program exec
     <title>Java SE 8 For the Really Impatient, Note 4</title>
     <link href="http://blog.kiyanpro.com/2016/03/21/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-4/"/>
     <id>http://blog.kiyanpro.com/2016/03/21/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-4/</id>
-    <published>2016-03-22T00:12:12.000Z</published>
+    <published>2016-03-21T21:12:12.000Z</published>
     <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-2-The-Stream-API"><a href="#Chapter-2-The-Stream-API" class="headerlink" title="Chapter 2 The Stream API"></a>Chapter 2 The Stream API</h1><h2 id="Grouping-and-Partioning"><a href="#Grouping-and-Partioning" class="headerlink" title="Grouping and Partioning"></a>Grouping and Partioning</h2><p><code>groupingBy</code>: forms groups of values with the same characteristic<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// grouping locales by country</span></div><div class="line">Map&lt;String, List&lt;Locale&gt;&gt; countryToLocales = locales.collect(Collectors.groupingBy(Locale::getCountry));</div></pre></td></tr></table></figure></p>
@@ -2037,9 +2037,9 @@ During the execution of certain programs there are places where the program exec
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
     
-      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
-    
       <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
+      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
     
   </entry>
   
@@ -2047,7 +2047,7 @@ During the execution of certain programs there are places where the program exec
     <title>Java SE 8 For the Really Impatient, Note 3</title>
     <link href="http://blog.kiyanpro.com/2016/03/17/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-3/"/>
     <id>http://blog.kiyanpro.com/2016/03/17/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-3/</id>
-    <published>2016-03-18T03:05:32.000Z</published>
+    <published>2016-03-18T00:05:32.000Z</published>
     <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-2-The-Stream-API"><a href="#Chapter-2-The-Stream-API" class="headerlink" title="Chapter 2 The Stream API"></a>Chapter 2 The Stream API</h1><h2 id="Simple-Reductions"><a href="#Simple-Reductions" class="headerlink" title="Simple Reductions"></a>Simple Reductions</h2><p>reductions: reduces the stream to a value.<br>terminal operation: the stream ceases to be usable. </p>
@@ -2134,9 +2134,9 @@ During the execution of certain programs there are places where the program exec
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
     
-      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
-    
       <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
+      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
     
   </entry>
   
@@ -2144,7 +2144,7 @@ During the execution of certain programs there are places where the program exec
     <title>Java SE 8 For the Really Impatient, Note 2</title>
     <link href="http://blog.kiyanpro.com/2016/03/16/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-2/"/>
     <id>http://blog.kiyanpro.com/2016/03/16/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-2/</id>
-    <published>2016-03-17T01:31:28.000Z</published>
+    <published>2016-03-16T22:31:28.000Z</published>
     <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-2-The-Stream-API"><a href="#Chapter-2-The-Stream-API" class="headerlink" title="Chapter 2 The Stream API"></a>Chapter 2 The Stream API</h1><p>Processing collections of values and specifying what you want to have done, leaving the scheduling of operations to the implementation. E.g, compute the average of the values of a certain method. </p>
@@ -2222,9 +2222,9 @@ During the execution of certain programs there are places where the program exec
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
     
-      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
-    
       <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
+      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
     
   </entry>
   
@@ -2232,7 +2232,7 @@ During the execution of certain programs there are places where the program exec
     <title>Java SE 8 For the Really Impatient, Note 1</title>
     <link href="http://blog.kiyanpro.com/2016/03/15/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-1/"/>
     <id>http://blog.kiyanpro.com/2016/03/15/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-1/</id>
-    <published>2016-03-16T01:12:44.000Z</published>
+    <published>2016-03-15T22:12:44.000Z</published>
     <updated>2017-07-04T19:34:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Chapter-1-Lambda-Expressions"><a href="#Chapter-1-Lambda-Expressions" class="headerlink" title="Chapter 1 Lambda Expressions"></a>Chapter 1 Lambda Expressions</h1><h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><p>A block of code was passed to someone - a thread pool, a sort method, or a button. The code was called at some later time. How to work with blocks of code directly in Java? Lambda expression. </p>
@@ -2322,9 +2322,9 @@ During the execution of certain programs there are places where the program exec
       <category term="Coding" scheme="http://blog.kiyanpro.com/categories/Coding/"/>
     
     
-      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
-    
       <category term="Notes" scheme="http://blog.kiyanpro.com/tags/Notes/"/>
+    
+      <category term="Java" scheme="http://blog.kiyanpro.com/tags/Java/"/>
     
   </entry>
   

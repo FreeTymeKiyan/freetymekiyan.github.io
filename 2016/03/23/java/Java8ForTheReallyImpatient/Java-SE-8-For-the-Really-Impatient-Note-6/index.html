@@ -87,7 +87,7 @@
 		
   
   <p class="article-time">
-    <time datetime="2016-03-24T01:25:54.000Z" itemprop="datePublished">Published on Mar 23 2016</time>
+    <time datetime="2016-03-23T22:25:54.000Z" itemprop="datePublished">Published on Mar 23 2016</time>
   </p>
   
   <p class="article-read-time">
@@ -104,6 +104,16 @@
 		
 		</div>
 		
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-3830008196770332"
+         data-ad-slot="5533097515"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 		<h1 id="Chapter-3-Programming-with-Lambdas"><a href="#Chapter-3-Programming-with-Lambdas" class="headerlink" title="Chapter 3 Programming with Lambdas"></a>Chapter 3 Programming with Lambdas</h1><h2 id="Returning-Functions"><a href="#Returning-Functions" class="headerlink" title="Returning Functions"></a>Returning Functions</h2><p>Consider methods whose return type is a functional interface.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Image brightenedImage = transform(image, Color:brighter);</div></pre></td></tr></table></figure></p>
 <p>Could you supply the desired brightness as an additional parameter to <code>transform</code>?<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Image brightenedImage = transform(image, (c, factor) -&gt; c.deriveColor(<span class="number">0</span>, <span class="number">1</span>, factor, <span class="number">1</span>), <span class="number">1.2</span>);</div><div class="line"></div><div class="line"><span class="comment">// overload transform</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Iamge <span class="title">transform</span><span class="params">(Image in, BiFunction&lt;Color, T, Color&gt; f, T arg)</span></span></div></pre></td></tr></table></figure></p>
 <p>Another way: we can make a method that returns the appropriate <code>UnaryOperator&lt;Color&gt;</code>, with the brightness set<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// returns a functional interface instance</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> UnaryOperator&lt;Color&gt; <span class="title">brighten</span><span class="params">(<span class="keyword">double</span> factor)</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> c -&gt; c.deriveColor(<span class="number">0</span>, <span class="number">1</span>, factor, <span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Image brightenedImage = transform(image, brighten(<span class="number">1.2</span>));</div></pre></td></tr></table></figure></p>
@@ -162,7 +172,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Java/">Java</a><a href="/tags/Notes/">Notes</a>
+  <span></span> <a href="/tags/Notes/">Notes</a><a href="/tags/Java/">Java</a>
   </div>
 
 
@@ -239,8 +249,6 @@
     
       
         <li><a href="/categories/People/" title="People">People<sup>1</sup></a></li>
-      
-    
       
     
       
@@ -349,7 +357,7 @@
       
     
       
-        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
       
     
       
@@ -357,7 +365,7 @@
       
     
       
-        <li><a href="/tags/TextMate-2/" title="TextMate 2">TextMate 2<sup>1</sup></a></li>
+        <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
       
     
       
@@ -365,11 +373,11 @@
       
     
       
-        <li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
+        <li><a href="/tags/Test/" title="Test">Test<sup>1</sup></a></li>
       
     
       
-        <li><a href="/tags/Test/" title="Test">Test<sup>1</sup></a></li>
+        <li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
       
     
       
@@ -390,14 +398,14 @@
   <p class="asidetitle">Google Ads</p>
   <div class="ad">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- Hexo blog widget -->
+    <!-- Hexo plugin -->
     <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-3830008196770332"
-         data-ad-slot="2210281201"
-         data-ad-format="auto"></ins>
+       style="display:block"
+       data-ad-client="ca-pub-3830008196770332"
+       data-ad-slot="9691834371"
+       data-ad-format="auto"></ins>
     <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
+      (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   </div>
 </div>

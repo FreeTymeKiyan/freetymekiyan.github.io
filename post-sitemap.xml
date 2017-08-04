@@ -8,6 +8,14 @@
 
     <url>
         <loc>http://blog.kiyanpro.com/2016/02/17/elasticsearch/update-license/</loc>
+        <lastmod>2017-07-04T19:41:48.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://blog.kiyanpro.com/2016/11/27/ad-concepts/</loc>
         <lastmod>2017-07-04T19:34:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -31,6 +39,14 @@
     </url>
 
     <url>
+        <loc>http://blog.kiyanpro.com/2015/10/30/hexo/upgrade-hexo/</loc>
+        <lastmod>2017-07-04T19:34:24.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://blog.kiyanpro.com/2016/03/06/elasticsearch/reroute-unassigned-shards/</loc>
         <lastmod>2017-07-04T19:34:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -39,7 +55,7 @@
     </url>
 
     <url>
-        <loc>http://blog.kiyanpro.com/2015/10/30/hexo/upgrade-hexo/</loc>
+        <loc>http://blog.kiyanpro.com/2014/07/02/js&node/rewire/</loc>
         <lastmod>2017-07-04T19:34:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -55,7 +71,7 @@
     </url>
 
     <url>
-        <loc>http://blog.kiyanpro.com/2014/07/02/js&node/rewire/</loc>
+        <loc>http://blog.kiyanpro.com/2016/10/07/system_design/memory-usage-estimation-in-java/</loc>
         <lastmod>2017-07-04T19:34:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -87,22 +103,6 @@
     </url>
 
     <url>
-        <loc>http://blog.kiyanpro.com/2016/03/15/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-1/</loc>
-        <lastmod>2017-07-04T19:34:24.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://blog.kiyanpro.com/2016/03/30/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-11/</loc>
-        <lastmod>2017-07-04T19:34:24.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://blog.kiyanpro.com/2016/03/29/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-10/</loc>
         <lastmod>2017-07-04T19:34:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -111,7 +111,7 @@
     </url>
 
     <url>
-        <loc>http://blog.kiyanpro.com/2016/04/04/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-13/</loc>
+        <loc>http://blog.kiyanpro.com/2016/03/30/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-11/</loc>
         <lastmod>2017-07-04T19:34:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -128,6 +128,14 @@
 
     <url>
         <loc>http://blog.kiyanpro.com/2016/03/16/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-2/</loc>
+        <lastmod>2017-07-04T19:34:24.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://blog.kiyanpro.com/2016/04/04/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-13/</loc>
         <lastmod>2017-07-04T19:34:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -175,7 +183,7 @@
     </url>
 
     <url>
-        <loc>http://blog.kiyanpro.com/2016/03/25/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-8/</loc>
+        <loc>http://blog.kiyanpro.com/2016/04/22/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient/</loc>
         <lastmod>2017-07-04T19:34:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -191,7 +199,7 @@
     </url>
 
     <url>
-        <loc>http://blog.kiyanpro.com/2016/04/22/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient/</loc>
+        <loc>http://blog.kiyanpro.com/2016/03/25/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-8/</loc>
         <lastmod>2017-07-04T19:34:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -199,15 +207,7 @@
     </url>
 
     <url>
-        <loc>http://blog.kiyanpro.com/2016/11/27/ad-concepts/</loc>
-        <lastmod>2017-07-04T19:34:24.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://blog.kiyanpro.com/2016/10/07/system_design/memory-usage-estimation-in-java/</loc>
+        <loc>http://blog.kiyanpro.com/2016/03/15/java/Java8ForTheReallyImpatient/Java-SE-8-For-the-Really-Impatient-Note-1/</loc>
         <lastmod>2017-07-04T19:34:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -223,7 +223,7 @@
     </url>
 
     <url>
-        <loc>http://blog.kiyanpro.com/2014/07/12/js&node/6-Steps-of-Learning-Node/</loc>
+        <loc>http://blog.kiyanpro.com/2015/03/22/figures/fu-sheng-bao-bian-notes/</loc>
         <lastmod>2016-09-17T22:23:18.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -231,7 +231,7 @@
     </url>
 
     <url>
-        <loc>http://blog.kiyanpro.com/2015/03/22/figures/fu-sheng-bao-bian-notes/</loc>
+        <loc>http://blog.kiyanpro.com/2014/07/12/js&node/6-Steps-of-Learning-Node/</loc>
         <lastmod>2016-09-17T22:23:18.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
